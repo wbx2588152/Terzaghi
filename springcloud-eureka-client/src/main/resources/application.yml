@@ -1,5 +1,5 @@
 server:
-  port: 8082
+  port: 8083
 
 spring:
   application:
@@ -7,7 +7,7 @@ spring:
 
   datasource:
     drivervlassname: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8
+    url: jdbc:mysql://192.168.31.61:3306/test?useUnicode=true&characterEncoding=utf-8
     username: root
     password: root
 

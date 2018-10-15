@@ -16,6 +16,8 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="scEureka" target="1.7" />
+      <module name="service-api" target="1.5" />
+      <module name="Terzaghi" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

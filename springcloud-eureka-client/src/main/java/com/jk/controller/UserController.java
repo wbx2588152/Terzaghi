@@ -21,7 +21,9 @@ public class UserController {
     @RequestMapping(value="ha",method = RequestMethod.GET)
     @ResponseBody
     public List<User> userlist() {
+
         System.out.println(port);
+
         return userService.getUserList();
     }
     @RequestMapping(value="saveUser",method = RequestMethod.POST)
