@@ -39,6 +39,8 @@ public class UserController {
     @RequestMapping(value = "getUserById",method = RequestMethod.GET)
     @ResponseBody
     public User getUserById(@RequestParam(value="id") String id){
+
+
         return userService.getUserById(id);
     }
     @RequestMapping(value="updateUser",method = RequestMethod.POST)
