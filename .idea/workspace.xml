@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="64bf6e48-d9f9-44a9-b844-9691f21be15b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-eureka-client/src/main/java/com/jk/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-eureka-client/src/main/java/com/jk/controller/UserController.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -102,7 +101,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="java" value="8" />
-          <entry key="txt" value="2" />
+          <entry key="txt" value="6" />
           <entry key="xml" value="41" />
           <entry key="yml" value="14" />
         </counts>
@@ -110,7 +109,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="8" />
-          <entry key="PLAIN_TEXT" value="2" />
+          <entry key="PLAIN_TEXT" value="6" />
           <entry key="XML" value="41" />
           <entry key="YAML" value="14" />
         </counts>
@@ -176,10 +175,9 @@
         <entry file="file://$PROJECT_DIR$/springcloud-eureka-client/src/main/java/com/jk/controller/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="261">
-              <caret line="42" column="8" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
+              <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1265#1266#0" expanded="true" />
                 <element signature="e#1403#1404#0" expanded="true" />
                 <element signature="e#1447#1448#0" expanded="true" />
               </folding>
@@ -346,7 +344,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539611499654" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539611724374" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -441,7 +439,7 @@
       <workItem from="1539359138406" duration="1067000" />
       <workItem from="1539567468258" duration="8965000" />
       <workItem from="1539590134486" duration="5989000" />
-      <workItem from="1539607685930" duration="3388000" />
+      <workItem from="1539607685930" duration="3657000" />
     </task>
     <task id="LOCAL-00001" summary="第一次提交">
       <created>1539575451938</created>
@@ -478,11 +476,18 @@
       <option name="project" value="LOCAL" />
       <updated>1539611420467</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="拉分支">
+      <created>1539611536248</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1539611536248</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44884000" />
+    <option name="totallyTimeSpent" value="45153000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -495,7 +500,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17493297" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -514,11 +518,11 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32956153" />
       <window_info anchor="bottom" id="Spring" order="7" weight="0.32956153" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32991204" />
-      <window_info active="true" anchor="bottom" id="Event Log" order="9" sideWeight="0.50067025" side_tool="true" visible="true" weight="0.32599118" />
-      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49932975" visible="true" weight="0.32599118" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="9" sideWeight="0.50067025" side_tool="true" visible="true" weight="0.32892805" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.30093834" weight="0.32599118" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.32956153" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="13" weight="0.32892805" />
+      <window_info anchor="bottom" id="Version Control" order="13" sideWeight="0.49932975" visible="true" weight="0.32892805" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -543,7 +547,8 @@
     <MESSAGE value="三" />
     <MESSAGE value="si" />
     <MESSAGE value="siqq" />
-    <option name="LAST_COMMIT_MESSAGE" value="siqq" />
+    <MESSAGE value="拉分支" />
+    <option name="LAST_COMMIT_MESSAGE" value="拉分支" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/pom.xml">
@@ -797,10 +802,9 @@
     <entry file="file://$PROJECT_DIR$/springcloud-eureka-client/src/main/java/com/jk/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="261">
-          <caret line="42" column="8" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
+          <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1265#1266#0" expanded="true" />
             <element signature="e#1403#1404#0" expanded="true" />
             <element signature="e#1447#1448#0" expanded="true" />
           </folding>
