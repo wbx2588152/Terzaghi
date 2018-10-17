@@ -68,5 +68,10 @@ public class UserServiceImpl implements UserService {
         return powerlist0;
     }
 
+    @Override
+    public List<Users> seeUserList() {
+        return userMapper.seeUserList();
+    }
+
 
 }

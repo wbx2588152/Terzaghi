@@ -2,6 +2,7 @@ package com.jk.service;
 
 import com.jk.model.Power;
 import com.jk.model.User;
+import com.jk.model.Users;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -19,4 +20,6 @@ public interface UserService {
     void updateUser(User user);
 
     List<Power> getAllNav(HttpServletRequest request);
+
+    List<Users> seeUserList();
 }

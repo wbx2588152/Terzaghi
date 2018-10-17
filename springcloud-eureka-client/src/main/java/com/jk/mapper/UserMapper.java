@@ -2,6 +2,7 @@ package com.jk.mapper;
 
 import com.jk.model.Power;
 import com.jk.model.User;
+import com.jk.model.Users;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -19,4 +20,6 @@ public interface UserMapper {
     void updateUser(@Param("u")User user);
 
     List<Power> getpowerlist(String userId);
+    @Select(" select * from t_user ")
+    List<Users> seeUserList();
 }

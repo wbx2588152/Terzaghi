@@ -2,6 +2,7 @@ package com.jk.service;
 
 import com.jk.model.Power;
 import com.jk.model.User;
+import com.jk.model.Users;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -27,5 +28,8 @@ public interface UserServiceApi {
 
     @RequestMapping(value="wbx/getTree")
     List<Power> seepowertree();
+
+    @RequestMapping(value="wbx/seeUserList")
+    List<Users> seeUserList();
 
 }

@@ -3,6 +3,7 @@ package com.jk.controller;
 
 import com.jk.model.Power;
 import com.jk.model.User;
+import com.jk.model.Users;
 import com.jk.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,7 +51,11 @@ public class UserController {
     @RequestMapping(value="getTree",method = RequestMethod.GET)
     @ResponseBody
     public List<Power> getTree(HttpServletRequest request) {
-            return userService.getAllNav(request);
+        return userService.getAllNav(request);
     }
-
+    @RequestMapping(value="seeUserList",method = RequestMethod.GET)
+    @ResponseBody
+    public List<Users> seeUserList(){
+        return userService.seeUserList();
+    }
 }
