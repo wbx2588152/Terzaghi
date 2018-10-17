@@ -4,13 +4,13 @@ import com.jk.model.Page;
 
 public class Menu extends Page{
 	private String id;
-	
+
 	private String navId;
-	
+
 	private String name;
-	
+
 	private String url;
-	
+
 	private String createTime;
 
 	public String getId() {
@@ -52,7 +52,7 @@ public class Menu extends Page{
 	public void setCreateTime(String createTime) {
 		this.createTime = createTime;
 	}
-	
-	
-	
+
+
+
 }
