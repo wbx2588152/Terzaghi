@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jk.mapper.UserMapper">
+	<select id="getpowerlist" parameterType="string" resultType="com.jk.model.Power">
+	  SELECT DISTINCT tp.*  FROM t_power tp
+		LEFT JOIN t_role_power trp ON trp.powerId = tp.id
+		LEFT JOIN t_role tr on tr.id=trp.roleid
+		LEFT JOIN t_user_role tur on trp.roleid=tur.roleid
+		where tur.userid =#{value}
+	</select>
+</mapper>

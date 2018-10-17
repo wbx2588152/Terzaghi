@@ -1,5 +1,6 @@
 package com.jk.mapper;
 
+import com.jk.model.Power;
 import com.jk.model.User;
 import org.apache.ibatis.annotations.*;
 
@@ -16,4 +17,6 @@ public interface UserMapper {
     User getUserById(@Param("id") String id);
     @Update(" update t_user set name=#{u.name},mycode=#{u.mycode} where id=#{u.id} ")
     void updateUser(@Param("u")User user);
+
+    List<Power> getpowerlist(String userId);
 }

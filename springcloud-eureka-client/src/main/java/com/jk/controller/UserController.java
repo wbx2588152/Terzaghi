@@ -1,6 +1,7 @@
 package com.jk.controller;
 
 
+import com.jk.model.Power;
 import com.jk.model.User;
 import com.jk.service.UserService;
 
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -44,4 +46,11 @@ public class UserController {
     public void updateUser(@RequestBody User user){
         userService.updateUser(user);
     }
+    //主页面左侧树
+    @RequestMapping(value="getTree",method = RequestMethod.GET)
+    @ResponseBody
+    public List<Power> getTree(HttpServletRequest request) {
+            return userService.getAllNav(request);
+    }
+
 }

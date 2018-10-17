@@ -1,5 +1,6 @@
 package com.jk.controller;
 
+import com.jk.model.Power;
 import com.jk.model.User;
 import com.jk.service.Userservice;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,7 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -21,6 +22,10 @@ public class UserController {
     @RequestMapping(value="seelist")
     public String seelist(){
         return "/userlist";
+    }
+    @RequestMapping(value="seeadmin")
+    public String seeadmin(){
+        return "/index";
     }
     @RequestMapping(value="toWbxAdd")
     public String toWbxAdd(){
@@ -55,6 +60,12 @@ public class UserController {
     public String updateWbxUser(User user){
         userservice.updateWbxUser(user);
         return "1";
+    }
+    @RequestMapping(value="seepowertree")
+    @ResponseBody
+    public List<Power> seepowertree(){
+       List<Power> x =userservice.seepowertree();
+       return x;
     }
 
 }

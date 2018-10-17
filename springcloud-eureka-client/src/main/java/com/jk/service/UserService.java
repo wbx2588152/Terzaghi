@@ -1,7 +1,9 @@
 package com.jk.service;
 
+import com.jk.model.Power;
 import com.jk.model.User;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 public interface UserService {
@@ -15,4 +17,6 @@ public interface UserService {
     User getUserById(String id);
 
     void updateUser(User user);
+
+    List<Power> getAllNav(HttpServletRequest request);
 }

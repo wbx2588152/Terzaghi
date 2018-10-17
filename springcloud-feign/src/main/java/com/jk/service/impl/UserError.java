@@ -1,5 +1,6 @@
 package com.jk.service.impl;
 
+import com.jk.model.Power;
 import com.jk.model.User;
 
 
@@ -39,5 +40,13 @@ public class UserError implements Userservice {
     @Override
     public void updateWbxUser(User user) {
 
+    }
+
+    @Override
+    public List<Power> seepowertree() {
+        List<Power> list=new ArrayList<>();
+        Power power=new Power();
+        power.setText("error");
+        return list;
     }
 }
