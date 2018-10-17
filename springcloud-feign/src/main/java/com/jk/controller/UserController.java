@@ -1,60 +1,62 @@
 package com.jk.controller;
 
+import com.jk.model.Menu;
+import com.jk.model.Role;
 import com.jk.model.User;
-import com.jk.service.Userservice;
+import com.jk.service.LoginServiceApi;
+import com.jk.service.UserService;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.shiro.SecurityUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
-import java.util.UUID;
 
 @Controller
 public class UserController {
-    @Autowired
-    private Userservice userservice;
 
-    @RequestMapping(value="seelist")
-    public String seelist(){
-        return "/userlist";
-    }
-    @RequestMapping(value="toWbxAdd")
-    public String toWbxAdd(){
-        return "/adduser";
-    }
-    @RequestMapping(value="ha")
+    private Logger log = LoggerFactory.getLogger(this.getClass());
+
+    @Autowired
+    private LoginServiceApi userService;
+
+    private static final String ON = "on";
+
+    @Value("${server.port}")
+    String port;
+
+    @RequestMapping(value = "user/checkUserName",method = RequestMethod.GET)
     @ResponseBody
-    public List<User> ha(){
-        return userservice.sayHafromOneClient();
+    public boolean checkUserName(String username, String oldusername) {
+        if (StringUtils.isNotBlank(oldusername) && username.equalsIgnoreCase(oldusername)) {
+            return true;
+        }
+        User result = this.userService.findByName(username);
+        return result == null;
     }
-    @RequestMapping(value="saveWbxUser")
+
+    @RequestMapping(value="user/findUserRole",method = RequestMethod.GET)
     @ResponseBody
-    public String saveWbxUser(User user){
-        user.setId(UUID.randomUUID().toString().replaceAll("-",""));
-        userservice.saveWbxUser(user);
-        return "1";
+    public List<Role> roleList(String username) {
+        User user = (User) SecurityUtils.getSubject().getPrincipal();
+        String userName = user.getUsername();
+        return userService.findUserRole(userName);
     }
-    @RequestMapping(value="deleteWbxUser")
+
+    @RequestMapping(value="user/findUserPermissions",method = RequestMethod.GET)
     @ResponseBody
-    public String deleteWbxUser(@RequestParam(value="id")String id){
-        userservice.deleteWbxUser(id);
-        return "1";
+    public List<Menu> permissionList(String username) {
+        User user = (User) SecurityUtils.getSubject().getPrincipal();
+        String userName = user.getUsername();
+        return userService.findUserPermissions(userName);
     }
-    @RequestMapping(value="toWbxEdit")
-    public String toWbxEdit(@RequestParam(value="id")String id, HttpServletRequest request){
-        User user =  userservice.queryWbxUserById(id);
-        request.setAttribute("user", user);
-        return "/editlist";
-    }
-    @RequestMapping(value="updateWbxUser")
-    @ResponseBody
-    public String updateWbxUser(User user){
-        userservice.updateWbxUser(user);
-        return "1";
-    }
+
+
 
 }
