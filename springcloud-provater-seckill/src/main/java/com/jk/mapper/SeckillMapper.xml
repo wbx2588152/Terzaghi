@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jk.mapper.SeckillMapper" >
+
+	<select id="querySeckillCount" resultType="int">
+		select count(*)  from
+				t_seckill_commodity tsc,t_commodity tc,t_seckill_time tst
+					where	tsc.commodityId = tc.id and tsc.seckillTimeId = tst.id
+	</select>
+	
+	<select id="querySeckillList" resultType="com.jk.model.CommodityBean">
+	  select tsc.id,tc.number artNo,tc.`name` name,tc.price price,seckillPrice,
+		  tc.store seckillCount,tsc.limitationCount,tsc.surplusCount  from
+				t_seckill_commodity tsc,t_commodity tc,t_seckill_time tst
+					where	tsc.commodityId = tc.id and tsc.seckillTimeId = tst.id
+	  limit #{start},#{rows}
+	</select>
+
+	<select id="querySeckilTimeCount" resultType="int">
+		select count(*) from t_seckill_time
+	</select>
+
+	<select id="querySeckilTimeList" resultType="com.jk.model.SeckillTimeBean">
+		select * from t_seckill_time
+	</select>
+
+
+</mapper>

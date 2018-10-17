@@ -1,4 +1,4 @@
-package com.jk.service;
+package com.jk.service.seckill;
 
 import com.jk.service.impl.UserError;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -8,7 +8,6 @@ import org.springframework.cloud.openfeign.FeignClient;
  * @date 2018/10/16
  * @Description:
  */
-@FeignClient(value="service-ha",fallback = UserError.class)
-public interface SeckilService {
-
+@FeignClient(value="service-seckill")
+public interface SeckillService extends SeckilServiceApi {
 }

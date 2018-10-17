@@ -13,11 +13,15 @@
         <option value="$PROJECT_DIR$/springcloud-ribbon/pom.xml" />
         <option value="$PROJECT_DIR$/springcloud-feign/pom.xml" />
         <option value="$PROJECT_DIR$/springcloud-zuul/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-seckill/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-provater-seckill/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/scEureka/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-seckill/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloutdseckill/pom.xml" />
       </set>
     </option>
   </component>

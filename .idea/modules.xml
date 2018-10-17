@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/springcloud-eureka-client/springcloud-eureka-client.iml" filepath="$PROJECT_DIR$/springcloud-eureka-client/springcloud-eureka-client.iml" />
       <module fileurl="file://$PROJECT_DIR$/springcloud-eureka-server/springcloud-eureka-server.iml" filepath="$PROJECT_DIR$/springcloud-eureka-server/springcloud-eureka-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/springcloud-feign/springcloud-feign.iml" filepath="$PROJECT_DIR$/springcloud-feign/springcloud-feign.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloud-provater-seckill/springcloud-provater-seckill.iml" filepath="$PROJECT_DIR$/springcloud-provater-seckill/springcloud-provater-seckill.iml" />
       <module fileurl="file://$PROJECT_DIR$/springcloud-ribbon/springcloud-ribbon.iml" filepath="$PROJECT_DIR$/springcloud-ribbon/springcloud-ribbon.iml" />
       <module fileurl="file://$PROJECT_DIR$/springcloud-zuul/springcloud-zuul.iml" filepath="$PROJECT_DIR$/springcloud-zuul/springcloud-zuul.iml" />
     </modules>
