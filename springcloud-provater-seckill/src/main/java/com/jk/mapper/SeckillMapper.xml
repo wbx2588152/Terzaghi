@@ -2,17 +2,31 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.jk.mapper.SeckillMapper" >
 
+
+	<select id="queryTimeLimitCount" resultType="int">
+		SELECT count(*) FROM t_time_limit_seckill
+	</select>
+
+	<select id="queryTimeLimitLists" resultType="com.jk.model.TimeLimitSeckill">
+		SELECT * FROM t_time_limit_seckill
+		limit #{start},#{rows}
+	</select>
+
+
+	<select id="querySeckillCommodityList" resultType="com.jk.model.SeckilCommodity">
+		SELECT * FROM t_seckill_commodity where status = 1
+	</select>
+
+	<select id="queryTimeLimitSeckillList" resultType="com.jk.model.TimeLimitSeckill">
+		SELECT * FROM t_time_limit_seckill where status = 1
+	</select>
+
 	<select id="querySeckillCount" resultType="int">
-		select count(*)  from
-				t_seckill_commodity tsc,t_commodity tc,t_seckill_time tst
-					where	tsc.commodityId = tc.id and tsc.seckillTimeId = tst.id
+		SELECT count(*) FROM t_seckill_commodity
 	</select>
 	
-	<select id="querySeckillList" resultType="com.jk.model.CommodityBean">
-	  select tsc.id,tc.number artNo,tc.`name` name,tc.price price,seckillPrice,
-		  tc.store seckillCount,tsc.limitationCount,tsc.surplusCount  from
-				t_seckill_commodity tsc,t_commodity tc,t_seckill_time tst
-					where	tsc.commodityId = tc.id and tsc.seckillTimeId = tst.id
+	<select id="querySeckillList" resultType="com.jk.model.SeckilCommodity">
+	  SELECT * FROM t_seckill_commodity
 	  limit #{start},#{rows}
 	</select>
 
@@ -21,8 +35,30 @@
 	</select>
 
 	<select id="querySeckilTimeList" resultType="com.jk.model.SeckillTimeBean">
-		select * from t_seckill_time
+		select tt.*,ifnull(ss.commodityCount,0) from t_seckill_time tt LEFT JOIN
+		 (select tsc.seckillTimeId seckillTimeId,count(1) commodityCount from t_seckill_commodity tsc
+			GROUP BY tsc.seckillTimeId) ss
+				ON tt.id = ss.seckillTimeId
+		limit #{start},#{rows}
 	</select>
+
+	<delete id="deleteSeckillTimeById">
+		DELETE FROM t_time_limit_seckill WHERE id = #{id}
+	</delete>
+
+	<insert id="addSeckillTime">
+		insert into t_seckill_time
+			values(#{s.id},#{s.timeName},#{s.startTime},#{s.endTime},#{s.status})
+	</insert>
+
+	<update id="updateSeckillTime">
+		UPDATE t_seckill_time set timeName = #{s.timeName},startTime=#{s.startTime},endTime=#{s.endTime},
+			status=#{s.status} where id = #{s.id}
+	</update>
+
+	<delete id="deleteCommodityById">
+		DELETE FROM t_seckill_commodity WHERE id = #{id}
+	</delete>
 
 
 </mapper>

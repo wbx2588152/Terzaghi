@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="service-api" />
+        <module name="shopping" />
         <module name="springcloud-eureka-client" />
         <module name="springcloud-eureka-server" />
         <module name="springcloud-feign" />
@@ -17,15 +18,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="scEureka" target="1.7" />
-      <module name="service-api" target="1.5" />
-      <module name="springboot-test01" target="1.5" />
-      <module name="springcloud-eureka-client" target="1.8" />
-      <module name="springcloud-eureka-server" target="1.8" />
-      <module name="springcloud-feign" target="1.8" />
-      <module name="springcloud-provater-seckill" target="1.8" />
-      <module name="springcloud-ribbon" target="1.8" />
       <module name="springcloud-seckill" target="1.8" />
-      <module name="springcloud-zuul" target="1.8" />
       <module name="springcloutdseckill" target="1.5" />
     </bytecodeTargetLevel>
   </component>

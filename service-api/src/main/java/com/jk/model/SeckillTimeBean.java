@@ -14,9 +14,9 @@ public class SeckillTimeBean implements Serializable {
 
     private String timeName;    //秒杀时段名称
 
-    private Date startTime;     //每日开始时间
+    private String startTime;     //每日开始时间
 
-    private Date endTime;       //每日结束时间
+    private String endTime;       //每日结束时间
 
     private String status;      //状态
 
@@ -35,11 +35,11 @@ public class SeckillTimeBean implements Serializable {
         this.timeName = timeName;
     }
 
-    public void setStartTime(Date startTime) {
+    public void setStartTime(String startTime) {
         this.startTime = startTime;
     }
 
-    public void setEndTime(Date endTime) {
+    public void setEndTime(String endTime) {
         this.endTime = endTime;
     }
 
@@ -55,11 +55,11 @@ public class SeckillTimeBean implements Serializable {
         return timeName;
     }
 
-    public Date getStartTime() {
+    public String getStartTime() {
         return startTime;
     }
 
-    public Date getEndTime() {
+    public String getEndTime() {
         return endTime;
     }
 
