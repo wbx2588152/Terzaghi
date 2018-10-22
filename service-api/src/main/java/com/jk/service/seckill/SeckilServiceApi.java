@@ -44,4 +44,7 @@ public interface SeckilServiceApi {
 
     @RequestMapping(value = "/queryTimeLimitLists",method = RequestMethod.POST)
     Map<String,Object> queryTimeLimitLists(@RequestParam(value = "page") int page, @RequestParam(value = "rows")int rows, @RequestBody TimeLimitSeckill timeLimitSeckill);
+
+    @RequestMapping(value = "/queryDaoJiShi",method = RequestMethod.POST)
+    TimeLimitSeckill queryDaoJiShi(@RequestParam(value = "id")String id);
 }

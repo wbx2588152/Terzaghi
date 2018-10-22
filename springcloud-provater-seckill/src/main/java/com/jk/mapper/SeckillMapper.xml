@@ -3,6 +3,10 @@
 <mapper namespace="com.jk.mapper.SeckillMapper" >
 
 
+	<select id="queryDaoJiShi" resultType="com.jk.model.TimeLimitSeckill">
+		SELECT * FROM t_time_limit_seckill where  id = #{id}
+	</select>
+
 	<select id="queryTimeLimitCount" resultType="int">
 		SELECT count(*) FROM t_time_limit_seckill
 	</select>
@@ -14,11 +18,11 @@
 
 
 	<select id="querySeckillCommodityList" resultType="com.jk.model.SeckilCommodity">
-		SELECT * FROM t_seckill_commodity where status = 1
+		SELECT * FROM t_seckill_commodity where status = 1 GROUP BY addTime
 	</select>
 
 	<select id="queryTimeLimitSeckillList" resultType="com.jk.model.TimeLimitSeckill">
-		SELECT * FROM t_time_limit_seckill where status = 1
+		SELECT * FROM t_time_limit_seckill where status = 1 GROUP BY addTime
 	</select>
 
 	<select id="querySeckillCount" resultType="int">

@@ -26,19 +26,28 @@ public class TimeLimitSeckill implements Serializable {
 
     private Date addTime; //添加时间 按时间进行排序
 
+    private Date endTime;   //活动结束时间
+
     private String timeLimit;   //限时 分钟
+
+    private String residueCount;   //临时字段 已经抢了多少数量
 
     private String status;   //状态 上架和下架
 
-    private String counts = "0";   //临时字段 已经抢了多少数量
-
-    public void setCounts(String counts) {
-        this.counts = counts;
+    public void setEndTime(Date endTime) {
+        this.endTime = endTime;
     }
 
-    public String getCounts() {
+    public Date getEndTime() {
+        return endTime;
+    }
 
-        return counts;
+    public void setResidueCount(String residueCount) {
+        this.residueCount = residueCount;
+    }
+
+    public String getResidueCount() {
+        return residueCount;
     }
 
     public void setAddTime(Date addTime) {

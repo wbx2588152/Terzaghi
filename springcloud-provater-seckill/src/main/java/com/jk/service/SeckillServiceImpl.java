@@ -77,6 +77,11 @@ public class SeckillServiceImpl implements SeckilServiceApi {
     }
 
     @Override
+    public TimeLimitSeckill queryDaoJiShi(String id) {
+        return seckillMapper.queryDaoJiShi(id);
+    }
+
+    @Override
     public Map<String, Object> queryTimeLimitLists(int page, int rows, TimeLimitSeckill timeLimitSeckill) {
         int start = (page-1)*rows;
         int count = seckillMapper.queryTimeLimitCount(timeLimitSeckill);

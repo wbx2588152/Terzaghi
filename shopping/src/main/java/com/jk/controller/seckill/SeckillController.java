@@ -1,6 +1,7 @@
 package com.jk.controller.seckill;
 
 import com.jk.model.SeckilCommodity;
+import com.jk.model.TimeLimitSeckill;
 import com.jk.service.seckill.SeckilServiceApi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -27,14 +29,18 @@ public class SeckillController {
     @Autowired
     private SeckilServiceApi seckilServiceApi;
 
-    @RequestMapping("aa")
+    /**
+     * 查询限时秒杀列表的距离秒杀时间
+     * */
+    @RequestMapping("queryDaoJiShi")
     @ResponseBody
-    public String aa() throws ParseException {
-        Date x= new Date();
-        SimpleDateFormat dft = new SimpleDateFormat("MMM d HH:mm:ss yyyy", Locale.ENGLISH);
-        String c = dft.format(x);
-        System.out.println(c);
-        return c;
+    public long queryDaoJiShi(String id) {
+        TimeLimitSeckill timeLimitSeckill = seckilServiceApi.queryDaoJiShi(id);
+        long addTime1 = timeLimitSeckill.getEndTime().getTime();
+        Date date = new Date();
+        long time = date.getTime();
+        long time1 = (addTime1 - time) / 1000;
+        return time1;
     }
 
     /**
@@ -44,7 +50,6 @@ public class SeckillController {
     @ResponseBody
     public List<SeckilCommodity> querySeckillCommodityList(){
         List<SeckilCommodity> list = seckilServiceApi.querySeckillCommodityList();
-        System.out.println(list);
         return list;
     }
 
@@ -56,7 +61,6 @@ public class SeckillController {
     @ResponseBody
     public List<SeckilCommodity> queryTimeLimitSeckillList(){
         List<SeckilCommodity> list = seckilServiceApi.queryTimeLimitSeckillList();
-        System.out.println(list);
         return list;
     }
 

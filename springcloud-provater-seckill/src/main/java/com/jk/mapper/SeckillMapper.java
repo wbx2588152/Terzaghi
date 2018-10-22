@@ -36,4 +36,6 @@ public interface SeckillMapper {
     int queryTimeLimitCount(@Param("t")TimeLimitSeckill timeLimitSeckill);
 
     List<SeckillTimeBean> queryTimeLimitLists(@Param("start")int start, @Param("rows")int rows, @Param("t")TimeLimitSeckill timeLimitSeckill);
+
+    TimeLimitSeckill queryDaoJiShi(@Param("id")String id);
 }
