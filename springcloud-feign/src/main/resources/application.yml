@@ -15,3 +15,23 @@ spring:
     encoding: UTF-8
     servlet:
       content-type: text/html
+
+cloud:
+  loadbalancer:
+    retry:
+      enabled: 'true'
+feign:
+  hystrix:
+    enabled: false
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 6000
+ribbon:
+  ConnectTimeout: 60000
+  ReadTimeout: 60000
+

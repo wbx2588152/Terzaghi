@@ -12,6 +12,7 @@
         <module name="springcloud-eureka-server" />
         <module name="springcloud-feign" />
         <module name="springcloud-ribbon" />
+        <module name="springcloud-sjy-client" />
       </profile>
     </annotationProcessing>
   </component>
