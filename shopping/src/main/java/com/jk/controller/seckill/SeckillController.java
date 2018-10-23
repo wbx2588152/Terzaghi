@@ -1,26 +1,28 @@
 package com.jk.controller.seckill;
 
+import com.jk.model.RegionBean;
 import com.jk.model.SeckilCommodity;
 import com.jk.model.TimeLimitSeckill;
+import com.jk.model.User;
 import com.jk.service.seckill.SeckilServiceApi;
+import org.apache.catalina.mbeans.UserMBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author 王超杰
  * @date 2018/10/18
- * @Description:
+ * @Description:秒杀项目前台
  */
 @Controller
 @RequestMapping("seckill")
@@ -28,6 +30,39 @@ public class SeckillController {
 
     @Autowired
     private SeckilServiceApi seckilServiceApi;
+
+    /**
+     * 新增收货地址
+     * */
+    @RequestMapping("addRegion")
+    @ResponseBody
+    public String addRegion(RegionBean regionBean,HttpServletRequest request){
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute(session.getId());
+        regionBean.setId(UUID.randomUUID().toString().replace("-",""));
+        regionBean.setUserid(user.getId());
+        seckilServiceApi.addRegion(regionBean);
+        return "{}";
+    }
+
+    /**
+     * 查询当前用户的地址
+     * */
+    @RequestMapping("queryRegionList")
+    @ResponseBody
+    public List<RegionBean> queryRegionList(HttpServletRequest request){
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute(session.getId());
+        String userId = "3";
+        List<RegionBean> region = seckilServiceApi.queryRegionList(userId);
+        return region;
+       /* if(user != null){
+            String userId = user.getId();
+            List<RegionBean> region = seckilServiceApi.queryRegionList(userId);
+            return region;
+        }
+        return null;*/
+    }
 
     /**
      * 查询限时秒杀列表的距离秒杀时间
@@ -62,6 +97,14 @@ public class SeckillController {
     public List<SeckilCommodity> queryTimeLimitSeckillList(){
         List<SeckilCommodity> list = seckilServiceApi.queryTimeLimitSeckillList();
         return list;
+    }
+
+    /**
+     * 跳转到支付页面
+     * */
+    @RequestMapping("tosaveOrderForm")
+    public String tosaveOrderForm(){
+        return "saveOrderForm";
     }
 
     /**

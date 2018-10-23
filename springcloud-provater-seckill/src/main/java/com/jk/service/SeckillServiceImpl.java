@@ -1,6 +1,7 @@
 package com.jk.service;
 
 import com.jk.mapper.SeckillMapper;
+import com.jk.model.RegionBean;
 import com.jk.model.SeckilCommodity;
 import com.jk.model.SeckillTimeBean;
 import com.jk.model.TimeLimitSeckill;
@@ -82,10 +83,20 @@ public class SeckillServiceImpl implements SeckilServiceApi {
     }
 
     @Override
+    public List<RegionBean> queryRegionList(String userId) {
+        return seckillMapper.queryRegionList(userId);
+    }
+
+    @Override
+    public void addRegion(RegionBean regionBean) {
+        seckillMapper.addRegion(regionBean);
+    }
+
+    @Override
     public Map<String, Object> queryTimeLimitLists(int page, int rows, TimeLimitSeckill timeLimitSeckill) {
         int start = (page-1)*rows;
         int count = seckillMapper.queryTimeLimitCount(timeLimitSeckill);
-        List<SeckillTimeBean> seckillLists = seckillMapper.queryTimeLimitLists(start,rows,timeLimitSeckill);
+        List<TimeLimitSeckill> seckillLists = seckillMapper.queryTimeLimitLists(start,rows,timeLimitSeckill);
         Map<String , Object> map = new HashMap<>();
         map.put("total",count);
         map.put("rows",seckillLists);

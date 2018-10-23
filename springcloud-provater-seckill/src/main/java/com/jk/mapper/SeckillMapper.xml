@@ -3,6 +3,14 @@
 <mapper namespace="com.jk.mapper.SeckillMapper" >
 
 
+	<insert id="addRegion">
+		insert into t_region values(#{r.id},#{r.name},#{r.phone},#{r.sheng},#{r.shi},#{r.inDetail},#{r.userId})
+	</insert>
+
+	<select id="queryRegionList" resultType="com.jk.model.RegionBean">
+		select * from t_region where userId = #{userId}
+	</select>
+
 	<select id="queryDaoJiShi" resultType="com.jk.model.TimeLimitSeckill">
 		SELECT * FROM t_time_limit_seckill where  id = #{id}
 	</select>

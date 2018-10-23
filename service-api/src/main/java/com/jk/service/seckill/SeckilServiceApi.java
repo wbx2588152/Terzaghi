@@ -1,5 +1,6 @@
 package com.jk.service.seckill;
 
+import com.jk.model.RegionBean;
 import com.jk.model.SeckilCommodity;
 import com.jk.model.SeckillTimeBean;
 import com.jk.model.TimeLimitSeckill;
@@ -47,4 +48,10 @@ public interface SeckilServiceApi {
 
     @RequestMapping(value = "/queryDaoJiShi",method = RequestMethod.POST)
     TimeLimitSeckill queryDaoJiShi(@RequestParam(value = "id")String id);
+
+    @RequestMapping(value = "/queryRegionList",method = RequestMethod.POST)
+    List<RegionBean> queryRegionList(@RequestParam(value = "userId")String userId);
+
+    @RequestMapping(value = "/addRegion",method = RequestMethod.POST)
+    void addRegion(@RequestBody RegionBean regionBean);
 }

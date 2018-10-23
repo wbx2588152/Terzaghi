@@ -1,5 +1,6 @@
 package com.jk.mapper;
 
+import com.jk.model.RegionBean;
 import com.jk.model.SeckilCommodity;
 import com.jk.model.SeckillTimeBean;
 import com.jk.model.TimeLimitSeckill;
@@ -35,7 +36,11 @@ public interface SeckillMapper {
 
     int queryTimeLimitCount(@Param("t")TimeLimitSeckill timeLimitSeckill);
 
-    List<SeckillTimeBean> queryTimeLimitLists(@Param("start")int start, @Param("rows")int rows, @Param("t")TimeLimitSeckill timeLimitSeckill);
+    List<TimeLimitSeckill> queryTimeLimitLists(@Param("start")int start, @Param("rows")int rows, @Param("t")TimeLimitSeckill timeLimitSeckill);
 
     TimeLimitSeckill queryDaoJiShi(@Param("id")String id);
+
+    List<RegionBean> queryRegionList(@Param("userId")String userId);
+
+    void addRegion(@Param("r")RegionBean regionBean);
 }

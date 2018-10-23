@@ -51,7 +51,6 @@ function initTimeLimitSeckill(){
             var html = "";
             var str = "";
             for(var i=0;i<result.length;i++){
-                alert(result[i].residueCount);
                 html += '<div class="ms_border">\n' +
                     '            <div class="floor1_left"><img src="'+result[i].commmondityImg+'"></div>\n' +
                     '            <div class="floor1_right">\n' +
