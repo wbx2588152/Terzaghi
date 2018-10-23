@@ -1,6 +1,7 @@
 package com.jk.controller.seckill;
 
 import com.jk.model.SeckilCommodity;
+import com.jk.model.SeckillTimeBean;
 import com.jk.model.TimeLimitSeckill;
 import com.jk.service.seckill.SeckilServiceApi;
 import org.springframework.beans.factory.annotation.Autowired;

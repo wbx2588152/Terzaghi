@@ -14,7 +14,7 @@ public class UserError implements Userservice {
     public List<User> sayHafromOneClient() {
         List<User> list=new ArrayList<>();
         User user =new User();
-        user.setMycode("sorry,error!");
+        //user.setMycode("sorry,error!");
         list.add(user);
         return list;
     }
@@ -32,7 +32,7 @@ public class UserError implements Userservice {
     @Override
     public User queryWbxUserById(String id) {
         User user =new User();
-        user.setMycode("sorry,error!");
+        //user.setMycode("sorry,error!");
         return user;
     }
 
