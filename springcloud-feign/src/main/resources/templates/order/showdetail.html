@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<link rel="stylesheet" href="../layui/css/layui.css" media="all">
+<link rel="stylesheet" href="../layui/css/modules/layer/default/layer.css" media="all">
+<body>
+<table class="layui-table">
+    <caption>基本信息</caption>
+    <colgroup>
+        <col width="100">
+        <col width="100">
+        <col>
+    </colgroup>
+    <thead>
+    <tr>
+        <th>订单编号</th>
+        <th>发货单流水号</th>
+        <th>用户单号</th>
+        <th>支付方式</th>
+        <th>订单来源</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td th:text="${orderBean.orderid}"></td>
+        <td th:text="${orderBean.consignnum}"></td>
+        <td th:text="${orderBean.showuseraccount}"></td>
+        <td th:text="${orderBean.paystatus}"></td>
+        <td>APP订单</td>
+    </tr>
+    <tr>
+        <th>订单类型</th>
+        <th>配送方式</th>
+        <th>物流单号</th>
+        <th>自动确认收货时间</th>
+        <th>订单优惠券</th>
+    </tr>
+
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+
+    </tbody>
+</table>
+
+
+<table class="layui-table">
+    <caption>收货人信息</caption>
+    <colgroup>
+        <col width="150">
+        <col width="200">
+        <col>
+    </colgroup>
+    <thead>
+    <tr>
+        <th>收货人</th>
+        <th>手机号码</th>
+        <th>邮政编码</th>
+        <th>收货地址</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>贤心</td>
+        <td>2016-11-29</td>
+        <td>人生就像是一场修行</td>
+        <td>许闲心</td>
+    </tr>
+    </tbody>
+</table>
+
+<table class="layui-table">
+    <caption>商品信息</caption>
+    <colgroup>
+        <col width="150">
+        <col width="200">
+        <col>
+    </colgroup>
+    <thead>
+    <tr>
+        <th>商品图片</th>
+        <th>商品名称</th>
+        <th>价格/货号</th>
+        <th>属性</th>
+        <th>数量</th>
+        <th>库存</th>
+        <th>小计</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>贤心</td>
+        <td>2016-11-29</td>
+        <td>人生就像是一场修行</td>
+        <td>许闲心</td>
+        <td>许闲心</td>
+        <td>许闲心</td>
+        <td>许闲心</td>
+    </tr>
+    </tbody>
+</table>
+合计：
+
+<table class="layui-table">
+    <caption>费用信息</caption>
+    <colgroup>
+        <col width="150">
+        <col width="200">
+        <col>
+    </colgroup>
+    <thead>
+    <tr>
+        <th>商品合计</th>
+        <th>运费</th>
+        <th>优惠券</th>
+        <th>订单总金额</th>
+        <th>应付款金额</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>贤心</td>
+        <td>2016-11-29</td>
+        <td>人生就像是一场修行</td>
+        <td>许闲心</td>
+        <td>许闲心</td>
+        <td>许闲心</td>
+    </tr>
+    </tbody>
+</table>
+合计：
+<script src="../layui/jquery.min.js"></script>
+<script src="../layui/layui.js"></script>
+<script>
+
+
+</script>
+</body>
+</html>
