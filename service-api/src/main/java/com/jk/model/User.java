@@ -1,47 +1,46 @@
 package com.jk.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.io.Serializable;
 import java.util.Date;
 
 public class User implements Serializable {
-    private String userId;
+    private String id;
 
-    private String username;
+    private String loginname;
 
     private String password;
 
-    private String email;
+    private String name;
 
-    private String mobile;
+    private Integer sex;
 
-    private String status;
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @JsonFormat(pattern="yyyy-MM-dd",timezone="GMT+8")
+    private Date  lastdate;
 
-    private Date crateTime;
+    private String roleid;
 
-    private Date modifyTime;
+    private String rolename;
 
-    private Date lastLoginTime;
+    private Integer status;
 
-    private String ssex;
-
-    private String avatar;
-
-    private String description;
-
-    public String getUserId() {
-        return userId;
+    public String getId() {
+        return id;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId == null ? null : userId.trim();
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getLoginname() {
+        return loginname;
     }
 
-    public void setUsername(String username) {
-        this.username = username == null ? null : username.trim();
+    public void setLoginname(String loginname) {
+        this.loginname = loginname;
     }
 
     public String getPassword() {
@@ -49,78 +48,54 @@ public class User implements Serializable {
     }
 
     public void setPassword(String password) {
-        this.password = password == null ? null : password.trim();
+        this.password = password;
     }
 
-    public String getEmail() {
-        return email;
+    public String getName() {
+        return name;
     }
 
-    public void setEmail(String email) {
-        this.email = email == null ? null : email.trim();
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getMobile() {
-        return mobile;
+    public Integer getSex() {
+        return sex;
     }
 
-    public void setMobile(String mobile) {
-        this.mobile = mobile == null ? null : mobile.trim();
+    public void setSex(Integer sex) {
+        this.sex = sex;
     }
 
-    public String getStatus() {
+    public Date getLastdate() {
+        return lastdate;
+    }
+
+    public void setLastdate(Date lastdate) {
+        this.lastdate = lastdate;
+    }
+
+    public String getRoleid() {
+        return roleid;
+    }
+
+    public void setRoleid(String roleid) {
+        this.roleid = roleid;
+    }
+
+    public String getRolename() {
+        return rolename;
+    }
+
+    public void setRolename(String rolename) {
+        this.rolename = rolename;
+    }
+
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
-        this.status = status == null ? null : status.trim();
-    }
-
-    public Date getCrateTime() {
-        return crateTime;
-    }
-
-    public void setCrateTime(Date crateTime) {
-        this.crateTime = crateTime;
-    }
-
-    public Date getModifyTime() {
-        return modifyTime;
-    }
-
-    public void setModifyTime(Date modifyTime) {
-        this.modifyTime = modifyTime;
-    }
-
-    public Date getLastLoginTime() {
-        return lastLoginTime;
-    }
-
-    public void setLastLoginTime(Date lastLoginTime) {
-        this.lastLoginTime = lastLoginTime;
-    }
-
-    public String getSsex() {
-        return ssex;
-    }
-
-    public void setSsex(String ssex) {
-        this.ssex = ssex == null ? null : ssex.trim();
-    }
-
-    public String getAvatar() {
-        return avatar;
-    }
-
-    public void setAvatar(String avatar) {
-        this.avatar = avatar == null ? null : avatar.trim();
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description == null ? null : description.trim();
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 }

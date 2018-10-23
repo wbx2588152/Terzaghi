@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+
+<title>Insert title here</title>
+<script type="text/javascript" src="../EasyUI/jquery.min.js"></script>
+
+<script type="text/javascript" src="../EasyUI/jquery.easyui.min.js"></script>
+
+<script type="text/javascript" src="../EasyUI/locale/easyui-lang-zh_CN.js"></script>
+
+<link rel="stylesheet" href="../EasyUI/themes/default/easyui.css" type="text/css"/>
+
+<link rel="stylesheet" href="../EasyUI/themes/icon.css" type="text/css"/>
+</head>
+<body>
+
+<div id="rp" class="easyui-layout" data-options="fit:true">
+	      
+	    <div data-options="region:'west',title:'角色列表',split:false" style="width:50%;">
+	    	<table id="roletable" data-options="fit:true"></table>
+	    </div>   
+	    <div data-options="region:'east',title:'权限树',split:false" style="width:50%;">
+	    	<div class="easyui-panel" data-options="footer:'#ft',fit:true">
+	    	<input type="text" id="hideid" />
+	    	<ul id="powertree"></ul>
+	    	<div id="addDiv"></div>
+	    	<div id="ft" style="padding:3px;text-align:right;">
+	    		<a class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true" href="javascript:savepower();">保存权限</a>
+	    	</div>
+	    	</div>
+	    </div> 
+	</div>  
+
+<script src="../js/hello.js">
+		
+</script>
+
+
+
+
+     
+</body>
+
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<title>Insert title here</title>
+<script type="text/javascript" src="../EasyUI/jquery.min.js"></script>
+<script type="text/javascript" src="../EasyUI/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="../EasyUI/locale/easyui-lang-zh_CN.js"></script>
+<link rel="stylesheet" href="../EasyUI/themes/default/easyui.css" type="text/css"/>
+<link rel="stylesheet" href="../EasyUI/themes/icon.css" type="text/css"/>
+</head>
+<body>
+         <input id="sids" type="hidden" th:value="${sid}" />
+         
+         
+	<table id="helloTable"></table>
+	<div id="helloCarDiv"></div>
+	
+	
+	<script type="text/javascript">
+		 
+		
+		$(function(){
+			initSellCars();
+		})
+	
+		function initSellCars(){
+			$('#helloTable').datagrid({    
+			    url:'/yx/getSmall',
+			    pagination:true, 
+			    pageNumber:1,
+			    pageSize:70,
+			    pageList:[3,5,70],
+			    columns:[
+			             [    
+			        {field:'id',title:'ID',align:"center"},    
+			        {field:'groupname',title:'小组名称',align:"center"},    
+			        {field:'xzcount',title:'被派遣次数',align:"center"},
+			        {field:'up',title:'操作',align:"center",
+						formatter:function(value,row,index){
+							return '<input type="button" value="派遣" onclick="addTeamId(\''+row.id+'\',\''+row.xzcount+'\')"/>'
+							
+							;
+						}		
+					},
+			    ]
+			             ]    
+			}); 
+		}
+		
+		function addTeamId(teamId,xzcount){
+			
+			$.ajax({
+				    url:'/yx/addTeamId',
+				    type:'post',
+				    data:{
+				    	teamId:teamId,
+				    	id:$('#sids').val(),
+				    	xzcount:xzcount
+				    },
+				    success:function(result){
+				    	
+				    	$.messager.show({
+							title:'我的消息',
+							msg:'已派遣!',
+							timeout:5000,
+							showType:'slide'
+							
+						});
+				    	$('#sellCarDiv').dialog("close");
+				    }
+			})
+		}
+		
+		
+		
+	
+	</script>
+	
+</body>
+</html>

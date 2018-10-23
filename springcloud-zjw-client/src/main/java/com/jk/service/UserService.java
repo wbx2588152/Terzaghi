@@ -11,9 +11,14 @@ public interface UserService {
 
     List<Menu> findUserPermissions(String userName);
 
-    User findByName(String userName);
+    /*User findByName(String userName);*/
 
     List<Role> findUserRole(String userName);
 
 
+    void updateLoginTime(String loginname);
+
+    User findUserByName(String username);
+
+    List<Menu> selectAllMenu();
 }

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="edge" />
     <title>FEBS权限管理系统</title>
+    <link rel="stylesheet" type="text/css" th:href="@{css/loader.css}">
     <link rel="shortcut icon" type="image/png" th:href="@{/img/favicon.ico}" />
     <link rel="stylesheet" th:href="@{css/login.css}" type="text/css">
     <link rel="stylesheet" th:href="@{css/iCheck/minimal/green.css}" type="text/css">
@@ -20,6 +21,13 @@
 
 </style>
 <body>
+    <div id="loader-wrapper">
+
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+        <div class="load_title">正在加载w_b_x站点<br><span>V1.0</span></div>
+    </div>
     <!-- Form-->
     <div class="form">
         <div class="form-toggle"></div>
@@ -74,9 +82,18 @@
         </div>
     </div>
     <div data-th-include="common/footer"></div>
+    <script type="text/javascript">
+        // 等待所有加载
+        $(window).load(function(){
+            $('body').addClass('loaded');
+            $('#loader-wrapper .load_title').remove();
+        });
+    </script>
 </body>
 <script th:inline="javascript">
 	var ctx = [[@{/}]];
 </script>
 <script data-th-src="@{js/app/login.js}"></script>
+
+
 </html>

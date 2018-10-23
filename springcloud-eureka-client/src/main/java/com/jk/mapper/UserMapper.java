@@ -1,25 +1,89 @@
 package com.jk.mapper;
 
-import com.jk.model.Power;
-import com.jk.model.User;
-import com.jk.model.Users;
+import com.jk.model.*;
 import org.apache.ibatis.annotations.*;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public interface UserMapper {
     @Select(" select * from t_user ")
     List<User> getUserList();
-    @Insert(" insert into t_user(id,name,mycode) values (#{u.id},#{u.name},#{u.mycode}) ")
-    void saveUser(@Param("u") User user);
-    @Delete(" delete from t_user where id=#{u.id}")
+
+    void saveUser(User user);
+
     void deleteUser(@Param("id") String id);
     @Select(" select * from t_user where id=#{id} ")
     User getUserById(@Param("id") String id);
-    @Update(" update t_user set name=#{u.name},mycode=#{u.mycode} where id=#{u.id} ")
-    void updateUser(@Param("u")User user);
+
+    void updateUser(@Param("user")User user);
 
     List<Power> getpowerlist(String userId);
     @Select(" select * from t_user ")
     List<Users> seeUserList();
+    @Select(" select * from t_menu ")
+    List<Menu> selectAllMenu();
+
+    void delManyUsertoUserId(User user);
+
+    void saveUsertoRole(UserRole utr);
+
+    void saveUserRole(List<UserRole> list);
+
+    void deleteUserRole(@Param("id")String id);
+
+    List<Role> queryRole();
+
+    List<Role> queryRole2(String id);
+
+    long queryUser(@Param("user")User user);
+
+    List<Role> queryRoleList();
+
+    List<User> queryUserList(@Param("st")int start, @Param("end")int end, @Param("user")User user);
+
+    User queryUserById(@Param("id")String id);
+
+    Integer getRoleTotal(@Param("r")Role role);
+
+    List<Role> getRoleList(@Param("st") Integer start, @Param("end") Integer end, @Param("r")Role role);
+
+    List<RolePower> getNavIdListByRoleId(String roleId);
+
+    List<Power> getNavListByRoleId(HashMap<String, Object> params);
+
+    void delRoleNavByRoleId(String roleId);
+
+    void saveRoleNav(ArrayList<RolePower> arrayList);
+
+    void addRole(@Param("r")Role role);
+
+    Role toEditRole(@Param("r")Role role);
+
+    void updateRole(@Param("r")Role role);
+
+    void deleteRole(@Param("r")Role role);
+
+    void delManyNav(List<String> ids);
+
+    List<Power> getNavALLById(String id);
+
+    void editOneNav(Power power);
+
+    void saveOneNav(Power power);
+
+    void addOneMenu(Menu menu);
+
+    void delmanyMenu(String[] id);
+
+    void editOneMenu(Menu menu);
+
+    Menu getOneMenu(String id);
+
+    int querygetMenuCountByNavid(Menu menu);
+
+    List<Menu> getMenuListByNavid(Menu menu);
+
+
 }

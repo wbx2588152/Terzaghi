@@ -1,9 +1,7 @@
 package com.jk.controller;
 
 import com.jk.model.User;
-import com.jk.service.UserService;
-import com.jk.shiro.FebsProperties;
-import com.jk.shiro.ResponseBo;
+
 import com.jk.util.Captcha;
 import com.jk.util.GifCaptcha;
 import com.jk.util.MD5Utils;
@@ -40,75 +38,9 @@ public class LoginController {
 
     private static final String CODE_KEY = "_code";
 
-    @Autowired
-    private FebsProperties febsProperties;
-
-    @Autowired
-    private UserService userService;
 
 
 
-    //跳转登录页面
-    @GetMapping("/login")
-    public String login() {
-        return "login";
-    }
-
-
-    //跳转登录页面
-    @GetMapping("/index")
-    public String index() {
-        return "index";
-    }
-
-
-    @PostMapping("/login")
-    @ResponseBody
-    public ResponseBo login(String username, String password, String code, Boolean rememberMe) {
-        if (!StringUtils.isNotBlank(code)) {
-            return ResponseBo.warn("验证码不能为空！");
-        }
-        Session session = SecurityUtils.getSubject().getSession();
-        String sessionCode = (String) session.getAttribute(CODE_KEY);
-        if (!code.equalsIgnoreCase(sessionCode)) {
-            return ResponseBo.warn("验证码错误！");
-        }
-        // 密码 MD5 加密
-       /* password = MD5Utils.encrypt(username.toLowerCase(), password);
-        UsernamePasswordToken token = new UsernamePasswordToken(username, password, rememberMe);
-        try {
-            Subject subject = getSubject();
-            if (subject != null)
-                subject.logout();
-            subject.login(token);
-            this.userService.updateLoginTime(username);
-            return ResponseBo.ok();
-        } catch (UnknownAccountException | IncorrectCredentialsException | LockedAccountException e) {
-            return ResponseBo.error(e.getMessage());*/
-      /*  } catch (AuthenticationException e) { }*/
-        return ResponseBo.ok();
-    }
-
-    @GetMapping(value = "gifCode")
-    public void getGifCode(HttpServletResponse response, HttpServletRequest request) {
-        try {
-            response.setHeader("Pragma", "No-cache");
-            response.setHeader("Cache-Control", "no-cache");
-            response.setDateHeader("Expires", 0);
-            response.setContentType("image/gif");
-
-            Captcha captcha = new GifCaptcha(
-                    febsProperties.getValidateCode().getWidth(),
-                    febsProperties.getValidateCode().getHeight(),
-                    febsProperties.getValidateCode().getLength());
-            HttpSession session = request.getSession(true);
-            captcha.out(response.getOutputStream());
-            session.removeAttribute(CODE_KEY);
-            session.setAttribute(CODE_KEY, captcha.text().toLowerCase());
-        } catch (Exception e) {
-            log.error("图形验证码生成失败", e);
-        }
-    }
 
 
 

@@ -12,9 +12,9 @@ import java.util.List;
 @RestController
 public class UserController {
     @Autowired
-    UserService userService;
+    UserService userservice;
     @RequestMapping(value="ha")
     public List<User> ha(){
-        return userService.haService();
+        return userservice.haService();
     }
 }

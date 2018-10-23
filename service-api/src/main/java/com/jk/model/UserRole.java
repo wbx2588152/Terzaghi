@@ -3,23 +3,33 @@ package com.jk.model;
 import java.io.Serializable;
 
 public class UserRole  implements Serializable {
-    private Long userId;
+    private String id; //用户角色id
 
-    private Long roleId;
+    private String userid; //用户id
 
-    public Long getUserId() {
-        return userId;
+    private String roleid; //角色id
+
+    public String getId() {
+        return id;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public Long getRoleId() {
-        return roleId;
+    public String getUserid() {
+        return userid;
     }
 
-    public void setRoleId(Long roleId) {
-        this.roleId = roleId;
+    public void setUserid(String userid) {
+        this.userid = userid;
+    }
+
+    public String getRoleid() {
+        return roleid;
+    }
+
+    public void setRoleid(String roleid) {
+        this.roleid = roleid;
     }
 }

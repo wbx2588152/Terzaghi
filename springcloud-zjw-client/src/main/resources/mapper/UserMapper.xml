@@ -3,12 +3,12 @@
 <mapper namespace="com.jk.mapper.UserMapper" >
   <!-- 查询权限树 -->
     <select id="findUserPermissions" resultType="com.jk.model.Menu">
-  	select m.perms from t_role r
-        left join t_user_role ur on(r.role_id = ur.role_id)
-        left join t_user u on(u.user_id = ur.user_id)
-        left join t_role_menu rm on(rm.role_id = r.role_id)
-        left join t_menu m on(m.menu_id = rm.menu_id )
-        where u.username = #{userName} and m.perms is not null and m.perms &lt;&gt; ''
+  	select m.* from t_role r
+        left join t_user_role ur on(r.id = ur.roleid)
+        left join t_user u on(u.id = ur.userid)
+        left join t_role_power rm on(rm.roleId = r.id)
+        left join t_menu m on(m.power_id = rm.powerId )
+        where u.loginname = #{userName} and m.url is not null
   </select>
 <!-- 查询用户 -->
     <select id="findUserRole" resultType="com.jk.model.Role">
@@ -17,4 +17,14 @@
 	left join t_user u on(u.user_id = ur.user_id)
 	where u.username = #{userName}
   </select>
+    <update id="updateLoginTime" >
+		update t_user set lastdate = #{date} where loginname = #{ln}
+	</update>
+    <select id="findUserByName" resultType="com.jk.model.User">
+        select * from t_user where loginname=#{value}
+    </select>
+
+    <select id="selectAllMenu" resultType="com.jk.model.Menu">
+        select * from t_menu
+    </select>
 </mapper>

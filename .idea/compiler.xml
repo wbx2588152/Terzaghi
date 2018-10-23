@@ -11,6 +11,7 @@
         <module name="springcloud-eureka-server" />
         <module name="springcloud-feign" />
         <module name="springcloud-ribbon" />
+        <module name="springcloud-zjw-client" />
         <module name="springcloud-zuul" />
       </profile>
     </annotationProcessing>

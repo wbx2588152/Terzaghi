@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta charset="UTF-8"/>
+<title>Insert title here</title>
+
+<link rel="stylesheet" href="../EasyUI/themes/icon.css"/>
+<link rel="stylesheet" href="../EasyUI/themes/default/easyui.css"/>
+<link rel="stylesheet" href="../EasyUI/themes/color.css"/>
+<script src="../EasyUI/jquery.min.js"></script>
+<script src="../EasyUI/jquery.easyui.min.js"></script>
+<script src="../EasyUI/locale/easyui-lang-zh_CN.js"></script>
+
+</head>
+<body>
+
+	<div id="mypowerpage" class="easyui-layout" data-options="fit:true">   
+	    <div data-options="region:'west',title:'权限树',split:false" style="width:50%;">
+	    	<ul id="powertree"></ul>
+	    	<div id="qmenu" class="easyui-menu" style="width:120px;">
+				<div onclick="append()" data-options="iconCls:'icon-add'">追加</div>
+				<div onclick="remove()" data-options="iconCls:'icon-remove'">移除</div>
+				<div onclick="edit()" data-options="iconCls:'icon-edit'">修改</div>
+			</div>
+	    	<div id="addDiv"></div>
+	    </div>   
+	    <div data-options="region:'east',title:'权限表',split:false" style="width:50%;">
+	    	<table id="powerlist" data-options="fit:true"></table>
+	    </div> 
+	</div>  
+
+
+<script type="text/javascript" src="../js/rolepowerse.js"></script>
+  
+ 
+</body>
+</html>

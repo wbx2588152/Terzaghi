@@ -3,9 +3,11 @@ package com.jk.model;
 import com.jk.model.Page;
 
 public class Menu extends Page{
+	private static final long serialVersionUID = 7360199168250588730L;
+
 	private String id;
 
-	private String navId;
+	private String powerid;
 
 	private String name;
 
@@ -21,12 +23,12 @@ public class Menu extends Page{
 		this.id = id;
 	}
 
-	public String getNavId() {
-		return navId;
+	public String getPowerid() {
+		return powerid;
 	}
 
-	public void setNavId(String navId) {
-		this.navId = navId;
+	public void setPowerid(String powerid) {
+		this.powerid = powerid;
 	}
 
 	public String getName() {
@@ -52,7 +54,4 @@ public class Menu extends Page{
 	public void setCreateTime(String createTime) {
 		this.createTime = createTime;
 	}
-
-
-
 }
