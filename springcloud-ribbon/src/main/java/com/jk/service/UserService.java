@@ -23,7 +23,7 @@ public class UserService {
     public List<User> haError(){
         List<User> list=new ArrayList<>();
         User user =new User();
-        user.setMycode("sorry,error!");
+        //user.setMycode("sorry,error!");
         list.add(user);
         return list;
     }
