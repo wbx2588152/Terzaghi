@@ -33,4 +33,9 @@ public class User implements Serializable {
     public void setMycode(String mycode) {
         this.mycode = mycode;
     }
+
+
+
+
+
 }

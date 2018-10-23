@@ -7,7 +7,6 @@ import java.io.Serializable;
  */
 public class UserRecieverBean implements Serializable {
 
-
     private String id; //表 主键id
 
     private String linkrecieverid; // 关联收货信息表
@@ -37,4 +36,8 @@ public class UserRecieverBean implements Serializable {
     public void setLinkuserid(String linkuserid) {
         this.linkuserid = linkuserid == null ? null : linkuserid.trim();
     }
+
+
+
+
 }
