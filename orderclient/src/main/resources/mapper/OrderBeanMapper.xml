@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jk.mapper.OrderBeanMapper" >
+  <resultMap id="BaseResultMap" type="com.jk.model.OrderBean" >
+    <id column="orderid" property="orderid" jdbcType="VARCHAR" />
+    <result column="linkuserid" property="linkuserid" jdbcType="VARCHAR" />
+    <result column="linkcommodifyid" property="linkcommodifyid" jdbcType="VARCHAR" />
+    <result column="linkbothid" property="linkbothid" jdbcType="VARCHAR" />
+    <result column="paystatus" property="paystatus" jdbcType="VARCHAR" />
+    <result column="orderstatus" property="orderstatus" jdbcType="VARCHAR" />
+    <result column="subtime" property="subtime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    orderid, linkuserid, linkcommodifyid, linkbothid, paystatus, orderstatus, subtime
+  </sql>
+
+
+  <select id="queryordercount" resultType="long">
+    select count(*) FROM t_order tor,t_user tu,t_commodity tc
+    where tor.linkuserid = tu.id and tor.linkcommodifyid = tc.id
+      <if test="orderBean.orderid != null and orderBean.orderid!=''">
+       and tor.orderid like '${orderBean.orderid}'
+      </if>
+      <if test="orderBean.subdate != null and orderBean.subdate!=''">
+          and str_to_date(tor.subtime, '%Y-%m-%d')= str_to_date(#{orderBean.subdate}, '%Y-%m-%d')
+      </if>
+  </select>
+
+  <select id="queryorderlist" resultType="com.jk.model.OrderBean">
+
+    SELECT tor.*,tu.loginname showuseraccount,tc.price showprice FROM t_order tor,t_user tu,t_commodity tc
+    where tor.linkuserid = tu.id and tor.linkcommodifyid = tc.id
+      <if test="orderBean.orderid != null and orderBean.orderid!=''">
+      and  tor.orderid like '${orderBean.orderid}'
+      </if>
+      <if test="orderBean.subdate != null and orderBean.subdate!=''">
+        and str_to_date(tor.subtime, '%Y-%m-%d')= str_to_date(#{orderBean.subdate}, '%Y-%m-%d')
+      </if>
+  </select>
+
+
+<insert id="generateOrdeBean" parameterType="com.jk.model.OrderBean">
+   insert into t_order (orderid, linkuserid, linkcommodifyid,
+      linkbothid, paystatus, orderstatus,
+      subtime)
+    values (#{orderid}, #{linkuserid}, #{linkcommodifyid},
+      #{linkbothid}, #{paystatus}, #{orderstatus},
+      #{subtime})
+
+</insert>
+
+<select id="queryorder" parameterType="string" resultType="com.jk.model.OrderBean">
+  select tor.*,tu.loginname showuseraccount from t_order tor , t_user tu where tor.linkuserid = tu.id
+  and orderid = #{value}
+
+</select>
+
+
+<select id="queryuserreciever" parameterType="string" resultType="com.jk.model.UserRecieverBean">
+  select  * from  t_user_reciever where id = #{value}
+</select>
+
+<select id="queryreciever" parameterType="string" resultType="com.jk.model.RecieverBean">
+  select * from t_reciever where id = #{value}
+</select>
+
+<select id="queryComm" parameterType="String" resultType="com.jk.model.Comm">
+  select * from t_commodity where id = #{value}
+</select>
+
+<select id="queryexpress" parameterType="string" resultType="com.jk.model.ExpressBean">
+  select * from t_express where linkorderid =#{value}
+
+</select>
+
+
+
+
+
+
+
+
+
+
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from t_order
+    where orderid = #{orderid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from t_order
+    where orderid = #{orderid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.jk.model.OrderBean" >
+    insert into t_order (orderid, linkuserid, linkcommodifyid,
+      linkbothid, paystatus, orderstatus,
+      subtime)
+    values (#{orderid,jdbcType=VARCHAR}, #{linkuserid,jdbcType=VARCHAR}, #{linkcommodifyid,jdbcType=VARCHAR},
+      #{linkbothid,jdbcType=VARCHAR}, #{paystatus,jdbcType=VARCHAR}, #{orderstatus,jdbcType=VARCHAR},
+      #{subtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jk.model.OrderBean" >
+    insert into t_order
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="orderid != null" >
+        orderid,
+      </if>
+      <if test="linkuserid != null" >
+        linkuserid,
+      </if>
+      <if test="linkcommodifyid != null" >
+        linkcommodifyid,
+      </if>
+      <if test="linkbothid != null" >
+        linkbothid,
+      </if>
+      <if test="paystatus != null" >
+        paystatus,
+      </if>
+      <if test="orderstatus != null" >
+        orderstatus,
+      </if>
+      <if test="subtime != null" >
+        subtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="orderid != null" >
+        #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="linkuserid != null" >
+        #{linkuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="linkcommodifyid != null" >
+        #{linkcommodifyid,jdbcType=VARCHAR},
+      </if>
+      <if test="linkbothid != null" >
+        #{linkbothid,jdbcType=VARCHAR},
+      </if>
+      <if test="paystatus != null" >
+        #{paystatus,jdbcType=VARCHAR},
+      </if>
+      <if test="orderstatus != null" >
+        #{orderstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="subtime != null" >
+        #{subtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jk.model.OrderBean" >
+    update t_order
+    <set >
+      <if test="linkuserid != null" >
+        linkuserid = #{linkuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="linkcommodifyid != null" >
+        linkcommodifyid = #{linkcommodifyid,jdbcType=VARCHAR},
+      </if>
+      <if test="linkbothid != null" >
+        linkbothid = #{linkbothid,jdbcType=VARCHAR},
+      </if>
+      <if test="paystatus != null" >
+        paystatus = #{paystatus,jdbcType=VARCHAR},
+      </if>
+      <if test="orderstatus != null" >
+        orderstatus = #{orderstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="subtime != null" >
+        subtime = #{subtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where orderid = #{orderid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jk.model.OrderBean" >
+    update t_order
+    set linkuserid = #{linkuserid,jdbcType=VARCHAR},
+      linkcommodifyid = #{linkcommodifyid,jdbcType=VARCHAR},
+      linkbothid = #{linkbothid,jdbcType=VARCHAR},
+      paystatus = #{paystatus,jdbcType=VARCHAR},
+      orderstatus = #{orderstatus,jdbcType=VARCHAR},
+      subtime = #{subtime,jdbcType=TIMESTAMP}
+    where orderid = #{orderid,jdbcType=VARCHAR}
+  </update>
+</mapper>
