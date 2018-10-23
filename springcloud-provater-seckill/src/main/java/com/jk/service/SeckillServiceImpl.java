@@ -7,6 +7,7 @@ import com.jk.model.SeckillTimeBean;
 import com.jk.model.TimeLimitSeckill;
 import com.jk.service.seckill.SeckilServiceApi;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
@@ -88,8 +89,13 @@ public class SeckillServiceImpl implements SeckilServiceApi {
     }
 
     @Override
-    public void addRegion(RegionBean regionBean) {
+    public void addRegion(@RequestBody RegionBean regionBean) {
         seckillMapper.addRegion(regionBean);
+    }
+
+    @Override
+    public void deleteRegion(String id) {
+        seckillMapper.deleteRegion(id);
     }
 
     @Override

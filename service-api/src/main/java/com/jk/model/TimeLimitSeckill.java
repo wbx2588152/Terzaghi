@@ -20,7 +20,7 @@ public class TimeLimitSeckill implements Serializable {
 
     private String seckillPrice;    //秒杀价格
 
-    private String limitationCount;    //限购数量
+    private String limitationCount;    //已经抢了多少数量
 
     private String commmondityImg;  //商品封面  秒杀封面
 
@@ -30,8 +30,6 @@ public class TimeLimitSeckill implements Serializable {
 
     private String timeLimit;   //限时 分钟
 
-    private String residueCount;   //临时字段 已经抢了多少数量
-
     private String status;   //状态 上架和下架
 
     public void setEndTime(Date endTime) {
@@ -40,14 +38,6 @@ public class TimeLimitSeckill implements Serializable {
 
     public Date getEndTime() {
         return endTime;
-    }
-
-    public void setResidueCount(String residueCount) {
-        this.residueCount = residueCount;
-    }
-
-    public String getResidueCount() {
-        return residueCount;
     }
 
     public void setAddTime(Date addTime) {

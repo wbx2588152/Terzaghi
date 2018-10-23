@@ -22,7 +22,7 @@ public class SeckilCommodity implements Serializable {
 
     private String seckillCount;    //秒杀数量
 
-    private String limitationCount;    //限购数量
+    private String limitationCount;    //已经抢了多少数量
 
     private String surplusCount;    //剩余数量
 

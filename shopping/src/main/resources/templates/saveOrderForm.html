@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- saved from url=(0038)http://www.happyjinke.com/confirm.html -->
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge"> <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -74,12 +74,10 @@
 
             <span id="dizhi"></span>
 
-            <script src="../saveOrderForm_files/saveOrderForm.js"></script>
-
-            <div class="address-item add">
+            <div class="address-item add" id="addRegion">
                 <div class="address-new">
                     <i class="fa fa-plus"></i>
-                    <div class="text" id="addRegion()">使用新地址
+                    <div class="text">使用新地址
                     </div>
                 </div>
             </div>
@@ -96,28 +94,27 @@
                     <th width="20%" align="center">小计</th>
                 </tr>
                 <tr> <td class="product-cell cell-img">
-                    <a href="http://www.happyjinke.com/detail.html?productId=26" target="_blank">
-                        <img class="p-img" src="../saveOrderForm_files/241997c4-9e62-4824-b7f0-7425c3c28917.jpeg" alt="测试使用Apple iPhone 7 Plus (A1661) 128G手机"></a> </td>
+                    <a href="" target="_blank">
+                        <img class="p-img" th:src="${commmondityImg}" th:alt="${artNo}"></a> </td>
                     <td align="left">
-                        <a class="link p-name" href="http://www.happyjinke.com/detail.html?productId=26" target="_blank">
-                            测试使用Apple iPhone 7 Plus (A1661) 128G手机
+                        <a class="link p-name" href="javascript:;" target="_blank">
+                            <span th:text="${artNo}"></span>
                         </a>
                     </td>
-                    <td align="center">￥6997</td>
+                    <td align="center">￥<span th:text="${seckillPrice}"></span></td>
                     <td align="center">x1</td>
-                    <td align="center">￥6997</td>
+                    <td align="center">￥<span th:text="${seckillPrice}"></span></td>
                 </tr>
                 </tbody>
             </table>
             <div class="submit-con"> <span>订单总价：</span>
-                <span class="submit-total">￥6997</span>
+                <span class="submit-total">￥<span th:text="${seckillPrice}"></span></span>
                 <span class="btn order-submit">提交订单</span>
             </div></div>
     </div>
 </div>
 
-<div class="show_info">
-    <span>
+<div id="p4" style="display:none">
     <div class="modal-wrap">
         <div class="modal mask close">
             <div class="modal-container">
@@ -126,32 +123,36 @@
                     <i class="fa fa-close close" id="closeRegionTanKuang"></i>
                 </div>
                 <div class="modal-body">
-                <div class="form">
-                    <div class="form-line">
+                    <div class="form">
+                    <form id="addRegionForm">
+                        <div class="form-line">
+                            <label class="label">
+                                <span class="form-require">*</span>收件人姓名:
+                            </label>
+                            <input class="form-item name" id="receiver-name" type="text" placeholder="请输入收件人姓名" name="name">
+                        </div>
+                        <div class="form-line">
                         <label class="label">
-                            <span class="form-require">*</span>收件人姓名:
-                        </label>
-                        <input class="form-item name" id="receiver-name" type="text" placeholder="请输入收件人姓名" value="">
-                    </div>
-                    <div class="form-line">
-                    <label class="label">
-                        <span class="form-require">*</span>
-                        所在城市:</label>
-                        <select class="form-item province-select" id="receiver-province"><option value="">请选择</option><option value="北京">北京</option><option value="上海">上海</option><option value="天津">天津</option><option value="重庆">重庆</option><option value="河北省">河北省</option><option value="山西省">山西省</option><option value="辽宁省">辽宁省</option><option value="吉林省">吉林省</option><option value="黑龙江省">黑龙江省</option><option value="江苏省">江苏省</option><option value="浙江省">浙江省</option><option value="安徽省">安徽省</option><option value="福建省">福建省</option><option value="江西省">江西省</option><option value="山东省">山东省</option><option value="河南省">河南省</option><option value="湖北省">湖北省</option><option value="湖南省">湖南省</option><option value="广东省">广东省</option><option value="海南省">海南省</option><option value="四川省">四川省</option><option value="贵州省">贵州省</option><option value="云南省">云南省</option><option value="陕西省">陕西省</option><option value="甘肃省">甘肃省</option><option value="青海省">青海省</option><option value="内蒙古">内蒙古</option><option value="广西">广西</option><option value="西藏">西藏</option><option value="宁夏">宁夏</option><option value="新疆">新疆</option><option value="香港">香港</option><option value="澳门">澳门</option><option value="台湾">台湾</option></select>
-                        <select class="form-item city-select" id="receiver-city"> <option value="">请选择</option> </select> </div> <div class="form-line"> <label class="label"><span class="form-require">*</span>
-                        详细地址:</label> <input class="form-item" id="receiver-address" type="text" placeholder="请精确到门牌号" value=""> </div>
-                    <div class="form-line"> <label class="label"><span class="form-require">*</span>收件人手机号:</label> <input class="form-item" id="receiver-phone" type="text" placeholder="请输入11位手机号" value=""> </div>
-                    <div class="form-line"> <label class="label">
-                        邮政编码:</label> <input class="form-item" id="receiver-zip" type="text" placeholder="如：100000" value=""> </div>
-                    <div class="form-line"> <input type="hidden" id="receiver-id" value="">
-        <a class="btn form-btn address-save">保存收货地址</a>
-                    </div>
+                            <span class="form-require">*</span>
+                            所在省:</label>
+                            <select class="form-item province-select" id="receiver-province" name="sheng"><option value="北京市">请选择</option><option value="北京">北京</option><option value="上海">上海</option><option value="天津">天津</option><option value="重庆">重庆</option><option value="河北省">河北省</option><option value="山西省">山西省</option><option value="辽宁省">辽宁省</option><option value="吉林省">吉林省</option><option value="黑龙江省">黑龙江省</option><option value="江苏省">江苏省</option><option value="浙江省">浙江省</option><option value="安徽省">安徽省</option><option value="福建省">福建省</option><option value="江西省">江西省</option><option value="山东省">山东省</option><option value="河南省">河南省</option><option value="湖北省">湖北省</option><option value="湖南省">湖南省</option><option value="广东省">广东省</option><option value="海南省">海南省</option><option value="四川省">四川省</option><option value="贵州省">贵州省</option><option value="云南省">云南省</option><option value="陕西省">陕西省</option><option value="甘肃省">甘肃省</option><option value="青海省">青海省</option><option value="内蒙古">内蒙古</option><option value="广西">广西</option><option value="西藏">西藏</option><option value="宁夏">宁夏</option><option value="新疆">新疆</option><option value="香港">香港</option><option value="澳门">澳门</option><option value="台湾">台湾</option></select>
+                             </div>
+                        <div class="form-line"> <label class="label"><span class="form-require">*</span>
+                            详细地址:</label> <input class="form-item" id="receiver-address" type="text" placeholder="请精确到门牌号" name="inDetail"> </div>
+                        <div class="form-line">
+                            <label class="label">
+                                <span class="form-require">*</span>收件人手机号:
+                            </label>
+                            <input class="form-item" id="receiver-phone" type="text" placeholder="请输入11位手机号" name="phone"> </div>
+                        <div class="form-line">
+                            <a class="btn form-btn address-save" id="subAddRegion">保存收货地址</a>
+                        </div>
+                    </form>
                 </div>
             </div>
             </div>
         </div>
     </div>
-    </span>
 </div>
 
 <div class="footer">
@@ -165,6 +166,79 @@
         <p class="copyright"> Copyright © 2018 happyjinke.com All Rights Reserved </p>
     </div>
 </div>
+
+<script>
+
+    $('#addRegion').click(function(){
+        $("#p4").attr('style','');
+    })
+
+    $("#closeRegionTanKuang").click(function(){
+        $("#p4").attr('style','display:none');
+    })
+
+    $(function(){
+        initSaveOrderForm();
+    })
+
+    function initSaveOrderForm(){
+        $.ajax({
+            url:'../seckill/queryRegionList',
+            type:'post',
+            data:{},
+            dataType:'json',
+            success:function(result){
+                var html = "";
+                for(var i=0;i<result.length;i++){
+                    html +='<a class="address-item" id="address'+i+'" onclick="biankuang('+i+')">\n' +
+                        '                <div class="address-title">\n' +
+                        '                    <span class="city">'+result[i].sheng+'</span> <span class="name">（ '+result[i].name+' 收 ）</span>\n' +
+                        '                </div>\n' +
+                        '                <div class="address-detail"> '+result[i].inDetail+' 18611339101 </div>\n' +
+                        '                <div class="address-opera">\n' +
+                        /*'                    <span class="link address-update">编辑</span>\n' +*/
+                        '                    <span class="link address-delete" onclick="deleteRegion(\''+result[i].id+'\')">删除</span>\n' +
+                        '                </div>\n' +
+                        '            </a>';
+                }$('#dizhi').html(html);
+            }
+        })
+    }
+
+    function deleteRegion(id){
+        $.ajax({
+            url:'../seckill/deleteRegion',
+            type:'post',
+            data:{
+                id:id
+            },
+            dataType:'json',
+            success:function(){
+                initSaveOrderForm();
+            }
+        })
+    }
+
+    function biankuang(i){
+        $(".address-item").attr("class","address-item");
+        $("#address"+i).attr("class","address-item active");
+    }
+
+    $('#subAddRegion').click(function(){
+        $.ajax({
+            url:'../seckill/addRegion',
+            data:$('#addRegionForm').serialize(),
+            type:'post',
+            dataType:'json',
+            success:function(){
+                $("#p4").attr('style','display:none');
+                initSaveOrderForm();
+            }
+        })
+    })
+
+</script>
+
 <script src="../saveOrderForm_files/jquery.js"></script>
 <!--<script type="text/javascript" src="../saveOrderForm_files/base.js"></script>-->
 <script type="text/javascript" src="../saveOrderForm_files/common.js"></script>

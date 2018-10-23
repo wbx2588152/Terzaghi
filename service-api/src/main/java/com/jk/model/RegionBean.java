@@ -12,11 +12,9 @@ public class RegionBean implements Serializable {
 
     private String sheng;   //省明称
 
-    private String shi;     //市名称
-
     private String inDetail;    //详细地址
 
-    private String userid;  //关联用户表id
+    private String userId;  //关联用户表id
 
     public void setInDetail(String inDetail) {
         this.inDetail = inDetail;
@@ -26,12 +24,12 @@ public class RegionBean implements Serializable {
         return inDetail;
     }
 
-    public void setUserid(String userid) {
-        this.userid = userid;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public String getUserid() {
-        return userid;
+    public String getUserId() {
+        return userId;
     }
 
     public String getId() {
@@ -54,10 +52,6 @@ public class RegionBean implements Serializable {
         this.sheng = sheng;
     }
 
-    public void setShi(String shi) {
-        this.shi = shi;
-    }
-
     public String getName() {
         return name;
     }
@@ -70,7 +64,4 @@ public class RegionBean implements Serializable {
         return sheng;
     }
 
-    public String getShi() {
-        return shi;
-    }
 }

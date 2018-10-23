@@ -2,9 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.jk.mapper.SeckillMapper" >
 
+	<delete id="deleteRegion">
+		delete from t_region where id = #{id}
+	</delete>
 
 	<insert id="addRegion">
-		insert into t_region values(#{r.id},#{r.name},#{r.phone},#{r.sheng},#{r.shi},#{r.inDetail},#{r.userId})
+		insert into t_region values(#{r.id},#{r.name},#{r.phone},#{r.sheng},#{r.inDetail},#{r.userId})
 	</insert>
 
 	<select id="queryRegionList" resultType="com.jk.model.RegionBean">

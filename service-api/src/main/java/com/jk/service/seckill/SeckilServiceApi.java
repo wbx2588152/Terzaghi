@@ -54,4 +54,7 @@ public interface SeckilServiceApi {
 
     @RequestMapping(value = "/addRegion",method = RequestMethod.POST)
     void addRegion(@RequestBody RegionBean regionBean);
+
+    @RequestMapping(value = "/deleteRegion",method = RequestMethod.POST)
+    void deleteRegion(@RequestParam(value = "id")String id);
 }

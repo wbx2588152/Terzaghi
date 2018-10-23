@@ -8,6 +8,7 @@ import com.jk.service.seckill.SeckilServiceApi;
 import org.apache.catalina.mbeans.UserMBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -31,16 +32,28 @@ public class SeckillController {
     @Autowired
     private SeckilServiceApi seckilServiceApi;
 
+
+    /**
+     * 删除收货地址
+     * */
+    @RequestMapping("deleteRegion")
+    @ResponseBody
+    public String deleteRegion(String id){
+        seckilServiceApi.deleteRegion(id);
+        return "{}";
+    }
+
     /**
      * 新增收货地址
      * */
     @RequestMapping("addRegion")
     @ResponseBody
     public String addRegion(RegionBean regionBean,HttpServletRequest request){
-        HttpSession session = request.getSession();
+       /* HttpSession session = request.getSession();
         User user = (User) session.getAttribute(session.getId());
+        regionBean.setUserid(user.getId());*/
         regionBean.setId(UUID.randomUUID().toString().replace("-",""));
-        regionBean.setUserid(user.getId());
+        regionBean.setUserId("3");
         seckilServiceApi.addRegion(regionBean);
         return "{}";
     }
@@ -69,13 +82,15 @@ public class SeckillController {
      * */
     @RequestMapping("queryDaoJiShi")
     @ResponseBody
-    public long queryDaoJiShi(String id) {
+    public long queryDaoJiShi(String id) throws ParseException {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:ss:mm");
         TimeLimitSeckill timeLimitSeckill = seckilServiceApi.queryDaoJiShi(id);
-        long addTime1 = timeLimitSeckill.getEndTime().getTime();
-        Date date = new Date();
-        long time = date.getTime();
-        long time1 = (addTime1 - time) / 1000;
-        return time1;
+        String date = simpleDateFormat.format(new Date());
+        String endTime = simpleDateFormat.format(timeLimitSeckill.getEndTime());
+        Date date1 = simpleDateFormat.parse(date);
+        Date end = simpleDateFormat.parse(endTime);
+        long  miao=(end.getTime()-date1.getTime())/1000;//除以1000是为了转换成秒
+        return miao;
     }
 
     /**
@@ -103,7 +118,11 @@ public class SeckillController {
      * 跳转到支付页面
      * */
     @RequestMapping("tosaveOrderForm")
-    public String tosaveOrderForm(){
+    public String tosaveOrderForm(String id, String artNo, String seckillPrice, String commmondityImg, ModelMap modelMap){
+        modelMap.put("id",id);
+        modelMap.put("artNo",artNo);
+        modelMap.put("seckillPrice",seckillPrice);
+        modelMap.put("commmondityImg",commmondityImg);
         return "saveOrderForm";
     }
 

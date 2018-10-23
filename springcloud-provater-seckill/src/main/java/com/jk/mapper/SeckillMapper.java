@@ -43,4 +43,6 @@ public interface SeckillMapper {
     List<RegionBean> queryRegionList(@Param("userId")String userId);
 
     void addRegion(@Param("r")RegionBean regionBean);
+
+    void deleteRegion(@Param("id")String id);
 }
