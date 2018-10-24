@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jk.mapper.UserMapper">
+	<select id="getpowerlist" parameterType="string" resultType="com.jk.model.Power">
+	  SELECT DISTINCT tp.*  FROM t_power tp
+		LEFT JOIN t_role_power trp ON trp.powerId = tp.id
+		LEFT JOIN t_role tr on tr.id=trp.roleid
+		LEFT JOIN t_user_role tur on trp.roleid=tur.roleid
+		where tur.userid =#{value}
+	</select>
+
+	<!-- 用户列表 -->
+	<select id="queryUser" resultType="long">
+		select count(*) from t_user
+	</select>
+
+	<select id="queryUserList" resultType="com.jk.model.User">
+		select * from t_user
+		limit #{st},#{end}
+	</select>
+
+	<select id="queryRoleList" resultType="com.jk.model.Role">
+  		select * from t_role
+  	</select>
+
+	<select id="queryRole" resultType="com.jk.model.Role">
+  		select * from t_role
+  	</select>
+
+	<delete id="deleteUser">
+  		delete  from t_user where id = #{id}
+  	</delete>
+
+	<delete id="deleteUserRole">
+  		delete from t_user_role
+
+  		where userid = #{id}
+  	</delete>
+
+	<insert id="saveUser">
+		<selectKey keyProperty="id" resultType="String" order="BEFORE">
+			select replace(uuid(),'-','') from dual
+		</selectKey>
+		insert into t_user(id,loginname,password,name,sex,lastdate,roleid,status)
+		values(#{id},#{loginname},#{password},#{name},#{sex},#{lastdate},#{roleid},#{status})
+	</insert>
+
+	<insert id="saveUserRole" parameterType="list">
+		insert into t_user_role values
+		<foreach collection="list" item="item" index="index" separator=",">
+			(#{item.id},#{item.userid},#{item.roleid})
+		</foreach>
+	</insert>
+
+	<select id="queryUserById" resultType="com.jk.model.User">
+  		select * from t_user where id = #{id}
+  	</select>
+
+	<select id="queryRole2" parameterType="String" resultType="com.jk.model.Role">
+  		select roleid as id from t_user_role where userid = #{value}
+  	</select>
+
+	<update id="updateUser" parameterType="com.jk.model.User">
+  		update t_user set roleid = #{user.roleid} where id = #{user.id}
+  	</update>
+
+	<delete id="delManyUsertoUserId" parameterType="com.jk.model.User">
+		delete from t_user_role where userid =#{id}
+	</delete>
+
+	<insert id="saveUsertoRole" parameterType="com.jk.model.UserRole">
+		insert into t_user_role (id,userid,roleid) values
+		(#{id},#{userid},#{roleid})
+	</insert>
+
+	<select id="getRoleTotal" resultType="int">
+          select count(*) from t_role
+ 	</select>
+
+
+
+	<select id="getRoleList" resultType="com.jk.model.Role">
+          select * from t_role  limit #{st},#{end}
+ 	</select>
+
+
+
+	<select id="getNavIdListByRoleId" parameterType="string" resultType="com.jk.model.RolePower">
+	select * from
+	t_role_power where roleId = #{value}
+	</select>
+
+
+	<select id="getNavListByRoleId" parameterType="map" resultType="com.jk.model.Power">
+	select * from t_power where pid = #{id,jdbcType=VARCHAR}
+	</select>
+
+
+	<delete id="delRoleNavByRoleId" parameterType="string">
+	delete from t_role_power where roleId = #{value}
+	</delete>
+
+	<insert id="saveRoleNav" parameterType="list">
+		insert into t_role_power (id,roleId,powerId)  values
+		<foreach collection="list" item="item" index="index" separator=",">
+			(#{item.id},#{item.roleId},#{item.powerId})
+		</foreach>
+	</insert>
+
+
+	<insert id="addRole">
+	   insert into t_role (id,name) values(#{r.id},#{r.name})
+	</insert>
+
+	<select id="toEditRole" resultType="com.jk.model.Role">
+	   select * from t_role where id = #{r.id}
+	</select>
+
+	<update id="updateRole">
+	   update t_role set name=#{r.name} where id = #{r.id}
+	</update>
+
+	<delete id="deleteRole">
+	   delete from t_role where id = #{r.id}
+	</delete>
+
+	<delete id="delManyNav" >
+		delete from t_power where id in
+		<foreach item="item" collection="ids" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</delete>
+
+	<select id="getNavALLById" parameterType="string" resultType="com.jk.model.Power">
+		select * from t_power where pid=#{id}
+	</select>
+
+	<update id="editOneNav" parameterType="com.jk.model.Power" >
+		update t_power set text=#{text} ,url=#{url} where id=#{id}
+	</update>
+
+	<insert id="saveOneNav" parameterType="com.jk.model.Power">
+		insert into t_power (id,text,url,pid) values
+		(#{id},#{text},#{url},#{pid})
+	</insert>
+
+	<insert id="addOneMenu" parameterType="com.jk.model.Menu">
+		insert into t_menu (id,power_id,name,url,createTime) values
+		(#{id},#{powerid},#{name},#{url},#{createTime})
+	</insert>
+
+	<delete id="delmanyMenu" >
+		delete from t_menu where id in
+		<foreach item="item" collection="ids" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</delete>
+
+	<update id="editOneMenu" parameterType="com.jk.model.Menu">
+		update t_menu set name=#{name},url=#{url},createTime=#{createTime}
+		where id=#{id}
+	</update>
+
+	<select id="getOneMenu" parameterType="String" resultType="com.jk.model.Menu">
+		select * from t_menu where id=#{value}
+	</select>
+
+	<select id="getMenuListByNavid" parameterType="com.jk.model.Menu" resultType="com.jk.model.Menu">
+		select id, name , url , date_format(createTime,'%Y-%m-%d %H:%I:%S') as createTime
+		from t_menu where power_id=#{powerid} limit #{startIndex},#{rows}
+	</select>
+
+	<select id="querygetMenuCountByNavid" parameterType="com.jk.model.Menu" resultType="int">
+		select count(1) from t_menu where power_id=#{powerid}
+	</select>
+
+
+</mapper>

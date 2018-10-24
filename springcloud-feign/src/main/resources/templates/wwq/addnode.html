@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<title>Insert title here</title>
+</head>
+<body>
+<form id="addnavform">
+		<table align="center">
+			<tr>
+				<td>节点名称</td>
+				<td>
+					<input name="text"/>
+					<input type="hidden" name="pid" th:value="${nodeid}"/>
+				</td>
+			</tr>
+			<tr>
+				<td>跳转地址</td>
+				<td>
+					<input name="url"/>
+				</td>
+			</tr>
+		</table>
+	</form>
+ 
+  
+ 
+	<script>
+		function addOneNav(){
+			$.ajax({
+				url:'../wwquser/addOneNav.do',
+				type:'post',
+				data:$("#addnavform").serialize(),
+				dataType:'json',
+				success:function(result){
+					
+				}
+				
+			})
+		}
+	</script>
+</body>
+</html>

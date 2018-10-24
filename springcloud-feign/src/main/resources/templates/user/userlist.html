@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<title>Insert title here</title>
+<link href="../layui/css/layui.css" rel="stylesheet"/>
+
+<script src="../layui/layui.js"></script>
+
+<script src="../layui/layui.all.js"></script>
+
+<script src="../layui/jquery-1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<br/>
+<table class="layui-hide" id="demo" lay-filter="test"></table>
+
+<script type="text/html" id="toolbarDemo">
+	<div class="layui-btn-container">
+		<button class="layui-btn layui-btn-normal" lay-event="add">新&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;增</button>
+		<button class="layui-btn layui-btn-danger" lay-event="delete">批量删除</button>
+		<!--<button class="layui-btn layui-btn-danger" data-type="getCheckData"><i class="layui-icon"> </i>批量删除</button>-->
+	</div>
+</script>
+
+<script type="text/html" id="barDemo">
+	<a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+	<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+	<script type="text/javascript">
+		$(function(){
+			search();
+		})
+		function search(){
+            layui.use(['laydate', 'laypage', 'layer', 'table', 'upload', 'element', 'slider'], function () {
+                var laydate = layui.laydate //日期
+                    , laypage = layui.laypage //分页
+                    , layer = layui.layer //弹层
+                    , table = layui.table //表格
+                    , upload = layui.upload //上传
+                    , element = layui.element //元素操作
+
+                table.render({
+                    elem: '#demo',
+                    height: true,
+                    url: '/wbx/queryUser', //数据接口
+                    title: '用户表',
+                    page: true, //开启分页
+                    toolbar: '#toolbarDemo', //开启工具栏，此处显示默认图标，可以自定义模板，详见文档
+                    totalRow: false,//开启合计行
+                    cols: [
+                        [ //表头
+                            {checkbox: true, align: 'center', LAY_CHECKED: false, filter: 'test'},
+                            /*{type: 'checkbox', fixed: 'left'},*/
+                            {field: 'id', title: 'Id', width: 100, align: "center"},
+                            {field: 'name', title: '用户名', width: 100, align: "center"},
+                            {field: 'loginname', title: '账号', width: 100, align: "center"},
+                            {field: 'password', title: '密码', width: 100 /*sort: true, totalRow: true*/},
+                            {field: 'sex', title: '性别', width: 100,
+                                templet: function (d) {
+                                    if (d.sex == 1) {
+                                        return '男';
+                                    } else {
+                                        return '女';
+                                    }
+                                }
+                            },
+                            {field: 'lastdate', title: '最近登录时间', width: 100},
+                            {field: 'rolename', title: '角色', width: 100, align: "center"},
+                            {fixed: 'right', title: '操作', toolbar: '#barDemo', width: 120}
+
+                        ]
+                    ],
+                    id: 'testReload'
+                });
+
+
+                //监听头工具栏事件
+                table.on('toolbar(test)', function (obj) {
+                    var data = obj.data //获得当前行数据
+                        , layEvent = obj.event; //获得 lay-event 对应的值
+                    if (layEvent === 'add') {
+                        layer.open({
+                            type: 2,
+                            title: '新增配置',
+                            skin: 'layui-layer-rim', //加上边框
+                            area: ['500px', '600px'], //宽高
+                            content: '/wbx/toAdd',
+                            end: function () {
+                                location.reload();
+                            }
+                        });
+                    } else if (layEvent === 'delete') {
+                        var checkStatus = table.checkStatus('testReload')
+                            , data = checkStatus.data;
+                        var ids = "";
+                        if (data.length > 0) {
+                            for (var i = 0; i < data.length; i++) {
+                                ids += data[i].id + ",";
+                            }
+                        }
+                        layer.confirm('确定要删除' + ids + '商品吗?', function (index) {
+                            $.ajax({
+                                type: 'POST',
+                                url: '/comm/deleteAllComm',
+                                data: {"ids": ids},
+                                success: function (data) {
+                                    initsearch();
+                                    layer.msg("删除成功", {icon: 6});
+                                }
+                            });
+
+                        });
+
+                    }
+                });
+
+
+                //监听行工具事件
+                table.on('tool(test)', function (obj) { //注：tool 是工具条事件名，test 是 table 原始容器的属性 lay-filter="对应的值"
+                    var data = obj.data //获得当前行数据
+
+                        , layEvent = obj.event; //获得 lay-event 对应的值
+                    if (layEvent === 'edit') {
+                        layer.open({
+                            type: 2,
+                            title: '修改配置',
+                            skin: 'layui-layer-rim', //加上边框
+                            area: ['400px', '500px'], //宽高
+                            method: 'get',
+                            content: '/wbx/toEdit?id='+data.id,
+                            data: {'id': data.name},
+                            end: function () {
+                                location.reload();
+                            }
+                        });
+                    } else if (layEvent === 'del') {
+                        layer.confirm('真的删除ID为' + data.id + '的商品吗?', function (index) {
+                            $.ajax({
+                                url: '/wbx/deleteUser',
+                                data: {'id': data.id},
+                                method: 'get',
+                                contentType: 'application/json',
+                                success: function (data) {
+                                    obj.del();
+                                    layer.close(index);
+                                    layer.msg("删除成功", {icon: 6});
+                                }
+                            })
+
+                            layer.close(index);
+                        });
+                    }
+                });
+
+
+                //将日期直接嵌套在指定容器中
+                var dateIns = laydate.render({
+                    elem: '#laydateDemo'
+                    , position: 'static'
+                    , calendar: true //是否开启公历重要节日
+                    , mark: { //标记重要日子
+                        '0-10-14': '生日'
+                        , '2018-08-28': '新版'
+                        , '2018-10-08': '神秘'
+                    }
+                    , done: function (value, date, endDate) {
+                        if (date.year == 2017 && date.month == 11 && date.date == 30) {
+                            dateIns.hint('一不小心就月底了呢');
+                        }
+                    }
+                    , change: function (value, date, endDate) {
+                        layer.msg(value)
+                    }
+                });
+
+                //分页
+                laypage.render({
+                    elem: 'pageDemo' //分页容器的id
+                    , count: 100 //总页数
+                    , skin: '#1E9FFF' //自定义选中色值
+                    //,skip: true //开启跳页
+                    , jump: function (obj, first) {
+                        if (!first) {
+                            layer.msg('第' + obj.curr + '页', {offset: 'b'});
+                        }
+                    }
+                });
+
+                //上传
+                upload.render({
+                    elem: '#uploadDemo'
+                    , url: '' //上传接口
+                    , done: function (res) {
+                        console.log(res)
+                    }
+                });
+
+                /*slider.render({
+                elem: '#sliderDemo'
+                ,input: true //输入框
+            });
+
+            //底部信息
+            var footerTpl = lay('#footer')[0].innerHTML;
+            lay('#footer').html(layui.laytpl(footerTpl).render({}))
+                .removeClass('layui-hide');*/
+
+
+            });
+		}
+		function upUser(id){
+			
+			$('#addUser').dialog({
+				title:'修改页面',
+				href:'/wbx/toEdit?id='+id,
+				width:500,
+				height:200,
+				modal:false,
+				buttons:[{
+					text:'保存',
+					handler:function(){
+						$.ajax({
+							url:'/people/updateUser',
+							type:'post',
+							data:$('#editFormUser').serialize(),
+							success:function(msg){
+								$('#addUser').dialog('close');
+								search()
+								$.messager.show({
+									title:'我的消息',
+									msg:'修改成功',
+									timeout:2000,
+									showType:'slide'
+								});
+							}
+						})
+						
+					}
+					
+				},{
+					text:'关闭',
+					handler:function(){
+						$('#addUser').dialog("close");
+					}
+				}]
+			});
+		}
+		
+		function delUser(id){
+			$.ajax({
+				url:'/wbx/deleteUser.do?id='+id,
+				type:'post',
+				data:$('#id').serialize(),
+				success:function(inof){
+					search()
+					$.messager.show({
+						title:'我的消息',
+						msg:'删除成功',
+						timeout:2000,
+						showType:'slide'
+					});
+				}
+			})
+		}
+
+					
+
+		function downExcel(){
+			
+			location.href="../wbx/downExcel";
+			
+		}
+</script>
+</body>
+</html>

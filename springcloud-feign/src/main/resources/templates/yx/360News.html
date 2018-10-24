@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+</head>
+<body>
+
+<span id="ccd"></span>
+
+
+
+
+
+<script type="text/javascript">
+$(function(){
+	$.ajax({
+		url:'/yx/getbotanswer',
+		type:'post',
+		dataType:'json',
+		success:function(result){
+			
+			$('#ccd').html(result);
+		},
+		error:function(result){
+			alert("777");
+		}
+		
+	})
+})
+
+
+
+</script>
+
+
+</body>
+</html>
