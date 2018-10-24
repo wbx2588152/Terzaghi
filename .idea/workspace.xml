@@ -36,6 +36,15 @@
       <change beforePath="$PROJECT_DIR$/springcloud-feign/src/main/java/com/jk/util/HttpClientUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-feign/src/main/java/com/jk/util/HttpClientUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springcloud-feign/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-feign/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-api/src/main/java/com/jk/model/TimeLimitSeckill.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-api/src/main/java/com/jk/model/TimeLimitSeckill.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-api/src/main/java/com/jk/service/seckill/SeckilServiceApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-api/src/main/java/com/jk/service/seckill/SeckilServiceApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shopping/src/main/java/com/jk/controller/seckill/SeckillController.java" beforeDir="false" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/jk/controller/seckill/SeckillController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shopping/src/main/resources/static/seckill/yiYuanMiaoSha.js" beforeDir="false" afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/seckill/yiYuanMiaoSha.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shopping/src/main/resources/templates/seckillList.html" beforeDir="false" afterPath="$PROJECT_DIR$/shopping/src/main/resources/templates/seckillList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-provater-seckill/src/main/java/com/jk/mapper/SeckillMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-provater-seckill/src/main/java/com/jk/mapper/SeckillMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-provater-seckill/src/main/java/com/jk/mapper/SeckillMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-provater-seckill/src/main/java/com/jk/mapper/SeckillMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-provater-seckill/src/main/java/com/jk/service/SeckillServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-provater-seckill/src/main/java/com/jk/service/SeckillServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-provater-seckill/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-provater-seckill/src/main/resources/application.yml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -48,6 +57,10 @@
     <ignored path="$PROJECT_DIR$/springcloud-zuul/target/" />
     <ignored path="$PROJECT_DIR$/springcloud-zjw-client/target/" />
     <ignored path="$PROJECT_DIR$/springcloud-coupon-client/target/" />
+    <ignored path="$PROJECT_DIR$/springcloutdseckill/target/" />
+    <ignored path="$PROJECT_DIR$/springcloud-seckill/target/" />
+    <ignored path="$PROJECT_DIR$/springcloud-provater-seckill/target/" />
+    <ignored path="$PROJECT_DIR$/shopping/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,11 +86,10 @@
           <entry key="project.open.time.33" value="2" />
           <entry key="project.open.time.34" value="1" />
           <entry key="project.open.time.5" value="2" />
-          <entry key="project.open.time.6" value="10" />
-          <entry key="project.open.time.7" value="4" />
-          <entry key="project.open.time.8" value="2" />
-          <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="34" />
+          <entry key="project.open.time.6" value="7" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.opened" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -114,13 +126,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="8" />
-          <entry key="html" value="1146" />
-          <entry key="java" value="4514" />
-          <entry key="js" value="150" />
-          <entry key="txt" value="26" />
-          <entry key="xml" value="257" />
-          <entry key="yml" value="219" />
+          <entry key="dummy" value="3" />
+          <entry key="html" value="2" />
+          <entry key="java" value="2341" />
+          <entry key="txt" value="12" />
+          <entry key="xml" value="13" />
+          <entry key="yml" value="157" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -194,6 +205,15 @@
               <folding>
                 <element signature="e#506#507#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/springcloud-feign/src/main/java/com/jk/service/impl/UserError.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-503">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
             </state>
           </provider>
         </entry>
@@ -377,7 +397,6 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
@@ -441,9 +460,6 @@
     <configuration name="SpringcloudFeignApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="springcloud-feign" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.jk.SpringcloudFeignApplication" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="UPDATE_ACTION_UPDATE_POLICY" value="UpdateClassesAndResources" />
-      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -476,8 +492,6 @@
       <item itemvalue="Spring Boot.SpringcloudRibbonApplication" />
       <item itemvalue="Spring Boot.SpringcloudFeignApplication" />
       <item itemvalue="Spring Boot.SpringcloudZuulApplication" />
-      <item itemvalue="Spring Boot.SpringcloudZjwClientApplication" />
-      <item itemvalue="Spring Boot.SpringcloudCouponClientApplication" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -826,7 +840,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/springcloud-feign/src/main/java/com/jk/ConstantsConf.java">
+    <entry file="file://$PROJECT_DIR$/springcloud-ribbon/src/main/resources/application.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-176">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
