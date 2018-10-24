@@ -32,6 +32,13 @@ public class SeckillController {
     @Autowired
     private SeckilServiceApi seckilServiceApi;
 
+    /**
+     * 跳转到付款页面
+     * */
+    @RequestMapping("toPayment")
+    public String toPayment(){
+        return "payment";
+    }
 
     /**
      * 删除收货地址
