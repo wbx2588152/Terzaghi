@@ -7,6 +7,7 @@ import com.jk.service.UserService;
 import org.apache.solr.client.solrj.SolrClient;
 import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.SolrServerException;
+import org.apache.solr.client.solrj.impl.CloudSolrClient;
 import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrDocumentList;
@@ -29,6 +30,9 @@ public class UserController {
     private UserService userservice;
     @Autowired
     private SolrClient client;
+
+    @Autowired
+    private CloudSolrClient cloudSolrClient;
 
     //主页面左侧树
     @RequestMapping(value="getTree",method = RequestMethod.GET)
@@ -179,7 +183,7 @@ public class UserController {
         params.setHighlightSimplePre("<span style='color:red'>");
         //设置后缀
         params.setHighlightSimplePost("</span>");
-        QueryResponse queryResponse = client.query("core1",params);
+        QueryResponse queryResponse = cloudSolrClient.query("core2",params);
         SolrDocumentList results = queryResponse.getResults();
         Map<String, Map<String, List<String>>> highlight = queryResponse.getHighlighting();
         int i=0;
@@ -204,7 +208,7 @@ public class UserController {
 
     @RequestMapping(value="queryWbxUserById",method = RequestMethod.GET)
     Users queryWbxUserById(@RequestParam(value="id") String id) throws IOException, SolrServerException {
-        SolrDocument document = client.getById("core1", id);
+        SolrDocument document = cloudSolrClient.getById("core2", id);
         Users user=new Users();
         user.setId((String)document.get("id"));
         user.setName((String)document.get("solr_name"));
@@ -217,14 +221,13 @@ public class UserController {
 
             SolrInputDocument doc = new SolrInputDocument();
             doc.setField("id", user.getId());
-            doc.setField("solr_introduce", user.getIntroduce());
             doc.setField("solr_name", user.getName());
             /* 如果spring.data.solr.host 里面配置到 core了, 那么这里就不需要传 core1 这个参数
              * 下面都是一样的
              */
-            client.add("core1", doc);
+            cloudSolrClient.add("core2", doc);
             //client.commit();
-            client.commit("core1");
+            cloudSolrClient.commit("core2");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -241,9 +244,9 @@ public class UserController {
             /* 如果spring.data.solr.host 里面配置到 core了, 那么这里就不需要传 core1 这个参数
              * 下面都是一样的
              */
-            client.add("core1", doc);
+            cloudSolrClient.add("core2", doc);
             //client.commit();
-            client.commit("core1");
+            cloudSolrClient.commit("core2");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -251,8 +254,8 @@ public class UserController {
     @RequestMapping(value="deleteWbxUser",method = RequestMethod.GET)
     void deleteWbxUser(@RequestParam(value="id") String id){
         try {
-            client.deleteById("core1",id);
-            client.commit("core1");
+            cloudSolrClient.deleteById("core2",id);
+            cloudSolrClient.commit("core2");
 
         } catch (Exception e) {
             e.printStackTrace();

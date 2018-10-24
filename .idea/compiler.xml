@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="service-api" />
+        <module name="springcloud-coupon-client" />
         <module name="springcloud-eureka-client" />
         <module name="springcloud-eureka-server" />
         <module name="springcloud-feign" />

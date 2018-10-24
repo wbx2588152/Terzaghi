@@ -22,6 +22,10 @@ public class UserController {
     @Autowired
     private PowerService userservice;
 
+    @RequestMapping(value="login2")
+    public String seelis2t(){
+        return "/login2";
+    }
     @RequestMapping(value="seelist")
     public String seelist(){
         return "/userlist";

@@ -1,14 +1,10 @@
 server:
-  port: 8083
+  port: 8088
 
 spring:
   application:
-    name: service-ha
-  data:
-    solr:
-      repositories:
-        enabled: true
-      zk-host: 127.0.0.1:2181,127.0.0.1:2182,127.0.0.1:2183
+    name: service-zjw
+
   datasource:
     drivervlassname: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8
@@ -22,5 +18,3 @@ eureka:
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml
-
-
