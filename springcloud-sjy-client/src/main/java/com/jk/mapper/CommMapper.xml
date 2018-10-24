@@ -17,8 +17,8 @@
     </select>
 
     <insert id="saveComm" parameterType="com.jk.model.Comm">
-        insert into t_commodity(id,number,nameid,price,photo,store,audit,added,label,colourid,specid,edition,detail)
-        values(#{comm.id},#{comm.number},#{comm.nameid},#{comm.price},#{comm.photo},#{comm.store},#{comm.audit},#{comm.added},#{comm.label},#{comm.colourid},#{comm.specid},#{comm.edition},#{comm.detail})
+        insert into t_commodity(id,number,nameid,price,photo,store,audit,added,label,modelsid,colourid,specid,edition,detail)
+        values(#{comm.id},#{comm.number},#{comm.nameid},#{comm.price},#{comm.photo},#{comm.store},#{comm.audit},#{comm.added},#{comm.label},#{comm.modelsid},#{comm.colourid},#{comm.specid},#{comm.edition},#{comm.detail})
     </insert>
 
     <select id="queryCommById" resultType="com.jk.model.Comm">
