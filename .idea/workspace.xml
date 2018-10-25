@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="64bf6e48-d9f9-44a9-b844-9691f21be15b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/service-api/src/main/java/com/jk/model/Coupon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud-coupon-client/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud-coupon-client/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud-coupon-client/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud-coupon-client/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud-coupon-client/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud-coupon-client/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud-coupon-client/src/main/java/com/jk/SpringcloudCouponClientApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud-coupon-client/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud-coupon-client/src/test/java/com/jk/SpringcloudCouponClientApplicationTests.java" afterDir="false" />
+    <list default="true" id="64bf6e48-d9f9-44a9-b844-9691f21be15b" name="Default Changelist" comment="优惠券后台3">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -160,7 +151,7 @@
           <entry key="html" value="3443" />
           <entry key="java" value="8143" />
           <entry key="js" value="71" />
-          <entry key="txt" value="106" />
+          <entry key="txt" value="107" />
           <entry key="xml" value="793" />
           <entry key="yml" value="253" />
         </counts>
@@ -171,7 +162,7 @@
           <entry key="HTML" value="3442" />
           <entry key="JAVA" value="8143" />
           <entry key="JavaScript" value="71" />
-          <entry key="PLAIN_TEXT" value="121" />
+          <entry key="PLAIN_TEXT" value="122" />
           <entry key="RegExp" value="1" />
           <entry key="SQL" value="5" />
           <entry key="XML" value="788" />
@@ -182,7 +173,7 @@
       <usages-collector id="statistics.vcs.git.usages">
         <counts>
           <entry key="git.branch.create.new" value="3" />
-          <entry key="git.branch.merge" value="4" />
+          <entry key="git.branch.merge" value="8" />
           <entry key="git.branch.rename" value="1" />
         </counts>
       </usages-collector>
@@ -269,8 +260,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/service-api/src/main/java/com/jk/model/Coupon.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="16" column="10" lean-forward="true" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
+            <state relative-caret-position="91">
+              <caret line="19" column="25" lean-forward="true" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
               <folding>
                 <element signature="e#631#632#0" expanded="true" />
                 <element signature="e#657#658#0" expanded="true" />
@@ -478,6 +469,11 @@
               <item name="Terzaghi" type="b2602c69:ProjectViewProjectNode" />
               <item name="Terzaghi" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Terzaghi" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Terzaghi" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -495,7 +491,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540450007910" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540450234211" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -665,7 +661,7 @@
       <workItem from="1540259710506" duration="24412000" />
       <workItem from="1540343592961" duration="15297000" />
       <workItem from="1540377661448" duration="17009000" />
-      <workItem from="1540428176440" duration="14377000" />
+      <workItem from="1540428176440" duration="14876000" />
     </task>
     <task id="LOCAL-00001" summary="第一次提交">
       <created>1539575451938</created>
@@ -765,11 +761,18 @@
       <option name="project" value="LOCAL" />
       <updated>1540449767477</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="优惠券后台3">
+      <created>1540450045554</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1540450045554</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="265394000" />
+    <option name="totallyTimeSpent" value="265893000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -799,9 +802,9 @@
       <window_info anchor="bottom" id="Debug" order="5" weight="0.0" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32847896" />
       <window_info anchor="bottom" id="Spring" order="7" weight="0.090614885" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49924356" weight="0.10517799" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50075644" side_tool="true" weight="0.5711974" />
-      <window_info anchor="bottom" id="Messages" order="10" visible="true" weight="0.2961165" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49848714" visible="true" weight="0.116504855" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5015129" side_tool="true" weight="0.5275081" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49924356" weight="0.2961165" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.32956153" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="13" show_stripe_button="false" />
@@ -841,7 +844,8 @@
     <MESSAGE value="前台优惠券生产者" />
     <MESSAGE value="优惠券后台" />
     <MESSAGE value="优惠券后台2" />
-    <option name="LAST_COMMIT_MESSAGE" value="优惠券后台2" />
+    <MESSAGE value="优惠券后台3" />
+    <option name="LAST_COMMIT_MESSAGE" value="优惠券后台3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1282,8 +1286,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/service-api/src/main/java/com/jk/model/Coupon.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="16" column="10" lean-forward="true" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
+        <state relative-caret-position="91">
+          <caret line="19" column="25" lean-forward="true" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
           <folding>
             <element signature="e#631#632#0" expanded="true" />
             <element signature="e#657#658#0" expanded="true" />
