@@ -2,6 +2,27 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.jk.mapper.SeckillMapper" >
 
+	<update id="updateOrderStatus">
+		update t_order
+			set paystatus = #{o.paystatus},orderstatus=#{o.orderstatus}
+				where orderid = #{o.orderid}
+	</update>
+
+	<select id="queryOrderById" resultType="com.jk.model.OrderBean">
+		select * from t_order
+			where paystatus = #{o.paystatus} and linkuserid = #{o.linkuserid}
+				 ORDER BY subtime DESC LIMIT 0,1
+	</select>
+
+	<insert id="addOrderInfo">
+		insert into t_order(orderid,linkuserid,linkcommodifyid,linkbothid,paystatus,orderstatus,subtime)
+		value(#{o.orderid},#{o.linkuserid},#{o.linkcommodifyid},#{o.linkbothid},#{o.paystatus},#{o.orderstatus},#{o.subtime})
+	</insert>
+
+	<insert id="addCommmondityInfo">
+		insert into t_commodity(id,nameid,detail,price,photo) values(#{id},#{name},#{artNo},#{seckillPrice},#{commmondityImg})
+	</insert>
+
 	<delete id="deleteRegion">
 		delete from t_region where id = #{id}
 	</delete>

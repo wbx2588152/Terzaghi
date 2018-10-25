@@ -14,7 +14,7 @@ function initYiYuanMiaoSha(){
             var html = "";
             var str = "";
             for(var i=0;i<result.length;i++){
-                html += ' <li><a href="../seckill/tosaveOrderForm?id='+result[i].id+'&artNo='+result[i].artNo+'&seckillPrice='+result[i].seckillPrice+'&commmondityImg='+result[i].commmondityImg+'">\n' +
+                html += ' <li><a href="../seckill/tosaveOrderForm?id='+result[i].id+'&name='+result[i].name+'&artNo='+result[i].artNo+'&seckillPrice='+result[i].seckillPrice+'&commmondityImg='+result[i].commmondityImg+'">\n' +
                     '                <div><img src="'+result[i].commmondityImg+'"></div></a>\n' +
                     '                <div class="floor2_bottom_text"><input type="hidden" name="id" value="\'+result[i].id+\'">\n' +
                     '                    <div class="floor2_right_title">'+result[i].name+'</div>\n' +
@@ -78,7 +78,7 @@ function initTimeLimitSeckill(){
                     '                    <div style="clear:both; height:85px;"></div>\n' +
                     '                    <div class="floor1_three">\n' +
                     '                    \t<div class="floor1_price"><div class="red floor1_three_fh">￥</div><div class="red floor1_three_size">'+result[i].seckillPrice+'</div><div class="yh">￥'+result[i].price+'</div></div>\n' +
-                    '                        <a href="../seckill/tosaveOrderForm?id='+result[i].id+'&artNo='+result[i].artNo+'&seckillPrice='+result[i].seckillPrice+'&commmondityImg='+result[i].commmondityImg+'"><div  class="subnow">马上抢</div></a>\n' +
+                    '                        <a href="../seckill/tosaveOrderForm?id='+result[i].id+'&name='+result[i].name+'&artNo='+result[i].artNo+'&seckillPrice='+result[i].seckillPrice+'&commmondityImg='+result[i].commmondityImg+'"><div  class="subnow">马上抢</div></a>\n' +
                     '                    </div>\n' +
                     '            \t</div>\n' +
                     '            </div>\n' +

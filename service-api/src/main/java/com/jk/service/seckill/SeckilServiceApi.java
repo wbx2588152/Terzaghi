@@ -1,9 +1,6 @@
 package com.jk.service.seckill;
 
-import com.jk.model.RegionBean;
-import com.jk.model.SeckilCommodity;
-import com.jk.model.SeckillTimeBean;
-import com.jk.model.TimeLimitSeckill;
+import com.jk.model.*;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -57,4 +54,16 @@ public interface SeckilServiceApi {
 
     @RequestMapping(value = "/deleteRegion",method = RequestMethod.POST)
     void deleteRegion(@RequestParam(value = "id")String id);
+
+    @RequestMapping(value = "/addCommmondityInfo",method = RequestMethod.POST)
+    void addCommmondityInfo(@RequestParam(value = "id")String id, @RequestParam(value = "name")String name, @RequestParam(value = "artNo")String artNo, @RequestParam(value = "seckillPrice")String seckillPrice, @RequestParam(value = "commmondityImg")String commmondityImg);
+
+    @RequestMapping(value = "/addOrderInfo",method = RequestMethod.POST)
+    void addOrderInfo(@RequestBody OrderBean orderBean);
+
+    @RequestMapping(value = "/queryOrderById",method = RequestMethod.POST)
+    OrderBean queryOrderById(@RequestBody OrderBean orderBean);
+
+    @RequestMapping(value = "/updateOrderStatus",method = RequestMethod.POST)
+    void updateOrderStatus(@RequestBody OrderBean orderBean);
 }

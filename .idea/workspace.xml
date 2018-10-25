@@ -1,19 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="64bf6e48-d9f9-44a9-b844-9691f21be15b" name="Default Changelist" comment="新增">
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/payment_files/base.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/payment_files/common.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/payment_files/common.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/payment_files/hm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/payment_files/jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/payment_files/payment.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/payment_files/payment.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/payment_files/qr-1540350907677.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/templates/payment.html" afterDir="false" />
+    <list default="true" id="64bf6e48-d9f9-44a9-b844-9691f21be15b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/service-api/src/main/java/com/jk/model/OrderBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shopping/src/main/java/com/jk/config/AlipayConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shopping/src/main/java/com/jk/utils/IdWorker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/templates/error.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/templates/sccess.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-provater-seckill/error.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-provater-seckill/jump.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-provater-seckill/sccess.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-api/src/main/java/com/jk/service/seckill/SeckilServiceApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-api/src/main/java/com/jk/service/seckill/SeckilServiceApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shopping/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/shopping/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shopping/src/main/java/com/jk/controller/seckill/SeckillController.java" beforeDir="false" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/jk/controller/seckill/SeckillController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shopping/src/main/resources/templates/saveOrderForm.html" beforeDir="false" afterPath="$PROJECT_DIR$/shopping/src/main/resources/templates/saveOrderForm.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shopping/src/main/resources/static/saveOrderForm_files/confirm.js" beforeDir="false" afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/saveOrderForm_files/confirm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shopping/src/main/resources/static/seckill/yiYuanMiaoSha.js" beforeDir="false" afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/seckill/yiYuanMiaoSha.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shopping/src/main/resources/templates/payment.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shopping/src/main/resources/templates/saveOrderForm.html" beforeDir="false" afterPath="$PROJECT_DIR$/shopping/src/main/resources/templates/seckill/saveOrderForm.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shopping/src/main/resources/templates/seckillList.html" beforeDir="false" afterPath="$PROJECT_DIR$/shopping/src/main/resources/templates/seckill/seckillList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-provater-seckill/src/main/java/com/jk/mapper/SeckillMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-provater-seckill/src/main/java/com/jk/mapper/SeckillMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-provater-seckill/src/main/java/com/jk/mapper/SeckillMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-provater-seckill/src/main/java/com/jk/mapper/SeckillMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-provater-seckill/src/main/java/com/jk/service/SeckillServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-provater-seckill/src/main/java/com/jk/service/SeckillServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-provater-seckill/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-provater-seckill/src/main/resources/application.yml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -98,28 +107,33 @@
     <session id="-916275931">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="13" />
+          <entry key="project.closed" value="16" />
           <entry key="project.open.time.1" value="4" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.16" value="1" />
-          <entry key="project.open.time.32" value="1" />
+          <entry key="project.open.time.27" value="1" />
+          <entry key="project.open.time.30" value="1" />
+          <entry key="project.open.time.31" value="1" />
+          <entry key="project.open.time.32" value="2" />
           <entry key="project.open.time.35" value="1" />
+          <entry key="project.open.time.37" value="1" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.41" value="1" />
-          <entry key="project.opened" value="15" />
+          <entry key="project.opened" value="20" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="2" />
           <entry key="css" value="2" />
-          <entry key="html" value="7" />
-          <entry key="java" value="41" />
-          <entry key="js" value="16" />
+          <entry key="html" value="25" />
+          <entry key="java" value="62" />
+          <entry key="js" value="18" />
+          <entry key="jsp" value="2" />
           <entry key="xml" value="2" />
-          <entry key="yml" value="2" />
+          <entry key="yml" value="4" />
           <entry key="下载" value="1" />
         </counts>
       </usages-collector>
@@ -127,33 +141,34 @@
         <counts>
           <entry key="CLASS" value="2" />
           <entry key="CSS" value="2" />
-          <entry key="HTML" value="7" />
-          <entry key="JAVA" value="41" />
-          <entry key="JavaScript" value="16" />
+          <entry key="HTML" value="25" />
+          <entry key="JAVA" value="62" />
+          <entry key="JSP" value="2" />
+          <entry key="JavaScript" value="18" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="XML" value="2" />
-          <entry key="YAML" value="2" />
+          <entry key="YAML" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="1542" />
-          <entry key="java" value="1998" />
-          <entry key="js" value="1747" />
-          <entry key="txt" value="76" />
-          <entry key="xml" value="233" />
-          <entry key="yml" value="7" />
+          <entry key="html" value="3150" />
+          <entry key="java" value="3562" />
+          <entry key="js" value="1797" />
+          <entry key="txt" value="80" />
+          <entry key="xml" value="496" />
+          <entry key="yml" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="1542" />
-          <entry key="JAVA" value="1998" />
-          <entry key="JavaScript" value="1747" />
-          <entry key="PLAIN_TEXT" value="76" />
-          <entry key="SQL" value="5" />
-          <entry key="XML" value="228" />
-          <entry key="YAML" value="7" />
+          <entry key="HTML" value="3150" />
+          <entry key="JAVA" value="3562" />
+          <entry key="JavaScript" value="1797" />
+          <entry key="PLAIN_TEXT" value="80" />
+          <entry key="SQL" value="9" />
+          <entry key="XML" value="487" />
+          <entry key="YAML" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
@@ -168,10 +183,13 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/templates/payment.html">
+        <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/templates/seckill/saveOrderForm.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="61" column="62" selection-start-line="61" selection-start-column="62" selection-end-line="61" selection-end-column="62" />
+            <state relative-caret-position="225">
+              <caret line="198" column="42" selection-start-line="198" selection-start-column="42" selection-end-line="198" selection-end-column="42" />
+              <folding>
+                <element signature="n#style#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -179,11 +197,14 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/shopping/src/main/java/com/jk/controller/seckill/SeckillController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="42" column="7" lean-forward="true" selection-start-line="42" selection-start-column="7" selection-end-line="42" selection-end-column="7" />
+            <state relative-caret-position="262">
+              <caret line="50" column="36" lean-forward="true" selection-start-line="50" selection-start-column="36" selection-end-line="50" selection-end-column="36" />
               <folding>
-                <element signature="e#1068#1069#0" expanded="true" />
-                <element signature="e#1092#1093#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#5144#5145#0" expanded="true" />
+                <element signature="e#5189#5190#0" expanded="true" />
+                <element signature="e#8326#8327#0" expanded="true" />
+                <element signature="e#8371#8372#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -192,8 +213,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/service-api/src/main/java/com/jk/service/seckill/SeckilServiceApi.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="403">
-              <caret line="56" selection-start-line="56" selection-end-line="56" />
+            <state relative-caret-position="326">
+              <caret line="67" column="59" selection-start-line="67" selection-start-column="59" selection-end-line="67" selection-end-column="59" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -202,16 +223,40 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/templates/sccess.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="12" selection-start-line="12" selection-end-line="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/templates/error.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="25">
+              <caret line="5" column="7" lean-forward="true" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/springcloud-provater-seckill/src/main/java/com/jk/service/SeckillServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="97" column="35" selection-start-line="97" selection-start-column="35" selection-end-line="97" selection-end-column="35" />
+            <state relative-caret-position="301">
+              <caret line="125" column="49" selection-start-line="125" selection-start-column="49" selection-end-line="125" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2687#2688#0" expanded="true" />
                 <element signature="e#2747#2748#0" expanded="true" />
+                <element signature="e#2826#2827#0" expanded="true" />
+                <element signature="e#2877#2878#0" expanded="true" />
                 <element signature="e#2934#2935#0" expanded="true" />
                 <element signature="e#2980#2981#0" expanded="true" />
+                <element signature="e#3649#3650#0" expanded="true" />
+                <element signature="e#3678#3679#0" expanded="true" />
+                <element signature="e#4002#4003#0" expanded="true" />
+                <element signature="e#4057#4058#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -220,8 +265,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/springcloud-provater-seckill/src/main/java/com/jk/mapper/SeckillMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="44" column="43" selection-start-line="44" selection-start-column="43" selection-end-line="44" selection-end-column="43" />
+            <state relative-caret-position="326">
+              <caret line="51" column="26" selection-start-line="51" selection-start-column="9" selection-end-line="51" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -232,26 +277,35 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/springcloud-provater-seckill/src/main/java/com/jk/mapper/SeckillMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="4" column="30" lean-forward="true" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
+            <state relative-caret-position="175">
+              <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
               <folding>
-                <marker date="1540302756245" expanded="true" signature="736:777" ph="SELECT count... t_time_limit_seckill" />
-                <marker date="1540302756245" expanded="true" signature="870:929" ph="SELECT * FRO... t_time_limit_seckill" />
-                <marker date="1540302756245" expanded="true" signature="1028:1061" ph="SELECT * FRO... t_seckill_commodity" />
-                <marker date="1540302756245" expanded="true" signature="1028:1078" ph="SELECT * FRO... t_seckill_commodity" />
-                <marker date="1540302756245" expanded="true" signature="1194:1262" ph="SELECT * FRO... t_time_limit_seckill" />
-                <marker date="1540302756245" expanded="true" signature="1327:1367" ph="select count... t_seckill_commodity" />
-                <marker date="1540302756245" expanded="true" signature="1458:1517" ph="SELECT * FRO... t_seckill_commodity" />
-                <marker date="1540302756245" expanded="true" signature="1491:1517" ph="select tsc.i... t_seckill_commodity" />
-                <marker date="1540302756245" expanded="true" signature="1585:1620" ph="select count... t_seckill_time" />
-                <marker date="1540302756245" expanded="true" signature="1712:1946" ph="select * fro... t_seckill_time" />
-                <marker date="1540302756245" expanded="true" signature="1712:1971" ph="select tt.*,... t_seckill_time" />
-                <marker date="1540302756245" expanded="true" signature="1789:1910" ph="select tsc.s... t_seckill_commodity" />
-                <marker date="1540302756245" expanded="true" signature="2023:2072" ph="DELETE FROM " />
-                <marker date="1540302756245" expanded="true" signature="2117:2216" ph="insert into t_seckill_time... " />
-                <marker date="1540302756245" expanded="true" signature="2264:2402" ph="UPDATE t_sec... " />
-                <marker date="1540302756245" expanded="true" signature="2452:2500" ph="DELETE FROM " />
+                <marker date="1540451415396" expanded="true" signature="1528:1569" ph="SELECT count... t_time_limit_seckill" />
+                <marker date="1540451415396" expanded="true" signature="1662:1721" ph="SELECT * FRO... t_time_limit_seckill" />
+                <marker date="1540451415396" expanded="true" signature="1820:1853" ph="SELECT * FRO... t_seckill_commodity" />
+                <marker date="1540451415396" expanded="true" signature="1820:1870" ph="SELECT * FRO... t_seckill_commodity" />
+                <marker date="1540451415396" expanded="true" signature="1986:2054" ph="SELECT * FRO... t_time_limit_seckill" />
+                <marker date="1540451415396" expanded="true" signature="2119:2159" ph="select count... t_seckill_commodity" />
+                <marker date="1540451415396" expanded="true" signature="2250:2309" ph="SELECT * FRO... t_seckill_commodity" />
+                <marker date="1540451415396" expanded="true" signature="2283:2309" ph="select tsc.i... t_seckill_commodity" />
+                <marker date="1540451415396" expanded="true" signature="2377:2412" ph="select count... t_seckill_time" />
+                <marker date="1540451415396" expanded="true" signature="2504:2738" ph="select * fro... t_seckill_time" />
+                <marker date="1540451415396" expanded="true" signature="2504:2763" ph="select tt.*,... t_seckill_time" />
+                <marker date="1540451415396" expanded="true" signature="2581:2702" ph="select tsc.s... t_seckill_commodity" />
+                <marker date="1540451415396" expanded="true" signature="2815:2864" ph="DELETE FROM " />
+                <marker date="1540451415396" expanded="true" signature="2909:3008" ph="insert into t_seckill_time... " />
+                <marker date="1540451415396" expanded="true" signature="3056:3194" ph="UPDATE t_sec... " />
+                <marker date="1540451415396" expanded="true" signature="3244:3292" ph="DELETE FROM " />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/service-api/src/main/java/com/jk/model/OrderBean.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="250">
+              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
             </state>
           </provider>
         </entry>
@@ -264,25 +318,12 @@
         <option value="Interface" />
         <option value="HTML File" />
         <option value="Class" />
+        <option value="package-info" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>mysql</find>
-      <find>seckill</find>
-      <find>querySeckillCount</find>
-      <find>**/*</find>
-      <find>querySeckillList</find>
-      <find>&lt;script</find>
-      <find>&lt;img src=&quot;../images/ms_02.png&quot;&gt;</find>
-      <find>删除</find>
-      <find>deleteCommodityById</find>
-      <find>deleteSeckillTimeById</find>
-      <find>&lt;img src=&quot;../images/ms-_01.png&quot;&gt;</find>
-      <find>&lt;img src=&quot;../images/wenb1.png&quot;&gt;</find>
-      <find>images</find>
-      <find>1</find>
       <find>RemainD</find>
       <find>queryTimeLimitSeckillList</find>
       <find>counts</find>
@@ -299,6 +340,20 @@
       <find>tosaveOrderForm</find>
       <find>href</find>
       <find>提交</find>
+      <find>to</find>
+      <find>subDingdan</find>
+      <find>form</find>
+      <find>?id</find>
+      <find>INVALID_PARAMETER</find>
+      <find>seller_id</find>
+      <find>${</find>
+      <find>subAddRegion</find>
+      <find>addRegionForm</find>
+      <find>add</find>
+      <find>&lt;f</find>
+      <find>addShoppingForm</find>
+      <find>nameId</find>
+      <find>address</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -307,7 +362,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/shopping/src/main/java/com/jk/controller/seckill/SeckillController.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/shopping/src/main/resources/static/css/1yms.css" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/shopping/src/main/resources/templates/seckillList.html" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/shopping/src/main/resources/templates/seckill/seckillList.html" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/springcloud-provater-seckill/src/main/java/com/jk/SpringcloudProvaterSeckillApplication.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/springcloud-provater-seckill/src/main/java/com/jk/service/SeckillServiceImpl.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/shopping/src/main/java/com/jk/ShoppingApplication.java" root0="SKIP_INSPECTION" />
@@ -315,14 +370,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/springcloud-seckill/src/main/java/jk/SpringcloudFeignApplication.java" />
-        <option value="$PROJECT_DIR$/springcloud-seckill/src/main/java/com/jk/SpringcloudFeignApplication.java" />
-        <option value="$PROJECT_DIR$/springcloud-seckill/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/springcloud-seckill/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/springcloud-seckill/src/main/java/com/jk/SpringcloudSeckillApplication.java" />
-        <option value="$PROJECT_DIR$/springcloud-seckill/pom.xml" />
-        <option value="$PROJECT_DIR$/springcloud-provater-seckill/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/springcloud-feign/src/main/java/com/jk/controller/UserController.java" />
         <option value="$PROJECT_DIR$/springcloud-provater-seckill/src/main/java/com/jk/mapper/SeckilMapper.java" />
         <option value="$PROJECT_DIR$/springcloud-provater-seckill/src/main/java/com/jk/mapper/SeckilMapper.xml" />
         <option value="$PROJECT_DIR$/springcloud-provater-seckill/src/main/java/com/jk/SpringcloudProvaterSeckillApplication.java" />
@@ -347,7 +394,6 @@
         <option value="$PROJECT_DIR$/service-api/src/main/java/com/jk/model/CommodityBean.java" />
         <option value="$PROJECT_DIR$/service-api/src/main/java/com/jk/model/TimeLimitSeckillBean.java" />
         <option value="$PROJECT_DIR$/shopping/src/main/java/com/jk/String.java" />
-        <option value="$PROJECT_DIR$/springcloud-provater-seckill/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/shopping/src/main/resources/templates/seckillList.html" />
         <option value="$PROJECT_DIR$/shopping/src/main/resources/static/saveOrderForm_files/base.js" />
         <option value="$PROJECT_DIR$/service-api/src/main/java/com/jk/model/SeckillTimeBean.java" />
@@ -358,14 +404,23 @@
         <option value="$PROJECT_DIR$/service-api/src/main/java/com/jk/model/SeckilCommodity.java" />
         <option value="$PROJECT_DIR$/shopping/src/main/resources/static/saveOrderForm_files/saveOrderForm.js" />
         <option value="$PROJECT_DIR$/service-api/src/main/java/com/jk/model/RegionBean.java" />
-        <option value="$PROJECT_DIR$/springcloud-provater-seckill/src/main/java/com/jk/service/SeckillServiceImpl.java" />
-        <option value="$PROJECT_DIR$/springcloud-provater-seckill/src/main/java/com/jk/mapper/SeckillMapper.java" />
-        <option value="$PROJECT_DIR$/springcloud-provater-seckill/src/main/java/com/jk/mapper/SeckillMapper.xml" />
-        <option value="$PROJECT_DIR$/service-api/src/main/java/com/jk/service/seckill/SeckilServiceApi.java" />
-        <option value="$PROJECT_DIR$/shopping/src/main/resources/static/seckill/yiYuanMiaoSha.js" />
-        <option value="$PROJECT_DIR$/shopping/src/main/java/com/jk/controller/seckill/SeckillController.java" />
         <option value="$PROJECT_DIR$/shopping/src/main/resources/templates/saveOrderForm.html" />
         <option value="$PROJECT_DIR$/shopping/src/main/resources/templates/payment.html" />
+        <option value="$PROJECT_DIR$/shopping/src/main/java/com/jk/AlipayConfig.java" />
+        <option value="$PROJECT_DIR$/shopping/src/main/java/com/jk/controller/seckill/WxpayController.java" />
+        <option value="$PROJECT_DIR$/shopping/src/main/resources/static/seckill/yiYuanMiaoSha.js" />
+        <option value="$PROJECT_DIR$/shopping/src/main/resources/templates/jump.html" />
+        <option value="$PROJECT_DIR$/springcloud-provater-seckill/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/shopping/src/main/resources/templates/seckill/saveOrderForm.html" />
+        <option value="$PROJECT_DIR$/service-api/src/main/java/com/jk/model/OrderBean.java" />
+        <option value="$PROJECT_DIR$/shopping/src/main/java/com/jk/config/AlipayConfig.java" />
+        <option value="$PROJECT_DIR$/service-api/src/main/java/com/jk/service/seckill/SeckilServiceApi.java" />
+        <option value="$PROJECT_DIR$/springcloud-provater-seckill/src/main/java/com/jk/service/SeckillServiceImpl.java" />
+        <option value="$PROJECT_DIR$/springcloud-provater-seckill/src/main/java/com/jk/mapper/SeckillMapper.java" />
+        <option value="$PROJECT_DIR$/shopping/src/main/java/com/jk/controller/seckill/SeckillController.java" />
+        <option value="$PROJECT_DIR$/springcloud-provater-seckill/src/main/java/com/jk/mapper/SeckillMapper.xml" />
+        <option value="$PROJECT_DIR$/shopping/src/main/resources/templates/error.html" />
+        <option value="$PROJECT_DIR$/shopping/src/main/resources/templates/sccess.html" />
       </list>
     </option>
   </component>
@@ -482,6 +537,16 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="jk" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Terzaghi" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Terzaghi" type="462c0819:PsiDirectoryNode" />
+              <item name="service-api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="jk" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -538,6 +603,53 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="jk" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Terzaghi" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Terzaghi" type="462c0819:PsiDirectoryNode" />
+              <item name="shopping" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="jk" type="462c0819:PsiDirectoryNode" />
+              <item name="seckill" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Terzaghi" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Terzaghi" type="462c0819:PsiDirectoryNode" />
+              <item name="shopping" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="jk" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Terzaghi" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Terzaghi" type="462c0819:PsiDirectoryNode" />
+              <item name="shopping" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Terzaghi" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Terzaghi" type="462c0819:PsiDirectoryNode" />
+              <item name="shopping" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Terzaghi" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Terzaghi" type="462c0819:PsiDirectoryNode" />
+              <item name="shopping" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
               <item name="seckill" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -547,6 +659,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Terzaghi" type="b2602c69:ProjectViewProjectNode" />
@@ -556,6 +669,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="seckill" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Terzaghi" type="b2602c69:ProjectViewProjectNode" />
@@ -624,9 +738,9 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -640,7 +754,7 @@
     <property name="SearchEverywhereHistoryKey" value="dizhi&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540353652747" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540397093475" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -651,12 +765,18 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\wcj\1-8\实训二\workspace\Terzaghi\shopping\src\main\resources\templates" />
+      <recent name="D:\wcj\1-8\实训二\workspace\Terzaghi\shopping\src\main\resources\templates\payment" />
+      <recent name="D:\wcj\1-8\实训二\workspace\Terzaghi\shopping\src\main\resources\templates\seckill" />
+      <recent name="D:\wcj\1-8\实训二\workspace\Terzaghi\shopping\src\main\resources\templates\paymentLIst" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\wcj\1-8\实训二\workspace\Terzaghi\shopping\src\main\resources\static" />
       <recent name="D:\wcj\1-8\实训二\workspace\Terzaghi\shopping\src\main\resources\templates" />
       <recent name="D:\wcj\1-8\实训二\workspace\Terzaghi\service-api\src\main\java\com\jk\model" />
-      <recent name="D:\wcj\1-8\实训二\workspace\Terzaghi\shopping\src\main\resources\static\images" />
-      <recent name="D:\wcj\1-8\实训二\workspace\Terzaghi\shopping\src\main\resources\static\css" />
+      <recent name="D:\wcj\1-8\实训二\workspace\Terzaghi\shopping\src\main\java\com\jk\utils" />
+      <recent name="D:\wcj\1-8\实训二\workspace\Terzaghi\shopping\src\main\java\com\jk\config" />
+      <recent name="D:\wcj\1-8\实训二\workspace\Terzaghi\springcloud-provater-seckill" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.jk.service.seckill" />
@@ -886,6 +1006,11 @@
       <workItem from="1540263543560" duration="10824000" />
       <workItem from="1540295755241" duration="9559000" />
       <workItem from="1540343953133" duration="2934000" />
+      <workItem from="1540359175013" duration="899000" />
+      <workItem from="1540367969020" duration="11943000" />
+      <workItem from="1540384795493" duration="7038000" />
+      <workItem from="1540394422323" duration="1051000" />
+      <workItem from="1540428695359" duration="15945000" />
     </task>
     <task id="LOCAL-00001" summary="第一次提交">
       <created>1539575451938</created>
@@ -978,11 +1103,18 @@
       <option name="project" value="LOCAL" />
       <updated>1540307474725</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="新增付款页面">
+      <created>1540359450457</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1540359450457</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="181482000" />
+    <option name="totallyTimeSpent" value="218358000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -996,18 +1128,18 @@
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49896482" visible="true" weight="0.18766756" />
-      <window_info id="Structure" order="1" weight="0.25" />
-      <window_info id="Capture Tool" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Favorites" order="5" sideWeight="0.5010352" side_tool="true" weight="0.17828418" />
-      <window_info id="Image Layers" order="6" />
-      <window_info id="Web" order="7" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49896482" visible="true" weight="0.16487935" />
+      <window_info id="Capture Tool" order="1" />
+      <window_info id="Designer" order="2" />
+      <window_info id="UI Designer" order="3" />
+      <window_info id="Favorites" order="4" sideWeight="0.5010352" side_tool="true" weight="0.17828418" />
+      <window_info id="Image Layers" order="5" />
+      <window_info id="Web" order="6" side_tool="true" />
+      <window_info id="Structure" order="7" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49262735" weight="0.31586403" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49597856" weight="0.28611898" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49597856" visible="true" weight="0.28611898" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32963374" />
@@ -1016,7 +1148,7 @@
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.3286119" />
       <window_info anchor="bottom" id="Spring" order="10" weight="0.32963374" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.32963374" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.3286119" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.23512748" />
       <window_info anchor="bottom" id="Problems" order="13" />
       <window_info anchor="bottom" id="Database Changes" order="14" show_stripe_button="false" />
       <window_info anchor="bottom" id="Thumbnails" order="15" weight="0.3286119" />
@@ -1088,68 +1220,10 @@
     <MESSAGE value="报错解决" />
     <MESSAGE value="上传后台确认订单." />
     <MESSAGE value="确认订单页面完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="确认订单页面完成" />
+    <MESSAGE value="新增付款页面" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增付款页面" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/shopping/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-216">
-          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shopping/src/main/java/com/jk/service/seckill/SeckillService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="7" column="16" lean-forward="true" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/templates/common/tag.jsp" />
-    <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/templates/common/head.jsp" />
-    <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/static/css/demo.css" />
-    <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/static/css/1yms.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="920">
-          <caret line="39" column="18" lean-forward="true" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="16" column="29" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://MAVEN/com.jk:springboot-test01:1.0-SNAPSHOT">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>MAVEN</ID>
-          <OriginalElement>com.jk:springboot-test01:1.0-SNAPSHOT</OriginalElement>
-          <nodes>
-            <node x="" y="">com.jk:springboot-test01:1.0-SNAPSHOT</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="77.0" y="17.0" />
-          <SelectedNodes />
-          <Categories />
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>All</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/static/images/pingguox.png" />
-    <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/static/images/title_1y.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/static/images/bak_ms.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/static/images/guangg1.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/static/images/guangg2.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -1167,13 +1241,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springcloud-provater-seckill/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-26">
-          <caret line="1" column="12" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -1268,13 +1335,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/springcloud-feign/src/main/java/com/jk/controller/seckill/SeckillController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2050">
-          <caret line="105" column="35" selection-start-line="105" selection-start-column="21" selection-end-line="105" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/springcloud-feign/src/main/java/com/jk/service/impl/UserError.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="25">
@@ -1310,16 +1370,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/templates/seckillList.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1324">
-          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/static/payment_files/hm.js.下载">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/static/payment_files/hm.js.下载" />
     <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/static/payment_files/hm.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
@@ -1327,48 +1378,129 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/static/seckill/yiYuanMiaoSha.js">
+    <entry file="file://$PROJECT_DIR$/shopping/src/main/java/com/jk/package-info.java" />
+    <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/templates/payment/return_url.jsp" />
+    <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/application.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
-          <folding>
-            <element signature="n#style#0;n#div#2;n#div#0;n#li#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#4;n#div#0;n#li#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="e#608#614#1" expanded="true" />
-            <element signature="e#749#755#1" expanded="true" />
-            <element signature="e#892#898#1" expanded="true" />
-            <element signature="n#style#0;n#div#4;n#div#2;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="400">
+          <caret line="16" column="29" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/templates/saveOrderForm.html">
+    <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/templates/payment/paymentList.html" />
+    <entry file="file://$PROJECT_DIR$/shopping/src/main/java/com/jk/controller/seckill/WxpayController.java" />
+    <entry file="file://$PROJECT_DIR$/springcloud-provater-seckill/index.jsp" />
+    <entry file="file://$PROJECT_DIR$/springcloud-provater-seckill/jump.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/templates/seckill/seckillList.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="173" column="5" lean-forward="true" selection-start-line="173" selection-start-column="5" selection-end-line="173" selection-end-column="5" />
+        <state relative-caret-position="-27">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/templates/jump.html" />
+    <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/static/seckill/yiYuanMiaoSha.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="80" column="122" selection-start-line="80" selection-start-column="118" selection-end-line="80" selection-end-column="122" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-provater-seckill/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="1" column="12" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shopping/src/main/java/com/jk/utils/IdWorker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2150">
+          <caret line="96" column="10" lean-forward="true" selection-start-line="96" selection-start-column="10" selection-end-line="96" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shopping/src/main/java/com/jk/config/AlipayConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="29" column="66" selection-start-line="29" selection-start-column="66" selection-end-line="29" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-feign/src/main/java/com/jk/controller/seckill/SeckillController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/templates/seckill/saveOrderForm.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="198" column="42" selection-start-line="198" selection-start-column="42" selection-end-line="198" selection-end-column="42" />
           <folding>
             <element signature="n#style#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/service-api/src/main/java/com/jk/model/OrderBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shopping/src/main/java/com/jk/controller/seckill/SeckillController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="50" column="36" lean-forward="true" selection-start-line="50" selection-start-column="36" selection-end-line="50" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5144#5145#0" expanded="true" />
+            <element signature="e#5189#5190#0" expanded="true" />
+            <element signature="e#8326#8327#0" expanded="true" />
+            <element signature="e#8371#8372#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/service-api/src/main/java/com/jk/service/seckill/SeckilServiceApi.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="56" selection-start-line="56" selection-end-line="56" />
+        <state relative-caret-position="326">
+          <caret line="67" column="59" selection-start-line="67" selection-start-column="59" selection-end-line="67" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-provater-seckill/src/main/java/com/jk/service/SeckillServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="125" column="49" selection-start-line="125" selection-start-column="49" selection-end-line="125" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2687#2688#0" expanded="true" />
+            <element signature="e#2747#2748#0" expanded="true" />
+            <element signature="e#2826#2827#0" expanded="true" />
+            <element signature="e#2877#2878#0" expanded="true" />
+            <element signature="e#2934#2935#0" expanded="true" />
+            <element signature="e#2980#2981#0" expanded="true" />
+            <element signature="e#3649#3650#0" expanded="true" />
+            <element signature="e#3678#3679#0" expanded="true" />
+            <element signature="e#4002#4003#0" expanded="true" />
+            <element signature="e#4057#4058#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/springcloud-provater-seckill/src/main/java/com/jk/mapper/SeckillMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="44" column="43" selection-start-line="44" selection-start-column="43" selection-end-line="44" selection-end-column="43" />
+        <state relative-caret-position="326">
+          <caret line="51" column="26" selection-start-line="51" selection-start-column="9" selection-end-line="51" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1377,58 +1509,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/springcloud-provater-seckill/src/main/java/com/jk/mapper/SeckillMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" column="30" lean-forward="true" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
+        <state relative-caret-position="175">
+          <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
           <folding>
-            <marker date="1540302756245" expanded="true" signature="736:777" ph="SELECT count... t_time_limit_seckill" />
-            <marker date="1540302756245" expanded="true" signature="870:929" ph="SELECT * FRO... t_time_limit_seckill" />
-            <marker date="1540302756245" expanded="true" signature="1028:1061" ph="SELECT * FRO... t_seckill_commodity" />
-            <marker date="1540302756245" expanded="true" signature="1028:1078" ph="SELECT * FRO... t_seckill_commodity" />
-            <marker date="1540302756245" expanded="true" signature="1194:1262" ph="SELECT * FRO... t_time_limit_seckill" />
-            <marker date="1540302756245" expanded="true" signature="1327:1367" ph="select count... t_seckill_commodity" />
-            <marker date="1540302756245" expanded="true" signature="1458:1517" ph="SELECT * FRO... t_seckill_commodity" />
-            <marker date="1540302756245" expanded="true" signature="1491:1517" ph="select tsc.i... t_seckill_commodity" />
-            <marker date="1540302756245" expanded="true" signature="1585:1620" ph="select count... t_seckill_time" />
-            <marker date="1540302756245" expanded="true" signature="1712:1946" ph="select * fro... t_seckill_time" />
-            <marker date="1540302756245" expanded="true" signature="1712:1971" ph="select tt.*,... t_seckill_time" />
-            <marker date="1540302756245" expanded="true" signature="1789:1910" ph="select tsc.s... t_seckill_commodity" />
-            <marker date="1540302756245" expanded="true" signature="2023:2072" ph="DELETE FROM " />
-            <marker date="1540302756245" expanded="true" signature="2117:2216" ph="insert into t_seckill_time... " />
-            <marker date="1540302756245" expanded="true" signature="2264:2402" ph="UPDATE t_sec... " />
-            <marker date="1540302756245" expanded="true" signature="2452:2500" ph="DELETE FROM " />
+            <marker date="1540451415396" expanded="true" signature="1528:1569" ph="SELECT count... t_time_limit_seckill" />
+            <marker date="1540451415396" expanded="true" signature="1662:1721" ph="SELECT * FRO... t_time_limit_seckill" />
+            <marker date="1540451415396" expanded="true" signature="1820:1853" ph="SELECT * FRO... t_seckill_commodity" />
+            <marker date="1540451415396" expanded="true" signature="1820:1870" ph="SELECT * FRO... t_seckill_commodity" />
+            <marker date="1540451415396" expanded="true" signature="1986:2054" ph="SELECT * FRO... t_time_limit_seckill" />
+            <marker date="1540451415396" expanded="true" signature="2119:2159" ph="select count... t_seckill_commodity" />
+            <marker date="1540451415396" expanded="true" signature="2250:2309" ph="SELECT * FRO... t_seckill_commodity" />
+            <marker date="1540451415396" expanded="true" signature="2283:2309" ph="select tsc.i... t_seckill_commodity" />
+            <marker date="1540451415396" expanded="true" signature="2377:2412" ph="select count... t_seckill_time" />
+            <marker date="1540451415396" expanded="true" signature="2504:2738" ph="select * fro... t_seckill_time" />
+            <marker date="1540451415396" expanded="true" signature="2504:2763" ph="select tt.*,... t_seckill_time" />
+            <marker date="1540451415396" expanded="true" signature="2581:2702" ph="select tsc.s... t_seckill_commodity" />
+            <marker date="1540451415396" expanded="true" signature="2815:2864" ph="DELETE FROM " />
+            <marker date="1540451415396" expanded="true" signature="2909:3008" ph="insert into t_seckill_time... " />
+            <marker date="1540451415396" expanded="true" signature="3056:3194" ph="UPDATE t_sec... " />
+            <marker date="1540451415396" expanded="true" signature="3244:3292" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shopping/src/main/java/com/jk/controller/seckill/SeckillController.java">
+    <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/templates/error.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="42" column="7" lean-forward="true" selection-start-line="42" selection-start-column="7" selection-end-line="42" selection-end-column="7" />
-          <folding>
-            <element signature="e#1068#1069#0" expanded="true" />
-            <element signature="e#1092#1093#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="25">
+          <caret line="5" column="7" lean-forward="true" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/templates/payment.html">
+    <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/templates/sccess.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="61" column="62" selection-start-line="61" selection-start-column="62" selection-end-line="61" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springcloud-provater-seckill/src/main/java/com/jk/service/SeckillServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="97" column="35" selection-start-line="97" selection-start-column="35" selection-end-line="97" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2687#2688#0" expanded="true" />
-            <element signature="e#2747#2748#0" expanded="true" />
-            <element signature="e#2934#2935#0" expanded="true" />
-            <element signature="e#2980#2981#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="150">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
         </state>
       </provider>
     </entry>

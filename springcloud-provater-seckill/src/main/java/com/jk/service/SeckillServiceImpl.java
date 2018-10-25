@@ -1,10 +1,7 @@
 package com.jk.service;
 
 import com.jk.mapper.SeckillMapper;
-import com.jk.model.RegionBean;
-import com.jk.model.SeckilCommodity;
-import com.jk.model.SeckillTimeBean;
-import com.jk.model.TimeLimitSeckill;
+import com.jk.model.*;
 import com.jk.service.seckill.SeckilServiceApi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -107,6 +104,26 @@ public class SeckillServiceImpl implements SeckilServiceApi {
         map.put("total",count);
         map.put("rows",seckillLists);
         return map;
+    }
+
+    @Override
+    public void addCommmondityInfo(String id, String name, String artNo, String seckillPrice, String commmondityImg) {
+        seckillMapper.addCommmondityInfo( id,  name,  artNo,  seckillPrice,  commmondityImg);
+    }
+
+    @Override
+    public void addOrderInfo(@RequestBody OrderBean orderBean) {
+        seckillMapper.addOrderInfo(orderBean);
+    }
+
+    @Override
+    public OrderBean queryOrderById(@RequestBody OrderBean orderBean) {
+        return seckillMapper.queryOrderById(orderBean);
+    }
+
+    @Override
+    public void updateOrderStatus(@RequestBody OrderBean orderBean) {
+        seckillMapper.updateOrderStatus(orderBean);
     }
 
 

@@ -38,7 +38,7 @@
         <li class="nav-item">
             <a class="link" href="http://www.happyjinke.com/cart.html">
                 <i class="fa fa-shopping-cart"></i>
-                购物车(<span class="cart-count">1</span>)</a>
+                购物车<!--(<span class="cart-count">1</span>)--></a>
         </li> <li class="nav-item">
             <a class="link" href="http://www.happyjinke.com/order-list.html">我的订单</a>
         </li> <li class="nav-item">
@@ -83,17 +83,28 @@
             </div>
         </div>
     </div>
+    <form id="addShoppingForm" action="../seckill/goAlipay" method="post">
     <div class="panel">
         <h2 class="panel-title">商品清单</h2>
         <div class="panel-body order-product">
+
+            <input type="hidden" th:value="${id}" id="seckillId"/>
+            <input type="hidden" th:value="${name}" id="nameId"/>
+            <input type="hidden" th:value="${artNo}" id="artNoId"/>
+            <input type="hidden" th:value="${seckillPrice}" id="seckillPriceId"/>
+            <input type="hidden" th:value="${commmondityImg}" id="commmondityImgId"/>
+
             <table class="product-table" data-product-id="" data-checked="">
-                <tbody><tr> <th width="10%">&nbsp;</th>
+                <tbody>
+                <tr>
+                    <th width="10%">&nbsp;</th>
                     <th width="30%" align="left">商品描述</th>
                     <th width="20%" align="center">价格</th>
                     <th width="20%" align="center">数量</th>
                     <th width="20%" align="center">小计</th>
                 </tr>
                 <tr> <td class="product-cell cell-img">
+                    <input type="hidden" name="name">
                     <a href="" target="_blank">
                         <img class="p-img" th:src="${commmondityImg}" th:alt="${artNo}"></a> </td>
                     <td align="left">
@@ -101,7 +112,7 @@
                             <span th:text="${artNo}"></span>
                         </a>
                     </td>
-                    <td align="center">￥<span th:text="${seckillPrice}"></span></td>
+                    <td align="center">￥<span name="seckillPrice" th:text="${seckillPrice}"></span></td>
                     <td align="center">x1</td>
                     <td align="center">￥<span th:text="${seckillPrice}"></span></td>
                 </tr>
@@ -112,6 +123,7 @@
                 <span class="btn order-submit" onclick="subDingdan()">提交订单</span>
             </div></div>
     </div>
+    </form>
 </div>
 
 <div id="p4" style="display:none">
@@ -124,7 +136,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="form">
-                    <form id="addRegionForm">
+                        <form id="addRegionForm">
                         <div class="form-line">
                             <label class="label">
                                 <span class="form-require">*</span>收件人姓名:
@@ -166,11 +178,44 @@
         <p class="copyright"> Copyright © 2018 happyjinke.com All Rights Reserved </p>
     </div>
 </div>
+<!--选中的地址-->
+<input type="hidden" id="checkedId" />
+<!--<input type="hidden" id="inDetailId" />
+<input type="hidden" id="nameIdd" />
+<input type="hidden" id="shengId" />
+<input type="hidden" id="phoneId" />-->
+
 
 <script>
 
+
     function subDingdan(){
-       location.href="../seckill/toPayment";
+        var regionId = $("#checkedId").val();
+        var seckillId = $("#seckillId").val();
+        var nameId = $("#nameId").val();
+        var artNoId = $("#artNoId").val();
+        var seckillPriceId = $("#seckillPriceId").val();
+        var commmondityImgId = $("#commmondityImgId").val();
+        var commmondityCount = "1"; //购买数量
+        if(regionId != ""){
+            $.ajax({
+                url:'../seckill/addCommmondityInfo',
+                type:'post',
+                data:{
+                    name:nameId,
+                    artNo:artNoId,
+                    seckillPrice:seckillPriceId,
+                    commmondityImg:commmondityImgId,
+                },
+                success:function(id){
+                    $("#addShoppingForm").attr('action','../seckill/goAlipay?regionId='+regionId+'&id='+id+'&name='+nameId+'&artNo='+artNoId+'&seckillPrice='+seckillPriceId+'&commmondityImg='+commmondityImgId+'&commmondityCount='+commmondityCount+'');
+                    $("#addShoppingForm").submit();
+                }
+            })
+
+        }else{
+            alert("请选择收货地址");
+        }
     }
 
     $('#addRegion').click(function(){
@@ -194,19 +239,30 @@
             success:function(result){
                 var html = "";
                 for(var i=0;i<result.length;i++){
-                    html +='<a class="address-item" id="address'+i+'" onclick="biankuang('+i+')">\n' +
+                    html +='<a class="address-item" id="address'+i+'" onclick="biankuang('+i+',\''+result[i].id+'\')">\n' +
                         '                <div class="address-title">\n' +
                         '                    <span class="city">'+result[i].sheng+'</span> <span class="name">（ '+result[i].name+' 收 ）</span>\n' +
                         '                </div>\n' +
-                        '                <div class="address-detail"> '+result[i].inDetail+' 18611339101 </div>\n' +
+                        '                <div class="address-detail"> '+result[i].inDetail+' '+result[i].phone+' </div>\n' +
+                        '                <input type="hidden" value="'+result[i].id+'" id="regionId'+i+'" />\n' +
+                        '                <input type="hidden" value="'+result[i].name+'" id="regionName'+i+'"+i />\n' +
+                        '                <input type="hidden" value="'+result[i].sheng+'" id="regionSheng'+i+'"+i />\n' +
+                        '                <input type="hidden" value="'+result[i].phone+'" id="regionPhone'+i+'"+i />\n' +
+                        '                <input type="hidden" value="'+result[i].inDetail+'" id="regionIndetail'+i+'"+i />\n' +
                         '                <div class="address-opera">\n' +
-                        /*'                    <span class="link address-update">编辑</span>\n' +*/
                         '                    <span class="link address-delete" onclick="deleteRegion(\''+result[i].id+'\')">删除</span>\n' +
                         '                </div>\n' +
                         '            </a>';
                 }$('#dizhi').html(html);
             }
         })
+    }
+
+    function biankuang(i,id){
+        $(".address-item").attr("class","address-item");
+        $("#address"+i).attr("class","address-item active");
+        $("#checkedId").val(id);
+
     }
 
     function deleteRegion(id){
@@ -221,11 +277,6 @@
                 initSaveOrderForm();
             }
         })
-    }
-
-    function biankuang(i){
-        $(".address-item").attr("class","address-item");
-        $("#address"+i).attr("class","address-item active");
     }
 
     $('#subAddRegion').click(function(){

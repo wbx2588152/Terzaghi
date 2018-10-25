@@ -1,9 +1,6 @@
 package com.jk.mapper;
 
-import com.jk.model.RegionBean;
-import com.jk.model.SeckilCommodity;
-import com.jk.model.SeckillTimeBean;
-import com.jk.model.TimeLimitSeckill;
+import com.jk.model.*;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -45,4 +42,12 @@ public interface SeckillMapper {
     void addRegion(@Param("r")RegionBean regionBean);
 
     void deleteRegion(@Param("id")String id);
+
+    void addCommmondityInfo(@Param("id")String id, @Param("name")String name, @Param("artNo")String artNo, @Param("seckillPrice")String seckillPrice, @Param("commmondityImg")String commmondityImg);
+
+    void addOrderInfo(@Param("o")OrderBean orderBean);
+
+    OrderBean queryOrderById(@Param("o")OrderBean orderBean);
+
+    void updateOrderStatus(@Param("o")OrderBean orders);
 }
