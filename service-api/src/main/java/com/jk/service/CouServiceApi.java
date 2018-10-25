@@ -2,8 +2,10 @@ package com.jk.service;
 
 import com.jk.model.Coupon;
 import com.jk.model.User;
+import com.jk.model.UserCou;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 public interface CouServiceApi {
@@ -32,4 +34,13 @@ public interface CouServiceApi {
 
     @RequestMapping(value="cou/regUser",method = RequestMethod.POST)
     void regUser(@RequestBody User user);
+
+    @RequestMapping(value="cou/queryCouList",method = RequestMethod.POST)
+    List<Coupon> queryCouList(@RequestBody Coupon coupon);
+
+    @RequestMapping(value="cou/addCouByUser",method = RequestMethod.POST)
+    void addCouByUser(@RequestBody UserCou userCou);
+
+    @RequestMapping(value="cou/queryUserCou",method = RequestMethod.POST)
+    List<UserCou> queryUserCou(@RequestParam(value = "id")String id);
 }

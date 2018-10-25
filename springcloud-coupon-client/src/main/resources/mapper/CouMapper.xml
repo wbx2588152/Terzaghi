@@ -15,9 +15,11 @@
 		delete from  t_coupon where id = #{id}
 	</delete>
 <!--新增优惠券-->
-	<insert id="addCoupon" parameterType="com.jk.model.Coupon">
-		insert into  t_coupon  (id,fixday,price,man,count) values
-		(#{id},#{fixday},#{price},#{man},#{count})
+	<insert id="addCoupon" parameterType="list">
+		insert into t_coupon (id,fixday,price,man,count) values
+		<foreach collection="list" item="item" index="index" separator=",">
+			(#{item.id},#{item.fixday},#{item.price},#{item.man},#{item.count})
+		</foreach>
 	</insert>
 <!--回显消息列表-->
 	<select id="queryCouById" resultType="com.jk.model.Coupon">
@@ -38,4 +40,16 @@
 	<insert id="regUser">
 		insert into t_user(id,loginname,password,phoneNumber) values(#{u.id},#{u.loginname},#{u.password},#{u.phoneNumber})
 	</insert>
+	<select id="queryCouList"  resultType="com.jk.model.Coupon">
+	select t.*,count(1) as sum  from t_coupon t where t.endDate IS  NULL GROUP BY t.count
+	</select>
+	<insert id="addCouByUser">
+        insert  into t_user_cou(id,userId,couId) values(#{id},#{userId},#{couId})
+	</insert>
+	<update id="updateCouCount">
+		update  t_coupon set endDate  =  date_add(SYSDATE(),interval fixday DAY) where  id =  (#{id})
+	</update>
+	<select id="queryUserCou" resultType="com.jk.model.UserCou">
+		select * from t_coupon tc ,t_user_cou  tuc where  tc.id = tuc.couId  and tuc.userId =  #{id}
+	</select>
 </mapper>

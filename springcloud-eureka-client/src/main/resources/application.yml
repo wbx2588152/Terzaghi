@@ -11,7 +11,7 @@ spring:
       zk-host: 127.0.0.1:2181,127.0.0.1:2182,127.0.0.1:2183
   datasource:
     drivervlassname: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8
+    url: jdbc:mysql://192.168.31.118:3306/test?useUnicode=true&characterEncoding=utf-8
     username: root
     password: root
 
