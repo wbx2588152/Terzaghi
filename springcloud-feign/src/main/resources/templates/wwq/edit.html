@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<title>Insert title here</title>
+</head>
+<body>
+	<form id="editmenuform">
+		<table align="center">
+			<tr>
+				<td>菜单名称</td>
+				<td>
+					<input name="name" th:value="${mymenu.name}"/>
+					<input type="hidden" name="powerid"  th:value="${mymenu.powerid}"/>
+					<input type="hidden" name="id" th:value="${mymenu.id}"/>
+				</td>
+			</tr>
+			<tr>
+				<td>地址</td>
+				<td>
+					<input name="url" th:value="${mymenu.url}"/>
+				</td>
+			</tr>
+		</table>
+	</form>
+	<script type="text/javascript">
+		function editOneMenu(){
+			$.ajax({
+				url:'../wwquser/editOneMenu.do',
+				type:'post',
+				data:$("#editmenuform").serialize(),
+				dataType:'json',
+				success:function(result){
+					
+				}
+				
+			})
+		}
+		</script>
+</body>
+
+
+</html>

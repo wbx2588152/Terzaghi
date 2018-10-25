@@ -7,6 +7,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class User implements Serializable {
+
     private String id;
 
     private String loginname;
@@ -26,6 +27,10 @@ public class User implements Serializable {
     private String rolename;
 
     private Integer status;
+
+    private String phoneNumber;
+
+    private Integer verificationCode;
 
     public String getId() {
         return id;
@@ -97,5 +102,21 @@ public class User implements Serializable {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public Integer getVerificationCode() {
+        return verificationCode;
+    }
+
+    public void setVerificationCode(Integer verificationCode) {
+        this.verificationCode = verificationCode;
     }
 }
