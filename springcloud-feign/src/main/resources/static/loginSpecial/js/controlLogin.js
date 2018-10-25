@@ -129,13 +129,17 @@ layui.use('layer', function () {
                         },
                         dataType: "json",
                         success: function (r) {
-                            if (r.code === 0) {
+                            alert(r.code);
+                            if (r.code == 0) {
                                 url = "Ajax/Login";
                                 loginstatus="ok";
                             } else {
                                 url = "Ajax/LoginFalse";
                                 loginstatus="er";
                             }
+                        },
+                        error:function(){
+                            alert("验证出错");
                         }
                     });
                 },
@@ -174,6 +178,7 @@ layui.use('layer', function () {
                             // //跳转操作
                         } else {
                             AjaxErro(data);
+                            reloadCode();
                         }
                     }, 2400);
                 })
