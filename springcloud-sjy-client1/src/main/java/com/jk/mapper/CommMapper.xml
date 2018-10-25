@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jk.mapper.CommMapper">
+
+    <select id="queryComm" resultType="long">
+        select count(*) from t_commodity
+    </select>
+
+    <select id="queryCoomList" resultType="com.jk.model.Comm">
+
+        select * from t_commodity
+
+        /*select tc.*,tp.models as showmodels,tr.colour as showcolour,tp2.models as showname,ts.spec as showspec
+        from t_commodity tc,t_phone tp,t_color tr,t_phone tp2,t_spec ts
+        where tc.modelsid = tp.id and tc.colourid = tr.id and tc.nameid = tp2.id and tc.specid = ts.id*/
+         select tc.*,tr.colour as showcolour,tp.name as showname,ts.spec as showspec,tm.name as showmodels
+        from t_commodity tc,t_phone tp,t_color tr,t_models tm,t_spec ts
+        where tc.modelsid = tp.id and tc.colourid = tr.id and tc.nameid = tp.id and tc.specid = ts.id and tc.modelsid = tm.id
+
+        limit #{st},#{end}
+    </select>
+
+    <insert id="saveComm" parameterType="com.jk.model.Comm">
+        insert into t_commodity(id,number,name,price,photo,store,audit)
+        values(#{comm.id},#{comm.number},#{comm.name},#{comm.price},#{comm.photo},#{comm.store},#{comm.audit})
+
+        insert into t_commodity(id,number,name,price,photo,store,audit,added,label,models,colour,spec,edition,detail)
+        values(#{comm.id},#{comm.number},#{comm.name},#{comm.price},#{comm.photo},#{comm.store},#{comm.audit},#{comm.added},#{comm.label},#{comm.models},#{comm.colour},#{comm.spec},#{comm.edition},#{comm.detail})
+
+    </insert>
+
+    <select id="queryCommById" resultType="com.jk.model.Comm">
+        select * from t_commodity where id = #{id}
+    </select>
+
+    <update id="updateComm">
+        update t_commodity set number = #{number},name = #{name},price = #{price},photo = #{photo},store = #{store} where id = #{id}
+    </update>
+
+    <delete id="deleteComm" >
+        delete from t_commodity where id = #{id}
+
+    </delete>
+
+    <delete id="deleteAllComm" >
+
+        delete from t_commodity where id in
+        <foreach item="item" collection="ids" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <update id="updateAudit2">
+        update t_commodity set audit = #{audit} where id = #{id}
+    </update>
+
+    <update id="updateAudit1">
+        update t_commodity set audit = #{audit} where id = #{id}
+    </update>
+
+    <update id="updateAdded">
+        update t_commodity set added = #{added} where id = #{id}
+    </update>
+
+    <select id="queryDetail" resultType="com.jk.model.Comm">
+        select * from t_commodity where id = #{id}
+    </select>
+
+    <update id="updateLabel">
+        update t_commodity set label = #{label} where id = #{id}
+    </update>
+
+    <select id="queryColour" resultType="com.jk.model.Color">
+        select * from t_color
+    </select>
+
+    <select id="queryPhone" resultType="com.jk.model.Phone">
+        select * from t_phone
+    </select>
+
+    <select id="queryModels" resultType="com.jk.model.Models">
+          select * from t_models where modelsid = #{modelsid}
+    </select>
+
+    <select id="querySpec" resultType="com.jk.model.Spec">
+        select * from t_spec
+    </select>
+
+
+</mapper>

@@ -97,4 +97,6 @@ mybatis:
     order: BEFORE
     configuration:
       jdbc-type-for-null: null
-
+ribbon:
+  ConnectTimeout: 60000
+  ReadTimeout: 60000
