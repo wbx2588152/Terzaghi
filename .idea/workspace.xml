@@ -1,160 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="64bf6e48-d9f9-44a9-b844-9691f21be15b" name="Default Changelist" comment="优惠券后台2">
-      <change afterPath="$PROJECT_DIR$/.idea/Terzaghi.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-api/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-api/src/main/java/com/jk/service/LoginServiceApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-api/src/main/java/com/jk/service/LoginServiceApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-api/target/classes/com/jk/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/service-api/target/classes/com/jk/model/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-eureka-client/src/main/java/com/jk/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-eureka-client/src/main/java/com/jk/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-eureka-client/src/main/java/com/jk/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-eureka-client/src/main/java/com/jk/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-eureka-client/src/main/java/com/jk/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-eureka-client/src/main/java/com/jk/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-eureka-client/src/main/java/com/jk/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-eureka-client/src/main/java/com/jk/service/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-eureka-client/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-eureka-client/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-feign/src/main/java/com/jk/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-feign/src/main/java/com/jk/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-feign/src/main/java/com/jk/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-feign/src/main/java/com/jk/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-feign/src/main/java/com/jk/shiro/ShiroRealm.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-feign/src/main/java/com/jk/shiro/ShiroRealm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-feign/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-feign/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/coupon/addcoupon.html" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/coupon/addcoupon.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/coupon/coupon.html" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/coupon/coupon.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/coupon/couponList.html" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/coupon/couponList.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-ribbon/src/main/java/com/jk/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-ribbon/src/main/java/com/jk/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/java/com/jk/config/MyMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/java/com/jk/controller/LoginController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/java/com/jk/controller/UserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/java/com/jk/mapper/UserMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/java/com/jk/service/BaseService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/java/com/jk/service/IService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/java/com/jk/service/RedisService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/java/com/jk/service/UserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/java/com/jk/service/UserServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/java/com/jk/shiro/FebsProperties.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/java/com/jk/shiro/ResponseBo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/java/com/jk/shiro/ShiroConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/java/com/jk/shiro/ShiroProperties.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/java/com/jk/shiro/ShiroRealm.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/java/com/jk/shiro/ShiroSessionListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/java/com/jk/util/Captcha.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/java/com/jk/util/Encoder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/java/com/jk/util/GifCaptcha.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/java/com/jk/util/GifEncoder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/java/com/jk/util/MD5Utils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/java/com/jk/util/Quant.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/java/com/jk/util/Randoms.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/config/mybatis-generator.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/mapper/UserMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/css/layui.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/css/layui.mobile.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/css/modules/code.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/css/modules/laydate/default/laydate.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/css/modules/layer/default/icon-ext.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/css/modules/layer/default/icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/css/modules/layer/default/layer.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/css/modules/layer/default/loading-0.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/css/modules/layer/default/loading-1.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/css/modules/layer/default/loading-2.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/font/iconfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/font/iconfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/font/iconfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/font/iconfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/0.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/1.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/10.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/11.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/12.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/13.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/14.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/15.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/16.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/17.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/18.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/19.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/2.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/20.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/21.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/22.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/23.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/24.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/25.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/26.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/27.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/28.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/29.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/3.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/30.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/31.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/32.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/33.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/34.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/35.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/36.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/37.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/38.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/39.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/4.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/40.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/41.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/42.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/43.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/44.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/45.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/46.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/47.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/48.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/49.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/5.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/50.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/51.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/52.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/53.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/54.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/55.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/56.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/57.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/58.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/59.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/6.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/60.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/61.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/62.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/63.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/64.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/65.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/66.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/67.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/68.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/69.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/7.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/70.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/71.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/8.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/images/face/9.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/lay/modules/carousel.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/lay/modules/code.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/lay/modules/colorpicker.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/lay/modules/element.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/lay/modules/flow.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/lay/modules/form.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/lay/modules/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/lay/modules/laydate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/lay/modules/layedit.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/lay/modules/layer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/lay/modules/laypage.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/lay/modules/laytpl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/lay/modules/mobile.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/lay/modules/rate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/lay/modules/slider.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/lay/modules/table.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/lay/modules/tree.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/lay/modules/upload.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/lay/modules/util.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/layui.all.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/static/layui/layui.js" beforeDir="false" />
+    <list default="true" id="64bf6e48-d9f9-44a9-b844-9691f21be15b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/service-api/src/main/java/com/jk/model/Coupon.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-coupon-client/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-coupon-client/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-coupon-client/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-coupon-client/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-coupon-client/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-coupon-client/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-coupon-client/src/main/java/com/jk/SpringcloudCouponClientApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-coupon-client/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-coupon-client/src/test/java/com/jk/SpringcloudCouponClientApplicationTests.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -270,7 +127,7 @@
           <entry key="fxml" value="1" />
           <entry key="gitignore" value="1" />
           <entry key="html" value="74" />
-          <entry key="java" value="418" />
+          <entry key="java" value="419" />
           <entry key="java___jb_tmp___" value="1" />
           <entry key="jpg" value="3" />
           <entry key="js" value="9" />
@@ -288,7 +145,7 @@
           <entry key="CSS" value="6" />
           <entry key="HTML" value="74" />
           <entry key="Image" value="14" />
-          <entry key="JAVA" value="418" />
+          <entry key="JAVA" value="419" />
           <entry key="JavaScript" value="9" />
           <entry key="PLAIN_TEXT" value="6" />
           <entry key="Properties" value="1" />
@@ -325,7 +182,7 @@
       <usages-collector id="statistics.vcs.git.usages">
         <counts>
           <entry key="git.branch.create.new" value="3" />
-          <entry key="git.branch.merge" value="2" />
+          <entry key="git.branch.merge" value="4" />
           <entry key="git.branch.rename" value="1" />
         </counts>
       </usages-collector>
@@ -400,11 +257,26 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/springcloud-eureka-client/src/main/java/com/jk/service/UserServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="290">
               <caret line="36" column="7" selection-start-line="10" selection-start-column="2" selection-end-line="36" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/service-api/src/main/java/com/jk/model/Coupon.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="207">
+              <caret line="16" column="10" lean-forward="true" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
+              <folding>
+                <element signature="e#631#632#0" expanded="true" />
+                <element signature="e#657#658#0" expanded="true" />
+                <element signature="e#695#696#0" expanded="true" />
+                <element signature="e#725#726#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -425,28 +297,6 @@
               <caret line="236" column="33" selection-start-line="236" selection-start-column="33" selection-end-line="236" selection-end-column="33" />
               <folding>
                 <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/springcloud-feign/src/main/java/com/jk/controller/coupon/CouController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
-              <caret line="64" column="42" selection-start-line="64" selection-start-column="42" selection-end-line="64" selection-end-column="42" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2714#2715#0" expanded="true" />
-                <element signature="e#2755#2756#0" expanded="true" />
-                <element signature="e#3655#3656#0" expanded="true" />
-                <element signature="e#3686#3687#0" expanded="true" />
-                <element signature="e#10096#10097#0" expanded="true" />
-                <element signature="e#10124#10125#0" expanded="true" />
-                <element signature="e#10478#10479#0" expanded="true" />
-                <element signature="e#10508#10509#0" expanded="true" />
-                <element signature="e#11841#11842#0" expanded="true" />
-                <element signature="e#11879#11880#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -628,140 +478,6 @@
               <item name="Terzaghi" type="b2602c69:ProjectViewProjectNode" />
               <item name="Terzaghi" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Terzaghi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Terzaghi" type="462c0819:PsiDirectoryNode" />
-              <item name="service-api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Terzaghi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Terzaghi" type="462c0819:PsiDirectoryNode" />
-              <item name="service-api" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Terzaghi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Terzaghi" type="462c0819:PsiDirectoryNode" />
-              <item name="service-api" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Terzaghi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Terzaghi" type="462c0819:PsiDirectoryNode" />
-              <item name="service-api" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Terzaghi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Terzaghi" type="462c0819:PsiDirectoryNode" />
-              <item name="service-api" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Terzaghi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Terzaghi" type="462c0819:PsiDirectoryNode" />
-              <item name="service-api" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="jk" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Terzaghi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Terzaghi" type="462c0819:PsiDirectoryNode" />
-              <item name="service-api" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="jk" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Terzaghi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Terzaghi" type="462c0819:PsiDirectoryNode" />
-              <item name="springcloud-eureka-client" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Terzaghi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Terzaghi" type="462c0819:PsiDirectoryNode" />
-              <item name="springcloud-eureka-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Terzaghi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Terzaghi" type="462c0819:PsiDirectoryNode" />
-              <item name="springcloud-eureka-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Terzaghi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Terzaghi" type="462c0819:PsiDirectoryNode" />
-              <item name="springcloud-eureka-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Terzaghi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Terzaghi" type="462c0819:PsiDirectoryNode" />
-              <item name="springcloud-eureka-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Terzaghi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Terzaghi" type="462c0819:PsiDirectoryNode" />
-              <item name="springcloud-eureka-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="jk" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Terzaghi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Terzaghi" type="462c0819:PsiDirectoryNode" />
-              <item name="springcloud-eureka-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="jk" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Terzaghi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Terzaghi" type="462c0819:PsiDirectoryNode" />
-              <item name="springcloud-eureka-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="jk" type="462c0819:PsiDirectoryNode" />
-              <item name="mapper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Terzaghi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Terzaghi" type="462c0819:PsiDirectoryNode" />
-              <item name="springcloud-eureka-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="jk" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -779,7 +495,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540449733868" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540450007910" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -949,7 +665,7 @@
       <workItem from="1540259710506" duration="24412000" />
       <workItem from="1540343592961" duration="15297000" />
       <workItem from="1540377661448" duration="17009000" />
-      <workItem from="1540428176440" duration="14105000" />
+      <workItem from="1540428176440" duration="14377000" />
     </task>
     <task id="LOCAL-00001" summary="第一次提交">
       <created>1539575451938</created>
@@ -1042,11 +758,18 @@
       <option name="project" value="LOCAL" />
       <updated>1540439486052</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="优惠券后台2">
+      <created>1540449767477</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1540449767477</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="265122000" />
+    <option name="totallyTimeSpent" value="265394000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1059,7 +782,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="752" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.32980332" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -1263,19 +985,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
           <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/service-api/src/main/java/com/jk/model/Coupon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="32" lean-forward="true" selection-start-line="10" selection-start-column="3" selection-end-line="32" />
-          <folding>
-            <element signature="e#631#632#0" expanded="true" />
-            <element signature="e#657#658#0" expanded="true" />
-            <element signature="e#695#696#0" expanded="true" />
-            <element signature="e#725#726#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1568,6 +1277,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="290">
           <caret line="36" column="7" selection-start-line="10" selection-start-column="2" selection-end-line="36" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service-api/src/main/java/com/jk/model/Coupon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="16" column="10" lean-forward="true" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
+          <folding>
+            <element signature="e#631#632#0" expanded="true" />
+            <element signature="e#657#658#0" expanded="true" />
+            <element signature="e#695#696#0" expanded="true" />
+            <element signature="e#725#726#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
