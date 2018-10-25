@@ -38,7 +38,7 @@
 			
 			$('#addUser').dialog({
 				title:'修改页面',
-				href:'/toWbxEdit?id='+id,
+				href:'/wbx/toWbxEdit?id='+id,
 				width:500,
 				height:200,
 				modal:false,
@@ -46,7 +46,7 @@
 					text:'保存',
 					handler:function(){
 						$.ajax({
-							url:'/updateWbxUser',
+							url:'/wbx/updateWbxUser',
 							type:'post',
 							data:$('#editForm').serialize(),
 							success:function(msg){
@@ -74,7 +74,7 @@
 		
 		function delUser(id){
 			$.ajax({
-				url:'/deleteWbxUser?id='+id,
+				url:'/wbx/deleteWbxUser?id='+id,
 				type:'post',
 				data:$('#id').serialize(),
 				success:function(inof){
@@ -90,10 +90,10 @@
 		}
 		function search(){
 			$('#userTable').datagrid({
-				url:'/ha',
+				url:'/wbx/ha',
 				
 				queryParams:{
-					mycode:$('#somecode').val()
+                    introduce:$('#somecode').val()
 				},
 				
 				checkOnSelect:false,
@@ -103,7 +103,7 @@
 				     [
 					{field:'id',title:'ID',width:100},
 					{field:'name',title:'姓名',width:100},
-					{field:'mycode',title:'学号',width:100},
+					{field:'introduce',title:'介绍',width:100},
 					{field:'cz',title:'操作',width:100,
 						formatter:function(value,row,index){
 							return '<input type="button" value="修改" onclick="upUser(\''+row.id+'\')"/>&nbsp;&nbsp;<input type="button" value="删除" onclick="delUser(\''+row.id+'\')"/>'
@@ -119,7 +119,7 @@
     				//添加的弹框
     				$('#addUser').dialog({
     					title:'新增页面',
-    					href:'/toWbxAdd',
+    					href:'/wbx/toWbxAdd',
     					width:500,
     					height:450,
     					modal:false,
@@ -127,7 +127,7 @@
     						text:'保存',
     						handler:function(){
     							$.ajax({
-    								url:'/saveWbxUser',
+    								url:'/wbx/saveWbxUser',
     								type:'post',
     								data:$('#addForm').serialize(),
     								success:function(msg){

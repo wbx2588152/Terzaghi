@@ -1,6 +1,8 @@
 package com.jk.shiro;
 
 import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
+import com.jk.model.Menu;
+import com.jk.service.PowerService;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.codec.Base64;
 import org.apache.shiro.session.SessionListener;
@@ -25,6 +27,7 @@ import org.springframework.context.annotation.DependsOn;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedHashMap;
+import java.util.List;
 
 /**
  * Shiro 配置类
@@ -36,6 +39,8 @@ public class ShiroConfig {
 
     @Autowired
     private FebsProperties febsProperties;
+    @Autowired
+    private PowerService userservice;
 
     @Value("${spring.redis.host}")
     private String host;
@@ -91,7 +96,14 @@ public class ShiroConfig {
             filterChainDefinitionMap.put(url, "anon");
         }
         // 配置退出过滤器，其中具体的退出代码 Shiro已经替我们实现了
-        filterChainDefinitionMap.put(febsProperties.getShiro().getLogoutUrl(), "logout");
+        filterChainDefinitionMap.put("/logout", "logout");
+
+
+          /*List<Menu> list = userservice.selectAllMenu();
+          for (Menu menu : list) {
+              filterChainDefinitionMap.put(menu.getUrl(),
+                      "perms["+menu.getName()+"]");
+          }*/
         // 除上以外所有 url都必须认证通过才可以访问，未通过认证自动访问 LoginUrl
         filterChainDefinitionMap.put("/**", "user");
 
@@ -207,4 +219,5 @@ public class ShiroConfig {
         sessionManager.setSessionIdUrlRewritingEnabled(false);
         return sessionManager;
     }
+
 }

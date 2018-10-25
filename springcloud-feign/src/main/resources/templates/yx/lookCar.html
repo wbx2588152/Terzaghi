@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<title>Insert title here</title>
+<script type="text/javascript" src="../EasyUI/jquery.min.js"></script>
+<script type="text/javascript" src="../EasyUI/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="../EasyUI/locale/easyui-lang-zh_CN.js"></script>
+<link rel="stylesheet" href="../EasyUI/themes/default/easyui.css" type="text/css"/>
+<link rel="stylesheet" href="../EasyUI/themes/icon.css" type="text/css"/>
+</head>
+<body>
+
+	<table id="sellCarTable"></table>
+	<div id="sellCarDiv"></div>
+	
+	
+	<script type="text/javascript">
+		
+		$(function(){
+			initSellCar();
+		})
+	
+		function initSellCar(){
+			$('#sellCarTable').datagrid({    
+			    url:'/yx/getLookCarList',
+			    pagination:true,
+			    pageNumber:1,
+			    pageSize:3,
+			    pageList:[3,5,8,10,15,20],
+			    columns:[
+			             [    
+			        {field:'id',title:'ID',align:"center"},    
+			        {field:'peoplename',title:'车主姓名',align:"center"},    
+			        {field:'peoplehome',title:'车主地址',align:"center"},
+			        {field:'phoneNumber',title:'车主手机号',align:"center"},
+			        {field:'peopledate',title:'看车时间',align:"center"},
+			        {field:'up',title:'操作',align:"left",
+						formatter:function(value,row,index){
+							if (row.teamId==null || row.teamId=='') {
+								return '<input type="button" value="删除" onclick="deleteSellCar(\''+row.id+'\')"/>'+
+								'<input type="button" value="派遣小组" onclick="tansmall(\''+row.id+'\')"/>'
+								;
+							}else {
+								return '<input type="button" value="删除" onclick="deleteSellCar(\''+row.id+'\')"/>'+
+								'<font color="green">已派遣</font>'
+								
+								;
+							}
+							
+						}		
+					},
+			    ]
+			             ]    
+			}); 
+		}
+		/* return '<a href="javascript:checkStatus(\''+row.id+'\','+1+')">同意</a>'+" "+'<a href="javascript:checkStatus(\''+row.id+'\','+2+')">拒绝</a>';*/
+		
+		function deleteSellCar(id){
+			if(confirm("确认删除这条数据吗?")){
+				$.ajax({
+					  url:'/yx/deleteRepariById',
+					  type:'post',
+					  data:{
+						  id:id,
+					  },
+					  success:function(result){
+						  $.messager.show({
+								title:'我的消息',
+								msg:'已删除!',
+								timeout:5000,
+								showType:'slide'
+							});
+						  initSellCar();
+					  }
+				})
+			}
+		}
+		
+		
+		//点击派遣小组弹框
+		function tansmall(id){
+			
+//				添加的弹框
+			$('#sellCarDiv').dialog({    
+			    title: '添加弹框',
+			    href:"/yx/toPQxz?id="+id,
+			    width: 500,    
+			    height: 350,    
+			    modal: false,
+			  
+			});
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+		//审核
+		/* function checkStatus(id,status){
+			$.ajax({
+				  url:'../wangcj/updateSellCarStatus',
+				  type:'post',
+				  data:{
+					  id:id,
+					  status:status
+				  },
+				  success:function(result){
+					  if(status == 1){
+							$.messager.show({
+								title:'我的消息',
+								msg:'已同意验车申请!',
+								timeout:5000,
+								showType:'slide'
+							});
+						}else{
+							$.messager.show({
+								title:'我的消息',
+								msg:'已拒绝验车申请!',
+								timeout:5000,
+								showType:'slide'
+							});
+						}
+					  initSellCar();
+				  }
+				  
+			})
+		}
+
+		 */
+	
+	</script>
+	
+</body>
+</html>

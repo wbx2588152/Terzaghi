@@ -41,11 +41,11 @@ function reloadCode() {
 
 function login() {
     var $loginButton = $("#loginButton");
-    var username = $(".one input[name='username']").val().trim();
+    var loginname = $(".one input[name='username']").val().trim();
     var password = $(".one input[name='password']").val().trim();
     var code = $(".one input[name='code']").val().trim();
     var rememberMe = $(".one input[name='rememberme']").is(':checked');
-    if (username === "") {
+    if (loginname === "") {
         $MB.n_warning("请输入用户名！");
         return;
     }
@@ -63,7 +63,7 @@ function login() {
         type: "post",
         url: ctx + "login",
         data: {
-            "username": username,
+            "loginname": loginname,
             "password": password,
             "code": code,
             "rememberMe": rememberMe
@@ -83,10 +83,10 @@ function login() {
 }
 
 function regist() {
-    var username = $(".two input[name='username']").val().trim();
+    var loginname = $(".two input[name='username']").val().trim();
     var password = $(".two input[name='password']").val().trim();
     var cpassword = $(".two input[name='cpassword']").val().trim();
-    if (username === "") {
+    if (loginname === "") {
         $MB.n_warning("用户名不能为空！");
         return;
     } else if (username.length > 10) {
@@ -112,7 +112,7 @@ function regist() {
         type: "post",
         url: ctx + "user/regist",
         data: {
-            "username": username,
+            "username": loginname,
             "password": password
         },
         dataType: "json",

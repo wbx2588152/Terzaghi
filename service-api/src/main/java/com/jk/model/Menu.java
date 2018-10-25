@@ -1,96 +1,57 @@
 package com.jk.model;
 
-import java.io.Serializable;
-import java.util.Date;
+import com.jk.model.Page;
 
-public class Menu  implements Serializable {
-    private Long menuId;
+public class Menu extends Page{
+	private static final long serialVersionUID = 7360199168250588730L;
 
-    private Long parentId;
+	private String id;
 
-    private String menuName;
+	private String powerid;
 
-    private String url;
+	private String name;
 
-    private String type;
+	private String url;
 
-    private Long orderNum;
+	private String createTime;
 
-    private Date createTime;
+	public String getId() {
+		return id;
+	}
 
-    private Date modifyTime;
+	public void setId(String id) {
+		this.id = id;
+	}
 
-    private String perms;
+	public String getPowerid() {
+		return powerid;
+	}
 
-    public Long getMenuId() {
-        return menuId;
-    }
+	public void setPowerid(String powerid) {
+		this.powerid = powerid;
+	}
 
-    public void setMenuId(Long menuId) {
-        this.menuId = menuId;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public Long getParentId() {
-        return parentId;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public void setParentId(Long parentId) {
-        this.parentId = parentId;
-    }
+	public String getUrl() {
+		return url;
+	}
 
-    public String getMenuName() {
-        return menuName;
-    }
+	public void setUrl(String url) {
+		this.url = url;
+	}
 
-    public void setMenuName(String menuName) {
-        this.menuName = menuName == null ? null : menuName.trim();
-    }
+	public String getCreateTime() {
+		return createTime;
+	}
 
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url == null ? null : url.trim();
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type == null ? null : type.trim();
-    }
-
-    public Long getOrderNum() {
-        return orderNum;
-    }
-
-    public void setOrderNum(Long orderNum) {
-        this.orderNum = orderNum;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Date getModifyTime() {
-        return modifyTime;
-    }
-
-    public void setModifyTime(Date modifyTime) {
-        this.modifyTime = modifyTime;
-    }
-
-    public String getPerms() {
-        return perms;
-    }
-
-    public void setPerms(String perms) {
-        this.perms = perms == null ? null : perms.trim();
-    }
+	public void setCreateTime(String createTime) {
+		this.createTime = createTime;
+	}
 }

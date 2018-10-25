@@ -11,6 +11,8 @@
     <modules>
         <module>scEureka</module>
         <module>service-api</module>
+        <module>springcloutdseckill</module>
+        <module>springcloud-seckill</module>
     </modules>
 
 
