@@ -2,6 +2,30 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.jk.mapper.CommMapper">
 
+                        <!--前台页面-->
+
+    <select id="getComm" resultType="com.jk.model.Comm">
+      select tc.*,tr.colour as showcolour,tp.name as showname,ts.spec as showspec,tm.name as showmodels
+        from t_commodity tc,t_phone tp,t_color tr,t_models tm,t_spec ts
+        where tc.modelsid = tm.id and tc.colourid = tr.id and tc.nameid = tp.id and tc.specid = ts.id
+        and tc.added = 1
+    </select>
+
+    <select id="getDetail" resultType="com.jk.model.Comm">
+      select tc.*,tr.colour as showcolour,tp.name as showname,ts.spec as showspec,tm.name as showmodels
+        from t_commodity tc,t_phone tp,t_color tr,t_models tm,t_spec ts
+        where tc.modelsid = tm.id and tc.colourid = tr.id and tc.nameid = tp.id and tc.specid = ts.id
+        and tc.id = #{id}
+    </select>
+
+
+
+
+
+
+
+                    <!--后台页面-->
+
     <select id="queryComm" resultType="long">
         select count(*) from t_commodity
     </select>

@@ -42,4 +42,15 @@ public interface CommMapper {
 
     List<Spec> querySpec();
 
+
+                /*
+                * 前台页面
+                *
+                *
+                * */
+
+    List<Comm> getComm();
+
+
+    Comm getDetail(@Param("id") String id );
 }

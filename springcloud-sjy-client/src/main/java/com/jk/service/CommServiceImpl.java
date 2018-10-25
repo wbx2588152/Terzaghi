@@ -114,4 +114,25 @@ public class CommServiceImpl implements CommServiceApi {
         return commDao.querySpec();
     }
 
+
+                    /**
+                     *
+                     * 前台页面
+                     *
+                     */
+
+
+
+    @Override
+    public List<Comm> getComm() {
+        return commDao.getComm();
+    }
+
+    @Override
+    public Comm getDetail(String id) {
+        return commDao.getDetail(id);
+    }
+
+
+
 }

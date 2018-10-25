@@ -16,6 +16,7 @@
         <module name="springcloud-ribbon" />
         <module name="springcloud-sjy-client" />
         <module name="springcloud-topo" />
+        <module name="springcloud-sjy-client" />
         <module name="springcloud-zjw-client" />
         <module name="springcloud-zuul" />
       </profile>

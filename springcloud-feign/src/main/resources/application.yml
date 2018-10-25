@@ -100,3 +100,7 @@ mybatis:
 ribbon:
   ConnectTimeout: 60000
   ReadTimeout: 60000
+cloud:
+  loadbalancer:
+    retry:
+      enabled: 'true'

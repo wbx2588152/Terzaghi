@@ -62,4 +62,9 @@ public interface CommServiceApi {
     @RequestMapping(value = "/querySpec", method = RequestMethod.POST)
     List<Spec> querySpec();
 
+    @RequestMapping(value = "/getComm", method = RequestMethod.POST)
+    List<Comm> getComm();
+
+    @RequestMapping(value = "/getDetail", method = RequestMethod.POST)
+    Comm getDetail(@RequestParam(value = "id") String id);
 }
