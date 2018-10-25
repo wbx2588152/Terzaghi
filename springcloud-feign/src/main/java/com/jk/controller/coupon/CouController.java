@@ -225,7 +225,7 @@ public class CouController {
                 params.put("timestamp", timestamap);
                 String sign = Md5Util.getMd532(ConstantsConf.ACCOUNT_SID + ConstantsConf.AUTH_TOKEN + timestamap);
                 params.put("sig", sign);
-                HttpClientUtil.post(ConstantsConf.SMS_URL, params);
+                /*HttpClientUtil.post(ConstantsConf.SMS_URL, params);*/
                 redisTemplate.opsForValue().set(cacheKey, String.valueOf(verificationCode), ConstantsConf.PHOEO_CODE_TIME_OUT, TimeUnit.MINUTES);
                 redisTemplate.opsForValue().set(cacheFlagKey, "lock", 1, TimeUnit.MINUTES);
                 session.setAttribute(session.getId(), user);

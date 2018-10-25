@@ -383,7 +383,7 @@
                        '         </div>';
 
                }else if (result.code == 0){
-                    var user = result.loginname;
+                   var user = result.loginname;
                    html +=
                '<div class="user-info">\n' +
                        '       <span class="site-user not-login" style="display: inline;">\n' +
@@ -393,8 +393,8 @@
                    '</div>\n' +
                        '<ul class="nav-list">\n' +
                        '<li class="nav-item">\n' +
-                       '<a class="link" href="http://www.happymmall.com/cart.html">\n' +
-                   '<i class="fa fa-shopping-cart"></i> 购物车(<span class="cart-count">0</span>)</a>\n' +
+                       '<a class="link" href="javascript:seecar()">\n' +
+                   '<i class="fa fa-shopping-cart"></i> 购物车(<span class="cart-count" id="car-num">0</span>)</a>\n' +
                    '</li>\n' +
                    '<li class="nav-item">\n' +
                      ' <span class="link link-register" id="toCou">我的优惠券</span>\n' +
@@ -411,8 +411,22 @@
                $('#checkLogin').html(html);
            }
        })
+       $.ajax({
+           url:'/pay/getUserBuyCar',
+           type:'post',
+           data:{},
+           success:function(info){
+               var x=0;
+               for (var i = 0; i <info.length ; i++) {
+                   x+=Number(info[i].num);
+               }
+               $('#car-num').html(x);
+           }
+       })
    }
-
+    function seecar(){
+        location.href="/pay/seeCarbuy";
+    }
 </script>
 </body>
 </html>
