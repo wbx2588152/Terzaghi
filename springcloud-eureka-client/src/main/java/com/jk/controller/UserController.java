@@ -271,5 +271,30 @@ public class UserController {
         return userservice.getUserById(id);
     }
 
+    @RequestMapping(value="findUserBuyCar")
+    List<BuyCar> findUserBuyCar(@RequestParam(value="id")String id){
+        return userservice.findUserBuyCar(id);
+    }
+
+    @RequestMapping(value="delBuycarByName")
+    void delBuycarByName(@RequestParam(value="gid")String gid, @RequestParam(value="id")String id){
+        userservice.delBuycarByName(gid, id);
+    }
+
+    @RequestMapping(value="delOneBuycarByName")
+    void delOneBuycarByName(@RequestParam(value="gid")String gid, @RequestParam(value="id")String id){
+        userservice.delOneBuycarByName(gid, id);
+    }
+
+    @RequestMapping(value="addOneBuycar")
+    void addOneBuycar(@RequestParam(value="gid")String gid, @RequestParam(value="id")String id){
+        userservice.addOneBuycar(gid, id);
+    }
+
+    @RequestMapping(value="delManyBuycarByName")
+    void delManyBuycarByName(@RequestParam(value="gids")String gids, @RequestParam(value="id")String id){
+        userservice.delManyBuycarByName(gids, id);
+    }
+
 
 }

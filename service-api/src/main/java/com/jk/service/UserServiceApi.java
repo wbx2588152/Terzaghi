@@ -99,4 +99,14 @@ public interface UserServiceApi {
 
     @RequestMapping(value="wbx/getALLNav")
     List<Power> getALLNav();
+    @RequestMapping(value="wbx/findUserBuyCar")
+    List<BuyCar> findUserBuyCar(@RequestParam(value="id")String id);
+    @RequestMapping(value="wbx/delBuycarByName")
+    void delBuycarByName(@RequestParam(value="gid")String gid, @RequestParam(value="id")String id);
+    @RequestMapping(value="wbx/delOneBuycarByName")
+    void delOneBuycarByName(@RequestParam(value="gid")String gid, @RequestParam(value="id")String id);
+    @RequestMapping(value="wbx/addOneBuycar")
+    void addOneBuycar(@RequestParam(value="gid")String gid, @RequestParam(value="id")String id);
+    @RequestMapping(value="wbx/delManyBuycarByName")
+    void delManyBuycarByName(@RequestParam(value="gids")String gids, @RequestParam(value="id")String id);
 }

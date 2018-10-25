@@ -63,4 +63,14 @@ public interface UserService {
     ResultPage queryMenuList(Menu menu);
 
     List<Power> getALLNav();
+
+    List<BuyCar> findUserBuyCar(String id);
+
+    void delBuycarByName(String gid, String id);
+
+    void delOneBuycarByName(String gid, String id);
+
+    void addOneBuycar(String gid, String id);
+
+    void delManyBuycarByName(String gids, String id);
 }

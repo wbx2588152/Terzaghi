@@ -85,5 +85,15 @@ public interface UserMapper {
 
     List<Menu> getMenuListByNavid(Menu menu);
 
+    List<BuyCar> findUserBuyCar(String id);
 
+    void delBuycarByName(@Param("gid") String gid, @Param("id")String id);
+
+    List<BuyCar> getBuycarsList(@Param("gid") String gid, @Param("id")String id);
+
+    void delOneBuyCar(String id);
+
+    void addOneBuycar(BuyCar buyCar);
+
+    void delManyBuycarByName(@Param("gid")String gids, @Param("id")String id);
 }

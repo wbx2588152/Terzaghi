@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)http://www.happymmall.com/cart.html -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="keywords" content="MMall,电商系统,网购平台,慕课三剑客,教学视频,前端开发,后端开发,React,SSM,Java,权限系统,分布式,高并发,毕业设计,毕设,代码">
+    <meta name="description" content="MMall电商平台教学，最火的电商系统开发教学视频，囊括前后端多个课程，一线企业讲师亲自授课，慕课三剑客带你成为IT行业大牛。">
+    <link rel="dns-prefetch" href="http://s.happymmall.com/">
+    <link rel="dns-prefetch" href="http://cdn.bootcss.com/">
+    <script src="../buycar/hm.js"></script>
+    <script>var _hmt = _hmt || [];
+    !function () {
+        var e = document.createElement("script");
+        e.src = "https://hm.baidu.com/hm.js?bc210cd22928076d28296716d9dfcf01";
+        var t = document.getElementsByTagName("script")[0];
+        t.parentNode.insertBefore(e, t)
+    }()</script>
+    <title>购物车--MMall电商平台</title>
+    <link rel="shortcut icon" href="http://s.happymmall.com/mmall_fe/dist/favicon.ico">
+    <link href="../buycar/common.css" rel="stylesheet">
+    <link href="../buycar/cart.css" rel="stylesheet">
+</head>
+<body>
+<div class="site-nav">
+    <div class="w">
+        <div class="user-info"><span class="site-user not-login"> <span class="link link-login">登录</span> <span
+                class="link link-register" href="./register.html">注册</span> </span> <span class="site-user login"
+                                                                                          style="display: inline;"> <span
+                class="link-text">欢迎，<span class="username">wangcj</span></span> <span
+                class="link link-logout">退出</span> </span></div>
+        <ul class="nav-list">
+            <li class="nav-item"><a class="link" href="http://www.happymmall.com/cart.html"> <i
+                    class="fa fa-shopping-cart"></i> 购物车(<span class="cart-count">1</span>)</a></li>
+            <li class="nav-item"><a class="link" href="http://www.happymmall.com/order-list.html">我的订单</a></li>
+            <li class="nav-item"><a class="link" href="http://www.happymmall.com/user-center.html">我的MMall</a></li>
+            <li class="nav-item"><a class="link" href="http://www.happymmall.com/about.html">关于MMall</a></li>
+        </ul>
+    </div>
+</div>
+<div class="header">
+    <div class="w"><a class="logo" href="http://www.happymmall.com/index.html">MMall</a>
+        <div class="search-form"><input class="search-input" id="search-input" placeholder="请输入商品名称">
+            <button class="search-btn" id="search-btn">搜索</button>
+        </div>
+    </div>
+</div>
+<div class="crumb">
+    <div class="w">
+        <div class="crumb-list">
+            <a href="http://www.happymmall.com/index.html" class="crumb-item">MMall</a>
+            <span>&gt;</span>
+            <span class="crumb-item">我的购物车</span>
+        </div>
+    </div>
+</div>
+<div class="cart-wrap w">
+    <div class="cart-header">
+        <table class="cart-table">
+            <tbody>
+            <tr>
+                <th class="cart-cell cell-check">
+                    <label>
+                        <input type="checkbox" class="cart-select-all">
+                        <span>全选</span>
+                    </label>
+                </th>
+                <th class="cart-cell cell-info">商品信息</th>
+                <th class="cart-cell cell-price">单价</th>
+                <th class="cart-cell cell-count">数量</th>
+                <th class="cart-cell cell-total">合计</th>
+                <th class="cart-cell cell-opera">操作</th>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="cart-list">
+        <table class="cart-table" data-product-id="27" data-checked="1">
+            <tbody id="carbody">
+
+            </tbody>
+        </table>
+    </div>
+    <div class="cart-footer clear">
+        <div class="select-con">
+            <label>
+                <input type="checkbox" class="cart-select-all">
+                <span>全选</span>
+            </label>
+        </div>
+        <div class="delete-con"><a class="cart-delete-seleced link"> <i class="fa fa-trash-o" aria-hidden="true"></i>
+            <span onclick="delmany()">删除选中</span> </a></div>
+            <div class="submit-con"><span>总价：</span> <span class="submit-total" id="numTotal">￥0</span> <span class="btn submit-btn">去结算</span>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <div class="w">
+        <div class="links"><a target="_blank" class="link" href="https://coding.imooc.com/">慕课网实战</a> | <a
+                target="_blank" class="link" href="https://www.imooc.com/u/198337">Rosen主页</a> | <a target="_blank"
+                                                                                                    class="link"
+                                                                                                    href="https://www.imooc.com/t/2705746">Geely主页</a>
+            | <a target="_blank" class="link" href="https://www.imooc.com/u/5980627">Jimin主页</a></div>
+        <p class="copyright"> Copyright © 2018 happymmall.com All Rights Reserved </p>
+    </div>
+</div>
+<script src="../buycar/jquery.js"></script>
+<script>
+    $(function(){
+        seeshopping();
+    })
+    function seeshopping(){
+        $.ajax({
+            url:'/pay/getUserBuyCar',
+            type:'post',
+            data:{},
+            success:function(info){
+                var html="";
+                var numtotal=0;
+                for (var i = 0; i <info.length ; i++) {
+                    numtotal=accMul(info[i].price,info[i].num);
+                    html+="<tr>\n" +
+                        "                <td class=\"cart-cell cell-check\"><input type='checkbox' class='cart-select' onclick='changeNum()' data-gid='\""+info[i].goodsid+"\"' value='"+numtotal+"'></td>\n" +
+                        "                <td class=\"cart-cell cell-img\"><a href='http://www.happymmall.com/detail.html?productId=27'\n" +
+                        "                                                  target='_blank'><img class=\"p-img\"\n" +
+                        "                                                                       src='./购物车--MMall电商平台_files/ac3e571d-13ce-4fad-89e8-c92c2eccf536.jpeg'\n" +
+                        "                                                                       alt='"+info[i].name+"'></a>\n" +
+                        "                </td>\n" +
+                        "                <td class=\"cart-cell cell-info\"><a class=\"link p-name\"\n" +
+                        "                                                   href='http://www.happymmall.com/detail.html?productId=27'\n" +
+                        "                                                   target='blank'>"+info[i].name+"</a></td>\n" +
+                        "                <td class=\"cart-cell cell-price\">"+info[i].price+"</td>\n" +
+                        "                <td class=\"cart-cell cell-count\"><span class=\"count-btn\" data-opera-type=\"minus\" onclick='delOneBuycar(\""+info[i].goodsid+"\")'>-</span> <input\n" +
+                        "                        class=\"count-input\" data-max=\"104721\" value='"+info[i].num+"'> <span class=\"count-btn\" data-opera-type=\"plus\" onclick='addOneBuycar(\""+info[i].goodsid+"\")'>+</span>\n" +
+                        "                </td>\n" +
+                        "                <td class=\"cart-cell cell-total\">"+numtotal+"</td>\n" +
+                        "                <td class=\"cart-cell cell-opera\"><a class=\"link cart-delete\" onclick='delOneType(\""+info[i].goodsid+"\")'>删除</a></td>\n" +
+                        "            </tr>"
+
+                }
+                $('#carbody').html(html);
+            }
+        })
+    }
+    $('.cart-select-all').click(function(){
+        var check = $(this).prop('checked');
+        if(check){
+            $('.cart-select-all').each(function(){
+                $(this).prop('checked',true);
+            })
+            $('.cart-select').each(function(){
+                $(this).prop('checked',true);
+            })
+        }else{
+            $('.cart-select-all').each(function(){
+                $(this).prop('checked',false);
+            })
+            $('.cart-select').each(function(){
+                $(this).prop('checked',false);
+            })
+        }
+        assignment()
+    })
+    function changeNum(){
+        assignment();
+    }
+    function assignment(){
+        var total=0;
+        $('.cart-select').each(function(){
+            if($(this).prop('checked')){
+                total+=parseFloat($(this).val());
+            }
+        })
+        $('#numTotal').html("￥"+total);
+    }
+    function delOneType(goodsid){
+        $.ajax({
+            url:'/pay/delBuycarByName',
+            type:'post',
+            data:{gid:goodsid},
+            success:function(info){
+                seeshopping();
+                assignment();
+            }
+        })
+    }
+    function delOneBuycar(goodsid){
+        $.ajax({
+            url:'/pay/delOneBuycarByName',
+            type:'post',
+            data:{gid:goodsid},
+            success:function(info){
+                seeshopping();
+                assignment();
+            }
+        })
+    }
+    function addOneBuycar(goodsid){
+        $.ajax({
+            url:'/pay/addOneBuycar',
+            type:'post',
+            data:{gid:goodsid},
+            success:function(info){
+                seeshopping();
+                assignment();
+            }
+        })
+    }
+    function delmany(){
+        var x="";
+        $('.cart-select').each(function(){
+            if($(this).prop('checked')){
+                x+=(x=="" ? "":",")+$(this).attr('data-gid');
+            }
+        })
+        $.ajax({
+            url:'/pay/delManyBuycarByName',
+            type:'post',
+            data:{gids:x},
+            success:function(info){
+                seeshopping();
+                assignment();
+            }
+        })
+    }
+    function accMul(arg1,arg2){
+        var m=0,s1=arg1.toString(),
+            s2=arg2.toString();
+        try{
+            m+=s1.split(".")[1].length}catch(e){}
+        try{
+            m+=s2.split(".")[1].length}catch(e){}
+        return Number(s1.replace(".",""))*Number(s2.replace(".",""))/Math.pow(10,m
+        )}
+</script>
+
+</body>
+</html>
