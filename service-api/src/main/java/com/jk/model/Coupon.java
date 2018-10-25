@@ -12,7 +12,7 @@ public class Coupon implements Serializable {
     private String id;
 
     //优惠券使用的固定天数
-    private String fixday;
+    private Integer fixday;
 
     //过期时间
     @DateTimeFormat(pattern="yyyy-MM-dd")
@@ -26,10 +26,19 @@ public class Coupon implements Serializable {
     private String  man;
 
     //剩余数量
-    private Integer count;
+    private String count;
 
     //业务字段
+    private String sum;
 
+
+    public String getSum() {
+        return sum;
+    }
+
+    public void setSum(String sum) {
+        this.sum = sum;
+    }
 
     public String getId() {
         return id;
@@ -40,12 +49,12 @@ public class Coupon implements Serializable {
     }
 
 
+    public Integer getFixday() {
 
-    public String getFixday() {
         return fixday;
     }
 
-    public void setFixday(String fixday) {
+    public void setFixday(Integer fixday) {
         this.fixday = fixday;
     }
 
@@ -73,11 +82,11 @@ public class Coupon implements Serializable {
         this.man = man;
     }
 
-    public Integer getCount() {
+    public String getCount() {
         return count;
     }
 
-    public void setCount(Integer count) {
+    public void setCount(String count) {
         this.count = count;
     }
 }

@@ -121,7 +121,7 @@ public class UserController {
     @RequestMapping("saveUser")
     @ResponseBody
     public String saveUser(User user) {
-        
+
         user.setLastdate(new Date());
         String password = MD5Utils.encrypt(user.getLoginname(), user.getPassword());
         user.setPassword(password);

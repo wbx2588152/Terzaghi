@@ -2,6 +2,60 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.jk.mapper.SeckillMapper" >
 
+	<update id="updateTImeLimitById">
+		update t_time_limit_seckill set limitationCount = limitationCount+1 where id = #{id}
+	</update>
+
+	<update id="updateCommInfo">
+		update t_seckill_commodity
+			set surplusCount = surplusCount-1,limitationCount = limitationCount+1
+		 		where id = #{id}
+	</update>
+
+	<update id="deleteComInfoById">
+		update t_seckill_commodity set status = '2' where id = #{id}
+	</update>
+
+	<select id="querySeckillComInfoById" resultType="com.jk.model.SeckilCommodity">
+		select * from t_seckill_commodity where id = #{id}
+	</select>
+
+	<update id="deleteTimeLimit">
+		update t_time_limit_seckill set status = '2' where id = #{id}
+	</update>
+
+	<update id="updateOrderStatus">
+		update t_order
+			set paystatus = #{o.paystatus},orderstatus=#{o.orderstatus}
+				where orderid = #{o.orderid}
+	</update>
+
+	<select id="queryOrderById" resultType="com.jk.model.OrderBean">
+		select * from t_order
+			where paystatus = #{o.paystatus} and linkuserid = #{o.linkuserid}
+				 ORDER BY subtime DESC LIMIT 0,1
+	</select>
+
+	<insert id="addOrderInfo">
+		insert into t_order(orderid,linkuserid,linkcommodifyid,linkbothid,paystatus,orderstatus,subtime)
+		value(#{o.orderid},#{o.linkuserid},#{o.linkcommodifyid},#{o.linkbothid},#{o.paystatus},#{o.orderstatus},#{o.subtime})
+	</insert>
+
+	<insert id="addCommmondityInfo">
+		insert into t_commodity(id,number,detail,price,photo) values(#{id},#{name},#{artNo},#{seckillPrice},#{commmondityImg})
+	</insert>
+
+	<delete id="deleteRegion">
+		delete from t_region where id = #{id}
+	</delete>
+
+	<insert id="addRegion">
+		insert into t_region values(#{r.id},#{r.name},#{r.phone},#{r.sheng},#{r.inDetail},#{r.userId})
+	</insert>
+
+	<select id="queryRegionList" resultType="com.jk.model.RegionBean">
+		select * from t_region where userId = #{userId}
+	</select>
 
 	<select id="queryDaoJiShi" resultType="com.jk.model.TimeLimitSeckill">
 		SELECT * FROM t_time_limit_seckill where  id = #{id}
@@ -13,16 +67,17 @@
 
 	<select id="queryTimeLimitLists" resultType="com.jk.model.TimeLimitSeckill">
 		SELECT * FROM t_time_limit_seckill
+		GROUP BY addTime DESC
 		limit #{start},#{rows}
 	</select>
 
 
 	<select id="querySeckillCommodityList" resultType="com.jk.model.SeckilCommodity">
-		SELECT * FROM t_seckill_commodity where status = 1 GROUP BY addTime
+		SELECT * FROM t_seckill_commodity where status = 1 GROUP BY addTime DESC
 	</select>
 
 	<select id="queryTimeLimitSeckillList" resultType="com.jk.model.TimeLimitSeckill">
-		SELECT * FROM t_time_limit_seckill where status = 1 GROUP BY addTime
+		SELECT * FROM t_time_limit_seckill where status = 1 GROUP BY addTime DESC
 	</select>
 
 	<select id="querySeckillCount" resultType="int">

@@ -1,8 +1,6 @@
 package com.jk.service.seckill;
 
-import com.jk.model.SeckilCommodity;
-import com.jk.model.SeckillTimeBean;
-import com.jk.model.TimeLimitSeckill;
+import com.jk.model.*;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -47,4 +45,40 @@ public interface SeckilServiceApi {
 
     @RequestMapping(value = "/queryDaoJiShi",method = RequestMethod.POST)
     TimeLimitSeckill queryDaoJiShi(@RequestParam(value = "id")String id);
+
+    @RequestMapping(value = "/queryRegionList",method = RequestMethod.POST)
+    List<RegionBean> queryRegionList(@RequestParam(value = "userId")String userId);
+
+    @RequestMapping(value = "/addRegion",method = RequestMethod.POST)
+    void addRegion(@RequestBody RegionBean regionBean);
+
+    @RequestMapping(value = "/deleteRegion",method = RequestMethod.POST)
+    void deleteRegion(@RequestParam(value = "id")String id);
+
+    @RequestMapping(value = "/addCommmondityInfo",method = RequestMethod.POST)
+    void addCommmondityInfo(@RequestParam(value = "id")String id, @RequestParam(value = "name")String name, @RequestParam(value = "artNo")String artNo, @RequestParam(value = "seckillPrice")String seckillPrice, @RequestParam(value = "commmondityImg")String commmondityImg);
+
+    @RequestMapping(value = "/addOrderInfo",method = RequestMethod.POST)
+    void addOrderInfo(@RequestBody OrderBean orderBean);
+
+    @RequestMapping(value = "/queryOrderById",method = RequestMethod.POST)
+    OrderBean queryOrderById(@RequestBody OrderBean orderBean);
+
+    @RequestMapping(value = "/updateOrderStatus",method = RequestMethod.POST)
+    void updateOrderStatus(@RequestBody OrderBean orderBean);
+
+    @RequestMapping(value = "/deleteTimeLimit",method = RequestMethod.POST)
+    void deleteTimeLimit(@RequestParam(value = "id")String id);
+
+    @RequestMapping(value = "/querySeckillComInfoById",method = RequestMethod.POST)
+    SeckilCommodity querySeckillComInfoById(@RequestParam(value = "id")String id);
+
+    @RequestMapping(value = "/deleteComInfoById",method = RequestMethod.POST)
+    void deleteComInfoById(@RequestParam(value = "id")String id);
+
+    @RequestMapping(value = "/updateCommInfo",method = RequestMethod.POST)
+    void updateCommInfo(@RequestParam(value = "seckillId")String seckillId);
+
+    @RequestMapping(value = "/updateTImeLimitById",method = RequestMethod.POST)
+    void updateTImeLimitById(@RequestParam(value = "seckillId")String seckillId);
 }

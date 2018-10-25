@@ -2,6 +2,7 @@ package com.jk.mapper.coupon;
 
 import com.jk.model.Coupon;
 import com.jk.model.User;
+import com.jk.model.UserCou;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -13,7 +14,7 @@ public interface CouMapper {
 
     void deleteCoupon(@Param("id") String id);
 
-    void addCoupon(Coupon coupon);
+
 
     Coupon queryCouById(@Param("id")String id);
 
@@ -24,4 +25,15 @@ public interface CouMapper {
     void regUser(@Param("u") User user);
 
     User queryUserInfoByPhone(@Param("u") User user);
+
+    List<Coupon> queryCouList(Coupon coupon);
+
+    void addCouByUser(UserCou userCou);
+
+    void addCoupon(List<Coupon> list);
+
+
+    List<UserCou> queryUserCou(@Param("id") String id);
+
+    void updateCouCount(@Param("id") String couId);
 }

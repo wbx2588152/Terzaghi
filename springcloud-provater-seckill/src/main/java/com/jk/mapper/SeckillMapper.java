@@ -1,8 +1,6 @@
 package com.jk.mapper;
 
-import com.jk.model.SeckilCommodity;
-import com.jk.model.SeckillTimeBean;
-import com.jk.model.TimeLimitSeckill;
+import com.jk.model.*;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -35,7 +33,31 @@ public interface SeckillMapper {
 
     int queryTimeLimitCount(@Param("t")TimeLimitSeckill timeLimitSeckill);
 
-    List<SeckillTimeBean> queryTimeLimitLists(@Param("start")int start, @Param("rows")int rows, @Param("t")TimeLimitSeckill timeLimitSeckill);
+    List<TimeLimitSeckill> queryTimeLimitLists(@Param("start")int start, @Param("rows")int rows, @Param("t")TimeLimitSeckill timeLimitSeckill);
 
     TimeLimitSeckill queryDaoJiShi(@Param("id")String id);
+
+    List<RegionBean> queryRegionList(@Param("userId")String userId);
+
+    void addRegion(@Param("r")RegionBean regionBean);
+
+    void deleteRegion(@Param("id")String id);
+
+    void addCommmondityInfo(@Param("id")String id, @Param("name")String name, @Param("artNo")String artNo, @Param("seckillPrice")String seckillPrice, @Param("commmondityImg")String commmondityImg);
+
+    void addOrderInfo(@Param("o")OrderBean orderBean);
+
+    OrderBean queryOrderById(@Param("o")OrderBean orderBean);
+
+    void updateOrderStatus(@Param("o")OrderBean orders);
+
+    void deleteTimeLimit(@Param("id")String id);
+
+    SeckilCommodity querySeckillComInfoById(@Param("id")String id);
+
+    void deleteComInfoById(@Param("id")String id);
+
+    void updateCommInfo(@Param("id")String seckillId);
+
+    void updateTImeLimitById(@Param("id")String seckillId);
 }

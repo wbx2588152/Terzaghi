@@ -16,15 +16,15 @@ public class SeckilCommodity implements Serializable {
 
     private String artNo;   //商品描述
 
-    private String price;   //价格
+    private Integer price;   //价格
 
-    private String seckillPrice;    //秒杀价格
+    private Integer seckillPrice;    //秒杀价格
 
-    private String seckillCount;    //秒杀数量
+    private Integer seckillCount;    //秒杀数量
 
-    private String limitationCount;    //限购数量
+    private Integer limitationCount;    //已经抢了多少数量
 
-    private String surplusCount;    //剩余数量
+    private Integer surplusCount;    //剩余数量
 
     private String commmondityImg;  //商品封面  秒杀封面
 
@@ -62,23 +62,23 @@ public class SeckilCommodity implements Serializable {
         this.artNo = artNo;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
 
-    public void setSeckillPrice(String seckillPrice) {
+    public void setSeckillPrice(Integer seckillPrice) {
         this.seckillPrice = seckillPrice;
     }
 
-    public void setSeckillCount(String seckillCount) {
+    public void setSeckillCount(Integer seckillCount) {
         this.seckillCount = seckillCount;
     }
 
-    public void setLimitationCount(String limitationCount) {
+    public void setLimitationCount(Integer limitationCount) {
         this.limitationCount = limitationCount;
     }
 
-    public void setSurplusCount(String surplusCount) {
+    public void setSurplusCount(Integer surplusCount) {
         this.surplusCount = surplusCount;
     }
 
@@ -94,23 +94,23 @@ public class SeckilCommodity implements Serializable {
         return artNo;
     }
 
-    public String getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public String getSeckillPrice() {
+    public Integer getSeckillPrice() {
         return seckillPrice;
     }
 
-    public String getSeckillCount() {
+    public Integer getSeckillCount() {
         return seckillCount;
     }
 
-    public String getLimitationCount() {
+    public Integer getLimitationCount() {
         return limitationCount;
     }
 
-    public String getSurplusCount() {
+    public Integer getSurplusCount() {
         return surplusCount;
     }
 
