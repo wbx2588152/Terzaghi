@@ -1,5 +1,5 @@
 server:
-    port: 8083
+    port: 8089
 
 spring:
   application:
@@ -9,9 +9,9 @@ spring:
   datasource:
     drivervlassname: com.mysql.jdbc.Driver
    # url: jdbc:mysql://192.168.31.118:3306/test?useUnicode=true&characterEncoding=utf-8
-    url: jdbc:mysql://127.0.0.1:3307/test?useUnicode=true&characterEncoding=utf-8
+    url: jdbc:mysql://192.168.31.117:3306/test?useUnicode=true&characterEncoding=utf-8
     username: root
-    password:
+    password: root
 
 eureka:
   client:

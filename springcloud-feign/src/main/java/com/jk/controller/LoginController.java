@@ -53,7 +53,7 @@ public class LoginController {
     @Autowired
     private PowerService powerService;
 
-    @RequestMapping("seepowertree")
+    @RequestMapping("/seepowertree")
     @ResponseBody
     public List<Power> seepowertree(){
         List<Power> x =powerService.seepowertree();

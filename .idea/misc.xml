@@ -10,6 +10,7 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/springcloud-eureka-server/pom.xml" />
         <option value="$PROJECT_DIR$/springcloud-eureka-client/pom.xml" />
         <option value="$PROJECT_DIR$/springcloud-ribbon/pom.xml" />
@@ -20,10 +21,12 @@
         <option value="$PROJECT_DIR$/springcloud-seckill/pom.xml" />
         <option value="$PROJECT_DIR$/springcloud-provater-seckill/pom.xml" />
         <option value="$PROJECT_DIR$/shopping/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-topo/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/scEureka/pom.xml" />
         <option value="$PROJECT_DIR$/springcloud-seckill/pom.xml" />
         <option value="$PROJECT_DIR$/springcloutdseckill/pom.xml" />

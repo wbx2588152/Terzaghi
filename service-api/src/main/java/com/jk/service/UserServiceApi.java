@@ -25,7 +25,7 @@ public interface UserServiceApi {
     @RequestMapping(value="wbx/updateWbxUser",method = RequestMethod.POST)
     void updateWbxUser(@RequestBody Users user);
 
-    @RequestMapping(value="wbx/getTree")
+    @RequestMapping(value="wbx/getTree",method = RequestMethod.GET)
     List<Power> seepowertree();
 
     @RequestMapping(value="wbx/seeAllMenu")
