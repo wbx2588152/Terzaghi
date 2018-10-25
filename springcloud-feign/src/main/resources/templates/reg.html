@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>前台登录界面</title>
+    <link rel="stylesheet" type="text/css" href="../css/base.css" />
+    <script type="text/javascript" src="../js/jquery-1.8.2.min.js"></script>
+    <!-- 新增登录 -->
+    <link rel="stylesheet" type="text/css" href="../css/login.css" />
+    <script type="text/javascript" src="../js/login.js"></script>
+</head>
+<body>
+<div class="UnauthHomePage">
+    <div class="register_shadow">
+        <div class="register_shadow_txt"></div>
+    </div>
+</div>
+<div class="login_containter">
+    <div class="login_left">
+        <!--    <a class="logo"></a>-->
+        <h3><span>注&nbsp;册</span></h3>
+        <div class="login_validate loginAccunt_validate">
+            <div class="input_item">
+                <i class="icon_un"></i>
+                <input type="text" name="loginname"  id="loginname"value="请输入用户名" eg="请输入手机/邮箱/用户名" class="loginName" />
+                <span class="error_info errorloginName" style="display:none;"></span>
+            </div>
+            <div class="input_item">
+                <i class="icon_pw"></i>
+                <span class="password_upTxt">请输入密码</span>
+                <input type="password" name="password" id="password" class="loginPwd" />
+                <span class="error_info errorloginPwd" style="display:none;"></span>
+            </div>
+            <div class="input_item">
+                <i class="icon_pw"></i>
+                <span class="password_upTxt">确认密码</span>
+                <input type="password" name="password" id="password2" class="loginPwd" />
+                <span class="error_info errorloginPwd" style="display:none;"></span>
+            </div>
+            <div class="input_item">
+                <i class="icon_un"></i>
+                <input type="text" name="phoneNumber" id="phoneNumber" value="请输入手机号" eg="请输入手机号" class="loginPhone" maxlength="11" onblur="onblursLoginPhone($(this))" />
+                <span class="error_info errorloginPhone" style="display:none;"></span>
+            </div>
+
+            <div class="input_item">
+                <input type="checkbox" name="autologin" value="ON" class="loginCheck" id="autologin" checked="checked" style="display: none" /><i class="loginChk checked" name="loginChk"></i><span class="autoTxt">记住密码</span>
+                <a href="javascript:;tiao()" class="login_wjmm">快捷登录</a>
+            </div>
+            <div class="input_item">
+                <input type="button" class="loginBtn" id="reglogin" onmousedown="LoginFormSubmit($(this));" value="注  册" />
+            </div>
+            <div class="input_item f-tac f-pb30">
+                <a href="javascript:void(0)" class="iconQQ" onclick="openQQ();"></a>
+                <a href="javascript:void(0)" class="iconWX" onclick="openWeiXin();"></a>
+                <a href="javascript:void(0)" class="iconWB" onclick="openWeiBo();"></a>
+                <a href="javascript:void(0)" class="iconZFB" onclick="openAliPay();"></a>
+            </div>
+        </div>
+
+    </div>
+    <div class="login_right">
+
+    </div>
+
+</div>
+
+
+<script>
+
+   function  tiao(){
+       location.href="/cou/toLogin";
+   }
+
+
+   $('#reglogin').click(function(){
+       alert(11)
+       $.ajax({
+           url:'../cou/regUser',
+           type:'post',
+           data:{
+               loginname:$('#loginname').val(),
+               password:$('#password').val(),
+               phoneNumber:$('#phoneNumber').val()
+           },
+           dataType:'json',
+           success:function(result){
+               var password = $('#password').val()
+               var password2 = $('#password2').val()
+               if(password!=password2){
+                   alert("密码保持一致")
+               }
+               else{
+                   location.href="/cou/toLogin";
+               }
+           }
+       })
+   })
+
+</script>
+
+</body>
+</html>

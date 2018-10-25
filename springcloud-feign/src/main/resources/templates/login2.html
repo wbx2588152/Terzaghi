@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>前台登录界面</title>
+    <link rel="stylesheet" type="text/css" href="../css/base.css" />
+    <script type="text/javascript" src="../js/jquery-1.8.2.min.js"></script>
+    <!-- 新增登录 -->
+    <link rel="stylesheet" type="text/css" href="../css/login.css" />
+    <script type="text/javascript" src="../js/login.js"></script>
+</head>
+<body>
+<div class="UnauthHomePage">
+    <div class="register_shadow">
+        <div class="register_shadow_txt"></div>
+    </div>
+</div>
+<div class="login_containter">
+    <div class="login_left">
+  <!--    <a class="logo"></a>-->
+        <h3><span>登&nbsp;录</span></h3>
+        <h4 class="account_login"><a href="javascript:void(0)">手机动态登录<span></span></a></h4>
+        <h4 class="phone_login" style="display:none;"><a href="javascript:void(0)">返回账号登录</a></h4>
+        <div class="login_validate loginAccunt_validate">
+            <div class="input_item">
+                <i class="icon_un"></i>
+                <input type="text" name="loginname"  id="loginname"value="请输入手机/邮箱/用户名" eg="请输入手机/邮箱/用户名" class="loginName" />
+                <span class="error_info errorloginName" style="display:none;"></span>
+            </div>
+            <div class="input_item">
+                <i class="icon_pw"></i>
+                <span class="password_upTxt">请输入密码</span>
+                <input type="password" name="password" id="password" class="loginPwd" />
+                <span class="error_info errorloginPwd" style="display:none;"></span>
+            </div>
+            <div class="input_item" >
+                <div class="icon_yzm_item">
+                    <i class="icon_yzm"></i>
+                    <input type="text" name="code" class="loginyzm" maxlength="4" value="验证码" eg="验证码" id="code"   />
+                </div>
+                <div class="yzm_H_item">
+                    <!--   <a onclick="changVCodePhone()" class="yzm_H"></a>--><!--<img id="" class="loginCapt" src="images/GetValidateCode.jpg" />-->
+                    <img data-th-src="@{gifCode}" id="validateCodeImg" onclick="reloadCode()" style="display:inline-block" />
+                    <span class="errorloginyzm error_info" style="display:none;"></span>
+                </div>
+
+            </div>
+            <div class="input_item">
+                <input type="checkbox" name="autologin" value="ON" class="loginCheck" id="autologin" checked="checked" style="display: none" /><i class="loginChk checked" name="loginChk"></i><span class="autoTxt">7天自动登录</span>
+                <a href="javascript:;" class="login_wjmm">忘记密码?</a>
+            </div>
+            <div class="input_item">
+                <input type="button" class="loginBtn" id="loginSub" onmousedown="LoginFormSubmit($(this));" value="登  录" />
+            </div>
+            <div class="input_item f-tac f-pb30">
+                <a href="javascript:void(0)" class="iconQQ" onclick="openQQ();"></a>
+                <a href="javascript:void(0)" class="iconWX" onclick="openWeiXin();"></a>
+                <a href="javascript:void(0)" class="iconWB" onclick="openWeiBo();"></a>
+                <a href="javascript:void(0)" class="iconZFB" onclick="openAliPay();"></a>
+            </div>
+        </div>
+        <div class="login_validate loginPhone_validate" style="display:none;">
+            <div class="input_item">
+                <i class="icon_un"></i>
+                <input type="text" name="phoneNumber" id="phoneNumber" value="请输入手机号" eg="请输入手机号" class="loginPhone" maxlength="11" onblur="onblursLoginPhone($(this))" />
+                <span class="error_info errorloginPhone" style="display:none;"></span>
+            </div>
+         <!--   <div class="input_item" >
+                <div class="icon_yzm_item">
+                    <i class="icon_yzm"></i>
+                    <input type="text" name="yanzhengma" class="loginyzm" maxlength="4" value="验证码" eg="验证码" id="loginyzmPhone"   />
+                </div>
+                <div class="yzm_H_item">
+                 &lt;!&ndash;   <a onclick="changVCodePhone()" class="yzm_H"></a>&ndash;&gt;&lt;!&ndash;<img id="" class="loginCapt" src="images/GetValidateCode.jpg" />&ndash;&gt;
+                    <img data-th-src="@{gifCode}" id="validateCodeImg" onclick="reloadCode()" style="display:inline-block" />
+                    <span class="errorloginyzm error_info" style="display:none;"></span>
+                </div>
+
+            </div>-->
+            <div class="input_item">
+                <div class="icon_dx_item">
+                    <i class="icon_dx"></i>
+                    <input type="text" name="code" class="loginCode" value="请输入验证码" eg="请输入验证码"  id="verificationCode" />
+                </div>
+                <div class="login_sendCode">
+                    <input type="button"  id="getCode" value="发送短信验证码" />
+                </div>
+                <span class="error_info errorloginCode" style="display:none;"></span>
+            </div>
+            <div class="input_item">
+                <span class="readTxt">阅读并接受<a href="javascript:;" target="_blank" class="color2">《一幅图用户协议》</a></span>
+
+            </div>
+            <div class="input_item">
+                <span class="Login_Uname" style="display:none;">您的手机号码尚未注册，点击注册将自动注册一幅图账号并与此手机号绑定</span>
+                <input type="button" class="PhoneloginBtn" id="loginPhone"  onmousedown="LoginPhoneSubmit($(this));" value="手机登  录" />
+                <input type="button" style="display:none;" class="PhoneRegBtn" onmousedown="RegPhoneSubmit($(this));" value="注  册" />
+            </div>
+            <div class="input_item f-tac f-pb30">
+                <a href="javascript:void(0)" class="iconQQ"></a><a href="javascript:void(0)" class="iconWX"></a><a href="javascript:void(0)" class="iconWB"></a><a href="javascript:void(0)" class="iconZFB"></a>
+            </div>
+        </div>
+        <div class="login_change">
+            <p>还没有一幅图账号？</p>
+            <a href="javascript:tiao()">注  册</a>
+        </div>
+    </div>
+    <div class="login_right">
+
+    </div>
+
+</div>
+
+
+<script>
+
+    $('#loginSub').click(function(){
+        $.ajax({
+            url:'../cou/login',
+            type:'post',
+            data:{
+                loginname:$('#loginname').val(),
+                password:$('#password').val(),
+                code:$('#code').val()
+            },
+            dataType:'json',
+            success:function(result){
+                if(result.code == 0){
+                    alert(result.msg);
+                    location.href="/cou/toIndex";
+                }else{
+                    alert(result.msg);
+                }
+            }
+        })
+    })
+
+    $('#loginPhone').click(function(){
+        $.ajax({
+            url:'../cou/loginPhone',
+            type:'post',
+            data:{
+                phoneNumber:$('#phoneNumber').val(),
+                verificationCode:$('#verificationCode').val(),
+            },
+            dataType:'json',
+            success:function(result){
+                if(result.code == 0){
+                    alert(result.msg);
+                    location.href="/cou/toIndex";
+                }else{
+                    alert(result.msg);
+                }
+            }
+        })
+    })
+
+
+
+    function reloadCode() {
+        $("#validateCodeImg").attr("src", ctx + "gifCode?data=" + new Date() + "");
+    }
+
+    $('#getCode').click(function(){
+        $.ajax({
+            url:'../cou/queryVerificationCode',
+            type:'post',
+            data:{
+                phoneNumber:$('#phoneNumber').val(),
+            },
+            dataType:'json',
+            success:function(result){
+                if(result.code != 0){
+                    alert(result.msg);
+                }else{
+                    var obj = $('#getCode');
+                    obj.attr("disabled","disabled");
+                    var time = 60;
+                    var timer = setInterval(function(){
+                        var temp = time --;
+                        obj.attr("value",("("+temp+")秒后重新获取"))
+                        if(temp<=0){
+                            obj.removeAttr("disabled");
+                            obj.attr("value","获取验证码");
+                            clearInterval(timer);
+                            return;
+                        }
+                    },1000);
+                }
+            }
+        })
+    })
+     function tiao(){
+        location.href="/cou/toReg";
+     }
+
+</script>
+
+</body>
+</html>
