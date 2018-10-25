@@ -1,12 +1,10 @@
 package com.jk.service;
 
-import com.jk.model.User;
-
 import java.util.List;
 
 public interface UserService {
 
-    List<User> getUserList();
+    /*List<User> getUserList();
 
     void saveUser(User user);
 
@@ -14,5 +12,5 @@ public interface UserService {
 
     User getUserById(String id);
 
-    void updateUser(User user);
+    void updateUser(User user);*/
 }

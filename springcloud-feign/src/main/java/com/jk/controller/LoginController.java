@@ -1,8 +1,6 @@
 package com.jk.controller;
 
 import com.jk.service.LoginServiceApi;
-import com.jk.service.UserService;
-import com.jk.service.UserServiceApi;
 import com.jk.shiro.FebsProperties;
 import com.jk.shiro.ResponseBo;
 import com.jk.util.Captcha;
@@ -22,8 +20,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import static org.apache.shiro.util.ThreadContext.getSubject;
 
 @Controller
 public class LoginController {
@@ -53,7 +49,7 @@ public class LoginController {
     //跳转登录页面
     @GetMapping("/index")
     public String index() {
-        return "index";
+        return "beforeindex";
     }
 
 

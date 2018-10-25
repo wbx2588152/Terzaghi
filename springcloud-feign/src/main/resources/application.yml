@@ -35,7 +35,7 @@ spring:
         # 连接池最大阻塞等待时间（使用负值表示没有限制）
         max-wait: 10000
     # 连接超时时间（毫秒）
-    timeout: 0
+    timeout: 200
 
     thymeleaf:
       cache: false
@@ -47,7 +47,17 @@ spring:
 
 feign:
   hystrix:
-    enabled: true
+    enabled: false
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 6000
+ribbon:
+  ConnectTimeout: 60000
+  ReadTimeout: 60000
 
 febs:
   shiro:
@@ -58,7 +68,7 @@ febs:
     # rememberMe cookie有效时长，默认86400秒，即一天
     cookieTimeout: 86400
     # 免认证的路径配置，如静态资源，druid监控页面，注册页面，验证码请求等
-    anonUrl: /css/**,/js/**,/fonts/**,/img/**,/druid/**,/user/regist,/gifCode,/,/actuator/**,/test/**,/layui/**
+    anonUrl: /coupon_files/**,/index_files/**,/images/**,/EasyUI/**,/css/**,/js/**,/fonts/**,/img/**,/druid/**,/user/regist,/gifCode,/,/actuator/**,/test/**,/layui/**,/cou/**
     # 登录 url
     loginUrl: /login
     # 登录成功后跳转的 url

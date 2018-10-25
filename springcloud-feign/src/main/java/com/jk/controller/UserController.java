@@ -1,5 +1,6 @@
 package com.jk.controller;
 
+import com.jk.model.Coupon;
 import com.jk.model.Menu;
 import com.jk.model.Role;
 import com.jk.model.User;
@@ -12,11 +13,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class UserController {
@@ -45,7 +46,7 @@ public class UserController {
     @ResponseBody
     public List<Role> roleList(String username) {
         User user = (User) SecurityUtils.getSubject().getPrincipal();
-        String userName = user.getUsername();
+        String userName = user.getLoginname();
         return userService.findUserRole(userName);
     }
 
@@ -53,9 +54,13 @@ public class UserController {
     @ResponseBody
     public List<Menu> permissionList(String username) {
         User user = (User) SecurityUtils.getSubject().getPrincipal();
-        String userName = user.getUsername();
+        String userName = user.getLoginname();
         return userService.findUserPermissions(userName);
     }
+
+
+
+
 
 
 

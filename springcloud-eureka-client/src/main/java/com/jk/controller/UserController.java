@@ -18,7 +18,7 @@ public class UserController {
     String port;
     @Autowired
     private UserService userService;
-    @RequestMapping(value="ha",method = RequestMethod.GET)
+    /*@RequestMapping(value="ha",method = RequestMethod.GET)
     @ResponseBody
     public List<User> userlist() {
         System.out.println(port);
@@ -43,5 +43,5 @@ public class UserController {
     @ResponseBody
     public void updateUser(@RequestBody User user){
         userService.updateUser(user);
-    }
+    }*/
 }
