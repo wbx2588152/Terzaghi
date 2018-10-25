@@ -20,6 +20,8 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="scEureka" target="1.7" />
+      <module name="service-api" target="1.5" />
+      <module name="Terzaghi" target="1.5" />
       <module name="springcloud-seckill" target="1.8" />
       <module name="springcloutdseckill" target="1.5" />
     </bytecodeTargetLevel>

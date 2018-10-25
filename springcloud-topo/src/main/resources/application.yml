@@ -1,0 +1,21 @@
+server:
+    port: 8083
+
+spring:
+  application:
+    name: service-topo
+
+
+  datasource:
+    drivervlassname: com.mysql.jdbc.Driver
+   # url: jdbc:mysql://192.168.31.118:3306/test?useUnicode=true&characterEncoding=utf-8
+    url: jdbc:mysql://127.0.0.1:3307/test?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password:
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8081/eureka/
+
+

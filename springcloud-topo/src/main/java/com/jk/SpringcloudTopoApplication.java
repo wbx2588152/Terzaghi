@@ -8,9 +8,8 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 @SpringBootApplication
 @EnableEurekaClient
 @MapperScan("com.jk.mapper")
-public class SpringcloudEurekaClientApplication {
-
-    public  static void main(String[] args) {
-        SpringApplication.run(SpringcloudEurekaClientApplication.class, args);
-    }
+public class SpringcloudTopoApplication {
+	public static void main(String[] args) {
+		SpringApplication.run(SpringcloudTopoApplication.class, args);
+	}
 }
