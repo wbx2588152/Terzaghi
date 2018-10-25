@@ -6,7 +6,7 @@ public class Comm implements Serializable {
 
     private String id;
 
-    private String number;  //编号
+    private String number;  //编号名称
 
     private String nameid;    //商品名称
     private String showname;
@@ -21,7 +21,7 @@ public class Comm implements Serializable {
 
     private Integer added = 2;            //上下架
 
-    private Integer label = 2;		  //标签（1.新品，2.推荐）
+    private Integer label = 2;		  //标签（2.新品，1.推荐,3.热销）
 
     private String modelsid;		  //型号
     private String showmodels;
