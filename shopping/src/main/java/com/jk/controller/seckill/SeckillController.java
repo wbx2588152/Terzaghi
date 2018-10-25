@@ -92,7 +92,6 @@ public class SeckillController {
     @RequestMapping(value = "/goAlipay", produces = "text/html; charset=UTF-8")
     @ResponseBody
     public String goAlipay(String seckillId,String regionId,String id,String name, String artNo, String seckillPrice, String commmondityImg,String commmondityCount, HttpServletRequest request, HttpServletRequest response) throws Exception {
-        System.out.println("商品id-----"+seckillId);
 
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute(session.getId());
