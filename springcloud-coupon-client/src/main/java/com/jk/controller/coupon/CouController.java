@@ -3,6 +3,7 @@ package com.jk.controller.coupon;
 import com.alibaba.fastjson.JSONObject;
 import com.jk.model.Coupon;
 import com.jk.model.User;
+import com.jk.model.UserCou;
 import com.jk.service.coupon.CouService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -27,20 +28,7 @@ public class CouController {
     private CouService couService;
 
 
-    /*@RequestMapping(value = "querycouponPage",method = RequestMethod.POST)
-    @ResponseBody
-    public String querycouponPage(@RequestParam(value="page") int page, @RequestParam(value="rows") int rows, @RequestBody Coupon coupon){
-        Map<String,Object> map=couService.querycouponlist(page,rows,coupon);
-        List<Coupon> list = (List<Coupon>) map.get("data");
-        int count= (int) map.get("count");
-        JSONObject obj=new JSONObject();
-        //前台通过key值获得对应的value值
-        obj.put("code", 0);
-        obj.put("msg", "");
-        obj.put("count",count);
-        obj.put("data",list);
-        return obj.toString();
-    }*/
+
 
     @RequestMapping(value = "querycouponPage",method = RequestMethod.POST)
     @ResponseBody
@@ -103,6 +91,28 @@ public class CouController {
     public User  queryUserInfoByPhone(@RequestBody User user){
         User userInfo = couService.queryUserInfoByPhone(user);
         return userInfo;
+    }
+
+    //查询我的优惠券
+    @RequestMapping(value = "queryCouList",method = RequestMethod.POST)
+    @ResponseBody
+    public List<Coupon> queryCouList(@RequestBody  Coupon coupon){
+        List<Coupon>  couList   =couService.queryCouList(coupon);
+        return couList;
+    }
+
+    @RequestMapping(value = "addCouByUser",method = RequestMethod.POST)
+    @ResponseBody
+    public void addCouByUser(@RequestBody UserCou userCou){
+        userCou.setId(UUID.randomUUID().toString().replaceAll("-",""));
+        couService.addCouByUser(userCou);
+
+    }
+    @RequestMapping(value = "queryUserCou",method = RequestMethod.POST)
+    @ResponseBody
+    public List<UserCou> queryUserCou(@RequestParam(value="id") String id){
+        List<UserCou>  userCous = couService.queryUserCou(id);
+        return userCous;
     }
 
 

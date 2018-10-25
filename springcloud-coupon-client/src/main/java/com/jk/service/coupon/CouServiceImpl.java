@@ -3,12 +3,12 @@ package com.jk.service.coupon;
 import com.jk.mapper.coupon.CouMapper;
 import com.jk.model.Coupon;
 import com.jk.model.User;
+import com.jk.model.UserCou;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 @Service
 public class CouServiceImpl implements  CouService{
@@ -36,8 +36,28 @@ public class CouServiceImpl implements  CouService{
     }
 
     @Override
-    public void addCoupon(Coupon coupon) {
-        couMapper.addCoupon(coupon);
+    public void addCoupon(Coupon coupon)
+    {
+        String count = coupon.getCount();
+        int i1 = Integer.parseInt(count);
+        List<Coupon> list = new ArrayList<Coupon>();
+        for (int i = 0; i <i1; i++) {
+            Coupon coupon1 = new Coupon();
+            coupon1.setId(UUID.randomUUID().toString().replaceAll("-",""));
+            coupon1.setMan(coupon.getMan());
+            coupon1.setFixday(coupon.getFixday());
+            coupon1.setPrice(coupon.getPrice());
+           String sum =  (coupon.getPrice()+coupon.getMan());
+            coupon1.setCount(sum);
+            list.add(coupon1);
+        }
+        couMapper.addCoupon(list);
+    }
+
+    @Override
+    public void regUser(User user) {
+
+        couMapper.regUser(user);
     }
 
     @Override
@@ -55,14 +75,28 @@ public class CouServiceImpl implements  CouService{
         return couMapper.getUserInfo(user);
     }
 
-    @Override
-    public void regUser(User user) {
-               couMapper.regUser(user);
-    }
+
 
     @Override
     public User queryUserInfoByPhone(User user) {
         return couMapper.queryUserInfoByPhone(user);
 
     }
+
+    @Override
+    public List<Coupon> queryCouList(Coupon coupon) {
+        return couMapper.queryCouList(coupon);
+    }
+
+    @Override
+    public void addCouByUser(UserCou userCou) {
+        couMapper.addCouByUser(userCou);
+        couMapper.updateCouCount(userCou.getCouId());
+
+
+    }
+
+    @Override
+    public List<UserCou> queryUserCou(String id) { return couMapper.queryUserCou(id); }
+
 }
