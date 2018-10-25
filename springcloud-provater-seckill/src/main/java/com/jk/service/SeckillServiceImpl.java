@@ -1,11 +1,10 @@
 package com.jk.service;
 
 import com.jk.mapper.SeckillMapper;
-import com.jk.model.SeckilCommodity;
-import com.jk.model.SeckillTimeBean;
-import com.jk.model.TimeLimitSeckill;
+import com.jk.model.*;
 import com.jk.service.seckill.SeckilServiceApi;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
@@ -82,14 +81,74 @@ public class SeckillServiceImpl implements SeckilServiceApi {
     }
 
     @Override
+    public List<RegionBean> queryRegionList(String userId) {
+        return seckillMapper.queryRegionList(userId);
+    }
+
+    @Override
+    public void addRegion(@RequestBody RegionBean regionBean) {
+        seckillMapper.addRegion(regionBean);
+    }
+
+    @Override
+    public void deleteRegion(String id) {
+        seckillMapper.deleteRegion(id);
+    }
+
+    @Override
     public Map<String, Object> queryTimeLimitLists(int page, int rows, TimeLimitSeckill timeLimitSeckill) {
         int start = (page-1)*rows;
         int count = seckillMapper.queryTimeLimitCount(timeLimitSeckill);
-        List<SeckillTimeBean> seckillLists = seckillMapper.queryTimeLimitLists(start,rows,timeLimitSeckill);
+        List<TimeLimitSeckill> seckillLists = seckillMapper.queryTimeLimitLists(start,rows,timeLimitSeckill);
         Map<String , Object> map = new HashMap<>();
         map.put("total",count);
         map.put("rows",seckillLists);
         return map;
+    }
+
+    @Override
+    public void addCommmondityInfo(String id, String name, String artNo, String seckillPrice, String commmondityImg) {
+        seckillMapper.addCommmondityInfo( id,  name,  artNo,  seckillPrice,  commmondityImg);
+    }
+
+    @Override
+    public void addOrderInfo(@RequestBody OrderBean orderBean) {
+        seckillMapper.addOrderInfo(orderBean);
+    }
+
+    @Override
+    public OrderBean queryOrderById(@RequestBody OrderBean orderBean) {
+        return seckillMapper.queryOrderById(orderBean);
+    }
+
+    @Override
+    public void updateOrderStatus(@RequestBody OrderBean orderBean) {
+        seckillMapper.updateOrderStatus(orderBean);
+    }
+
+    @Override
+    public void deleteTimeLimit(String id) {
+        seckillMapper.deleteTimeLimit(id);
+    }
+
+    @Override
+    public SeckilCommodity querySeckillComInfoById(String id) {
+        return seckillMapper.querySeckillComInfoById(id);
+    }
+
+    @Override
+    public void deleteComInfoById(String id) {
+        seckillMapper.deleteComInfoById(id);
+    }
+
+    @Override
+    public void updateCommInfo(String seckillId) {
+        seckillMapper.updateCommInfo(seckillId);
+    }
+
+    @Override
+    public void updateTImeLimitById(String seckillId) {
+        seckillMapper.updateTImeLimitById(seckillId);
     }
 
 
