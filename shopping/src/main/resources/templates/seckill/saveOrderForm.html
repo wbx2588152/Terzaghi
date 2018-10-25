@@ -208,7 +208,7 @@
                     commmondityImg:commmondityImgId,
                 },
                 success:function(id){
-                    $("#addShoppingForm").attr('action','../seckill/goAlipay?regionId='+regionId+'&id='+id+'&name='+nameId+'&artNo='+artNoId+'&seckillPrice='+seckillPriceId+'&commmondityImg='+commmondityImgId+'&commmondityCount='+commmondityCount+'');
+                    $("#addShoppingForm").attr('action','../seckill/goAlipay?seckillId='+seckillId+'&regionId='+regionId+'&id='+id+'&name='+nameId+'&artNo='+artNoId+'&seckillPrice='+seckillPriceId+'&commmondityImg='+commmondityImgId+'&commmondityCount='+commmondityCount+'');
                     $("#addShoppingForm").submit();
                 }
             })

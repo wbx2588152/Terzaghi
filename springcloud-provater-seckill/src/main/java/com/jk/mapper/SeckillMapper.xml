@@ -2,6 +2,28 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.jk.mapper.SeckillMapper" >
 
+	<update id="updateTImeLimitById">
+		update t_time_limit_seckill set limitationCount = limitationCount+1 where id = #{id}
+	</update>
+
+	<update id="updateCommInfo">
+		update t_seckill_commodity
+			set surplusCount = surplusCount-1,limitationCount = limitationCount+1
+		 		where id = #{id}
+	</update>
+
+	<update id="deleteComInfoById">
+		update t_seckill_commodity set status = '2' where id = #{id}
+	</update>
+
+	<select id="querySeckillComInfoById" resultType="com.jk.model.SeckilCommodity">
+		select * from t_seckill_commodity where id = #{id}
+	</select>
+
+	<update id="deleteTimeLimit">
+		update t_time_limit_seckill set status = '2' where id = #{id}
+	</update>
+
 	<update id="updateOrderStatus">
 		update t_order
 			set paystatus = #{o.paystatus},orderstatus=#{o.orderstatus}
@@ -20,7 +42,7 @@
 	</insert>
 
 	<insert id="addCommmondityInfo">
-		insert into t_commodity(id,nameid,detail,price,photo) values(#{id},#{name},#{artNo},#{seckillPrice},#{commmondityImg})
+		insert into t_commodity(id,number,detail,price,photo) values(#{id},#{name},#{artNo},#{seckillPrice},#{commmondityImg})
 	</insert>
 
 	<delete id="deleteRegion">
@@ -45,16 +67,17 @@
 
 	<select id="queryTimeLimitLists" resultType="com.jk.model.TimeLimitSeckill">
 		SELECT * FROM t_time_limit_seckill
+		GROUP BY addTime DESC
 		limit #{start},#{rows}
 	</select>
 
 
 	<select id="querySeckillCommodityList" resultType="com.jk.model.SeckilCommodity">
-		SELECT * FROM t_seckill_commodity where status = 1 GROUP BY addTime
+		SELECT * FROM t_seckill_commodity where status = 1 GROUP BY addTime DESC
 	</select>
 
 	<select id="queryTimeLimitSeckillList" resultType="com.jk.model.TimeLimitSeckill">
-		SELECT * FROM t_time_limit_seckill where status = 1 GROUP BY addTime
+		SELECT * FROM t_time_limit_seckill where status = 1 GROUP BY addTime DESC
 	</select>
 
 	<select id="querySeckillCount" resultType="int">

@@ -50,4 +50,14 @@ public interface SeckillMapper {
     OrderBean queryOrderById(@Param("o")OrderBean orderBean);
 
     void updateOrderStatus(@Param("o")OrderBean orders);
+
+    void deleteTimeLimit(@Param("id")String id);
+
+    SeckilCommodity querySeckillComInfoById(@Param("id")String id);
+
+    void deleteComInfoById(@Param("id")String id);
+
+    void updateCommInfo(@Param("id")String seckillId);
+
+    void updateTImeLimitById(@Param("id")String seckillId);
 }

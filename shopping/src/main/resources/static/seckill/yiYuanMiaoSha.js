@@ -24,7 +24,7 @@ function initYiYuanMiaoSha(){
                     '                        <div class="floor1_price"><div class="red floor1_three_fh">￥</div><div class="red floor1_three_size">'+result[i].seckillPrice+'</div><div class="yh">￥'+result[i].price+'</div></div>\n' +
                     '                        <div class="floor2_right">\n' +
                     '                            <div class="top">限量</div>\n' +
-                    '                            <div class="bottom">'+result[i].seckillCount+'</div>\n' +
+                    '                            <div class="bottom">'+result[i].seckillCount+'件</div>\n' +
                     '                        </div>\n' +
                     '                    </div>\n' +
                     '                    <div style="clear:both;"></div>\n' +
@@ -106,6 +106,17 @@ function daojishi(i,id,addTime) {
                 $('#minutes'+i).html(Math.floor(temp/60%60));
                 $('#seconds'+i).html(temp%60);
                 if(temp<=0){
+                    $.ajax({
+                        url:'../seckill/deleteTimeLimit',
+                        type:'post',
+                        dataType:'json',
+                        data:{id:id},
+                        success:function(){
+                            initTimeLimitSeckill();
+                        },error:function () {
+                            initTimeLimitSeckill();
+                        }
+                    })
                     return;
                 }
             },1000);

@@ -126,5 +126,30 @@ public class SeckillServiceImpl implements SeckilServiceApi {
         seckillMapper.updateOrderStatus(orderBean);
     }
 
+    @Override
+    public void deleteTimeLimit(String id) {
+        seckillMapper.deleteTimeLimit(id);
+    }
+
+    @Override
+    public SeckilCommodity querySeckillComInfoById(String id) {
+        return seckillMapper.querySeckillComInfoById(id);
+    }
+
+    @Override
+    public void deleteComInfoById(String id) {
+        seckillMapper.deleteComInfoById(id);
+    }
+
+    @Override
+    public void updateCommInfo(String seckillId) {
+        seckillMapper.updateCommInfo(seckillId);
+    }
+
+    @Override
+    public void updateTImeLimitById(String seckillId) {
+        seckillMapper.updateTImeLimitById(seckillId);
+    }
+
 
 }

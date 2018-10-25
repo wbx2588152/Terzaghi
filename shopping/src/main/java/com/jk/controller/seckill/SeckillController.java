@@ -35,6 +35,16 @@ public class SeckillController {
     private SeckilServiceApi seckilServiceApi;
 
     /**
+     *  倒计时结束根据id修改状态 前台不展示
+     * */
+    @RequestMapping("deleteTimeLimit")
+    @ResponseBody
+    public String deleteTimeLimit(String id){
+        seckilServiceApi.deleteTimeLimit(id);
+        return "{}";
+    }
+
+    /**
      *  支付成功修改订单状态
      * */
     @RequestMapping("updateOrderStatus")
@@ -81,10 +91,19 @@ public class SeckillController {
      */
     @RequestMapping(value = "/goAlipay", produces = "text/html; charset=UTF-8")
     @ResponseBody
-    public String goAlipay(String regionId,String id,String name, String artNo, String seckillPrice, String commmondityImg,String commmondityCount, HttpServletRequest request, HttpServletRequest response) throws Exception {
+    public String goAlipay(String seckillId,String regionId,String id,String name, String artNo, String seckillPrice, String commmondityImg,String commmondityCount, HttpServletRequest request, HttpServletRequest response) throws Exception {
+        System.out.println("商品id-----"+seckillId);
 
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute(session.getId());
+
+        //根据id查看是否是限量秒杀的商品
+        SeckilCommodity seckilCommodity = seckilServiceApi.querySeckillComInfoById(seckillId);
+        if(seckilCommodity != null){    //如果是限量秒杀的商品在生成订单的时候库存减一
+            seckilServiceApi.updateCommInfo(seckillId);
+        }else{//那就是限时秒杀表 限时秒杀已购买的数量加一且库存减一
+            seckilServiceApi.updateTImeLimitById(seckillId);
+        }
 
         //生成唯一订单号
         IdWorker idWorker = new IdWorker(1, 0);
@@ -226,10 +245,18 @@ public class SeckillController {
     }
 
     /**
-     * 跳转到支付页面
+     * 跳转到支付页面  查看是否还有库存
      * */
     @RequestMapping("tosaveOrderForm")
     public String tosaveOrderForm(String id,String name, String artNo, String seckillPrice, String commmondityImg, ModelMap modelMap){
+
+        SeckilCommodity seckilCommodity = seckilServiceApi.querySeckillComInfoById(id);
+        if(seckilCommodity != null){
+            if(seckilCommodity.getSurplusCount() <= 0){  //库存大于0正常执行 小于0状态前台不展示
+                seckilServiceApi.deleteComInfoById(id);
+                return "/seckill/seckillList";
+            }
+        }
         modelMap.put("id",id);
         modelMap.put("name",name);
         modelMap.put("artNo",artNo);

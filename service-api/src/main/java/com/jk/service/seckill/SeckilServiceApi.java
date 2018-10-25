@@ -66,4 +66,19 @@ public interface SeckilServiceApi {
 
     @RequestMapping(value = "/updateOrderStatus",method = RequestMethod.POST)
     void updateOrderStatus(@RequestBody OrderBean orderBean);
+
+    @RequestMapping(value = "/deleteTimeLimit",method = RequestMethod.POST)
+    void deleteTimeLimit(@RequestParam(value = "id")String id);
+
+    @RequestMapping(value = "/querySeckillComInfoById",method = RequestMethod.POST)
+    SeckilCommodity querySeckillComInfoById(@RequestParam(value = "id")String id);
+
+    @RequestMapping(value = "/deleteComInfoById",method = RequestMethod.POST)
+    void deleteComInfoById(@RequestParam(value = "id")String id);
+
+    @RequestMapping(value = "/updateCommInfo",method = RequestMethod.POST)
+    void updateCommInfo(@RequestParam(value = "seckillId")String seckillId);
+
+    @RequestMapping(value = "/updateTImeLimitById",method = RequestMethod.POST)
+    void updateTImeLimitById(@RequestParam(value = "seckillId")String seckillId);
 }
