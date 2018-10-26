@@ -158,11 +158,21 @@ public class OrderController {
         }
 
 
-        @RequestMapping("mergerorders")
+       /* @RequestMapping("mergerorders")
         @ResponseBody
         public void mergerorders(String mainorder,String subarr){
             orderService.mergerorders(mainorder,subarr);
         }
 
+*/
+
+        @RequestMapping("automergerorder")
+        @ResponseBody
+        public String  automergerorder(){
+            orderService.automergerorder();
+
+
+            return "success";
+        }
 
 }
