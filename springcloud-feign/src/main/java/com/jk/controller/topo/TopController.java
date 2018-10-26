@@ -13,12 +13,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.math.BigDecimal;
 import java.util.List;
 
 @Controller
 public class TopController {
     @Autowired
     private TopService topService;
+
 
     @GetMapping("topo/userList2")
     public String userList2() {
@@ -80,7 +82,98 @@ public class TopController {
 
         LayuiData layuiData = new LayuiData();
         List<ProbabilityBean> userList = topService.getLunpanList(name,page,limit);
-        //int count = topService.getUserCount();
+
+        ///////////////////////
+        //  System.out.println(userList);
+        String ids = "";//求出id中的数字（字符串）
+        String names =  "";//求出名字中的字符串
+        String probabilitys ="";//求出概率
+        int he = 0; //求出概率中奖的数和
+
+        double wan = 0;
+        double two  = 0;
+        double three = 0;
+        double four = 0;
+        double five = 0;
+        double six = 0;
+        double seven = 0;
+        double eight = 0;
+        double nine = 0;
+        double ten = 0;
+
+        //所有级
+        double lunjie = 0;
+
+        //结果参数
+        int jieguo = 0;
+
+        for (int i = 0; i < userList.size(); i++) {
+            String id = userList.get(i).getId();
+            ids+=(ids=="" ? "":",")+id;
+            String nameq = userList.get(i).getName();
+            names+=(names=="" ? "":",")+nameq;
+            String probability =  userList.get(i).getProbability();
+            int aa =  Integer.parseInt( userList.get(i).getProbability());
+            //    probabilitys+=(probability=="" ? "":",")+probability;
+            he = aa+he;
+            if (id.equals("1")){
+                wan = aa ;
+            } else if(id.equals("2")){
+                two = aa;
+            } else if(id.equals("3")){
+                three = aa ;
+            } else if(id.equals("4")){
+                four = aa;
+            } else if(id.equals("5")){
+                five = aa;
+            } else if(id.equals("6")){
+                six = aa;
+            } else if(id.equals("7")){
+                seven = aa ;
+            } else if(id.equals("8")){
+                eight = aa;
+            } else if(id.equals("9")){
+                nine = aa;
+            } else if(id.equals("10")){
+                ten = aa;
+            } else {
+                System.out.println("哈哈，恭喜报错");
+            }
+            //  System.out.println(id);
+            //   System.out.println(name);
+            //   System.out.println(probability);//求出字符串（概率）
+        }
+        //  System.out.println(ids);
+        //  System.out.println(names);
+        //   System.out.println(probabilitys);
+        /// System.out.println(he); //概率求出了和
+     /*    System.out.println(wan);
+        System.out.println(two);
+        System.out.println(three);
+        System.out.println(four);
+        System.out.println(five);
+        System.out.println(six);
+        System.out.println(seven);
+        System.out.println(eight);
+        System.out.println(nine);
+        System.out.println(ten);*/
+
+
+        lunjie = wan + two + three + four +  five + six + seven + eight + nine + ten;
+
+        for (int i = 0; i <  userList.size(); i++) {
+            ProbabilityBean probabilityBean = userList.get(i);
+            double v = Double.parseDouble(probabilityBean.getProbability()) / lunjie * 100 ;
+
+            Double dou = (double)Math.round(v*100)/100;
+
+
+            probabilityBean.setLinshi(String.valueOf(dou)+"%");
+
+        }
+
+        //////////
+
         layuiData.setCode(0);
         layuiData.setCount(count);
         layuiData.setMsg("数据请求成功");
@@ -264,5 +357,6 @@ public class TopController {
           topService.update(id,name,probability);
         return 1;
     }
+
 }
 
