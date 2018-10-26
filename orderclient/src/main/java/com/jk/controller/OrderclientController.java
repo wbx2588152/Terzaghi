@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -45,5 +46,22 @@ public class OrderclientController {
     }
 
 
+    //发货
+    @RequestMapping(value = "savedeliverdata",method = RequestMethod.POST)
+    public void savedeliverdata(String consignnum,String expresscompany,String orderid){
+        orderClientService.savedeliverdata(consignnum,expresscompany,orderid);
+    }
+
+
+    @RequestMapping(value = "initselone",method = RequestMethod.POST)
+    public List<OrderBean> inselone(){
+        return orderClientService.inselone();
+    }
+
+    //合并订单
+    @RequestMapping(value = "mergerorders",method = RequestMethod.POST)
+    public void mergerorders(String mainorder,String subarr){
+        orderClientService.mergerorders(mainorder,subarr);
+    }
 
 }

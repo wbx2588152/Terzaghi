@@ -3,6 +3,7 @@ package com.jk.service;
 
 import com.jk.model.OrderBean;
 
+import java.util.List;
 import java.util.Map;
 
 public interface OrderClientService {
@@ -16,6 +17,14 @@ public interface OrderClientService {
 
 
     Map<String, Object> queryorderalldata(String orderid);
+
+
+    void savedeliverdata(String consignnum, String expresscompany, String orderid);
+
+    List<OrderBean> inselone();
+
+
+    void mergerorders(String mainorder, String subarr);
 
 
 }

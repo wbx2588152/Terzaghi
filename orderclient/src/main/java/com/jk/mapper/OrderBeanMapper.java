@@ -33,14 +33,29 @@ public interface OrderBeanMapper {
     OrderBean queryorder(String orderid);
 
 
-    UserRecieverBean queryuserreciever(String linkbothid);
-
-    RecieverBean queryreciever(String linkrecieverid);
-
-    Comm queryComm(String linkcommodifyid);
-
+    List<Comm> queryComm(String orderid);
 
     ExpressBean queryexpress(String orderid);
 
 
+    RegionBean queryregion(String linkbothid);
+
+
+    void insertexpress(ExpressBean expressBean);
+
+
+    void updateorderBean(OrderBean orderBean);
+
+    List<OrderBean> inselone();
+
+
+    void insertCommOrder(CommOrderBean commOrderBean);
+
+
+    void deleteExpressBean(String s);
+
+    void deleteSubOrder(String s);
+
+
+    List<String> queryCommOrder(String s);
 }
