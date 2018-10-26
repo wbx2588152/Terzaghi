@@ -16,6 +16,8 @@ public class RegionBean implements Serializable {
 
     private String userId;  //关联用户表id
 
+    private String showorderid;//暂存字段
+
     public void setInDetail(String inDetail) {
         this.inDetail = inDetail;
     }
@@ -64,4 +66,11 @@ public class RegionBean implements Serializable {
         return sheng;
     }
 
+    public String getShoworderid() {
+        return showorderid;
+    }
+
+    public void setShoworderid(String showorderid) {
+        this.showorderid = showorderid;
+    }
 }
