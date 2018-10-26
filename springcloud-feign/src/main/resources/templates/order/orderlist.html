@@ -28,12 +28,41 @@
         <i class="layui-icon">&#xe608;</i> 合并订单
     </button>
 
-</div>
+</div >
+
 <table id="demo" lay-filter="test" ></table>
+
+<div class="layui-inline" style="float: right">
+<button class="layui-btn layui-btn-primary" id="bt1">关闭订单<i class="layui-icon layui-icon-spread-left"></i></button>
+<button class="layui-btn layui-btn-primary" id="bt2">删除订单<i class="layui-icon layui-icon-shrink-right"></i></button>
+</div >
 <script src="../layui/jquery.min.js"></script>
 <script src="../layui/layui.js"></script>
 <script>
 
+
+    $("#bt1").mouseover(function(){
+        layui.use('layer', function(){
+            var layer = layui.layer;
+            layer.msg('说明：<br>关闭订单只包括未付款状态的订单', {
+                icon: 4,
+                time: 1000 //2秒关闭（如果不配置，默认是3秒）
+            }, function(){
+                //do something
+            });
+        });
+    })
+    $("#bt2").mouseover(function(){
+        layui.use('layer', function(){
+            var layer = layui.layer;
+            layer.msg('说明：<br>删除订单只包括已完成状态的订单', {
+                icon: 5,
+                time: 1000 //2秒关闭（如果不配置，默认是3秒）
+            }, function(){
+                //do something
+            });
+        });
+    })
     layui.use('laydate', function(){
         var laydate = layui.laydate;
 
@@ -68,6 +97,9 @@
                 where: {orderid:$("#uname").val(),
                     subdate:$("#ttime").val()
                 },
+                toolbar:true,
+               // totalRow: true, //开启合计行
+                defaultToolbar:['filter', 'print', 'exports'],
                 cols: [
                     [
                         {field: 'orderid', title: '订单编号',sort: true, fixed: 'left',width:60,type:'checkbox'},
@@ -95,7 +127,7 @@
                             templet: '<div><a href="../order/toshowdetail?orderid={{d.orderid}}" class="layui-table-link">查看详情</a></div>'
 
                         },
-                        {field: 'caozuo', title: '操作', sort: true,width:100,
+                        {field: 'caozuo', title: '操作',sort: true,width:100,
                             templet:function(d){
                                 if(d.orderstatus == '1'){
                                     return '<a href="javascript:delorderbyid(\''+d.orderid+'\')" class="layui-table-link">关闭订单</a></div>';
@@ -198,7 +230,46 @@ function alertdeliverpage(orderid){
         })
 
     }
+
     function alertmergepage() {
+        layui.use('layer', function () {
+            var layer = layui.layer;
+            layer.open({
+                type: 1,
+                title: '<div class="layui-bg-gray" style="font-size:25px">合并订单：说明</div>',
+                content: '<div style="font-size:14px;font-family: Cambria;">\n' +
+                    '    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;根据收货人和收货地址来自动合单，当两个订单不一致时，合并后的订单信息（如支付方式、配送方式、活动优惠等）以主订单为准。\n' +
+                    '</div>\n' +
+                    '<br>',
+                area: ['400px', '200px'],
+                btn: ['自动合单', '取消']
+                ,yes: function(index, layero) {
+                    $.ajax({
+                        url: '../order/automergerorder',
+                        type: 'post',
+                        data: {
+                        },
+                        dataType: 'json',
+                        success: function (result) {
+
+                        }
+                    })
+                    initTable();
+                    layer.close(index);
+                }
+                ,btn2: function(index, layero){
+                    layer.close(index);
+                }
+                ,cancel: function(index,layero){
+                    layer.close(index);
+
+                }
+            })
+        })
+
+    }
+
+   /* function alertmergepage() {
         layui.use('layer', function () {
             var layer = layui.layer;
             layer.open({
@@ -237,8 +308,10 @@ function alertdeliverpage(orderid){
             })
         })
     }
-
+*/
 </script>
+
+
 
 
 <script type="text/html" id="titleTp2" >
@@ -267,5 +340,7 @@ return "未审核";
 }
 }-->
  <!--templet: '<div><button onclick="delorderbyid({{d.orderid}})" class="layui-btn layui-btn-sm layui-btn-radius layui-btn-danger">删除订单</button></div>'-->
+
+
 </body>
 </html>
