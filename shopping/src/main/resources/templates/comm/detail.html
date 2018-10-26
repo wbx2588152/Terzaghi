@@ -17,13 +17,9 @@
 </div>
 <div class="site-nav">
     <div class="w">
-        <div class="user-info">
-                    <span class="site-user not-login" style="display: inline;">
-                        <span class="link link-login">登录</span>
-                        <span class="link link-register" href="./register.html">注册</span>
-                    </span>
-            <span class="site-user login">
-                        <span class="link-text">欢迎，<span class="username"></span></span> <span class="link link-logout">退出</span> </span> </div> <ul class="nav-list"> <li class="nav-item"> <a class="link" href="http://www.happyJinKe.com/cart.html"> <i class="fa fa-shopping-cart"></i> 购物车(<span class="cart-count">0</span>)</a> </li> <li class="nav-item"> <a class="link" href="http://www.happyJinKe.com/order-list.html">我的订单</a> </li> <li class="nav-item"> <a class="link" href="http://www.happyJinKe.com/user-center.html">我的JinKe</a> </li> <li class="nav-item"> <a class="link" href="http://www.happyJinKe.com/about.html">关于JinKe</a> </li> </ul> </div> </div>
+        <span id="checkLogin"></span>
+    </div>
+</div>
 <div class="header">
     <div class="w">
         <a class="logo" href="javascript:onComm();">JinKe</a>
@@ -81,11 +77,11 @@
             <div class="info-item">
                 <span class="label">数量:</span>
                 <input class="p-count" value="1" readonly="readonly">
-                <span class="p-count-btn plus" data-opera-type="plus">+</span>
-                <span class="p-count-btn minus" data-opera-type="minus">-</span>
+                <span class="p-count-btn plus" data-opera-type="plus" id="plusNum">+</span>
+                <span class="p-count-btn minus" data-opera-type="minus" id="minusNum">-</span>
             </div>
             <div class="info-item">
-                <a class="btn cart-add" javascript:addBuycar();>加入购物车</a>
+                <a class="btn cart-add" href="javascript:addBuycar();">加入购物车</a>
             </div>
         </div>
     </div>
@@ -117,7 +113,71 @@
 
     $(function(){
         itindetail();
+        initDaoHang();
     })
+    function initDaoHang(){
+        $.ajax({
+            /*url:'../wangcj/checkLogin',*/
+            url:'/cou/queryNavById',
+            type:'post',
+            data:{},
+            dataType:'json',
+            success:function(result){
+                var html = "";
+                if(result.code != 0){
+
+                    html +=  '<div class="user-info">\n' +
+                        '             <span class="site-user not-login" style="display: inline;">\n' +
+                        '                <span class="link link-login" id="tologin">登录</span>\n' +
+                        '                <span class="link link-register" id="toreg">注册</span>\n' +
+                        '             </span>\n' +
+                        '         </div>';
+
+                }else if (result.code == 0){
+                    var user = result.loginname;
+                    html +=
+                        '<div class="user-info">\n' +
+                        '       <span class="site-user not-login" style="display: inline;">\n' +
+                        '      <span class="link-text">欢迎<span class="username" id="username"></span>\n' +
+                        '    </span> <span class="link link-logout" id="exit">退出</span> </span>\n' +
+                        '   </span>\n' +
+                        '</div>\n' +
+                        '<ul class="nav-list">\n' +
+                        '<li class="nav-item">\n' +
+                        '<a class="link" href="javascript:seecar()">\n' +
+                        '<i class="fa fa-shopping-cart"></i> 购物车(<span class="cart-count" id="car-num">0</span>)</a>\n' +
+                        '</li>\n' +
+                        '<li class="nav-item">\n' +
+                        ' <span class="link link-register" id="toCou">我的优惠券</span>\n' +
+                        /*   '<a class="link" id="toCou">我的优惠券</a>\n' +*/
+                        '</li>\n' +
+                        '<li class="nav-item">\n' +
+                        '<a class="link" href="http://www.happymmall.com/user-center.html">我的MMall</a> </li>\n' +
+                        '<li class="nav-item">\n' +
+                        '<a class="link" href="http://www.happymmall.com/about.html">关于MMall</a>\n' +
+                        '</li>\n' +
+
+                        '</ul>';
+                }
+                $('#checkLogin').html(html);
+            }
+        })
+        $.ajax({
+            url:'/pay/getUserBuyCar',
+            type:'post',
+            data:{},
+            success:function(info){
+                var x=0;
+                for (var i = 0; i <info.length ; i++) {
+                    x+=Number(info[i].num);
+                }
+                $('#car-num').html(x);
+            }
+        })
+    }
+    function seecar(){
+        location.href="/pay/seeCarbuy";
+    }
     function itindetail(){
         var id = $("#detailid").val();
 
@@ -149,16 +209,51 @@
 
 <script>
     function addBuycar(){
+
         $.ajax({
-            url:'/comm/saveBuycar()',
+            url:'/cou/queryNavById',
             type:'post',
             data:{},
             dataType:'json',
             success:function(result){
-
+                if(result.code != 0){
+                    alert("请先登录！")
+                }else{
+                    var gid=$('#detailid').val();
+                    var gnum=$('.p-count').val();
+                    $.ajax({
+                        url:'/pay/saveSomeBuycar',
+                        type:'post',
+                        data:{gid:gid,
+                              gnum:gnum},
+                        dataType:'json',
+                        success:function(result){
+                            location.href="/pay/seeCarbuy";
+                        }
+                    })
+                    alert(gnum);
+                }
             }
         })
     }
+    //跳转登录页面
+    $('span').delegate('#tologin','click',function(){
+        location.href="/cou/toLogin";
+    })
+    //跳转注册页面
+    $('span').delegate('#toreg','click',function(){
+        location.href="/cou/toReg";
+    })
+    $('#plusNum').click(function(){
+        var x=Number($('.p-count').val())+1;
+        $('.p-count').val(x);
+    })
+    $('#minusNum').click(function(){
+        if($('.p-count').val()>1){
+            var x=Number($('.p-count').val())-1;
+        }
+        $('.p-count').val(x);
+    })
 
 </script>
 </body></html>

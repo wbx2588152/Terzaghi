@@ -34,7 +34,8 @@
         <div class="layui-inline">
             <label class="layui-form-label">手机名称</label>
             <div class="layui-input-inline">
-                <select name="nameid" lay-verify="nameid" id="nameid" lay-search="">
+                <select name="nameid" lay-verify="nameid" lay-filter="nameid" id="nameid" lay-search="">
+
                 </select>
             </div>
         </div>
@@ -51,7 +52,6 @@
             <label class="layui-form-label">手机型号</label>
             <div class="layui-input-inline">
                 <select name="modelsid" lay-verify="modelsid" id="modelsid" lay-search="">
-
 
                 </select>
             </div>
@@ -121,6 +121,11 @@
         </div>
     </div>
 </form>
+
+
+
+
+
 <script>
 
     layui.use('upload', function(){
@@ -160,11 +165,11 @@
     });
 </script>
 
-    <script>
-        layui.use(['layer', 'form','laydate'], function(){
-            var layer = layui.layer
-                ,laydate=layui.laydate
-                ,form = layui.form;
+<script>
+    layui.use(['layer', 'form','laydate'], function(){
+        var layer = layui.layer
+            ,laydate=layui.laydate
+            ,form = layui.form;
 
         form.on('submit(add)', function(data){
             var datas=data.field;
@@ -176,6 +181,8 @@
                 success:function(res){
 
                     layer.msg("新增成功",{icon:1});
+                    var index = parent.layer.getFrameIndex(window.name);
+                    parent.layer.close(index);//关闭当前页
                 },
                 error:function () {
                     layer.msg("新增失败",{icon:6});
@@ -184,66 +191,89 @@
 
             return false;
         });
-            $(function(){
-                initpeople();
+        $(function(){
+            initpeople();
+        })
+        function initpeople(){
+
+            $.ajax({
+                url:'/comm/queryPhone',
+                type:'post',
+                data:{},
+                dataType:'json',
+                success:function(result){
+                    var html = "";
+
+                    for(var i = 0 ; i<result.length;i++){
+
+                        html+=
+                            "<option value='"+result[i].id+"'>"+result[i].name+"</option>";
+                    }
+
+                    $('#nameid').html(html);
+                    form.render();
+                }
+
             })
-            function initpeople(){
+        }
+        form.on('select(nameid)', function(data){
+            var id = $("#nameid").val();
+            $.ajax({
+                url:'/comm/queryModels',
+                type:'post',
+                data:{
+                    id:id
+                },
+                dataType:'json',
+                success:function(result){
+                    var html = "";
 
-                $.ajax({
-                    url:'/comm/queryPhone',
-                    type:'post',
-                    data:{},
-                    dataType:'json',
-                    success:function(result){
-                        var html = "";
+                    for(var i = 0 ; i<result.length;i++){
 
-                        for(var i = 0 ; i<result.length;i++){
-
-                            html+=
-                                "<option value='"+result[i].id+"'>"+result[i].name+"</option>";
-                        }
-
-                        $('#nameid').html(html);
-                        form.render();
+                        html+=
+                            "<option value='"+result[i].id+"'>"+result[i].name+"</option>";
                     }
 
-                })
-            }
+                    $('#modelsid').html(html);
+                    form.render();
+                }
 
-            $('#nameid').change(function(){
-                var id = $(this).val();
-                $.ajax({
-                    url:'/comm/queryModels',
-                    type:'post',
-                    data:{
-                        id:id
-                    },
-                    dataType:'json',
-                    success:function(result){
-                        var html = "";
+            })
+        })
+        $('#nameid').change(function(){
+            var id = $(this).val();
+            $.ajax({
+                url:'/comm/queryModels',
+                type:'post',
+                data:{
+                    id:id
+                },
+                dataType:'json',
+                success:function(result){
+                    var html = "";
 
-                        for(var i = 0 ; i<result.length;i++){
-                            alert(result[i].id)
-                            html+=
-                                "<option value='"+result[i].id+"'>"+result[i].name+"</option>";
-                        }
-
-                        $('#modelsid').html(html);
-                        form.render();
+                    for(var i = 0 ; i<result.length;i++){
+                        alert(result[i].id)
+                        html+=
+                            "<option value='"+result[i].id+"'>"+result[i].name+"</option>";
                     }
 
-                })
-            });
+                    $('#modelsid').html(html);
+                    form.render();
+                }
+
+            })
+        });
     });
 
-    </script>
-    <script>
+</script>
+<script>
 
 
 
 
 
-    </script>
+</script>
 
 <script>
     layui.use('form', function(){

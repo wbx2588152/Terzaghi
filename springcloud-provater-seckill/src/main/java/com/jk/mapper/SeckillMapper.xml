@@ -2,6 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.jk.mapper.SeckillMapper" >
 
+	<select id="queryCommById" resultType="com.jk.model.Comm">
+		select * from t_commodity where id = #{id}
+	</select>
+
+	<select id="queryBuyCarById" resultType="com.jk.model.BuyCar">
+		select * from t_buycar where id = #{id}
+	</select>
+
 	<update id="updateTImeLimitById">
 		update t_time_limit_seckill set limitationCount = limitationCount+1 where id = #{id}
 	</update>

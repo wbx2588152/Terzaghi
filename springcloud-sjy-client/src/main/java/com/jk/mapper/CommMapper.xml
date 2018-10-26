@@ -94,8 +94,8 @@
         select * from t_phone
     </select>
 
-    <select id="queryModels" resultType="com.jk.model.Models">
-          select * from t_models where modelsid = #{modelsid}
+    <select id="queryModels" resultType="com.jk.model.Models" parameterType="com.jk.model.Phone">
+          select * from t_models where modelsid = #{id}
     </select>
 
     <select id="querySpec" resultType="com.jk.model.Spec">

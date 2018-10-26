@@ -80,7 +80,7 @@
         </div>
         <div class="delete-con"><a class="cart-delete-seleced link"> <i class="fa fa-trash-o" aria-hidden="true"></i>
             <span onclick="delmany()">删除选中</span> </a></div>
-            <div class="submit-con"><span>总价：</span> <span class="submit-total" id="numTotal">￥0</span> <span class="btn submit-btn">去结算</span>
+            <div class="submit-con"><span>总价：</span> <span class="submit-total" id="numTotal">￥0</span> <span class="btn submit-btn" onclick="subJiesuan()">去结算</span>
         </div>
     </div>
 </div>
@@ -96,6 +96,13 @@
 </div>
 <script src="../buycar/jquery.js"></script>
 <script>
+
+    function subJiesuan(){
+        var ids = "fea5c899c22b4dc6a6a9b7676e4dddfe,04e7af43bbf0449ba3083ebb0b44ec0a";
+        var price = $("#numTotal").html();
+        location.href='../seckill/toCarSaveOrder?ids='+ids+'&price='+price+'';
+    }
+
     $(function(){
         seeshopping();
         initDaoHang();
@@ -114,7 +121,7 @@
                         "                <td class=\"cart-cell cell-check\"><input type='checkbox' class='cart-select' onclick='changeNum()' data-gid='\""+info[i].goodsid+"\"' value='"+numtotal+"'></td>\n" +
                         "                <td class=\"cart-cell cell-img\"><a href='http://www.happymmall.com/detail.html?productId=27'\n" +
                         "                                                  target='_blank'><img class=\"p-img\"\n" +
-                        "                                                                       src='./购物车--MMall电商平台_files/ac3e571d-13ce-4fad-89e8-c92c2eccf536.jpeg'\n" +
+                        "                                                                       src='"+info[i].photo+"'\n" +
                         "                                                                       alt='"+info[i].name+"'></a>\n" +
                         "                </td>\n" +
                         "                <td class=\"cart-cell cell-info\"><a class=\"link p-name\"\n" +
@@ -162,7 +169,7 @@
                 total+=parseFloat($(this).val());
             }
         })
-        $('#numTotal').html("￥"+total);
+        $('#numTotal').html(total);
     }
     function delOneType(goodsid){
         $.ajax({

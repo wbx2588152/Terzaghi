@@ -343,5 +343,16 @@ public class UserServiceImpl implements UserService {
         userMapper.delManyBuycarByName(gids, id);
     }
 
+    @Override
+    public void saveBuycar(String gid, Integer gnum, String id) {
+        for (int i = 0; i <gnum ; i++) {
+            BuyCar buyCar=new BuyCar();
+            buyCar.setId(UUID.randomUUID().toString().replaceAll("-", ""));
+            buyCar.setGoodsid(gid);
+            buyCar.setUserid(id);
+            userMapper.addOneBuycar(buyCar);
+        }
+    }
+
 
 }
