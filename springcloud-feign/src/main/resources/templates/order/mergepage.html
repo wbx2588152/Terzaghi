@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="../layui/css/modules/layer/default/layer.css" media="all">
+</head>
+<body>
+<br>
+<div style="font-size:4px;font-family: Cambria;">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当两个订单不一致时，合并后的订单信息（如支付方式、配送方式、活动优惠等）以主订单为准。
+</div>
+<br>
+<form class="layui-form" action="">
+    <div class="layui-form-item">
+        <label class="layui-form-label">主订单</label>
+        <div class="layui-input-block">
+            <select lay-verify='required' id='divsel1'>
+               <!-- <option value=""></option>
+                <option value="0">北京</option>
+                <option value="1">上海</option>
+                <option value="2">广州</option>
+                <option value="3">深圳</option>
+                <option value="4">杭州</option>-->
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">从订单</label>
+        <div class="layui-input-block" >
+            <input type="text" id="divsel2" onclick="alertsuborder()" name="title" required  lay-verify="required" placeholder="从订单" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+         <!--   <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>-->
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+    </div>
+</form>
+
+
+
+
+
+<script src="../layui/jquery.min.js"></script>
+<script src="../layui/layui.js"></script>
+<script>
+    $(function(){
+        ininselect();
+    })
+    //Demo
+    layui.use('form', function(){
+        var form = layui.form;
+        form.render();
+    });
+
+
+
+
+    function ininselect() {
+        $.ajax({
+            url:'../order/initselone',
+            type:'post',
+            data:{
+
+            },
+            success:function(result){
+            var html="<option></option>";
+            for(var i=0;i<result.length;i++){
+                html +="<option value='"+result[i].orderid+"'>"+result[i].orderid+"</option>";
+            }
+              $("#divsel1").html(html);
+
+            }
+        })
+
+    }
+
+
+
+
+/*$("#divsel1").change(function () {
+
+})*/
+function alertsuborder() {
+    layui.use('layer', function() {
+       var  orderid=$("#divsel1").val();
+      /* alert(orderid);*/
+        var layer = layui.layer;
+        layer.open({
+            type: 2,
+            content: '../order/initseltwo?orderid='+orderid,
+            resize: true,
+            area: ['550px', '300px'],
+            btn: ['从订单确认']
+            ,yes: function(index, layero) {
+                var body = layer.getChildFrame('body', index);
+                var arr = body.find('input[name="bbb"]');
+                var str="";
+                for (var i=0;i<arr.length;i++) {
+                    if(arr[i].checked){
+                        str+=str==''?arr[i].value:','+arr[i].value;
+                    }
+                }
+                /*   alert(arr);*/
+                $("#divsel2").val(str);
+                layer.close(index);
+            },
+            cancel:function (index,layero) {
+                layer.close(index);
+            }
+        
+        });
+    })
+
+}
+
+</script>
+</body>
+</html>

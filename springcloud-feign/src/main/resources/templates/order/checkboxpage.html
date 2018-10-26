@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="../layui/css/modules/layer/default/layer.css" media="all">
+</head>
+<body>
+<form class="layui-form" action="">
+
+     <div class="layui-form-item">
+          <label class="layui-form-label">从订单</label>
+          <div class="layui-input-block" th:each="orderBean:${list}">
+              <span th:text="${orderBean.orderid}"></span> <input type="checkbox" title="选择" name="bbb" th:value="${orderBean.orderid}">
+          </div>
+      </div>
+
+
+
+</form>
+
+
+
+
+<script src="../layui/jquery.min.js"></script>
+<script src="../layui/layui.js"></script>
+<script>
+    //Demo
+    layui.use('form', function(){
+        var form = layui.form;
+
+        /*//监听提交
+        form.on('submit(formDemo)', function(data){
+            layer.msg(JSON.stringify(data.field));
+            return false;
+        });*/
+        form.render();
+    });
+ </script>
+</body>
+</html>

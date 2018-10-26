@@ -3,24 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        #jz{ margin:0 auto; width:900px; height:500px; border:2px }
+       /* table tr th{
+            font-size: 24px;
+            font-family: Arial, Helvetica, sans-serif; }*/
+    </style>
+
 </head>
 <link rel="stylesheet" href="../layui/css/layui.css" media="all">
 <link rel="stylesheet" href="../layui/css/modules/layer/default/layer.css" media="all">
+
 <body>
-<table class="layui-table">
-    <caption>基本信息</caption>
+<div id="jz">
+    <br><br><br>
+    <div class="layui-bg-gray" style="font-size:30px;font-family: 黑体;" ><i class="layui-icon layui-icon-face-smile" style="font-size: 30px; color:orange;"></i> 当前订单状态:
+    <span th:if="${orderBean.orderstatus=='1'}">待付款</span>
+    <span th:if="${orderBean.orderstatus=='2'}">待发货</span>
+    <span th:if="${orderBean.orderstatus=='3'}">已发货</span>
+    <span th:if="${orderBean.orderstatus=='4'}">已完成</span>
+    <span th:if="${orderBean.orderstatus=='5'}">已关闭</span>
+
+</div>
+    <br>
+<table class="layui-table" lay-even lay-skin="row" lay-size="lg"  style="table-layout:fixed" >
+    <caption style="font-size: 20px;"class="layui-bg-green">基本信息</caption>
     <colgroup>
-        <col width="100">
-        <col width="100">
+        <col>
+        <col>
         <col>
     </colgroup>
     <thead>
-    <tr>
-        <th>订单编号</th>
-        <th>发货单流水号</th>
-        <th>用户单号</th>
-        <th>支付方式</th>
-        <th>订单来源</th>
+    <tr class="layui-bg-gray">
+        <th><b>订单编号</b></th>
+        <th><b>发货单流水号</b></th>
+        <th><b>用户单号</b></th>
+        <th><b>支付方式</b></th>
+         <th><b>订单来源</b></th>
     </tr>
     </thead>
     <tbody>
@@ -29,30 +48,94 @@
         <td th:text="${orderBean.consignnum}"></td>
         <td th:text="${orderBean.showuseraccount}"></td>
         <td th:text="${orderBean.paystatus}"></td>
-        <td>APP订单</td>
+        <td>电脑订单</td>
+    </tr>
+    <tr class="layui-bg-gray">
+        <th><b>订单类型</b></th>
+        <th><b>配送方式</b></th>
+        <th><b>物流单号</b></th>
+        <th><b>自动确认收货时间</b></th>
+       <th><b>订单优惠券</b></th>
     </tr>
     <tr>
-        <th>订单类型</th>
-        <th>配送方式</th>
-        <th>物流单号</th>
-        <th>自动确认收货时间</th>
-        <th>订单优惠券</th>
-    </tr>
+        <td>普通订单</td>
+        <td th:text="${expressBean.expresscompany}"></td>
+        <td th:text="${expressBean.expressqueue}"></td>
+        <td>15天</td>
+        <td></td>
 
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
     </tr>
 
     </tbody>
 </table>
 
+    <br>
+<table class="layui-table" style="table-layout:fixed" lay-even lay-skin="row" lay-size="lg">
+    <caption style="font-size: 20px;" class="layui-bg-green" >收货人信息</caption>
+    <colgroup>
+        <col>
+        <col>
+        <col>
+    </colgroup>
+    <thead>
+    <tr class="layui-bg-gray">
+        <th><b>收货人</b></th>
+        <th><b>手机号码</b></th>
+        <th><b>邮政编码</b></th>
+        <th><b>收货地址</b></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td th:text="${regionBean.name}"></td>
+        <td th:text="${regionBean.phone}"></td>
+        <td>北京邮政：100000</td>
+        <td th:text="${regionBean.inDetail}"></td>
+    </tr>
+    </tbody>
+</table>
+    <br>
+<table class="layui-table" style="table-layout:fixed" lay-even lay-skin="row" lay-size="lg">
+    <caption style="font-size: 20px;"class="layui-bg-green">商品信息</caption>
+    <colgroup>
+        <col>
+        <col>
+        <col>
+    </colgroup>
+    <thead>
+    <tr class="layui-bg-gray">
+        <th ><b>商品图片</b></th>
+        <th><b>商品名称</b>></th>
+        <th><b>价格/货号</b></th>
+        <th><b>版本</b></th>
+        <th><b>数量</b></th>
+        <th><b>库存</b></th>
+        <th><b>小计</b></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="commBean:${commList}">
+        <td><!--<img th:src="${commBean.photo}">-->
+            <img th:src="${commBean.photo}" style="width:80px;height:40px;"/>
+        </td>
+        <td th:text="${commBean.number}"></td>
+        <td>
+           <div>价格：<span name="spa" th:text="${commBean.price}"></span>
+        </div>
+            <div>货号：<span th:text="${commBean.nameid}"></span>
+            </div>
+        </td>
+        <td th:text="${commBean.edition}"></td>
+        <td th:text="${commBean.specid}"></td>
+        <td th:text="${commBean.store}"></td>
+        <td th:text="${commBean.price}"></td>
 
-<table class="layui-table">
-    <caption>收货人信息</caption>
+    </tr>
+    </tbody>
+</table>
+
+<table class="layui-table" lay-even lay-skin="row" lay-size="lg"  style="table-layout:fixed">
+    <caption style="font-size: 20px;"class="layui-bg-green">费用信息</caption>
     <colgroup>
         <col width="150">
         <col width="200">
@@ -60,85 +143,45 @@
     </colgroup>
     <thead>
     <tr>
-        <th>收货人</th>
-        <th>手机号码</th>
-        <th>邮政编码</th>
-        <th>收货地址</th>
+        <th><b>价格合计</b></th>
+        <th><b>运费</b></th>
+        <th><b>优惠券</b></th>
+        <th><b>订单总金额</b></th>
+        <th><b>应付款金额</b></th>
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <td>贤心</td>
-        <td>2016-11-29</td>
-        <td>人生就像是一场修行</td>
-        <td>许闲心</td>
+    <tr><!--th:text="${commBean.price}"-->
+        <td id="tdsp"></td>
+        <td>10元</td>
+        <td></td>
+        <td></td>
+        <td></td>
     </tr>
     </tbody>
 </table>
 
-<table class="layui-table">
-    <caption>商品信息</caption>
-    <colgroup>
-        <col width="150">
-        <col width="200">
-        <col>
-    </colgroup>
-    <thead>
-    <tr>
-        <th>商品图片</th>
-        <th>商品名称</th>
-        <th>价格/货号</th>
-        <th>属性</th>
-        <th>数量</th>
-        <th>库存</th>
-        <th>小计</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>贤心</td>
-        <td>2016-11-29</td>
-        <td>人生就像是一场修行</td>
-        <td>许闲心</td>
-        <td>许闲心</td>
-        <td>许闲心</td>
-        <td>许闲心</td>
-    </tr>
-    </tbody>
-</table>
-合计：
-
-<table class="layui-table">
-    <caption>费用信息</caption>
-    <colgroup>
-        <col width="150">
-        <col width="200">
-        <col>
-    </colgroup>
-    <thead>
-    <tr>
-        <th>商品合计</th>
-        <th>运费</th>
-        <th>优惠券</th>
-        <th>订单总金额</th>
-        <th>应付款金额</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>贤心</td>
-        <td>2016-11-29</td>
-        <td>人生就像是一场修行</td>
-        <td>许闲心</td>
-        <td>许闲心</td>
-        <td>许闲心</td>
-    </tr>
-    </tbody>
-</table>
-合计：
+   <!-- <button onclick="alertprice()">加载价格</button>-->
+</div>
 <script src="../layui/jquery.min.js"></script>
 <script src="../layui/layui.js"></script>
 <script>
+    $(function () {
+        alertprice();
+    })
+    function alertprice(){
+        var priceAll=0;
+      var arr=document.getElementsByName("spa");
+      for (var i=0;i<arr.length;i++) {
+          var ar = arr[i].innerHTML;
+          priceAll+=parseFloat(ar);
+      }
+        $("#tdsp").html(priceAll);
+    }
+
+    /*$(document).ready(function(){
+        do something
+    })*/
 
 
 </script>
