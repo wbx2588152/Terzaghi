@@ -17,20 +17,18 @@ public class OrderBean implements Serializable {
 
     private String linkcommodifyid;// 关联商品id
 
-    private String linkbothid; // 关联 用户收货关联表 的 id
-
-
+    private String linkbothid; // 关联 收货信息表 的 id
 
     private String paystatus; // 支付状态  1：支付 2:未支付
 
     private String orderstatus ;
                                 /*
                      订单状态：是为    1 待付款；  2待发货   3 已发货    4已完成    5 已关闭
-                              对应操作  关闭订单   订单发货  订单跟踪    订单跟踪    删除订单
+          未支付为1，已支付为2 对应操作  关闭订单   订单发货  订单跟踪    订单跟踪    删除订单
                                        订单详情   订单详情  订单详情    订单详情   查看详情
                                     */
-     @DateTimeFormat(pattern = "yyyy-MM-dd")
-     @JsonFormat(pattern = "yyyy-MM-dd",timezone = "GMT+8")
+     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private Date subtime;// 订单提交时间
 
     /**

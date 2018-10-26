@@ -11,7 +11,7 @@ public class ExpressBean implements Serializable {
 
     private String expresscompany; // 物流公司
 
-    private String expressnumber; // 物流单号
+    private String expressqueue; // 物流单号
 
     private String linkorderid; // 关联订单号
 
@@ -31,12 +31,12 @@ public class ExpressBean implements Serializable {
         this.expresscompany = expresscompany == null ? null : expresscompany.trim();
     }
 
-    public String getExperssnumber() {
-        return expressnumber;
+    public String getExpressqueue() {
+        return expressqueue;
     }
 
-    public void setExperssnumber(String experssnumber) {
-        this.expressnumber = experssnumber == null ? null : expressnumber.trim();
+    public void setExpressqueue(String expressqueue) {
+        this.expressqueue = expressqueue;
     }
 
     public String getLinkorderid() {
@@ -45,5 +45,15 @@ public class ExpressBean implements Serializable {
 
     public void setLinkorderid(String linkorderid) {
         this.linkorderid = linkorderid == null ? null : linkorderid.trim();
+    }
+
+    @Override
+    public String toString() {
+        return "ExpressBean{" +
+                "expressid='" + expressid + '\'' +
+                ", expresscompany='" + expresscompany + '\'' +
+                ", expressqueue='" + expressqueue + '\'' +
+                ", linkorderid='" + linkorderid + '\'' +
+                '}';
     }
 }
