@@ -33,6 +33,9 @@ public interface OrderServiceApI {
     List<OrderBean> initselone();
 
 
-    @RequestMapping(value = "oneclient/mergerorders",method = RequestMethod.POST)
-    void mergerorders(@RequestParam(value = "mainorder") String mainorder, @RequestParam("subarr") String subarr);
+   // @RequestMapping(value = "oneclient/mergerorders",method = RequestMethod.POST)
+    //void mergerorders(@RequestParam(value = "mainorder") String mainorder, @RequestParam("subarr") String subarr);
+
+    @RequestMapping(value = "oneclient/automergerorder",method = RequestMethod.POST)
+    void automergerorder();
 }
