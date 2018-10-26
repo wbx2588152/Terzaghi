@@ -24,7 +24,9 @@ public interface OrderClientService {
     List<OrderBean> inselone();
 
 
-    void mergerorders(String mainorder, String subarr);
+ /*   void mergerorders(String mainorder, String subarr);*/
 
+
+    void automergerorder();
 
 }

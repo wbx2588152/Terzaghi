@@ -59,9 +59,17 @@ public class OrderclientController {
     }
 
     //合并订单
-    @RequestMapping(value = "mergerorders",method = RequestMethod.POST)
+   /* @RequestMapping(value = "mergerorders",method = RequestMethod.POST)
     public void mergerorders(String mainorder,String subarr){
         orderClientService.mergerorders(mainorder,subarr);
+    }*/
+
+
+   //自动合单
+    @RequestMapping(value = "automergerorder",method = RequestMethod.POST)
+    public void automergerorder(){
+        orderClientService.automergerorder();
     }
+
 
 }

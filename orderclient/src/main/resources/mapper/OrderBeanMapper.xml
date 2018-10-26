@@ -97,6 +97,18 @@ and tco.orderid =  #{value}
 
 </insert>
 
+  <!--查询所有订单收货的信息-->
+  <select id="automergerorder" resultType="com.jk.model.RegionBean">
+   SELECT tre.*,tor.orderid showorderid FROM t_region tre,t_order tor WHERE tre.id = tor.linkbothid
+  </select>
+
+
+
+
+
+
+
+
   <update id="updateorderBean" parameterType="com.jk.model.OrderBean">
    update t_order
     set

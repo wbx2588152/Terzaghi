@@ -58,4 +58,6 @@ public interface OrderBeanMapper {
 
 
     List<String> queryCommOrder(String s);
+
+    List<RegionBean> automergerorder();
 }

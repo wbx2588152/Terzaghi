@@ -5,6 +5,7 @@ import com.jk.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.swing.plaf.synth.Region;
 import java.util.*;
 
 @Service
@@ -84,7 +85,7 @@ public class OrderClientServiceImpl implements OrderClientService {
 
     }
 
-    @Override
+    /*@Override
     public void mergerorders(String mainorder, String subarr) {
         String[] split = subarr.split(",");
         for (int i = 0; i <split.length ; i++) {
@@ -103,6 +104,50 @@ public class OrderClientServiceImpl implements OrderClientService {
             orderDao.deleteSubOrder(split[i]);
         }
         //orderDao.mergerorders(mainorder,subarr);
+    }
+*/
+
+
+
+    @Override
+    public void automergerorder(){
+        List<RegionBean> list= orderDao.automergerorder();
+        List<String> arrayList = new ArrayList<>();
+
+        for (int i = 0; i <list.size()-1 ; i++) {
+            for (int j = i+1; j <list.size() ; j++) {
+                RegionBean regionBean1 = list.get(i);
+                RegionBean regionBean2 = list.get(j);
+                String reciever1=regionBean1.getName();
+                String reciever2=regionBean2.getName();
+                String address1=regionBean1.getInDetail();
+                String address2=regionBean1.getInDetail();
+                if(reciever1.equals(reciever2) &&  address1.equals(address2)){
+                    List<String> comArr= orderDao.queryCommOrder(regionBean2.getShoworderid());
+                    for (int k = 0; k < comArr.size() ; k++) {
+                        CommOrderBean commOrderBean = new CommOrderBean();
+                        commOrderBean.setId(UUID.randomUUID().toString().replaceAll("-",""));
+                        commOrderBean.setCommid(comArr.get(k));
+                        commOrderBean.setOrderid(regionBean1.getShoworderid());
+                        orderDao.insertCommOrder(commOrderBean);
+                    }
+                    if(arrayList.contains(regionBean2.getShoworderid())){
+
+                    }else{
+                        arrayList.add(regionBean2.getShoworderid());
+                    }
+
+                }
+            }
+
+        }
+        for (int i = 0; i <arrayList.size() ; i++) {
+            //删除对应的物流信息
+            orderDao.deleteExpressBean(arrayList.get(i));
+            //删除订单信息
+            orderDao.deleteSubOrder(arrayList.get(i));
+        }
+
     }
 
 
