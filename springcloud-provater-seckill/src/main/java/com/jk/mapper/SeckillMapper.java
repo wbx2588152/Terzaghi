@@ -10,7 +10,7 @@ import java.util.List;
  * @date 2018/10/16
  * @Description:
  */
-public interface SeckillMapper {
+public interface SeckillMapper  {
     int querySeckillCount(@Param("c") SeckilCommodity seckilCommodity);
 
     List<SeckilCommodity> querySeckillList(@Param("start")int start, @Param("rows")int rows, @Param("c")SeckilCommodity seckilCommodity);

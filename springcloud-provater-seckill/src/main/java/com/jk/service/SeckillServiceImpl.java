@@ -3,10 +3,17 @@ package com.jk.service;
 import com.jk.mapper.SeckillMapper;
 import com.jk.model.*;
 import com.jk.service.seckill.SeckilServiceApi;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
 
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.mybatis.spring.support.SqlSessionDaoSupport;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
+
+
+import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,11 +23,20 @@ import java.util.Map;
  * @date 2018/10/16
  * @Description:
  */
-@RestController
-public class SeckillServiceImpl implements SeckilServiceApi {
+@Service
+public class SeckillServiceImpl  implements SeckilServiceApi {
+
+
+
 
     @Autowired
     private SeckillMapper seckillMapper;
+
+  /*  @Resource
+    public void setSqlSessionFactory(SqlSessionFactory sqlSessionFactory){
+              super.setSqlSessionFactory(sqlSessionFactory);
+         }*/
+
 
 
     @Override
