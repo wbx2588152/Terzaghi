@@ -175,5 +175,29 @@
 		select count(1) from t_menu where power_id=#{powerid}
 	</select>
 
+	<select id="findUserBuyCar" parameterType="String" resultType="com.jk.model.BuyCar">
+		select tb.*,tc.number name,tc.photo photo,tc.price price,count(1) num from t_buycar tb ,t_commodity tc
+		where tb.goodsid=tc.id  and tb.userid=#{value} GROUP BY tb.goodsid
+	</select>
+
+	<delete id="delBuycarByName">
+		  delete from t_buycar where userid = #{id} and goodsid=#{gid}
+	</delete>
+
+	<select id="getBuycarsList"  resultType="com.jk.model.BuyCar">
+		  select * from t_buycar where userid = #{id} and goodsid=#{gid}
+	</select>
+
+	<delete id="delOneBuyCar" parameterType="String">
+		delete from t_buycar where id=#{value}
+	</delete>
+
+	<insert id="addOneBuycar" parameterType="com.jk.model.BuyCar">
+		insert into t_buycar (id ,userid , goodsid) values (#{id},#{userid},#{goodsid})
+	</insert>
+
+	<delete id="delManyBuycarByName">
+		delete from t_buycar where goodsid in (${gid}) and userid=#{id}
+	</delete>
 
 </mapper>

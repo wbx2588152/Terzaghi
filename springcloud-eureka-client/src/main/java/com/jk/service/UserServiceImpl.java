@@ -302,6 +302,7 @@ public class UserServiceImpl implements UserService {
         navs.add(root);
         return navs;
     }
+
     private List<Power> navNode2(String i) {
         // TODO Auto-generated method stub
         List<Power> lists=userMapper.getNavALLById(i);
@@ -312,6 +313,35 @@ public class UserServiceImpl implements UserService {
         return lists;
     }
 
+    @Override
+    public List<BuyCar> findUserBuyCar(String id) {
+        return userMapper.findUserBuyCar(id);
+    }
+
+    @Override
+    public void delBuycarByName(String gid, String id) {
+        userMapper.delBuycarByName(gid,id);
+    }
+
+    @Override
+    public void delOneBuycarByName(String gid, String id) {
+        List<BuyCar> list = userMapper.getBuycarsList(gid,id);
+        userMapper.delOneBuyCar(list.get(0).getId());
+    }
+
+    @Override
+    public void addOneBuycar(String gid, String id) {
+        BuyCar buyCar=new BuyCar();
+        buyCar.setId(UUID.randomUUID().toString().replaceAll("-", ""));
+        buyCar.setGoodsid(gid);
+        buyCar.setUserid(id);
+        userMapper.addOneBuycar(buyCar);
+    }
+
+    @Override
+    public void delManyBuycarByName(String gids, String id) {
+        userMapper.delManyBuycarByName(gids, id);
+    }
 
 
 }

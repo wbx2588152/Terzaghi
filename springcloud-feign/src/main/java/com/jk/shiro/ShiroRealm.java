@@ -2,9 +2,8 @@ package com.jk.shiro;
 
 
 
-import com.jk.model.User;
 import com.jk.model.Menu;
-import com.jk.model.Role;
+import com.jk.model.User;
 import com.jk.service.Userservice;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
@@ -15,11 +14,9 @@ import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 /**
  * 自定义实现 ShiroRealm，包含认证和授权两大模块

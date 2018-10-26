@@ -1,98 +1,95 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="edge" />
-    <title>FEBS权限管理系统</title>
-    <link rel="stylesheet" type="text/css" th:href="@{css/loader.css}">
-    <link rel="shortcut icon" type="image/png" th:href="@{/img/favicon.ico}" />
-    <link rel="stylesheet" th:href="@{css/login.css}" type="text/css">
-    <link rel="stylesheet" th:href="@{css/iCheck/minimal/green.css}" type="text/css">
-    <link rel="stylesheet" th:href="@{css/app.css}" type="text/css">
-    <!-- animate -->
-    <link rel="stylesheet" th:href="@{css/animate/animate.min.css}" type="text/css">
-    <script th:src="@{js/jquery.min.js}"></script>
-    <script th:src="@{js/iCheck/icheck.js}"></script>
-    <script th:src="@{js/bootstrap-notify/bootstrap-notify.min.js}"></script>
-    <script th:src="@{js/common.js}"></script>
-</head>
-<style>
-</style>
-<body>
-<div id="loader-wrapper">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
 
-    <div id="loader"></div>
-    <div class="loader-section section-left"></div>
-    <div class="loader-section section-right"></div>
-    <div class="load_title">正在加载w_b_x站点<br><span>V1.0</span></div>
-</div>
-<!-- Form-->
-<div class="form">
-    <div class="form-toggle"></div>
-    <div class="form-panel one">
-        <div class="form-header" style="align-content: center">
-            <h1>登陆界面</h1>
+    <title>后台登陆</title>
+    <link rel="icon" href="../loginSpecial/images/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="../loginSpecial/images/favicon.ico" type="image/x-icon"/>
+    <link href="../loginSpecial/css/default.css" rel="stylesheet" type="text/css" />
+    <!--必要样式-->
+    <link href="../loginSpecial/css/styles.css" rel="stylesheet" type="text/css" />
+    <link href="../loginSpecial/css/demo.css" rel="stylesheet" type="text/css" />
+    <link href="../loginSpecial/css/loaders.css" rel="stylesheet" type="text/css" />
+    <script src="../loginSpecial/js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div class='login'>
+
+    <!--<img class="MyLogo" src="loginSpecial/images/logo01.png" alt="   LOGO">-->
+    <div class='login_title'>
+        <span>管理员登录</span>
+    </div>
+    <div class='login_fields'>
+        <div class='login_fields__user'>
+            <div class='icon'>
+
+                <img alt="" src='../loginSpecial/img/user_icon_copy.png'>
+            </div>
+            <input name="login" placeholder='用户名' maxlength="16" class="username" type='text' autocomplete="off" value="admin"/>
+            <div class='validation'>
+                <img alt="" src='../loginSpecial/img/tick.png'>
+            </div>
         </div>
-        <div class="form-content">
-            <div class="form-group">
-                <label>用户名称</label>
-                <input type="text" name="username" />
+        <div class='login_fields__password'>
+            <div class='icon'>
+                <img alt="" src='../loginSpecial/img/lock_icon_copy.png'>
             </div>
-            <div class="form-group">
-                <label>用户密码</label>
-                <input type="password" name="password" />
+            <input name="pwd" class="passwordNumder" placeholder='密码' maxlength="16" type='text' autocomplete="off">
+            <div class='validation'>
+                <img alt="" src='../loginSpecial/img/tick.png'>
             </div>
-            <div class="form-group" style="display:inline-block">
-                <label>验证码</label>
-                <input type="text" name="code" style="width:50%; display:inline-block" />
-                <img data-th-src="@{gifCode}" id="validateCodeImg" onclick="reloadCode()" style="display:inline-block" />
+        </div>
+        <div class='login_fields__password'>
+            <div class='icon'>
+                <img alt="" src='../loginSpecial/img/key.png'>
             </div>
-            <div class="form-group" style="margin: 0px;">
-                <p>
-                    <input type="checkbox" name="rememberme" />&nbsp;&nbsp;记住我</p>
+            <input  placeholder='验证码' maxlength="4"  class="ValidateNum" type='text'  autocomplete="off">
+            <div class='validation' style="opacity: 1; right: -5px;top: -3px;">
+                <canvas class="J_codeimg" id="myCanvas" onclick="Code();" hidden>对不起，您的浏览器不支持canvas，请下载最新版浏览器!</canvas>
+                <img data-th-src="@{../gifCode}" id="validateCodeImg" onclick="reloadCode()" style="display:inline-block" />
             </div>
-            <div class="form-group">
-                <button onclick="login()" id="loginButton">登录</button>
-            </div>
+        </div>
+        <div class='login_fields__submit'>
+            <input type='button' value='登录'>
         </div>
     </div>
-    <div class="form-panel two">
-        <div class="form-header">
-            <h1>账户注册</h1>
-        </div>
-        <div class="form-content">
-            <div class="form-group">
-                <label>用户名</label>
-                <input type="text" name="username" />
-            </div>
-            <div class="form-group">
-                <label>密码</label>
-                <input type="password" name="password" />
-            </div>
-            <div class="form-group">
-                <label>确认密码</label>
-                <input type="password" name="cpassword" />
-            </div>
-            <div class="form-group">
-                <button onclick="regist()">注册</button>
-            </div>
-        </div>
+    <div class='success'>
+    </div>
+    <div class='disclaimer'>
+        <p>欢迎登陆接入平台</p>
     </div>
 </div>
-<div data-th-include="common/footer"></div>
-<script type="text/javascript">
-    // 等待所有加载
-    $(window).load(function(){
-        $('body').addClass('loaded');
-        $('#loader-wrapper .load_title').remove();
-    });
+<div class='authent'>
+    <div class="loader" style="height: 60px;width: 60px;margin-left: 28px;margin-top: 40px">
+        <div class="loader-inner ball-clip-rotate-multiple">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <p>认证中...</p>
+</div>
+<div class="OverWindows"></div>
+<link href="../loginSpecial/layui/css/layui.css" rel="stylesheet" type="text/css" />
+<!--<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>-->
+<script type="text/javascript" src="../loginSpecial/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src='../loginSpecial/js/stopExecutionOnTimeout.js?t=1'></script>
+<script src="../loginSpecial/layui/layui.js" type="text/javascript"></script>
+<script src="../loginSpecial/js/Particleground.js" type="text/javascript"></script>
+<script src="../loginSpecial/js/Treatment.js" type="text/javascript"></script>
+<script src="../loginSpecial/js/jquery.mockjax.js" type="text/javascript"></script>
+<script src="../loginSpecial/js/controlLogin.js" type="text/javascript"></script>
+<script>
+    function reloadCode() {
+        $("#validateCodeImg").attr("src", "/" + "gifCode?data=" + new Date() + "");
+    }
 </script>
 </body>
-<script th:inline="javascript">
-    var ctx = [[@{/}]];
-</script>
-<script data-th-src="@{js/app/login.js}"></script>
-
 
 </html>

@@ -10,6 +10,9 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 @Component
+<<<<<<<<< Temporary merge branch 1
+public class UserError  {
+=========
 public class UserError implements Userservice {
     @Override
     public List<User> sayHafromOneClient() {
@@ -39,6 +42,6 @@ public class UserError implements Userservice {
 
     @Override
     public void updateWbxUser(User user) {
+>>>>>>>>> Temporary merge branch 2
 
-    }
 }
