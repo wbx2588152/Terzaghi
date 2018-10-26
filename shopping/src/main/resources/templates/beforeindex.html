@@ -126,8 +126,8 @@
                     </a>
                 </li>
                 <li style="width: 25%;">
-                    <a href="http://coding.imooc.com/class/96.html" target="_blank">
-                        <img class="banner-img" src="../index_files/banner-bg.jpg">
+                    <a href="javascript:miaosha()" target="_blank">
+                        <img class="banner-img" src="../images/ms.jpg">
                     </a>
                 </li>
                 <li style="width: 25%;">
@@ -146,6 +146,7 @@
         <div class="banner-arrow next" data-forword="next"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
     </div>
 </div>
+
 <div class="w">
     <div class="floor-wrap">
         <h1 class="floor-title">F1 家用电器</h1>
@@ -334,6 +335,15 @@
    $('span').delegate('#toreg','click',function(){
        location.href="/cou/toReg";
    })
+  /* $('img').delegate('#miaosha','click',function(){
+       alert(11)
+   location.href="/seckill/toSeckillList";
+   })*/
+   function miaosha(){
+        alert("跳")
+       location.href="/seckill/toSeckillList";
+   }
+
 
 
    $(function(){
