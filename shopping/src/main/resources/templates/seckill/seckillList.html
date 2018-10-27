@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>1元秒杀-金科网</title>
+    <link href="../css/1yms.css" type="text/css" rel="stylesheet"/>
+    <script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.countdown.js"></script>
+
+    <script type="text/javascript" charset="utf-8">
+        jQuery(document).ready(function($){
+
+            $('div#countdown-timer1').countdown("2016/5/20" , function(event) {
+                var $this = $(this);
+                switch(event.type){
+                    case "seconds":
+                    case "minutes":
+                    case "hours":
+                    case "days":
+                    case "weeks":
+                    case "daysLeft":
+                        $this.find('span#'+event.type).html(event.value);
+                        break;
+                    case "finished":
+                        $this.hide();
+                        break;
+                }
+
+            });
+
+            $('div#countdown-timer2').countdown("2016/6/29" , function(event) {
+                var $this = $(this);
+                switch(event.type){
+                    case "seconds":
+                    case "minutes":
+                    case "hours":
+                    case "days":
+                    case "weeks":
+                    case "daysLeft":
+                        $this.find('span#'+event.type).html(event.value);
+                        break;
+                    case "finished":
+                        $this.hide();
+                        break;
+                }
+
+            });
+
+        });
+    </script>
+
+</head>
+
+<body>
+
+
+<div style="background:#f7f7f7 url(../images/bak_ms.png); " class="back_1yms">
+    <div class="title_1yms"></div>
+    <div style="clear:both"></div>
+
+    <div class="body_1yms">
+        <div class="ms_floor1">
+            <div class="1yms_floor1_title"><img src="../images/wenb1.png"></div>
+            <div style="clear:both; height:20px"></div>
+
+
+            <span id="dier"></span>
+            <div style="clear:both"></div>
+
+        </div>
+
+
+        <div class="ms_floor2">
+        <script type="text/javascript" src="../seckill/yiYuanMiaoSha.js"></script>
+        <div class="ms_floor2_title"><img src="../images/wenb2.png"></div>
+
+        <ul class="floo2_ul">
+            <span id="diyi"></span>
+        </ul>
+
+    </div>
+
+    </div>
+</div>
+<div style="clear:both"></div>
+
+
+</body>
+</html>
+
+<!--<div style="clear:both"></div>
+<div class="center"></div>-->

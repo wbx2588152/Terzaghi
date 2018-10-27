@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<title>Insert title here</title>
+</head>
+<body>
+<form id="addmenuform">
+		<table align="center">
+			<tr>
+				<td>菜单名称</td>
+				<td>
+					<input name="name"/>
+					<input type="hidden" name="powerid" th:value="${navid}"/>
+				</td>
+			</tr>
+			<tr>
+				<td>地址</td>
+				<td>
+					<input name="sort"/>
+				</td>
+			</tr>
+		</table>
+	</form>
+	<script>
+		function addOneMenu(){
+			$.ajax({
+				url:'../wwquser/addOneMenuu.do',
+				type:'post',
+				data:$("#addmenuform").serialize(),
+				dataType:'json',
+				success:function(result){
+					
+				}
+				
+			})
+		}
+	</script>
+</body>
+</html>

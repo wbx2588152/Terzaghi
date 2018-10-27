@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jk.mapper.coupon.CouMapper" >
+<!--查询优惠券的个数-->
+    <select id="queryComm" resultType="long">
+	select count(1) from t_coupon
+	 </select>
+<!--查询优惠券-->
+    <select id="queryCoomList" resultType="com.jk.model.Coupon">
+	select * from t_coupon
+	 limit #{st},#{end}
+	 </select>
+<!--删除优惠券-->
+	<delete id="deleteCoupon">
+		delete from  t_coupon where id = #{id}
+	</delete>
+<!--新增优惠券-->
+	<insert id="addCoupon" parameterType="list">
+		insert into t_coupon (id,fixday,price,man,count) values
+		<foreach collection="list" item="item" index="index" separator=",">
+			(#{item.id},#{item.fixday},#{item.price},#{item.man},#{item.count})
+		</foreach>
+	</insert>
+<!--回显消息列表-->
+	<select id="queryCouById" resultType="com.jk.model.Coupon">
+         select * from t_coupon where id = #{id}
+	</select>
+	<update id="updateCou">
+	update t_coupon set fixday=#{fixday},price=#{price},man=#{man},count=#{count}  where id in (#{id})
+
+	</update>
+ <!--用户登录-->
+    <select id="getUserInfo"  resultType="com.jk.model.User">
+          select * from t_user where  loginname = #{loginname}
+   </select>
+	<select id="queryUserInfoByPhone" resultType="com.jk.model.User">
+		select * from t_user where phoneNumber = #{u.phoneNumber}
+	</select>
+
+	<insert id="regUser">
+		insert into t_user(id,loginname,password,phoneNumber) values(#{u.id},#{u.loginname},#{u.password},#{u.phoneNumber})
+	</insert>
+	<select id="queryCouList"  resultType="com.jk.model.Coupon">
+	select t.*,count(1) as sum  from t_coupon t where t.endDate IS  NULL GROUP BY t.count
+	</select>
+	<insert id="addCouByUser">
+        insert  into t_user_cou(id,userId,couId) values(#{id},#{userId},#{couId})
+	</insert>
+	<update id="updateCouCount">
+		update  t_coupon set endDate  =  date_add(SYSDATE(),interval fixday DAY) where  id =  (#{id})
+	</update>
+	<select id="queryUserCou" resultType="com.jk.model.UserCou">
+		select * from t_coupon tc ,t_user_cou  tuc where  tc.id = tuc.couId  and tuc.userId =  #{id}
+	</select>
+</mapper>

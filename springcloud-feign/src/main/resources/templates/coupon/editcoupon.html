@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <title>Title</title>
+    <link rel="stylesheet" href="../layui/css/layui.css" />
+    <script src="../layui/layui.all.js"></script>
+    <!-- 引入JQuery -->
+    <script type="text/javascript"
+            src="../EasyUI/jquery.min.js"></script>
+</head>
+<body align="center">
+<form class="layui-form" action="">
+    <br/>
+
+
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">固定天数</label>
+            <div class="layui-input-inline">
+                <input type="hidden" name="id"  th:value="${cou.id}" lay-verify="" autocomplete="off" class="layui-input"/>
+                <input type="text" name="fixday" id="fixday" th:value="${cou.fixday}" lay-verify="" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">优惠金额</label>
+            <div class="layui-input-inline">
+                <input type="text" name="price" th:value="${cou.price}" lay-verify="name" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">满减规则</label>
+            <div class="layui-input-inline">
+                <input type="text" name="man" th:value="${cou.man}" lay-verify="price" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">剩余数量</label>
+            <div class="layui-input-inline">
+                <input type="text" name="count" th:value="${cou.count}" lay-verify="store" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+    </div>
+
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit="" lay-filter="edit">保存</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+    </div>
+</form>
+
+<script>
+
+    layui.use('upload', function(){
+        var $ = layui.jquery
+            ,upload = layui.upload;
+
+        //普通图片上传
+        var uploadInst = upload.render({
+            elem: '#test1'
+            ,url: '/comm/uploadOneFile'
+            ,before: function(obj){
+                //预读本地文件示例，不支持ie8
+                obj.preview(function(index, file, result){
+
+                    $('#demo1').attr('src', result); //图片链接（base64）
+
+                });
+            }
+            ,done: function(res){
+                $('#img_url').val(res.url2);
+                //如果上传失败
+                if(res.code > 0){
+                    return layer.msg('上传失败');
+                }
+                //上传成功
+            }
+            ,error: function(){
+                //演示失败状态，并实现重传
+                var demoText = $('#demoText');
+                demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+                demoText.find('.demo-reload').on('click', function(){
+                    uploadInst.upload();
+                });
+            }
+        });
+
+    });
+</script>
+
+<script>
+    layui.use(['layer', 'form','laydate'], function(){
+        var layer = layui.layer
+            ,laydate=layui.laydate
+            ,form = layui.form;
+
+        form.on('submit(edit)', function(data){
+            $.ajax({
+                url:'/cou/updateCou',
+                method:'post',
+                data:data.field,
+                dataType:'JSON',
+                success:function(res){
+
+                },
+                error:function () {
+                }
+            })
+            return false;
+        });
+    });
+
+</script>
+</body>
+</html>

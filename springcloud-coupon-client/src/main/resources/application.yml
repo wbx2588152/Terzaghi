@@ -1,0 +1,20 @@
+server:
+  port: 8088
+
+spring:
+  application:
+    name: service-coupon
+
+  datasource:
+    drivervlassname: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.31.117:3306/test?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: root
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8081/eureka/
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
