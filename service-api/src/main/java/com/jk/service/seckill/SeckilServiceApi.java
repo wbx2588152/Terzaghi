@@ -81,4 +81,25 @@ public interface SeckilServiceApi {
 
     @RequestMapping(value = "/updateTImeLimitById",method = RequestMethod.POST)
     void updateTImeLimitById(@RequestParam(value = "seckillId")String seckillId);
+
+    @RequestMapping(value = "/queryByCarsByIds",method = RequestMethod.POST)
+    List<BuyCar> queryByCarsByIds(@RequestParam(value = "ids") String ids);
+
+    @RequestMapping(value = "/queryBuyCarById",method = RequestMethod.POST)
+    BuyCar queryBuyCarById(@RequestParam(value = "id")String id);
+
+    @RequestMapping(value = "/queryCommById",method = RequestMethod.POST)
+    Comm queryCommById(@RequestParam("id")String id);
+
+    @RequestMapping(value = "/queryLimitSeckills",method = RequestMethod.POST)
+    Map<String, Object> queryLimitSeckills(@RequestParam("page")int page, @RequestParam("limit")int limit,@RequestBody SeckilCommodity seckilCommodity);
+
+    @RequestMapping(value = "/queryTimeLimitSeckills",method = RequestMethod.POST)
+    Map<String, Object> queryTimeLimitSeckills(@RequestParam("page")int page, @RequestParam("limit")int limit,@RequestBody TimeLimitSeckill timeLimitSeckill);
+
+    @RequestMapping(value = "/saveAddLimitSeckill",method = RequestMethod.POST)
+    void saveAddLimitSeckill(@RequestBody SeckilCommodity seckilCommodity);
+
+    @RequestMapping(value = "/saveTimeLimit",method = RequestMethod.POST)
+    void saveTimeLimit(@RequestBody TimeLimitSeckill timeLimitSeckill);
 }

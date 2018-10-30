@@ -6,11 +6,10 @@ public class Comm implements Serializable {
 
     private String id;
 
-    private String number;  //编号
+    private String number;  //编号名称
 
-    private String nameid;
-
-    private String showname;//商品名称
+    private String nameid;    //商品名称
+    private String showname;
 
     private String photo;   //图片
 

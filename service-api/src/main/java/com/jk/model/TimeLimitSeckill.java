@@ -28,9 +28,9 @@ public class TimeLimitSeckill implements Serializable {
 
     private Date endTime;   //活动结束时间
 
-    private String timeLimit;   //限时 分钟
-
     private String status;   //状态 上架和下架
+
+    private Integer timeLimit;   //限时 分钟   临时字段
 
     public void setEndTime(Date endTime) {
         this.endTime = endTime;
@@ -80,7 +80,7 @@ public class TimeLimitSeckill implements Serializable {
         this.status = status;
     }
 
-    public void setTimeLimit(String timeLimit) {
+    public void setTimeLimit(Integer timeLimit) {
         this.timeLimit = timeLimit;
     }
 
@@ -116,7 +116,7 @@ public class TimeLimitSeckill implements Serializable {
         return status;
     }
 
-    public String getTimeLimit() {
+    public Integer getTimeLimit() {
         return timeLimit;
     }
 }

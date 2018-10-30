@@ -25,18 +25,7 @@
 <body>
 <div class="site-nav">
     <div class="w">
-        <div class="user-info"><span class="site-user not-login"> <span class="link link-login">登录</span> <span
-                class="link link-register" href="./register.html">注册</span> </span> <span class="site-user login"
-                                                                                          style="display: inline;"> <span
-                class="link-text">欢迎，<span class="username">wangcj</span></span> <span
-                class="link link-logout">退出</span> </span></div>
-        <ul class="nav-list">
-            <li class="nav-item"><a class="link" href="http://www.happymmall.com/cart.html"> <i
-                    class="fa fa-shopping-cart"></i> 购物车(<span class="cart-count">1</span>)</a></li>
-            <li class="nav-item"><a class="link" href="http://www.happymmall.com/order-list.html">我的订单</a></li>
-            <li class="nav-item"><a class="link" href="http://www.happymmall.com/user-center.html">我的MMall</a></li>
-            <li class="nav-item"><a class="link" href="http://www.happymmall.com/about.html">关于MMall</a></li>
-        </ul>
+        <span id="checkLogin"></span>
     </div>
 </div>
 <div class="header">
@@ -91,7 +80,7 @@
         </div>
         <div class="delete-con"><a class="cart-delete-seleced link"> <i class="fa fa-trash-o" aria-hidden="true"></i>
             <span onclick="delmany()">删除选中</span> </a></div>
-            <div class="submit-con"><span>总价：</span> <span class="submit-total" id="numTotal">￥0</span> <span class="btn submit-btn">去结算</span>
+            <div class="submit-con"><span>总价：</span> <span class="submit-total" id="numTotal">￥0</span> <span class="btn submit-btn" onclick="subJiesuan()">去结算</span>
         </div>
     </div>
 </div>
@@ -107,8 +96,16 @@
 </div>
 <script src="../buycar/jquery.js"></script>
 <script>
+
+    function subJiesuan(){
+        var ids = "fea5c899c22b4dc6a6a9b7676e4dddfe,04e7af43bbf0449ba3083ebb0b44ec0a";
+        var price = $("#numTotal").html();
+        location.href='../seckill/toCarSaveOrder?ids='+ids+'&price='+price+'';
+    }
+
     $(function(){
         seeshopping();
+        initDaoHang();
     })
     function seeshopping(){
         $.ajax({
@@ -124,7 +121,7 @@
                         "                <td class=\"cart-cell cell-check\"><input type='checkbox' class='cart-select' onclick='changeNum()' data-gid='\""+info[i].goodsid+"\"' value='"+numtotal+"'></td>\n" +
                         "                <td class=\"cart-cell cell-img\"><a href='http://www.happymmall.com/detail.html?productId=27'\n" +
                         "                                                  target='_blank'><img class=\"p-img\"\n" +
-                        "                                                                       src='./购物车--MMall电商平台_files/ac3e571d-13ce-4fad-89e8-c92c2eccf536.jpeg'\n" +
+                        "                                                                       src='"+info[i].photo+"'\n" +
                         "                                                                       alt='"+info[i].name+"'></a>\n" +
                         "                </td>\n" +
                         "                <td class=\"cart-cell cell-info\"><a class=\"link p-name\"\n" +
@@ -172,7 +169,7 @@
                 total+=parseFloat($(this).val());
             }
         })
-        $('#numTotal').html("￥"+total);
+        $('#numTotal').html(total);
     }
     function delOneType(goodsid){
         $.ajax({
@@ -233,6 +230,69 @@
             m+=s2.split(".")[1].length}catch(e){}
         return Number(s1.replace(".",""))*Number(s2.replace(".",""))/Math.pow(10,m
         )}
+    function initDaoHang(){
+        $.ajax({
+            /*url:'../wangcj/checkLogin',*/
+            url:'/cou/queryNavById',
+            type:'post',
+            data:{},
+            dataType:'json',
+            success:function(result){
+                var html = "";
+                if(result.code != 0){
+
+                    html +=  '<div class="user-info">\n' +
+                        '             <span class="site-user not-login" style="display: inline;">\n' +
+                        '                <span class="link link-login" id="tologin">登录</span>\n' +
+                        '                <span class="link link-register" id="toreg">注册</span>\n' +
+                        '             </span>\n' +
+                        '         </div>';
+
+                }else if (result.code == 0){
+                    var user = result.loginname;
+                    html +=
+                        '<div class="user-info">\n' +
+                        '       <span class="site-user not-login" style="display: inline;">\n' +
+                        '      <span class="link-text">欢迎<span class="username" id="username"></span>\n' +
+                        '    </span> <span class="link link-logout" id="exit">退出</span> </span>\n' +
+                        '   </span>\n' +
+                        '</div>\n' +
+                        '<ul class="nav-list">\n' +
+                        '<li class="nav-item">\n' +
+                        '<a class="link" href="javascript:seecar()">\n' +
+                        '<i class="fa fa-shopping-cart"></i> 购物车(<span class="cart-count" id="car-num">0</span>)</a>\n' +
+                        '</li>\n' +
+                        '<li class="nav-item">\n' +
+                        ' <span class="link link-register" id="toCou">我的优惠券</span>\n' +
+                        /*   '<a class="link" id="toCou">我的优惠券</a>\n' +*/
+                        '</li>\n' +
+                        '<li class="nav-item">\n' +
+                        '<a class="link" href="http://www.happymmall.com/user-center.html">我的MMall</a> </li>\n' +
+                        '<li class="nav-item">\n' +
+                        '<a class="link" href="http://www.happymmall.com/about.html">关于MMall</a>\n' +
+                        '</li>\n' +
+
+                        '</ul>';
+                }
+                $('#checkLogin').html(html);
+            }
+        })
+        $.ajax({
+            url:'/pay/getUserBuyCar',
+            type:'post',
+            data:{},
+            success:function(info){
+                var x=0;
+                for (var i = 0; i <info.length ; i++) {
+                    x+=Number(info[i].num);
+                }
+                $('#car-num').html(x);
+            }
+        })
+    }
+    function seecar(){
+        location.href="/pay/seeCarbuy";
+    }
 </script>
 
 </body>

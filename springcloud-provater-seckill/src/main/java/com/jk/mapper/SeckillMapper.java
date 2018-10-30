@@ -4,6 +4,7 @@ import com.jk.model.*;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author 王超杰111
@@ -60,4 +61,20 @@ public interface SeckillMapper {
     void updateCommInfo(@Param("id")String seckillId);
 
     void updateTImeLimitById(@Param("id")String seckillId);
+
+    BuyCar queryBuyCarById(@Param("id")String id);
+
+    Comm queryCommById(@Param("id")String id);
+
+    List<SeckilCommodity> queryLimitSeckills(@Param("page")int pages, @Param("limit")int limit,@Param("s") SeckilCommodity seckilCommodity);
+
+    int queryLimitSeckillCounts(@Param("s")SeckilCommodity seckilCommodity);
+
+    List<SeckilCommodity> queryTimeLimitSeckills(@Param("page")int pages, @Param("limit")int limit,@Param("t") TimeLimitSeckill timeLimitSeckill);
+
+    int queryTimeLimitSeckillCount(@Param("page")TimeLimitSeckill timeLimitSeckill);
+
+    void saveAddLimitSeckill(@Param("s")SeckilCommodity seckilCommodity);
+
+    void saveTimeLimit(@Param("t")TimeLimitSeckill timeLimitSeckill);
 }

@@ -296,5 +296,10 @@ public class UserController {
         userservice.delManyBuycarByName(gids, id);
     }
 
+    @RequestMapping(value="saveBuycar")
+    void saveBuycar(@RequestParam(value="gid")String gid, @RequestParam(value="gnum")Integer gnum, @RequestParam(value="id")String id){
+        userservice.saveBuycar(gid,gnum,id);
+    }
+
 
 }

@@ -25,7 +25,7 @@ public interface UserServiceApi {
     @RequestMapping(value="wbx/updateWbxUser",method = RequestMethod.POST)
     void updateWbxUser(@RequestBody Users user);
 
-    @RequestMapping(value="wbx/getTree")
+    @RequestMapping(value="wbx/getTree",method = RequestMethod.GET)
     List<Power> seepowertree();
 
     @RequestMapping(value="wbx/seeAllMenu")
@@ -109,4 +109,6 @@ public interface UserServiceApi {
     void addOneBuycar(@RequestParam(value="gid")String gid, @RequestParam(value="id")String id);
     @RequestMapping(value="wbx/delManyBuycarByName")
     void delManyBuycarByName(@RequestParam(value="gids")String gids, @RequestParam(value="id")String id);
+    @RequestMapping(value="wbx/saveBuycar")
+    void saveBuycar(@RequestParam(value="gid")String gid, @RequestParam(value="gnum")Integer gnum, @RequestParam(value="id")String id);
 }

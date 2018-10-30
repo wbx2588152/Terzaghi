@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: service-coupon
+    name: service-zjw
 
   datasource:
     drivervlassname: com.mysql.jdbc.Driver

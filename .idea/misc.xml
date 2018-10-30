@@ -15,13 +15,23 @@
         <option value="$PROJECT_DIR$/springcloud-eureka-client/pom.xml" />
         <option value="$PROJECT_DIR$/springcloud-ribbon/pom.xml" />
         <option value="$PROJECT_DIR$/springcloud-feign/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-sjy-client/pom.xml" />
         <option value="$PROJECT_DIR$/springcloud-zuul/pom.xml" />
         <option value="$PROJECT_DIR$/springcloud-coupon-client/pom.xml" />
         <option value="$PROJECT_DIR$/springcloud-zjw-client/pom.xml" />
         <option value="$PROJECT_DIR$/springcloud-seckill/pom.xml" />
         <option value="$PROJECT_DIR$/springcloud-provater-seckill/pom.xml" />
         <option value="$PROJECT_DIR$/shopping/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-topo/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/scEureka/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-seckill/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloutdseckill/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK">

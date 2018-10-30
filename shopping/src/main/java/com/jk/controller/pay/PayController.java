@@ -27,7 +27,7 @@ public class PayController {
     public List<BuyCar> getUserBuyCar(HttpServletRequest request){
         HttpSession session = request.getSession();
         User attribute = (User) session.getAttribute(session.getId());
-        List<BuyCar> buycar=payService.findUserBuyCar("1");
+        List<BuyCar> buycar=payService.findUserBuyCar(attribute.getId());
         return buycar;
     }
     @RequestMapping("delBuycarByName")
@@ -35,7 +35,7 @@ public class PayController {
     public Boolean delBuycarByName(String gid,HttpServletRequest request){
         HttpSession session = request.getSession();
         User attribute = (User) session.getAttribute(session.getId());
-        payService.delBuycarByName(gid,"1");
+        payService.delBuycarByName(gid,attribute.getId());
         return true;
     }
     @RequestMapping("delOneBuycarByName")
@@ -43,7 +43,7 @@ public class PayController {
     public Boolean delOneBuycarByName(String gid,HttpServletRequest request){
         HttpSession session = request.getSession();
         User attribute = (User) session.getAttribute(session.getId());
-        payService.delOneBuycarByName(gid,"1");
+        payService.delOneBuycarByName(gid,attribute.getId());
         return true;
     }
     @RequestMapping("delManyBuycarByName")
@@ -51,7 +51,7 @@ public class PayController {
     public Boolean delManyBuycarByName(String gids,HttpServletRequest request){
         HttpSession session = request.getSession();
         User attribute = (User) session.getAttribute(session.getId());
-        payService.delManyBuycarByName(gids,"1");
+        payService.delManyBuycarByName(gids,attribute.getId());
         return true;
     }
 
@@ -60,7 +60,16 @@ public class PayController {
     public Boolean addOneBuycar(String gid,HttpServletRequest request){
         HttpSession session = request.getSession();
         User attribute = (User) session.getAttribute(session.getId());
-        payService.addOneBuycar(gid,"1");
+        payService.addOneBuycar(gid,attribute.getId());
+        return true;
+    }
+
+    @RequestMapping("saveSomeBuycar")
+    @ResponseBody
+    public Boolean saveBuycar(String gid,Integer gnum,HttpServletRequest request){
+        HttpSession session = request.getSession();
+        User attribute = (User) session.getAttribute(session.getId());
+        payService.saveBuycar(gid,gnum,attribute.getId());
         return true;
     }
 }

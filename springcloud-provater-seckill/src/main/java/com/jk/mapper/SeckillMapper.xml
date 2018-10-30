@@ -2,6 +2,41 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.jk.mapper.SeckillMapper" >
 
+	<insert id="saveTimeLimit">
+		insert into t_time_limit_seckill(id,name,artNo,price,seckillPrice,limitationCount,commmondityImg,addTime,status,endTime)
+		values(#{t.id},#{t.name},#{t.artNo},#{t.price},#{t.seckillPrice},#{t.limitationCount},#{t.commmondityImg},#{t.addTime},#{t.status},#{t.endTime})
+	</insert>
+
+	<insert id="saveAddLimitSeckill">
+		insert into t_seckill_commodity(id,name,artNo,price,seckillPrice,seckillCount,limitationCount,surplusCount,commmondityImg,addTime,status)
+		 values(#{s.id},#{s.name},#{s.artNo},#{s.price},#{s.seckillPrice},#{s.seckillCount},#{s.limitationCount},
+		 	#{s.surplusCount},#{s.commmondityImg},#{s.addTime},#{s.status})
+	</insert>
+
+	<!--限量秒杀列表-->
+	<select id="queryLimitSeckills" resultType="com.jk.model.SeckilCommodity">
+		SELECT * FROM t_seckill_commodity GROUP BY addTime DESC limit	#{page},#{limit}
+	</select>
+	<select id="queryLimitSeckillCounts" resultType="int">
+		SELECT count(*) FROM t_seckill_commodity
+	</select>
+
+	<!--限时秒杀列表-->
+	<select id="queryTimeLimitSeckills" resultType="com.jk.model.TimeLimitSeckill">
+		SELECT * FROM t_time_limit_seckill GROUP BY addTime DESC limit #{page},#{limit}
+	</select>
+	<select id="queryTimeLimitSeckillCount" resultType="int">
+		SELECT count(*) FROM t_time_limit_seckill
+	</select>
+
+	<select id="queryCommById" resultType="com.jk.model.Comm">
+		select * from t_commodity where id = #{id}
+	</select>
+
+	<select id="queryBuyCarById" resultType="com.jk.model.BuyCar">
+		select * from t_buycar where id = #{id}
+	</select>
+
 	<update id="updateTImeLimitById">
 		update t_time_limit_seckill set limitationCount = limitationCount+1 where id = #{id}
 	</update>

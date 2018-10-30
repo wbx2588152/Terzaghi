@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.springframework.org/schema/jdbc">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../layui/css/layui.css" />
+    <script src="../layui/layui.all.js"></script>
+    <!-- 引入JQuery -->
+    <script type="text/javascript"
+            src="../EasyUI/jquery.min.js"></script>
+</head>
+<body align="center">
+
+<form class="layui-form" action="">
+    <br/>
+
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">手机编号</label>
+            <div class="layui-input-inline">
+                <input type="text" name="number" lay-verify="" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-inline">
+            <label class="layui-form-label">手机价格</label>
+            <div class="layui-input-inline">
+                <input type="text" name="price" lay-verify="price" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">手机名称</label>
+            <div class="layui-input-inline">
+                <select name="nameid" lay-verify="nameid" lay-filter="nameid" id="nameid" lay-search="">
+
+                </select>
+            </div>
+        </div>
+        <div class="layui-inline">
+            <label class="layui-form-label">手机库存</label>
+            <div class="layui-input-inline">
+                <input type="text" name="store" lay-verify="store" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">手机型号</label>
+            <div class="layui-input-inline">
+                <select name="modelsid" lay-verify="modelsid" id="modelsid" lay-search="">
+
+                </select>
+            </div>
+        </div>
+        <div class="layui-inline">
+            <label class="layui-form-label">手机颜色</label>
+            <div class="layui-input-inline">
+                <select name="colourid" lay-verify="colourid" lay-search="">
+                    <option  th:each="list1:${list}" th:value="${list1.id}" th:text="${list1.colour}"></option>
+
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">手机规格</label>
+            <div class="layui-input-inline">
+                <select name="specid" lay-verify="specid" lay-search="">
+                    <option  th:each="spec1:${spec}" th:value="${spec1.id}" th:text="${spec1.spec}"></option>
+
+                </select>
+            </div>
+        </div>
+        <div class="layui-inline">
+            <label class="layui-form-label"></label>
+            <div class="layui-input-inline">
+
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">手机版本</label>
+        <div class="layui-input-block">
+            <input type="radio" name="edition" value=1 title="移动4G">
+            <input type="radio" name="edition" value=2 title="联通4G">
+            <input type="radio" name="edition" value=3 title="电信4G">
+            <input type="radio" name="edition" value=4 title="全网通">
+        </div>
+    </div>
+
+    <div class="layui-form-item layui-form-text">
+        <label class="layui-form-label">手机详情</label>
+        <div class="layui-input-block">
+            <textarea class="layui-textarea" name="detail"></textarea>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+
+            <button type="button" class="layui-btn" id="test1">上传图片</button>
+            <input type="hidden" id="img_url" name="photo" value=""/>
+            <div class="layui-upload-list">
+                <img class="layui-upload-img" width="100px" height="80px" id="demo1"/>
+                <p id="demoText"></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit="" lay-filter="add">立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+    </div>
+</form>
+
+
+
+
+
+<script>
+
+    layui.use('upload', function(){
+        var $ = layui.jquery
+            ,upload = layui.upload;
+
+        //普通图片上传
+        var uploadInst = upload.render({
+            elem: '#test1'
+            ,url: '/comm/uploadOneFile'
+            ,before: function(obj){
+                //预读本地文件示例，不支持ie8
+                obj.preview(function(index, file, result){
+
+                    $('#demo1').attr('src', result); //图片链接（base64）
+
+                });
+            }
+            ,done: function(res){
+                $('#img_url').val(res.url2);
+                //如果上传失败
+                if(res.code > 0){
+                    return layer.msg('上传失败');
+                }
+                //上传成功
+            }
+            ,error: function(){
+                //演示失败状态，并实现重传
+                var demoText = $('#demoText');
+                demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+                demoText.find('.demo-reload').on('click', function(){
+                    uploadInst.upload();
+                });
+            }
+        });
+
+    });
+</script>
+
+<script>
+    layui.use(['layer', 'form','laydate'], function(){
+        var layer = layui.layer
+            ,laydate=layui.laydate
+            ,form = layui.form;
+
+        form.on('submit(add)', function(data){
+            var datas=data.field;
+            $.ajax({
+                url:'/comm/saveComm',
+                type:'post',
+                data:datas,
+                dataType:'JSON',
+                success:function(res){
+
+                    layer.msg("新增成功",{icon:1});
+                    var index = parent.layer.getFrameIndex(window.name);
+                    parent.layer.close(index);//关闭当前页
+                },
+                error:function () {
+                    layer.msg("新增失败",{icon:6});
+                }
+            })
+
+            return false;
+        });
+        $(function(){
+            initpeople();
+        })
+        function initpeople(){
+
+            $.ajax({
+                url:'/comm/queryPhone',
+                type:'post',
+                data:{},
+                dataType:'json',
+                success:function(result){
+                    var html = "";
+
+                    for(var i = 0 ; i<result.length;i++){
+
+                        html+=
+                            "<option value='"+result[i].id+"'>"+result[i].name+"</option>";
+                    }
+
+                    $('#nameid').html(html);
+                    form.render();
+                }
+
+            })
+        }
+        form.on('select(nameid)', function(data){
+            var id = $("#nameid").val();
+            $.ajax({
+                url:'/comm/queryModels',
+                type:'post',
+                data:{
+                    id:id
+                },
+                dataType:'json',
+                success:function(result){
+                    var html = "";
+
+                    for(var i = 0 ; i<result.length;i++){
+
+                        html+=
+                            "<option value='"+result[i].id+"'>"+result[i].name+"</option>";
+                    }
+
+                    $('#modelsid').html(html);
+                    form.render();
+                }
+
+            })
+        })
+        $('#nameid').change(function(){
+            var id = $(this).val();
+            $.ajax({
+                url:'/comm/queryModels',
+                type:'post',
+                data:{
+                    id:id
+                },
+                dataType:'json',
+                success:function(result){
+                    var html = "";
+
+                    for(var i = 0 ; i<result.length;i++){
+                        alert(result[i].id)
+                        html+=
+                            "<option value='"+result[i].id+"'>"+result[i].name+"</option>";
+                    }
+
+                    $('#modelsid').html(html);
+                    form.render();
+                }
+
+            })
+        });
+    });
+
+</script>
+<script>
+
+
+
+
+
+</script>
+
+<script>
+    layui.use('form', function(){
+        var form = layui.form; //只有执行了这一步，部分表单元素才会自动修饰成功
+
+        //……
+
+        //但是，如果你的HTML是动态生成的，自动渲染就会失效
+        //因此你需要在相应的地方，执行下述方法来手动渲染，跟这类似的还有 element.init();
+        form.render();
+    });
+
+</script>
+</body>
+</html>
