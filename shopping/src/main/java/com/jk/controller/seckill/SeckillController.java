@@ -1,26 +1,39 @@
 package com.jk.controller.seckill;
 
+import com.alibaba.fastjson.JSON;
 import com.alipay.api.DefaultAlipayClient;
 import com.alipay.api.request.AlipayTradePagePayRequest;
 import com.jk.config.AlipayConfig;
 import com.jk.model.*;
+import com.jk.service.CouServiceApi;
+import com.jk.service.pay.PayService;
 import com.jk.service.seckill.SeckilServiceApi;
+import com.jk.utils.ConnectionUtils;
 import com.jk.utils.IdWorker;
+import com.jk.utils.UserUtil;
+import com.rabbitmq.client.Channel;
+import com.rabbitmq.client.Connection;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
 import com.alipay.api.AlipayClient;
+import sun.text.resources.zh.FormatData_zh;
 
 /**
  * @author 王超杰
@@ -30,26 +43,51 @@ import com.alipay.api.AlipayClient;
 @Controller
 @RequestMapping("seckill")
 public class SeckillController {
-
+    @Autowired
+    private PayService payService;
     @Autowired
     private SeckilServiceApi seckilServiceApi;
+    @Autowired
+    private CouServiceApi couServiceApi;
+    @Autowired
+    private RedisTemplate redisTemplate;
+    @Autowired
+    private MongoTemplate mongoTemplate;
 
+    private static final String QUEUE_NAME="QUEUE_simple";
 
     /**
      * 加载提交订单的商品列表
      * */
     @RequestMapping("queryBuyCarSaveOrderById")
     @ResponseBody
-    public List<Comm> queryBuyCarSaveOrderById(String ids){
+    public List<BuyCar> queryBuyCarSaveOrderById(String ids, HttpServletRequest request){
+        String userId = UserUtil.getUserId(request);
         String[] split = ids.split(",");
-        ArrayList<Comm> arrayList = new ArrayList<>();
+        List<BuyCar> cartList =new ArrayList<>();
+        List<BuyCar> cartList_redis = (List<BuyCar>) redisTemplate.boundHashOps("cartList").get(userId);
+        //临时从数据库中调用
+        List<Comm> comm= payService.getAllComm();
         for (int i =0;i<split.length;i++){
-            String id = split[i];
-            BuyCar buyCar = seckilServiceApi.queryBuyCarById(id);
-            Comm comm = seckilServiceApi.queryCommById(buyCar.getGoodsid());
-            arrayList.add(comm);
+            String id = split[i].substring(1,split[i].length()-1);
+            for (int j = 0; j < cartList_redis.size(); j++) {
+                if(id.equals(cartList_redis.get(j).getGoodsid())){
+                    cartList.add(cartList_redis.get(j));
+                    break;
+                }
+            }
         }
-        return arrayList;
+        for (int i = 0; i <cartList.size() ; i++) {
+            for (int j = 0; j < comm.size(); j++) {
+                if(cartList.get(i).getGoodsid().equals(comm.get(j).getId())){
+                    cartList.get(i).setName(comm.get(j).getNumber());
+                    cartList.get(i).setPrice(comm.get(j).getPrice());
+                    cartList.get(i).setPhoto(comm.get(j).getPhoto());
+                }
+            }
+
+        }
+        return cartList;
     }
 
     /**
@@ -77,33 +115,54 @@ public class SeckillController {
      */
     @RequestMapping(value = "/goAlipays", produces = "text/html; charset=UTF-8")
     @ResponseBody
-    public String goAlipays(String regionId,String ids,String price, HttpServletRequest request, HttpServletRequest response) throws Exception {
+    public String goAlipays(String regionId,String ids,String price,String couid, HttpServletRequest request, HttpServletRequest response) throws Exception {
 
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute(session.getId());
 
         Date date = new Date();     //订单统一提交时间
         String[] split = ids.split(",");
-        for (int i =0;i<split.length;i++){
-            String id = split[i];
-            BuyCar buyCar = seckilServiceApi.queryBuyCarById(id);
-            //生成唯一订单号
-            IdWorker idWorker = new IdWorker(1, 0);
-            long idWork = idWorker.nextId();
-            String dingDanHao = String.valueOf(idWork);
+        //定义连接工厂
+        Connection connection = ConnectionUtils.getConnection();
+        /*从连接中创建通道*/
+        Channel channel = connection.createChannel();
+        //创建队列 (声明)  因为我们要往队列里面发送消息,这是后就得知道往哪个队列中发送,就好比在哪个管子里面放 水,
+        boolean durable=false;
+        boolean exclusive=false;
+        boolean autoDelete=false;
+        channel.queueDeclare(QUEUE_NAME, durable, exclusive, autoDelete, null);//如果这个队列不存在,其实 这句话是不需要的
 
-            //生成订单
-            OrderBean orderBean = new OrderBean();
-            orderBean.setOrderid(dingDanHao);
-            //orderBean.setLinkuserid(user.getId());
-            orderBean.setLinkuserid("3");   //登录未实现先用死数据
-            orderBean.setLinkcommodifyid(buyCar.getGoodsid());   //关联商品id
-            orderBean.setLinkbothid(regionId);  //关联收货地址id
-            orderBean.setPaystatus("2");    //未付款状态
-            orderBean.setOrderstatus("1");  //未发货状态
-            orderBean.setSubtime(date);   //提交时间
-            seckilServiceApi.addOrderInfo(orderBean);
+        for (int i =0;i<split.length;i++){
+            String id = split[i].substring(1,split[i].length()-1);
+            List<BuyCar> cartList_redis = (List<BuyCar>) redisTemplate.boundHashOps("cartList").get(user.getId());
+            BuyCar buyCar =new BuyCar();
+            for (int j = 0; j < cartList_redis.size(); j++) {
+                if(id.equals(cartList_redis.get(j).getGoodsid())){
+                    buyCar= cartList_redis.get(j);
+                    for (int k = 0; k < buyCar.getCount(); k++) {
+                        //生成唯一订单号
+                        IdWorker idWorker = new IdWorker(1, 0);
+                        long idWork = idWorker.nextId();
+                        String dingDanHao = String.valueOf(idWork);
+                        //生成订单
+                        OrderMon orderBean = new OrderMon();
+                        orderBean.setOrderid(dingDanHao);
+                        orderBean.setLinkuserid(user.getId());
+                        orderBean.setLinkcommodifyid(buyCar.getGoodsid());   //关联商品id
+                        orderBean.setLinkbothid(regionId);  //关联收货地址id
+                        orderBean.setPaystatus("2");    //未付款状态
+                        orderBean.setOrderstatus("1");  //未发货状态
+                        orderBean.setSubtime(date);   //提交时间
+                        orderBean.setCouid(couid);
+                        String order = JSON.toJSONString(orderBean);
+                        channel.basicPublish("", QUEUE_NAME, null, order.getBytes());
+                        System.out.println("发送了一条消息给rabbit队列");
+                        //mongoTemplate.save(orderBean);
+                    }
+                }
+            }
         }
+
 
 
         //获得初始化的AlipayClient
@@ -138,7 +197,36 @@ public class SeckillController {
 
         return result;
     }
-
+    /**
+     *  支付成功往数据库新增订单
+     * */
+    @RequestMapping("insertOrders")
+    @ResponseBody
+    public OrderMon insertOrders(HttpServletRequest request) {
+        Query query = new Query();
+        String userId = UserUtil.getUserId(request);
+        query=Query.query(Criteria.where("linkuserid").is(userId));
+        query.with(new Sort(new Sort.Order(Sort.Direction.DESC,"subtime")));
+        List<OrderMon> find=mongoTemplate.find(query, OrderMon.class);
+        System.out.println(find.get(0));
+        Query query2 = new Query();
+        query2=Query.query(Criteria.where("subtime").is(find.get(0).getSubtime()));
+        List<OrderMon> find2=mongoTemplate.find(query2, OrderMon.class);
+        System.out.println(find2.size());
+        for (int i = 0; i <find2.size() ; i++) {
+            OrderBean ob =new OrderBean();
+            ob.setOrderid(find2.get(i).getOrderid());
+            ob.setLinkuserid(find2.get(i).getLinkuserid());
+            ob.setLinkcommodifyid(find2.get(i).getLinkcommodifyid());   //关联商品id
+            ob.setLinkbothid(find2.get(i).getLinkbothid());  //关联收货地址id
+            ob.setPaystatus("1");    //未付款状态
+            ob.setOrderstatus("2");  //未发货状态
+            ob.setSubtime(new Timestamp(find2.get(i).getSubtime().getTime()));   //提交时间
+            seckilServiceApi.addOrderInfo(ob);
+        }
+        couServiceApi.deleteCoupon(find.get(0).getCouid());
+        return find.get(0);
+    }
 
     /**
      *  倒计时结束根据id修改状态 前台不展示
@@ -156,14 +244,13 @@ public class SeckillController {
     @RequestMapping("updateOrderStatus")
     @ResponseBody
     public String updateOrderStatus(HttpServletRequest request) {
-        //HttpSession session = request.getSession();
-        //User user = (User) session.getAttribute(session.getId());
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute(session.getId());
 
         OrderBean orderBean = new OrderBean();
         orderBean.setLinkuserid("3");   //未实现登录 先用死数据
         orderBean.setPaystatus("2");    //状态2为未支付
         OrderBean orders = seckilServiceApi.queryOrderById(orderBean);
-
         orderBean.setPaystatus("1");
         orderBean.setOrderstatus("2");
         orderBean.setOrderid(orders.getOrderid());
@@ -219,13 +306,12 @@ public class SeckillController {
         //生成订单
         OrderBean orderBean = new OrderBean();
         orderBean.setOrderid(dingDanHao);
-        //orderBean.setLinkuserid(user.getId());
-        orderBean.setLinkuserid("3");   //登录未实现先用死数据
+        orderBean.setLinkuserid(user.getId());//登录id
         orderBean.setLinkcommodifyid(id);   //关联商品id
         orderBean.setLinkbothid(regionId);  //关联收货地址id
         orderBean.setPaystatus("2");    //未付款状态
         orderBean.setOrderstatus("1");  //未发货状态
-        orderBean.setSubtime(new Date());   //提交时间
+        orderBean.setSubtime(new Timestamp(new Date().getTime()));   //提交时间
         seckilServiceApi.addOrderInfo(orderBean);
 
         //获得初始化的AlipayClient
@@ -285,11 +371,10 @@ public class SeckillController {
     @RequestMapping("addRegion")
     @ResponseBody
     public String addRegion(RegionBean regionBean,HttpServletRequest request){
-       /* HttpSession session = request.getSession();
+        HttpSession session = request.getSession();
         User user = (User) session.getAttribute(session.getId());
-        regionBean.setUserid(user.getId());*/
+        regionBean.setUserId(user.getId());
         regionBean.setId(UUID.randomUUID().toString().replace("-",""));
-        regionBean.setUserId("3");
         seckilServiceApi.addRegion(regionBean);
         return "{}";
     }
@@ -302,7 +387,7 @@ public class SeckillController {
     public List<RegionBean> queryRegionList(HttpServletRequest request){
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute(session.getId());
-        String userId = "3";
+        String userId = user.getId();
         List<RegionBean> region = seckilServiceApi.queryRegionList(userId);
         return region;
        /* if(user != null){

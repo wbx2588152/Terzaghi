@@ -17,13 +17,6 @@
         where tc.modelsid = tm.id and tc.colourid = tr.id and tc.nameid = tp.id and tc.specid = ts.id
         and tc.id = #{id}
     </select>
-
-
-
-
-
-
-
                     <!--后台页面-->
 
     <select id="queryComm" resultType="long">

@@ -19,6 +19,13 @@
     <link rel="shortcut icon" href="http://s.happyjinke.com/jinke_fe/dist/favicon.ico">
     <link href="../saveOrderForm_files/common.css" rel="stylesheet">
     <link href="../saveOrderForm_files/confirm.css" rel="stylesheet">
+    <link href="../layui/css/layui.css" rel="stylesheet"/>
+
+    <script src="../layui/layui.js"></script>
+
+    <script src="../layui/layui.all.js"></script>
+
+    <script src="../layui/jquery-1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="../saveOrderForm_files/jquery.js"></script>
 </head>
 <body>
@@ -101,8 +108,10 @@
                     <!--<span id="buycarSaveOrderId"></span>-->
                 </tbody>
             </table>
+
             <div class="submit-con"> <span>订单总价：</span>
-                <span class="submit-total">￥<span th:text="${price}"></span></span>
+                <span class="submit-total">￥<span id="buyCarPrice2" th:text="${price}"></span></span>
+                <span class="btn" onclick="selectcoupon()">选择可用优惠券</span>
                 <span class="btn order-submit" onclick="subDingdan()">提交订单</span>
             </div>
         </div>
@@ -111,7 +120,9 @@
 </div>
 <input type="hidden" th:value="${ids}" id="buyCarIds">
 <input type="hidden" th:value="${price}" id="buyCarPrice">
-
+<input type="hidden" th:value="${price}" id="buyCarPrice3">
+<input type="hidden" id="cou"/>
+<input type="hidden" th:value="0" id="selectCoupon">
 
 <div id="p4" style="display:none">
     <div class="modal-wrap">
@@ -168,9 +179,9 @@
 <!--选中的地址-->
 <input type="hidden" id="checkedId" />
 <!--<input type="hidden" id="inDetailId" />
-<input type="hidden" id="nameIdd" />
-<input type="hidden" id="shengId" />
-<input type="hidden" id="phoneId" />-->
+    <input type="hidden" id="nameIdd"    />
+    <input type="hidden" id="shengId"    />
+    <input type="hidden" id="phoneId"    />-->
 
 
 <script>
@@ -195,12 +206,12 @@
                         '        <img class="p-img" width="50px" height="50px" src="'+result[i].photo+'" th:alt="'+result[i].detail+'"></a> </td>\n' +
                         '    <td align="left">\n' +
                         '        <a class="link p-name" href="javascript:;" target="_blank">\n' +
-                        '            '+result[i].detail+'\n' +
+                        '            '+result[i].name+'\n' +
                         '        </a>\n' +
                         '    </td>\n' +
                         '    <td align="center">￥'+result[i].price+'</td>\n' +
-                        '    <td align="center">x1</td>\n' +
-                        '    <td align="center">￥'+result[i].price+'\n' +
+                        '    <td align="center">x'+result[i].count+'</td>\n' +
+                        '    <td align="center">￥'+result[i].price*result[i].count+'\n' +
                         '    </span>\n' +
                         '    </td>\n' +
                         '</tr>';
@@ -215,8 +226,9 @@
         var regionId = $("#checkedId").val();
         var price = $("#buyCarPrice").val();
         var ids = $("#buyCarIds").val();
+        var couid = $("#cou").val();
         if(regionId != ""){
-            $("#addShoppingForm").attr('action','../seckill/goAlipays?regionId='+regionId+'&ids='+ids+'&price='+price+'')
+            $("#addShoppingForm").attr('action','../seckill/goAlipays?regionId='+regionId+'&ids='+ids+'&price='+price+'&couid='+couid+'')
             $("#addShoppingForm").submit();
         }else{
             alert("请选择收货地址");
@@ -297,7 +309,28 @@
             }
         })
     })
+    function selectcoupon(){
+        layui.use('layer', function(){
+            var layer = layui.layer;
+            var x=$('#buyCarPrice3').val();
+            layer.open({
+                type: 2,
+                title: '新增配置',
+                skin: 'layui-layer-rim', //加上边框
+                area: ['720px', '500px'], //宽高
+                content: '/pay/seeCanUseCoupon?price='+x,
+                end: function () {
+                }
+            });
 
+        })
+    }
+    window.onload = function () {
+        seetotal();
+    }
+    function seetotal(){
+
+    }
 </script>
 
 <script src="../saveOrderForm_files/jquery.js"></script>

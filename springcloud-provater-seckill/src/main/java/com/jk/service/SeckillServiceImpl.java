@@ -7,10 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author 王超杰
@@ -115,6 +112,8 @@ public class SeckillServiceImpl implements SeckilServiceApi {
     @Override
     public void addOrderInfo(@RequestBody OrderBean orderBean) {
         seckillMapper.addOrderInfo(orderBean);
+        String id= UUID.randomUUID().toString().replaceAll("-", "");
+        seckillMapper.addcommorder(orderBean,id);
     }
 
     @Override

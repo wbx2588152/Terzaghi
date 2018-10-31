@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<!-- saved from url=(0086)https://promotion.mogujie.com/trade/promotion/user/shopcoupon?ptp=1.f0Luv.0.0.vqdKmZ7O -->
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script async="" src="../coupon_files/analytics.js.下载"></script>
+    <script type="text/javascript">
+        window.__trace__headstart = +new Date;
+        window.__server__startTime = 1540208177178;
+        window.__token = "1hZm9b%2F0r7IFqth4l%2FMx5n3tBbTfD7nvrhYbCMGE9CX2bkflTLtKnfOGcsdYqmop";
+    </script>
+    <script type="text/javascript" src="../js/jquery-1.8.2.min.js"></script>
+
+
+    <link rel="dns-prefetch" href="https://s6.mogucdn.com/">
+    <link rel="dns-prefetch" href="https://s7.mogucdn.com/">
+    <link rel="dns-prefetch" href="https://s6.mogujie.cn/">
+    <link rel="dns-prefetch" href="https://s7.mogujie.cn/">
+    <link rel="dns-prefetch" href="https://s8.mogujie.cn/">
+    <link rel="dns-prefetch" href="https://s9.mogujie.cn/">
+    <link rel="dns-prefetch" href="https://s12.mogujie.cn/">
+    <link rel="dns-prefetch" href="https://s13.mogujie.cn/">
+
+    <meta http-equiv="Cache-Control" content="no-transform ">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>蘑菇街 - 我的买手街！</title>
+    <meta name="keywords" content="蘑菇街,mogujie,买手,买手街,网购">
+    <meta name="description" content="">
+    <meta name="copyright" content="mogujie.com">
+
+
+
+
+    <link rel="search" type="application/opensearchdescription+xml" href="https://promotion.mogujie.com/opensearch.xml">
+
+    <link rel="icon" href="https://s10.mogucdn.com/mlcdn/c45406/170401_16fj5k6k4174bfd21d03a4gf6a7hg_48x48.png" type="image/x-icon">
+
+    <script type="text/javascript">
+        var curl = {apiName: 'require'}; var MOGU = {}; var MoGu = {}; var MOGU_DEV= 0 || "online" == "pre";
+        var M_ENV = "online";
+    </script>
+
+
+    <link href="../coupon_files/index.css-ccfdf3f4.css" rel="stylesheet" type="text/css">
+
+
+    <link rel="stylesheet" type="text/css" href="../coupon_files/bottom.css" media="all">
+
+
+    <link href="../coupon_files/index.css-f354c62e.css" rel="stylesheet" type="text/css">
+
+    <!--[if lte IE 8]>
+    <script src="https://s10.mogucdn.com/__mfp/meili-lib/assets/0.0.3/es5-shim.js,mfp/meili-lib/assets/0.0.3/es5-sham.js,mfp/meili-lib/assets/0.0.3/console-polyfill.js,mfp/meili-lib/assets/0.0.3/json2.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript" src="../coupon_files/pkg-pc-base.js.下载"></script>
+
+    <script type="text/javascript">
+
+        if(window.require) {
+            require.config({
+                domain: 0
+            });
+        }
+
+        MOGUPROFILE = {};
+
+    </script>
+    <style>
+        .innerwrap{  margin-right: -30px;  }
+        .media_screen_960 { min-width: 960px; }
+
+        .promotionTopNavContainer { height: 50px; overflow: hidden; display: none;}
+        .promotionTopNavContainer a { display: block; width: 86px; height: 50px; overflow: hidden;}
+        .promotionTopNavContainer a.first { width: 168px; }
+
+        /** screnn-960 **/
+        .media_screen_960 .promotionTopNavContainer .first{ width: 153px!important; }
+        .media_screen_960 .promotionTopNavContainer a { width: 66px; }
+        .media_screen_960 .promotionTopNavContainer a.last {width: 80px;}
+        .wrap { position: relative;}
+    </style>
+</head>
+<body class="media_screen_1200">
+
+        <div id="content_wrap" class="mu_content_wrap">
+            <!--已领用的优惠券-->
+            <div id="content_coupon">
+                <ul class="coupon-wrapper">
+                    <ul class="coupon-tabs" id="recommend_tabs">
+                        <li class="active" data-status="1">可使用优惠券</li>
+
+                    </ul>
+                    <ul class="coupon-list">
+                        <div class="coupon-empty">
+                            <ul class="coupon-list">
+                                <span id="usercouList"></span>
+                                <span id="usercouList1"></span>
+                            </ul>
+                            <!-- 暂无优惠券，快去领券购物吧~--></div>
+                    </ul>
+                </ul>
+            </div>
+            <input type="hidden" id="doller" th:value="${price}"/>
+    <!-- IE低版本处理方式 -->
+    <!--[if lte IE 8]>
+    <script src="https://s10.mogucdn.com/__mfp/meili-mgj-browser-update/assets/1.0.0/index.js,mfp/meili-mgj-ie67-upgrade/assets/0.1.8/ie67upgrade.js"></script>
+    <![endif]-->
+            <script src="../layui/jquery-1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        $(function(){
+            getUserCouList()
+        })
+
+        //获取用户已领取的优惠券
+        function getUserCouList() {
+
+            var p=$('#doller').val()
+            alert(p);
+            $.ajax({
+                url:'/pay/queryCanUserCou',
+                type:'post',
+                data:{pri:p},
+                dataType:'json',success:function(result){
+                    var list =  result;
+                    if(list != null){
+                        var html = "";
+                        for(var i = 0;i<list.length;i++){
+                            html+=
+                                '<li class="coupon-card ">\n' +
+                                ' <div class="fl left">\n' +
+                                ' <div>\n' +
+                                '  <p class="title">全场通用</p>\n' +
+                                '  </div>\n' +
+                                '  <h3 class="price"><span>￥</span>'+list[i].price+'</h3>\n' +
+                                ' <p>使用说明：满'+list[i].man+'元可用</p>\n' +
+                                ' <p class="time"> <span>使用期限：</span> 有效期至'+list[i].endDate+' </p>\n' +
+                                '</div>\n' +
+                                ' <div class="fl right">\n' +
+                                ' <p style="margin-top:-32px">\n' +
+                                ' <a href="javascript:collect(\''+list[i].price+'\',\''+list[i].id+'\')" target="_blank"><span id="'+list[i].id+'">立即<br>使用</span></a>\n' +
+                                '  </p>\n' +
+                                ' </div>\n' +
+                                '    </li>';
+                        }
+                        $('#usercouList').html(html);
+                        getCouList()
+                    } else {
+                        var html = "";
+                        html+='暂无优惠券，快去领券购物吧~'
+                        $('#usercouList').html(html);
+                        getCouList()
+                    }
+
+                },
+                error:function(){
+                    alert("加载数据失败");
+                }
+
+
+            })
+        }
+      function  collect(price,id){
+          var y=price;
+          var x=$('#doller').val();
+          var index = parent.layer.getFrameIndex(window.name);
+          parent.layer.close(index);//关闭当前页
+          var ret = parseFloat(x)-parseFloat(y);
+          parent.$('#buyCarPrice2').text(ret);
+          parent.$('#buyCarPrice').val(ret);
+          parent.$('#cou').val(id);
+      }
+    </script>
+
+</body>
+</html>

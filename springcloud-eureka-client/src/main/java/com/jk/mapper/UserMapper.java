@@ -96,4 +96,6 @@ public interface UserMapper {
     void addOneBuycar(BuyCar buyCar);
 
     void delManyBuycarByName(@Param("gid")String gids, @Param("id")String id);
+    @Select(" select * from t_commodity ")
+    List<Comm> getAllComm();
 }

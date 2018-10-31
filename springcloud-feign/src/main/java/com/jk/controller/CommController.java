@@ -10,6 +10,7 @@ import com.jk.model.*;
 
 
 import com.jk.service.CommServiceApi;
+import com.jk.util.AliyunUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +22,8 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
 
+import java.io.InputStream;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -174,28 +177,19 @@ public class CommController<HrResult> {
 
             //如果文件内容不为空，则写入上传路径
             if (!file.isEmpty()) {
-                //上传文件路径
-                String path = "C:/JAVA/sjy-idea-shixun2/springcloud-feign/src/main/resources/static/imgs";
+                String url = "广告/";
 
-                System.out.println("文件名称"+file.getOriginalFilename());
-                //上传文件名
-                String filename = file.getOriginalFilename();
-                File filepath = new File(path, filename);
+                InputStream fos = file.getInputStream();
 
+                String fileName = file.getOriginalFilename();
 
-                //判断路径是否存在，没有就创建一个
-                if (!filepath.getParentFile().exists()) {
-                    filepath.getParentFile().mkdirs();
-                }
-
-                //将上传文件保存到一个目标文档中
-                File file1;
-                file1 = new File(path + File.separator + filename);
-                file.transferTo(file1);
+                URL fileUpload = AliyunUtil.upFObject("stupan", url+fileName , fos);
+                String string = fileUpload.toString();
+                String[] split = string.split("[?]");
                 Map<String, Object> res = new HashMap<>();
                 //返回的是一个url对象
-                res.put("url", file1);
-                res.put("url2","../imgs/"+filename);
+                res.put("url", fileName);
+                res.put("url2",split[0]);
                 return res;
 
             } else {

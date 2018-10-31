@@ -300,6 +300,9 @@ public class UserController {
     void saveBuycar(@RequestParam(value="gid")String gid, @RequestParam(value="gnum")Integer gnum, @RequestParam(value="id")String id){
         userservice.saveBuycar(gid,gnum,id);
     }
-
+    @RequestMapping(value="getAllComm")
+    List<Comm> getAllComm(){
+       return userservice.getAllComm();
+    }
 
 }
