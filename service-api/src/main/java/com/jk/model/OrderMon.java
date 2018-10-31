@@ -1,17 +1,16 @@
 package com.jk.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
+
 import java.sql.Timestamp;
 import java.util.Date;
 
-/**
- * 订单表
- */
-public class OrderBean implements Serializable {
-
+@Document(collection="t_order")
+public class OrderMon implements Serializable {
     private String orderid; // 主键 订单编号
 
     private String linkuserid; // 关联用户id
@@ -28,8 +27,9 @@ public class OrderBean implements Serializable {
           未支付为1，已支付为2 对应操作  关闭订单   订单发货  订单跟踪    订单跟踪    删除订单
                                        订单详情   订单详情  订单详情    订单详情   查看详情
                                     */
-
-    private Timestamp subtime;// 订单提交时间
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @JsonFormat(pattern="yyyy-MM-dd",timezone="GMT+8")
+    private Date subtime;// 订单提交时间
 
     /**
      * 展示字段
@@ -43,6 +43,15 @@ public class OrderBean implements Serializable {
 
     private String consignnum;//发货单号； 默认为 0； 然后发货后生成发货单号；
 
+    private String couid;
+
+    public String getCouid() {
+        return couid;
+    }
+
+    public void setCouid(String couid) {
+        this.couid = couid;
+    }
 
     public String getOrderid() {
         return orderid;
@@ -92,11 +101,11 @@ public class OrderBean implements Serializable {
         this.orderstatus = orderstatus == null ? null : orderstatus.trim();
     }
 
-    public Timestamp getSubtime() {
+    public Date getSubtime() {
         return subtime;
     }
 
-    public void setSubtime(Timestamp subtime) {
+    public void setSubtime(Date subtime) {
         this.subtime = subtime;
     }
 
@@ -132,6 +141,4 @@ public class OrderBean implements Serializable {
     public void setConsignnum(String consignnum) {
         this.consignnum = consignnum;
     }
-
-
 }

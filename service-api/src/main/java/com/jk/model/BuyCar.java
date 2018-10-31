@@ -18,6 +18,16 @@ public class BuyCar implements Serializable {
 
     private Integer num;
 
+    private Integer count;
+
+    public Integer getCount() {
+        return count;
+    }
+
+    public void setCount(Integer count) {
+        this.count = count;
+    }
+
     public String getId() {
         return id;
     }

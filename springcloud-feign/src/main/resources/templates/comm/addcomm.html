@@ -34,22 +34,28 @@
         <div class="layui-inline">
             <label class="layui-form-label">手机名称</label>
             <div class="layui-input-inline">
-                <select name="nameid" lay-verify="nameid" lay-filter="nameid" id="nameid" lay-search="">
-
+                <select name="nameid" lay-verify="nameid" id="nameid" lay-search="">
                 </select>
             </div>
         </div>
         <div class="layui-inline">
-            <label class="layui-form-label">手机型号</label>
+            <label class="layui-form-label">手机库存</label>
             <div class="layui-input-inline">
-                <select name="modelsid" lay-verify="modelsid" id="modelsid" lay-search="">
-
-                </select>
+                <input type="text" name="store" lay-verify="store" autocomplete="off" class="layui-input">
             </div>
         </div>
     </div>
 
     <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">手机型号</label>
+            <div class="layui-input-inline">
+                <select name="modelsid" lay-verify="modelsid" id="modelsid" lay-search="">
+
+
+                </select>
+            </div>
+        </div>
         <div class="layui-inline">
             <label class="layui-form-label">手机颜色</label>
             <div class="layui-input-inline">
@@ -59,6 +65,9 @@
                 </select>
             </div>
         </div>
+    </div>
+
+    <div class="layui-form-item">
         <div class="layui-inline">
             <label class="layui-form-label">手机规格</label>
             <div class="layui-input-inline">
@@ -66,6 +75,12 @@
                     <option  th:each="spec1:${spec}" th:value="${spec1.id}" th:text="${spec1.spec}"></option>
 
                 </select>
+            </div>
+        </div>
+        <div class="layui-inline">
+            <label class="layui-form-label"></label>
+            <div class="layui-input-inline">
+
             </div>
         </div>
     </div>
@@ -106,11 +121,6 @@
         </div>
     </div>
 </form>
-
-
-
-
-
 <script>
 
     layui.use('upload', function(){
@@ -166,8 +176,6 @@
                 success:function(res){
 
                     layer.msg("新增成功",{icon:1});
-                    var index = parent.layer.getFrameIndex(window.name);
-                    parent.layer.close(index);//关闭当前页
                 },
                 error:function () {
                     layer.msg("新增失败",{icon:6});
@@ -229,7 +237,6 @@
          });
 
     </script>
-
 
 <script>
     layui.use('form', function(){

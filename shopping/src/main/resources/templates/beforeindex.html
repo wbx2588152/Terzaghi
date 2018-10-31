@@ -121,23 +121,23 @@
         <div class="banner has-dots" style="overflow: hidden; width: 830px; height: 370px;">
             <ul style="width: 400%; position: relative; left: -100%; height: 370px;">
                 <li style="width: 25%;">
-                    <a href="http://coding.imooc.com/class/109.html" target="_blank">
-                        <img class="banner-img" src="../index_files/banner-fe.jpg">
+                    <a href="javascript:miaosha()" target="_blank">
+                        <img class="banner-img" src="../imgs/ms.jpg">
                     </a>
                 </li>
                 <li style="width: 25%;">
-                    <a href="http://coding.imooc.com/class/96.html" target="_blank">
-                        <img class="banner-img" src="../index_files/banner-bg.jpg">
+                    <a href="javascript:miaosha()" target="_blank">
+                        <img class="banner-img" src="../imgs/ms.jpg">
                     </a>
                 </li>
                 <li style="width: 25%;">
-                    <a href="http://coding.imooc.com/class/149.html" target="_blank">
-                        <img class="banner-img" src="../index_files/banner-qx.jpg">
+                    <a href="javascript:miaosha()" target="_blank">
+                        <img class="banner-img" src="../imgs/ms.jpg">
                     </a>
                 </li>
                 <li style="width: 25%;">
-                    <a href="http://coding.imooc.com/class/162.html" target="_blank">
-                        <img class="banner-img" src="../index_files/banner-jg.jpg">
+                    <a href="javascript:miaosha()" target="_blank">
+                        <img class="banner-img" src="../imgs/ms.jpg">
                     </a>
                 </li>
             </ul>
@@ -418,7 +418,7 @@
            success:function(info){
                var x=0;
                for (var i = 0; i <info.length ; i++) {
-                   x+=Number(info[i].num);
+                   x+=1;
                }
                $('#car-num').html(x);
            }
@@ -430,7 +430,9 @@
 </script>
 
 <script>
-
+    function miaosha(){
+        location.href="/seckill/toSeckillList";
+    }
     //跳转手机页面
     function onphone() {
         location.href="/comm/toPhone";

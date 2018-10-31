@@ -386,8 +386,6 @@ public class CouController {
 
             } else {
                 map.put("code", 0);
-
-
             }
         }
          map.put("userCou1",userCous);

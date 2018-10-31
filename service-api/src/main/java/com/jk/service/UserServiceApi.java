@@ -109,4 +109,8 @@ public interface UserServiceApi {
     void addOneBuycar(@RequestParam(value="gid")String gid, @RequestParam(value="id")String id);
     @RequestMapping(value="wbx/delManyBuycarByName")
     void delManyBuycarByName(@RequestParam(value="gids")String gids, @RequestParam(value="id")String id);
+    @RequestMapping(value="wbx/saveBuycar")
+    void saveBuycar(@RequestParam(value="gid")String gid, @RequestParam(value="gnum")Integer gnum, @RequestParam(value="id")String id);
+    @RequestMapping(value="wbx/getAllComm")
+    List<Comm> getAllComm();
 }

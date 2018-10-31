@@ -1016,5 +1016,4 @@ public class CommController<HrResult> {
         commService.saveManDetail(manDetail);
         return "1";
 
-    }
 }

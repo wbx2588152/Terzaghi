@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)http://www.happyjinke.com/confirm.html -->
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge"> <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="keywords" content="jinke,电商系统,网购平台,慕课三剑客,教学视频,前端开发,后端开发,React,SSM,Java,权限系统,分布式,高并发,毕业设计,毕设,代码">
+    <meta name="description" content="jinke电商平台教学，最火的电商系统开发教学视频，囊括前后端多个课程，一线企业讲师亲自授课，慕课三剑客带你成为IT行业大牛。">
+    <link rel="dns-prefetch" href="http://s.happyjinke.com/">
+    <link rel="dns-prefetch" href="http://cdn.bootcss.com/">
+    <script src="../js/jquery.min.js"></script>
+
+    <script>
+        var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?bc210cd22928076d28296716d9dfcf01";
+        var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()
+    </script>
+
+    <title>订单确认--jinke电商平台</title>
+    <link rel="shortcut icon" href="http://s.happyjinke.com/jinke_fe/dist/favicon.ico">
+    <link href="../saveOrderForm_files/common.css" rel="stylesheet">
+    <link href="../saveOrderForm_files/confirm.css" rel="stylesheet">
+    <link href="../layui/css/layui.css" rel="stylesheet"/>
+
+    <script src="../layui/layui.js"></script>
+
+    <script src="../layui/layui.all.js"></script>
+
+    <script src="../layui/jquery-1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../saveOrderForm_files/jquery.js"></script>
+</head>
+<body>
+<div class="site-nav">
+    <div class="w">
+        <div class="user-info">
+    <span class="site-user not-login">
+        <span class="link link-login">登录</span>
+        <span class="link link-register" href="./register.html">注册</span>
+    </span>
+            <span class="site-user login" style="display: inline;">
+            <!--<span class="link-text">欢迎，<span class="username">wangcj</span></span>-->
+            <span class="link link-logout">退出</span>
+        </span>
+        </div>
+        <ul class="nav-list">
+        <li class="nav-item">
+            <a class="link" href="http://www.happyjinke.com/cart.html">
+                <i class="fa fa-shopping-cart"></i>
+                购物车<!--(<span class="cart-count">1</span>)--></a>
+        </li> <li class="nav-item">
+            <a class="link" href="http://www.happyjinke.com/order-list.html">我的订单</a>
+        </li> <li class="nav-item">
+            <a class="link" href="http://www.happyjinke.com/user-center.html">我的jinke</a>
+        </li> <li class="nav-item">
+            <a class="link" href="http://www.happyjinke.com/about.html">关于jinke</a>
+        </li>
+        </ul>
+    </div>
+</div>
+<div class="header">
+    <div class="w">
+        <a class="logo" href="http://www.happyjinke.com/index.html">jinke</a>
+        <div class="search-form">
+            <input class="search-input" id="search-input" placeholder="请输入商品名称">
+            <button class="search-btn" id="search-btn">搜索</button>
+        </div>
+    </div>
+</div>
+<div class="crumb">
+    <div class="w">
+        <div class="crumb-list">
+            <a href="http://www.happyjinke.com/index.html" class="crumb-item">jinke</a>
+            <span>&gt;</span>
+            <span class="crumb-item">订单确认</span>
+        </div>
+    </div>
+</div>
+<div class="confirm-wrap w">
+    <div class="panel">
+        <h2 class="panel-title">收货地址</h2>
+        <div class="panel-body address-list">
+
+            <span id="dizhi"></span>
+
+            <div class="address-item add" id="addRegion">
+                <div class="address-new">
+                    <i class="fa fa-plus"></i>
+                    <div class="text">使用新地址
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form id="addShoppingForm" action="../seckill/goAlipays" method="post">
+    <div class="panel">
+        <h2 class="panel-title">商品清单</h2>
+        <div class="panel-body order-product">
+
+            <table class="product-table" data-product-id="" data-checked="">
+                <tbody id="buycarSaveOrderId">
+                    <tr>
+                        <th width="10%">&nbsp;</th>
+                        <th width="30%" align="left">商品描述</th>
+                        <th width="20%" align="center">价格</th>
+                        <th width="20%" align="center">数量</th>
+                        <th width="20%" align="center">小计</th>
+                    </tr>
+
+                    <!--<span id="buycarSaveOrderId"></span>-->
+                </tbody>
+            </table>
+
+            <div class="submit-con"> <span>订单总价：</span>
+                <span class="submit-total">￥<span id="buyCarPrice2" th:text="${price}"></span></span>
+                <span class="btn" onclick="selectcoupon()">选择可用优惠券</span>
+                <span class="btn order-submit" onclick="subDingdan()">提交订单</span>
+            </div>
+        </div>
+    </div>
+    </form>
+</div>
+<input type="hidden" th:value="${ids}" id="buyCarIds">
+<input type="hidden" th:value="${price}" id="buyCarPrice">
+<input type="hidden" th:value="${price}" id="buyCarPrice3">
+<input type="hidden" id="cou"/>
+<input type="hidden" th:value="0" id="selectCoupon">
+
+<div id="p4" style="display:none">
+    <div class="modal-wrap">
+        <div class="modal mask close">
+            <div class="modal-container">
+                <div class="modal-header">
+                    <h1>使用新地址</h1>
+                    <i class="fa fa-close close" id="closeRegionTanKuang"></i>
+                </div>
+                <div class="modal-body">
+                    <div class="form">
+                        <form id="addRegionForm">
+                        <div class="form-line">
+                            <label class="label">
+                                <span class="form-require">*</span>收件人姓名:
+                            </label>
+                            <input class="form-item name" id="receiver-name" type="text" placeholder="请输入收件人姓名" name="name">
+                        </div>
+                        <div class="form-line">
+                        <label class="label">
+                            <span class="form-require">*</span>
+                            所在省:</label>
+                            <select class="form-item province-select" id="receiver-province" name="sheng"><option value="北京市">请选择</option><option value="北京">北京</option><option value="上海">上海</option><option value="天津">天津</option><option value="重庆">重庆</option><option value="河北省">河北省</option><option value="山西省">山西省</option><option value="辽宁省">辽宁省</option><option value="吉林省">吉林省</option><option value="黑龙江省">黑龙江省</option><option value="江苏省">江苏省</option><option value="浙江省">浙江省</option><option value="安徽省">安徽省</option><option value="福建省">福建省</option><option value="江西省">江西省</option><option value="山东省">山东省</option><option value="河南省">河南省</option><option value="湖北省">湖北省</option><option value="湖南省">湖南省</option><option value="广东省">广东省</option><option value="海南省">海南省</option><option value="四川省">四川省</option><option value="贵州省">贵州省</option><option value="云南省">云南省</option><option value="陕西省">陕西省</option><option value="甘肃省">甘肃省</option><option value="青海省">青海省</option><option value="内蒙古">内蒙古</option><option value="广西">广西</option><option value="西藏">西藏</option><option value="宁夏">宁夏</option><option value="新疆">新疆</option><option value="香港">香港</option><option value="澳门">澳门</option><option value="台湾">台湾</option></select>
+                             </div>
+                        <div class="form-line"> <label class="label"><span class="form-require">*</span>
+                            详细地址:</label> <input class="form-item" id="receiver-address" type="text" placeholder="请精确到门牌号" name="inDetail"> </div>
+                        <div class="form-line">
+                            <label class="label">
+                                <span class="form-require">*</span>收件人手机号:
+                            </label>
+                            <input class="form-item" id="receiver-phone" type="text" placeholder="请输入11位手机号" name="phone"> </div>
+                        <div class="form-line">
+                            <a class="btn form-btn address-save" id="subAddRegion">保存收货地址</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <div class="w">
+        <div class="links">
+            <a target="_blank" class="link" href="https://coding.imooc.com/">慕课网实战</a> |
+            <a target="_blank" class="link" href="https://www.imooc.com/u/198337">Rosen主页</a> |
+            <a target="_blank" class="link" href="https://www.imooc.com/t/2705746">Geely主页</a> |
+            <a target="_blank" class="link" href="https://www.imooc.com/u/5980627">Jimin主页</a>
+        </div>
+        <p class="copyright"> Copyright © 2018 happyjinke.com All Rights Reserved </p>
+    </div>
+</div>
+<!--选中的地址-->
+<input type="hidden" id="checkedId" />
+<!--<input type="hidden" id="inDetailId" />
+    <input type="hidden" id="nameIdd"    />
+    <input type="hidden" id="shengId"    />
+    <input type="hidden" id="phoneId"    />-->
+
+
+<script>
+
+    /* var price = $("#buyCarPrice");*/
+
+    function initCarSaveOrder(){
+        var ids = $("#buyCarIds").val();
+        $.ajax({
+            url:'../seckill/queryBuyCarSaveOrderById',
+            type:'post',
+            data:{
+                ids:ids
+            },
+            dataType:'json',
+            success:function(result){
+                var html = "";
+                for(var i=0;i<result.length;i++){
+                    html+='<tr> \n' +
+                        '    <td class="product-cell cell-img">\n' +
+                        '    <a href="" target="_blank">\n' +
+                        '        <img class="p-img" width="50px" height="50px" src="'+result[i].photo+'" th:alt="'+result[i].detail+'"></a> </td>\n' +
+                        '    <td align="left">\n' +
+                        '        <a class="link p-name" href="javascript:;" target="_blank">\n' +
+                        '            '+result[i].name+'\n' +
+                        '        </a>\n' +
+                        '    </td>\n' +
+                        '    <td align="center">￥'+result[i].price+'</td>\n' +
+                        '    <td align="center">x'+result[i].count+'</td>\n' +
+                        '    <td align="center">￥'+result[i].price*result[i].count+'\n' +
+                        '    </span>\n' +
+                        '    </td>\n' +
+                        '</tr>';
+                }
+                $("#buycarSaveOrderId").append(html);
+            }
+        })
+    }
+
+
+    function subDingdan(){
+        var regionId = $("#checkedId").val();
+        var price = $("#buyCarPrice").val();
+        var ids = $("#buyCarIds").val();
+        var couid = $("#cou").val();
+        if(regionId != ""){
+            $("#addShoppingForm").attr('action','../seckill/goAlipays?regionId='+regionId+'&ids='+ids+'&price='+price+'&couid='+couid+'')
+            $("#addShoppingForm").submit();
+        }else{
+            alert("请选择收货地址");
+        }
+    }
+
+    $('#addRegion').click(function(){
+        $("#p4").attr('style','');
+    })
+
+    $("#closeRegionTanKuang").click(function(){
+        $("#p4").attr('style','display:none');
+    })
+
+    $(function(){
+        initSaveOrderForm();
+        initCarSaveOrder();
+    })
+
+    function initSaveOrderForm(){
+        $.ajax({
+            url:'../seckill/queryRegionList',
+            type:'post',
+            data:{},
+            dataType:'json',
+            success:function(result){
+                var html = "";
+                for(var i=0;i<result.length;i++){
+                    html +='<a class="address-item" id="address'+i+'" onclick="biankuang('+i+',\''+result[i].id+'\')">\n' +
+                        '                <div class="address-title">\n' +
+                        '                    <span class="city">'+result[i].sheng+'</span> <span class="name">（ '+result[i].name+' 收 ）</span>\n' +
+                        '                </div>\n' +
+                        '                <div class="address-detail"> '+result[i].inDetail+' '+result[i].phone+' </div>\n' +
+                        '                <input type="hidden" value="'+result[i].id+'" id="regionId'+i+'" />\n' +
+                        '                <input type="hidden" value="'+result[i].name+'" id="regionName'+i+'"+i />\n' +
+                        '                <input type="hidden" value="'+result[i].sheng+'" id="regionSheng'+i+'"+i />\n' +
+                        '                <input type="hidden" value="'+result[i].phone+'" id="regionPhone'+i+'"+i />\n' +
+                        '                <input type="hidden" value="'+result[i].inDetail+'" id="regionIndetail'+i+'"+i />\n' +
+                        '                <div class="address-opera">\n' +
+                        '                    <span class="link address-delete" onclick="deleteRegion(\''+result[i].id+'\')">删除</span>\n' +
+                        '                </div>\n' +
+                        '            </a>';
+                }$('#dizhi').html(html);
+            }
+        })
+    }
+
+    function biankuang(i,id){
+        $(".address-item").attr("class","address-item");
+        $("#address"+i).attr("class","address-item active");
+        $("#checkedId").val(id);
+
+    }
+
+    function deleteRegion(id){
+        $.ajax({
+            url:'../seckill/deleteRegion',
+            type:'post',
+            data:{
+                id:id
+            },
+            dataType:'json',
+            success:function(){
+                initSaveOrderForm();
+            }
+        })
+    }
+
+    $('#subAddRegion').click(function(){
+        $.ajax({
+            url:'../seckill/addRegion',
+            data:$('#addRegionForm').serialize(),
+            type:'post',
+            dataType:'json',
+            success:function(){
+                $("#p4").attr('style','display:none');
+                initSaveOrderForm();
+            }
+        })
+    })
+    function selectcoupon(){
+        layui.use('layer', function(){
+            var layer = layui.layer;
+            var x=$('#buyCarPrice3').val();
+            layer.open({
+                type: 2,
+                title: '新增配置',
+                skin: 'layui-layer-rim', //加上边框
+                area: ['720px', '500px'], //宽高
+                content: '/pay/seeCanUseCoupon?price='+x,
+                end: function () {
+                }
+            });
+
+        })
+    }
+    window.onload = function () {
+        seetotal();
+    }
+    function seetotal(){
+
+    }
+</script>
+
+<script src="../saveOrderForm_files/jquery.js"></script>
+<!--<script type="text/javascript" src="../saveOrderForm_files/base.js"></script>-->
+<script type="text/javascript" src="../saveOrderForm_files/common.js"></script>
+<script type="text/javascript" src="../saveOrderForm_files/confirm.js"></script>
+
+</body>
+</html>
+
+
+<!--
+<tr>
+    <th width="10%">&nbsp;</th>
+    <th width="30%" align="left">商品描述</th>
+    <th width="20%" align="center">价格</th>
+    <th width="20%" align="center">数量</th>
+    <th width="20%" align="center">小计</th>
+</tr>
+<tr>
+    <td class="product-cell cell-img">
+    <a href="" target="_blank">
+        <img class="p-img" th:src="${commmondityImg}" th:alt="${artNo}"></a> </td>
+    <td align="left">
+        <a class="link p-name" href="javascript:;" target="_blank">
+            <span th:text="${artNo}"></span>
+        </a>
+    </td>
+    <td align="center">￥<span name="seckillPrice" th:text="${seckillPrice}"></span></td>
+    <td align="center">x1</td>
+    <td align="center">￥<span th:text="${seckillPrice}">
+    </span>
+    </td>
+</tr>-->

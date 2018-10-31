@@ -114,6 +114,69 @@
         itindetail();
         itindetail2()
     })
+    function initDaoHang(){
+        $.ajax({
+            /*url:'../wangcj/checkLogin',*/
+            url:'/cou/queryNavById',
+            type:'post',
+            data:{},
+            dataType:'json',
+            success:function(result){
+                var html = "";
+                if(result.code != 0){
+
+                    html +=  '<div class="user-info">\n' +
+                        '             <span class="site-user not-login" style="display: inline;">\n' +
+                        '                <span class="link link-login" id="tologin">登录</span>\n' +
+                        '                <span class="link link-register" id="toreg">注册</span>\n' +
+                        '             </span>\n' +
+                        '         </div>';
+
+                }else if (result.code == 0){
+                    var user = result.loginname;
+                    html +=
+                        '<div class="user-info">\n' +
+                        '       <span class="site-user not-login" style="display: inline;">\n' +
+                        '      <span class="link-text">欢迎<span class="username" id="username"></span>\n' +
+                        '    </span> <span class="link link-logout" id="exit">退出</span> </span>\n' +
+                        '   </span>\n' +
+                        '</div>\n' +
+                        '<ul class="nav-list">\n' +
+                        '<li class="nav-item">\n' +
+                        '<a class="link" href="javascript:seecar()">\n' +
+                        '<i class="fa fa-shopping-cart"></i> 购物车(<span class="cart-count" id="car-num">0</span>)</a>\n' +
+                        '</li>\n' +
+                        '<li class="nav-item">\n' +
+                        ' <span class="link link-register" id="toCou">我的优惠券</span>\n' +
+                        /*   '<a class="link" id="toCou">我的优惠券</a>\n' +*/
+                        '</li>\n' +
+                        '<li class="nav-item">\n' +
+                        '<a class="link" href="http://www.happymmall.com/user-center.html">我的MMall</a> </li>\n' +
+                        '<li class="nav-item">\n' +
+                        '<a class="link" href="http://www.happymmall.com/about.html">关于MMall</a>\n' +
+                        '</li>\n' +
+
+                        '</ul>';
+                }
+                $('#checkLogin').html(html);
+            }
+        })
+        $.ajax({
+            url:'/pay/getUserBuyCar',
+            type:'post',
+            data:{},
+            success:function(info){
+                var x=0;
+                for (var i = 0; i <info.length ; i++) {
+                    x+=Number(info[i].num);
+                }
+                $('#car-num').html(x);
+            }
+        })
+    }
+    function seecar(){
+        location.href="/pay/seeCarbuy";
+    }
     function itindetail(){
         var id = $("#detailid2").val();
 

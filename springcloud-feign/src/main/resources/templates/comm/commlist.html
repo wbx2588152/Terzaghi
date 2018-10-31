@@ -81,9 +81,9 @@
                         {checkbox: true, align: 'center', LAY_CHECKED: false, filter: 'test'},
                         /*{type: 'checkbox', fixed: 'left'},*/
                         {field: 'number', title: '编号', width: 80, align: "center"},
-                        {field: 'showname', title: '手机名称', width: 100 /*sort: true, totalRow: true*/},
-                        {field: 'photo', title: '手机图片', width: 100, align: 'center',templet:'<div><img src="{{ d.photo}}"></div>', style: 'height:50px;width:48px;line-height:48px!important;'},
-                        {field: 'price', title: '手机价格', width: 100},
+                        {field: 'showname', title: '商品名称', width: 100 /*sort: true, totalRow: true*/},
+                        {field: 'photo', title: '商品图片', width: 100, align: 'center', templet: '<div><img src="../{{ d.photo }}"></div>', style: 'height:50px;width:48px;line-height:48px!important;'},
+                        {field: 'price', title: '商品价格', width: 100},
                         {field: 'added', title: '上/下架', width: 100,
                             templet:function(d){
                                 if(d.added == 1){
@@ -179,7 +179,7 @@
 
                     ]
                 ],
-                id: 'testReload',
+                id: 'testReload'
             });
 
 
@@ -234,7 +234,7 @@
                         type: 2,
                         title: '修改配置',
                         skin: 'layui-layer-rim', //加上边框
-                        area: ['700px', '500px'], //宽高
+                        area: ['700px', '650px'], //宽高
                         method: 'get',
                         content: '/comm/toEditComm?id='+data.id,
 

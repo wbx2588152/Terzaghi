@@ -73,4 +73,8 @@ public interface UserService {
     void addOneBuycar(String gid, String id);
 
     void delManyBuycarByName(String gids, String id);
+
+    void saveBuycar(String gid, Integer gnum, String id);
+
+    List<Comm> getAllComm();
 }

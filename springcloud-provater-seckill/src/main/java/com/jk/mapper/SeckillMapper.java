@@ -60,4 +60,10 @@ public interface SeckillMapper {
     void updateCommInfo(@Param("id")String seckillId);
 
     void updateTImeLimitById(@Param("id")String seckillId);
+
+    BuyCar queryBuyCarById(@Param("id")String id);
+
+    Comm queryCommById(@Param("id")String id);
+
+    void addcommorder(@Param("o")OrderBean orderBean,@Param("id")String id);
 }

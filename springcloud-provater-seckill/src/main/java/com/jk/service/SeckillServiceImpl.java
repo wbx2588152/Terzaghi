@@ -7,9 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author 王超杰
@@ -114,6 +112,8 @@ public class SeckillServiceImpl implements SeckilServiceApi {
     @Override
     public void addOrderInfo(@RequestBody OrderBean orderBean) {
         seckillMapper.addOrderInfo(orderBean);
+        String id= UUID.randomUUID().toString().replaceAll("-", "");
+        seckillMapper.addcommorder(orderBean,id);
     }
 
     @Override
@@ -149,6 +149,28 @@ public class SeckillServiceImpl implements SeckilServiceApi {
     @Override
     public void updateTImeLimitById(String seckillId) {
         seckillMapper.updateTImeLimitById(seckillId);
+    }
+
+    @Override
+    public List<BuyCar> queryByCarsByIds(String ids) {
+        String[] split = ids.split(",");
+        ArrayList<BuyCar> arrayList = new ArrayList<>();
+        for (int i =0;i<split.length;i++){
+            String id = split[i];
+            BuyCar buyCar = seckillMapper.queryBuyCarById(id);
+            arrayList.add(buyCar);
+        }
+        return arrayList;
+    }
+
+    @Override
+    public BuyCar queryBuyCarById(String id) {
+        return seckillMapper.queryBuyCarById(id);
+    }
+
+    @Override
+    public Comm queryCommById(String id) {
+        return seckillMapper.queryCommById(id);
     }
 
 

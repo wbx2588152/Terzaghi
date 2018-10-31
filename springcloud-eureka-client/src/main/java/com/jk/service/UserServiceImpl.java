@@ -4,6 +4,7 @@ import com.jk.mapper.UserMapper;
 import com.jk.model.*;
 import com.netflix.discovery.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +16,9 @@ import java.util.*;
 public class UserServiceImpl implements UserService {
     @Autowired
     UserMapper userMapper;
+
+    @Autowired
+    private RedisTemplate redisTemplate;
 
     @Override
     public List<User> getUserList() {
@@ -341,6 +345,22 @@ public class UserServiceImpl implements UserService {
     @Override
     public void delManyBuycarByName(String gids, String id) {
         userMapper.delManyBuycarByName(gids, id);
+    }
+
+    @Override
+    public void saveBuycar(String gid, Integer gnum, String id) {
+        for (int i = 0; i <gnum ; i++) {
+            BuyCar buyCar=new BuyCar();
+            buyCar.setId(UUID.randomUUID().toString().replaceAll("-", ""));
+            buyCar.setGoodsid(gid);
+            buyCar.setUserid(id);
+            userMapper.addOneBuycar(buyCar);
+        }
+    }
+
+    @Override
+    public List<Comm> getAllComm() {
+        return userMapper.getAllComm();
     }
 
 

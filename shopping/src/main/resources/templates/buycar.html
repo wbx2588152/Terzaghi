@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- saved from url=(0035)http://www.happymmall.com/cart.html -->
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -80,7 +80,7 @@
         </div>
         <div class="delete-con"><a class="cart-delete-seleced link"> <i class="fa fa-trash-o" aria-hidden="true"></i>
             <span onclick="delmany()">删除选中</span> </a></div>
-            <div class="submit-con"><span>总价：</span> <span class="submit-total" id="numTotal">￥0</span> <span class="btn submit-btn">去结算</span>
+            <div class="submit-con"><span>总价：</span> <span class="submit-total" id="numTotal">￥0</span> <span class="btn submit-btn" onclick="subJiesuan()">去结算</span>
         </div>
     </div>
 </div>
@@ -94,12 +94,49 @@
         <p class="copyright"> Copyright © 2018 happymmall.com All Rights Reserved </p>
     </div>
 </div>
+<input type="hidden" th:value="${tips}" id="tips"/>
 <script src="../buycar/jquery.js"></script>
 <script>
+    function subJiesuan() {
+        $.ajax({
+            /*url:'../wangcj/checkLogin',*/
+            url: '/cou/queryNavById',
+            type: 'post',
+            data: {},
+            dataType: 'json',
+            success: function (result) {
+                if(result.code!= 0){
+                    alert("请先登录")
+                }else if(result.code== 0){
+                    var ids="";
+                    $('.cart-select').each(function(){
+                        if($(this).prop('checked')){
+                            ids+=(ids=="" ? "":",")+$(this).attr('data-gid');
+                        }
+                    })
+                    var price = $("#numTotal").html();
+                    if(ids==""){
+                        alert("请选择要购买的商品！")
+                    }else{
+                        location.href='../seckill/toCarSaveOrder?ids='+ids+'&price='+price+'';
+                    }
+                }
+            }
+        })
+    }
+
+
+
+
     $(function(){
-        seeshopping();
+
         initDaoHang();
+        showtips();
+        seeshopping();
     })
+    window.onload = function () {
+        assignment();
+    }
     function seeshopping(){
         $.ajax({
             url:'/pay/getUserBuyCar',
@@ -109,12 +146,12 @@
                 var html="";
                 var numtotal=0;
                 for (var i = 0; i <info.length ; i++) {
-                    numtotal=accMul(info[i].price,info[i].num);
+                    numtotal=accMul(info[i].price,info[i].count);
                     html+="<tr>\n" +
-                        "                <td class=\"cart-cell cell-check\"><input type='checkbox' class='cart-select' onclick='changeNum()' data-gid='\""+info[i].goodsid+"\"' value='"+numtotal+"'></td>\n" +
+                        "                <td class=\"cart-cell cell-check\"><input type='checkbox' class='cart-select' onclick='changeNum()' data-gid='\""+info[i].goodsid+"\"' value='"+numtotal+"' data-price='"+info[i].price+"'></td>\n" +
                         "                <td class=\"cart-cell cell-img\"><a href='http://www.happymmall.com/detail.html?productId=27'\n" +
                         "                                                  target='_blank'><img class=\"p-img\"\n" +
-                        "                                                                       src='./购物车--MMall电商平台_files/ac3e571d-13ce-4fad-89e8-c92c2eccf536.jpeg'\n" +
+                        "                                                                       src='"+info[i].photo+"'\n" +
                         "                                                                       alt='"+info[i].name+"'></a>\n" +
                         "                </td>\n" +
                         "                <td class=\"cart-cell cell-info\"><a class=\"link p-name\"\n" +
@@ -122,7 +159,7 @@
                         "                                                   target='blank'>"+info[i].name+"</a></td>\n" +
                         "                <td class=\"cart-cell cell-price\">"+info[i].price+"</td>\n" +
                         "                <td class=\"cart-cell cell-count\"><span class=\"count-btn\" data-opera-type=\"minus\" onclick='delOneBuycar(\""+info[i].goodsid+"\")'>-</span> <input\n" +
-                        "                        class=\"count-input\" data-max=\"104721\" value='"+info[i].num+"'> <span class=\"count-btn\" data-opera-type=\"plus\" onclick='addOneBuycar(\""+info[i].goodsid+"\")'>+</span>\n" +
+                        "                        class=\"count-input\" data-max=\"104721\" value='"+info[i].count+"'> <span class=\"count-btn\" data-opera-type=\"plus\" onclick='addOneBuycar(\""+info[i].goodsid+"\")'>+</span>\n" +
                         "                </td>\n" +
                         "                <td class=\"cart-cell cell-total\">"+numtotal+"</td>\n" +
                         "                <td class=\"cart-cell cell-opera\"><a class=\"link cart-delete\" onclick='delOneType(\""+info[i].goodsid+"\")'>删除</a></td>\n" +
@@ -162,8 +199,9 @@
                 total+=parseFloat($(this).val());
             }
         })
-        $('#numTotal').html("￥"+total);
+        $('#numTotal').html(total);
     }
+
     function delOneType(goodsid){
         $.ajax({
             url:'/pay/delBuycarByName',
@@ -171,7 +209,7 @@
             data:{gid:goodsid},
             success:function(info){
                 seeshopping();
-                assignment();
+                window.location.reload();
             }
         })
     }
@@ -182,7 +220,7 @@
             data:{gid:goodsid},
             success:function(info){
                 seeshopping();
-                assignment();
+                window.location.reload();
             }
         })
     }
@@ -193,7 +231,7 @@
             data:{gid:goodsid},
             success:function(info){
                 seeshopping();
-                assignment();
+                window.location.reload();
             }
         })
     }
@@ -210,19 +248,49 @@
             data:{gids:x},
             success:function(info){
                 seeshopping();
-                assignment();
+                window.location.reload();
             }
         })
     }
-    function accMul(arg1,arg2){
-        var m=0,s1=arg1.toString(),
-            s2=arg2.toString();
-        try{
-            m+=s1.split(".")[1].length}catch(e){}
-        try{
-            m+=s2.split(".")[1].length}catch(e){}
-        return Number(s1.replace(".",""))*Number(s2.replace(".",""))/Math.pow(10,m
-        )}
+
+    //跳转登录页面
+    $('span').delegate('#tologin','click',function(){
+        location.href="/cou/toLogin";
+    })
+    //跳转注册页面
+    $('span').delegate('#toreg','click',function(){
+        location.href="/cou/toReg";
+    })
+
+
+    $(function(){
+        initDaoHang();
+        getUserSs();
+    })
+    //获取登录信息
+    function getUserSs(){
+        $.ajax({
+            url:'/cou/getUsername',
+            type:'post',
+            success:function(result){
+                $('#username').html(result);
+            }
+        })
+    }
+
+
+
+    $('span').delegate('#toCou','click',function(){
+        location.href="/cou/toCoupon"
+    })
+    $('span').delegate('#exit','click',function(){
+
+        location.href="/cou/exit";
+    })
+
+
+
+
     function initDaoHang(){
         $.ajax({
             /*url:'../wangcj/checkLogin',*/
@@ -277,7 +345,7 @@
             success:function(info){
                 var x=0;
                 for (var i = 0; i <info.length ; i++) {
-                    x+=Number(info[i].num);
+                    x+=1;
                 }
                 $('#car-num').html(x);
             }
@@ -285,6 +353,16 @@
     }
     function seecar(){
         location.href="/pay/seeCarbuy";
+    }
+    function showtips(){
+        var tip=$("#tips").val();
+        if(tip!=""){
+            alert(tip);
+        }
+
+    }
+    function accMul(arg1,arg2){
+        return parseFloat(arg1)*parseFloat(arg2)
     }
 </script>
 

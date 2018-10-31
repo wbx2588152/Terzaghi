@@ -2,6 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.jk.mapper.SeckillMapper" >
 
+	<select id="queryCommById" resultType="com.jk.model.Comm">
+		select * from t_commodity where id = #{id}
+	</select>
+
+	<select id="queryBuyCarById" resultType="com.jk.model.BuyCar">
+		select * from t_buycar where id = #{id}
+	</select>
+
 	<update id="updateTImeLimitById">
 		update t_time_limit_seckill set limitationCount = limitationCount+1 where id = #{id}
 	</update>
@@ -37,10 +45,14 @@
 	</select>
 
 	<insert id="addOrderInfo">
-		insert into t_order(orderid,linkuserid,linkcommodifyid,linkbothid,paystatus,orderstatus,subtime)
-		value(#{o.orderid},#{o.linkuserid},#{o.linkcommodifyid},#{o.linkbothid},#{o.paystatus},#{o.orderstatus},#{o.subtime})
+		insert into t_order(orderid,linkuserid,linkbothid,paystatus,orderstatus,subtime)
+		values(#{o.orderid},#{o.linkuserid},#{o.linkbothid},#{o.paystatus},#{o.orderstatus},#{o.subtime})
 	</insert>
 
+	<insert id="addcommorder">
+		insert into t_comm_order(id,commid,orderid)
+		values(#{id},#{o.linkcommodifyid},#{o.orderid})
+	</insert>
 	<insert id="addCommmondityInfo">
 		insert into t_commodity(id,number,detail,price,photo) values(#{id},#{name},#{artNo},#{seckillPrice},#{commmondityImg})
 	</insert>

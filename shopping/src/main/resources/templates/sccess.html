@@ -8,13 +8,15 @@
 <script src="../js/jquery.min.js"></script>
 <script>
     $(function(){
-        location.href="../seckill/toSeckillList";
+
         $.ajax({
-            url:'../seckill/updateOrderStatus',
+            url:'../seckill/insertOrders',
             type:'post',
             dataType:'json',
             data:{},
-            success:function(){}
+            success:function(){
+                location.href="../cou/toIndex";
+            }
         })
     })
 </script>

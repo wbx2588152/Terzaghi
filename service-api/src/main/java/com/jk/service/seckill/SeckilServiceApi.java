@@ -81,4 +81,13 @@ public interface SeckilServiceApi {
 
     @RequestMapping(value = "/updateTImeLimitById",method = RequestMethod.POST)
     void updateTImeLimitById(@RequestParam(value = "seckillId")String seckillId);
+
+    @RequestMapping(value = "/queryByCarsByIds",method = RequestMethod.POST)
+    List<BuyCar> queryByCarsByIds(@RequestParam(value = "ids") String ids);
+
+    @RequestMapping(value = "/queryBuyCarById",method = RequestMethod.POST)
+    BuyCar queryBuyCarById(@RequestParam(value = "id")String id);
+
+    @RequestMapping(value = "/queryCommById",method = RequestMethod.POST)
+    Comm queryCommById(@RequestParam("id")String id);
 }
