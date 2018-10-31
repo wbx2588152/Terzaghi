@@ -106,7 +106,7 @@
         <div class="layui-input-block">
 
             <button type="button" class="layui-btn" id="test1">上传图片</button>
-            <input type="hidden" id="img_url" name="photo" value=""/>
+            <input type="hidden" id="img_url" name="photo" th:value="${comm.photo}"/>
             <div class="layui-upload-list">
                 <img class="layui-upload-img" th:src="${comm.photo}" width="100px" height="80px" id="demo1"/>
                 <p id="demoText"></p>
@@ -121,106 +121,7 @@
         </div>
     </div>
 
-    <!--<div class="layui-form-item">
-        <div class="layui-inline">
-            <label class="layui-form-label">商品编号</label>
-            <div class="layui-input-inline">
-                <input type="hidden" name="id"  th:value="${comm.id}" lay-verify="" autocomplete="off" class="layui-input"/>
-                <input type="text" name="number" id="number" th:value="${comm.number}" lay-verify="" autocomplete="off" class="layui-input">
-            </div>
-        </div>
-    </div>
 
-    <div class="layui-form-item">
-        <div class="layui-inline">
-            <label class="layui-form-label">商品名称</label>
-            <div class="layui-input-inline">
-                <input type="text" name="name" th:value="${comm.name}" lay-verify="name" autocomplete="off" class="layui-input">
-            </div>
-        </div>
-    </div>
-
-    <div class="layui-form-item">
-        <div class="layui-inline">
-            <label class="layui-form-label">商品价格</label>
-            <div class="layui-input-inline">
-                <input type="text" name="price" th:value="${comm.price}" lay-verify="price" autocomplete="off" class="layui-input">
-            </div>
-        </div>
-    </div>
-
-    <div class="layui-form-item">
-        <div class="layui-inline">
-            <label class="layui-form-label">商品库存</label>
-            <div class="layui-input-inline">
-                <input type="text" name="store" th:value="${comm.store}" lay-verify="store" autocomplete="off" class="layui-input">
-            </div>
-        </div>
-    </div>
-
-    <div class="layui-form-item">
-        <label class="layui-form-label">手机规格</label>
-        <div class="layui-input-block">
-            <input type="text" name="spec" th:value="${comm.spec}" lay-verify="spec" autocomplete="off" placeholder="请输入标题" class="layui-input">
-        </div>
-    </div>
-
-    <div class="layui-form-item">
-        <label class="layui-form-label">手机版本</label>
-        <div class="layui-input-block">
-            <input type="radio" name="edition" value=1 title="移动4G">
-            <input type="radio" name="edition" value=2 title="联通4G">
-            <input type="radio" name="edition" value=3 title="电信4G">
-            <input type="radio" name="edition" value=4 title="全网通">
-        </div>
-    </div>
-
-    <div class="layui-form-item">
-        <div class="layui-inline">
-            <label class="layui-form-label">手机型号</label>
-            <div class="layui-input-inline">
-                <select name="modules" lay-verify="modules" lay-search="">
-                    <option value="">请选择</option>
-
-                </select>
-            </div>
-        </div>
-        <div class="layui-inline">
-            <label class="layui-form-label">手机颜色</label>
-            <div class="layui-input-inline">
-                <select name="colour" lay-verify="colour" lay-search="">
-                    <option value="">请选择</option>
-
-                </select>
-            </div>
-        </div>
-    </div>
-
-    <div class="layui-form-item layui-form-text">
-        <label class="layui-form-label">手机详情</label>
-        <div class="layui-input-block">
-            <textarea class="layui-textarea" name="detail"></textarea>
-        </div>
-    </div>
-
-    <div class="layui-form-item">
-        <div class="layui-input-block">
-
-            <button type="button" class="layui-btn" id="test1">上传图片</button>
-            <input type="hidden" id="img_url" name="photo" th:value="${comm.photo}"/>
-            <div class="layui-upload-list">
-                <img class="layui-upload-img" th:src="${comm.photo}" width="100px" height="80px" id="demo1"/>
-                <p id="demoText"></p>
-            </div>
-        </div>
-    </div>
-
-    <div class="layui-form-item">
-        <div class="layui-input-block">
-            <button class="layui-btn" lay-submit="" lay-filter="edit">保存</button>
-            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-        </div>
-    </div>-->
 </form>
 
 <script>

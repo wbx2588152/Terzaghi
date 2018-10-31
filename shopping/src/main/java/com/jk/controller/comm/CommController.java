@@ -1,7 +1,11 @@
 package com.jk.controller.comm;
 
 import com.jk.model.Comm;
+import com.jk.model.Detail;
+import com.jk.model.Food;
+import com.jk.model.Man;
 import com.jk.service.CommServiceApi;
+import com.netflix.ribbon.proxy.annotation.Http;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -67,5 +71,72 @@ public class CommController {
     public String toDetail(String id, HttpServletRequest request){
         request.setAttribute("id",id);
         return "comm/detail";
+    }
+
+    /**
+     *
+     * 查询商品详情
+     */
+    @RequestMapping("getDetail2")
+    @ResponseBody
+    public Detail getDetail2(String id){
+        return commServiceApi.getDetail2(id);
+    }
+
+    /**
+     *
+     * 跳转男装页面
+     */
+    @RequestMapping("toMan")
+    public String toMan(){
+        return "man/manlist";
+    }
+
+    /**
+     *
+     * 查询男装列表
+     */
+    @RequestMapping("getMan")
+    @ResponseBody
+    public List<Man> getMan(){
+        List<Man> manlist = commServiceApi.getMan();
+        return manlist;
+    }
+
+
+    /**
+     *
+     * 跳转男装详情页面
+     */
+    @RequestMapping("toManDetail")
+    public String toManDetail(String id, HttpServletRequest request){
+        request.setAttribute("id",id);
+        return "man/detailman";
+    }
+
+    /**
+     *
+     * 跳转食品页面
+     */
+    @RequestMapping("toFood")
+    public String toFood(){
+        return "food/foodlist";
+    }
+
+    /**
+     *
+     * 查询食品列表
+     */
+    @RequestMapping("getFood")
+    @ResponseBody
+    public List<Food> getFood(){
+        List<Food> foodlist = commServiceApi.getFood();
+        return foodlist;
+    }
+
+    @RequestMapping("toFoodDetail")
+    public String toFoodDetail(String id,HttpServletRequest request){
+        request.setAttribute("id",id);
+        return "food/detailfood";
     }
 }

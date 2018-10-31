@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:javascript="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Title</title>
+    <link href="../layui/css/layui.css" rel="stylesheet"/>
+    <script src="../layui/layui.js"></script>
+    <script src="../layui/layui.all.js"></script>
+    <!-- 引入JQuery -->
+    <script type="text/javascript"
+            src="../EasyUI/jquery.min.js"></script>
+
+</head>
+<body>
+
+<table class="layui-hide" id="demo" lay-filter="test"></table>
+
+<script type="text/html" id="toolbarDemo">
+    <div class="layui-btn-container">
+        <button class="layui-btn layui-btn-normal" lay-event="add">新&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;增</button>
+        <button class="layui-btn layui-btn-danger" lay-event="delete">批量删除</button>
+        <!--<button class="layui-btn layui-btn-danger" data-type="getCheckData"><i class="layui-icon"> </i>批量删除</button>-->
+    </div>
+</script>
+
+<!--<script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-xs layui-btn-normal" lay-event="models">新增下级</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="down">拒绝通过</a>
+    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>-->
+<script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+
+
+<script>
+
+    $(function(){
+        initsearch();
+    })
+    function initsearch() {
+        layui.use(['laydate', 'laypage', 'layer', 'table', 'upload', 'element', 'slider','form'], function () {
+            var laydate = layui.laydate //日期
+                , laypage = layui.laypage //分页
+                , layer = layui.layer //弹层
+                , table = layui.table //表格
+                /*,carousel = layui.carousel //轮播*/
+                , upload = layui.upload //上传
+                , element = layui.element //元素操作
+                /* ,slider = layui.slider //滑块*/
+                , form = layui.form //表单
+
+
+            /*//向世界问个好
+        layer.msg('感谢观看！');*/
+
+            /*//监听Tab切换
+        element.on('tab(demo)', function(data){
+            layer.tips('切换了 '+ data.index +'：'+ this.innerHTML, this, {
+                tips: 1
+            });
+        });*/
+
+
+            //执行一个 table 实例
+
+            table.render({
+                elem: '#demo',
+                height: true,
+                url: '/comm/queryMan', //数据接口
+                title: '用户表',
+                page: true, //开启分页
+                toolbar: '#toolbarDemo', //开启工具栏，此处显示默认图标，可以自定义模板，详见文档
+                totalRow: false,//开启合计行
+                cols: [
+                    [ //表头
+                        {checkbox: true, align: 'center', LAY_CHECKED: false, filter: 'test'},
+                        /*{type: 'checkbox', fixed: 'left'},*/
+                        {field: 'number', title: '编号', width: 100, align: "center"},
+                        {field: 'name', title: '名称', width: 100 /*sort: true, totalRow: true*/},
+                        {field: 'photo', title: '图片', width: 100, align: 'center', templet: '<div><img src="{{ d.photo }}"></div>', style: 'height:50px;width:48px;line-height:48px!important;'},
+                        {field: 'price', title: '价格', width: 100},
+                        {field: 'added', title: '上/下架', width: 100,
+                            templet:function(d){
+                                if(d.added == 1){
+                                    return '<span><a style="color: green;" onclick="upAddedm(\'' + d.id + '\','+d.added+')">已上架</a></span>'
+                                }else if(d.added == 2){
+                                    return '<span><a style="color: red;" onclick="upAddedm(\'' + d.id + '\','+d.added+')">未上架</a></span>'
+                                }
+                            }
+                        },
+                        {field: 'label', title: '标签', width: 80,
+                            templet:function(d){
+                                if(d.label == 1){
+                                    return '<span><a onclick="upLabelm(\''+d.id+'\','+d.label+')">推荐<a/></span>'
+                                } else if(d.label == 2){
+                                    return '<span><a onclick="upLabelm(\''+d.id+'\','+d.label+')">新品<a/></span>'
+                                }
+                            }
+                        },
+                        {field: 'detailid', title: '详情', width: 80,
+                            templet:function(d){
+                                if(d.added == 1){
+                                    /*return '<button class="layui-btn layui-btn-primary layui-btn-xs" onclick="queryDetail(\''+d.id+'\')">详情</button>'*/
+                                    return '<button class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">新增详情</button>'
+                                } else if(d.added != 1){
+                                    /*return '<button class="layui-btn layui-btn-primary layui-btn-xs" onclick="queryDetail(\''+d.id+'\')">详情</button>'*/
+                                    return '<button class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">新增详情</button>'
+                                }
+                            }
+                        },
+                        {field: 'spec', title: '规格', width: 100},
+                        {field: 'showtype', title: '分类', width: 100},
+                        {field: '123', title: '设置',align:"center", /*toolbar: '#barDemo',*/width: 100,
+                            templet: function (d) {
+                                if(d.added == 1){
+
+                                    return '<button class="layui-btn layui-btn-xs layui-btn-normal" onclick="manType()">查看下级</button>';
+                                }
+                                if(d.added !=1 ){
+                                    return '<button class="layui-btn layui-btn-xs layui-btn-normal" onclick="manType()">查看下级</button>';
+
+                                }
+                            }
+                        },
+                        {field: 'right', title: '操作',align:"center", toolbar: '#barDemo', width: 130},
+
+                    ]
+                ],
+                id: 'testReload',
+            });
+
+
+            //监听头工具栏事件
+            table.on('toolbar(test)', function (obj) {
+                var data = obj.data //获得当前行数据
+                    , layEvent = obj.event; //获得 lay-event 对应的值
+                if (layEvent === 'add') {
+                    layer.open({
+                        type: 2,
+                        title: '新增配置',
+                        skin: 'layui-layer-rim', //加上边框
+                        area: ['700px', '500px'], //宽高
+                        content: '/comm/toAddMan',
+                        end: function () {
+                            location.reload();
+                        }
+
+                    });
+                } else if (layEvent === 'delete') {
+                    var checkStatus = table.checkStatus('testReload')
+                        , data = checkStatus.data;
+                    var ids = "";
+                    if (data.length > 0) {
+                        for (var i = 0; i < data.length; i++) {
+                            ids += data[i].id + ",";
+                        }
+                    }
+                    layer.confirm('确定要删除' + ids + '商品吗?', function (index) {
+                        $.ajax({
+                            type: 'POST',
+                            url: '/comm/deleteAllMan',
+                            data: {"ids": ids},
+                            success: function (data) {
+                                initsearch();
+                                layer.msg("删除成功", {icon: 6});
+                            }
+                        });
+
+                    });
+
+                }
+            });
+
+
+            //监听行工具事件
+            table.on('tool(test)', function (obj) { //注：tool 是工具条事件名，test 是 table 原始容器的属性 lay-filter="对应的值"
+                var data = obj.data //获得当前行数据
+                    , layEvent = obj.event; //获得 lay-event 对应的值
+                if (layEvent === 'edit') {
+                    layer.open({
+                        type: 2,
+                        title: '修改配置',
+                        skin: 'layui-layer-rim', //加上边框
+                        area: ['700px', '500px'], //宽高
+                        method: 'get',
+                        content: '/comm/toEditMan?id='+data.id,
+
+                    });
+                } else if (layEvent === 'del') {
+                    layer.confirm('真的删除ID为' + data.id + '的商品吗?', function (index) {
+                        $.ajax({
+                            url: '/comm/deleteMan',
+                            data: {'id': data.id},
+                            method: 'get',
+                            contentType: 'application/json',
+                            success: function (data) {
+                                obj.del();
+                                layer.close(index);
+                                layer.msg("删除成功", {icon: 6});
+                            }
+                        })
+
+                        layer.close(index);
+                    });
+                }  else if (layEvent === 'detail') {
+                    layer.open({
+                        type: 2,
+                        title: '详情',
+                        skin: 'layui-layer-rim', //加上边框
+                        area: ['500px', '500px'], //宽高
+                        method: 'post',
+                        content: '/comm/queryDetail?id=' + data.id,
+
+                    });
+                }
+            });
+
+
+            //将日期直接嵌套在指定容器中
+            var dateIns = laydate.render({
+                elem: '#laydateDemo'
+                , position: 'static'
+                , calendar: true //是否开启公历重要节日
+                , mark: { //标记重要日子
+                    '0-10-14': '生日'
+                    , '2018-08-28': '新版'
+                    , '2018-10-08': '神秘'
+                }
+                , done: function (value, date, endDate) {
+                    if (date.year == 2017 && date.month == 11 && date.date == 30) {
+                        dateIns.hint('一不小心就月底了呢');
+                    }
+                }
+                , change: function (value, date, endDate) {
+                    layer.msg(value)
+                }
+            });
+
+            //分页
+            laypage.render({
+                elem: 'pageDemo' //分页容器的id
+                , count: 100 //总页数
+                , skin: '#1E9FFF' //自定义选中色值
+                //,skip: true //开启跳页
+                , jump: function (obj, first) {
+                    if (!first) {
+                        layer.msg('第' + obj.curr + '页', {offset: 'b'});
+                    }
+                }
+            });
+
+            //上传
+            upload.render({
+                elem: '#uploadDemo'
+                , url: '' //上传接口
+                , done: function (res) {
+                    console.log(res)
+                }
+            });
+
+            /*slider.render({
+            elem: '#sliderDemo'
+            ,input: true //输入框
+        });
+
+        //底部信息
+        var footerTpl = lay('#footer')[0].innerHTML;
+        lay('#footer').html(layui.laytpl(footerTpl).render({}))
+            .removeClass('layui-hide');*/
+
+
+        });
+    }
+</script>
+
+<script>
+    function upAudit2(id,audit2){
+        var num = 2;
+        if(audit2 == 2){
+            num = 1;
+        }
+        $.ajax({
+            url:'/comm/updateAudit2',
+            type:'post',
+            data:{
+                id:id,
+                audit:num
+            },
+            datatype:'json',
+            success:function(result){
+                initsearch();
+            }
+        })
+    }
+    //审核状态
+    function upAudit2(id,audit2){
+        var num = 2;
+        if(audit2 == 2){
+            num = 1;
+        }
+        $.ajax({
+            url:'/comm/updateAudit2',
+            type:'post',
+            data:{
+                id:id,
+                audit:num
+            },
+            datatype:'json',
+            success:function(result){
+                initsearch();
+            }
+        })
+    }
+
+    //拒绝通过
+    function upAudit1(id,audit1){
+        var num = 2;
+        if(audit1 == 2){
+            num = 3;
+        }
+        $.ajax({
+            url:'/comm/updateAudit1',
+            type:'post',
+            data:{
+                id:id,
+                audit:num
+            },
+            datatype:'json',
+            success:function(result){
+                initsearch();
+            }
+        })
+    }
+
+    //上架，下架
+    function upAddedm(id,added){
+        var num = 2;
+        if(added == 2){
+            num = 1;
+        }
+        $.ajax({
+            url:'/comm/upAddedm',
+            type:'post',
+            data:{
+                id:id,
+                added:num
+            },
+            datatype:'json',
+            success:function(result){
+                initsearch();
+            }
+        })
+    }
+
+    //标签
+    function upLabelm(id,label){
+        var num = 2;
+        if(label == 2){
+            num = 1;
+        }
+        $.ajax({
+            url:'/comm/updateLabelm',
+            type:'post',
+            data:{
+                id:id,
+                label:num
+            },
+            datatype:'json',
+            success:function(result){
+                initsearch();
+            }
+        })
+    }
+
+    function manType(){
+
+        location.href='/comm/toManType';
+        /*$.ajax({
+            url:'/comm/queryPhoneAll',
+            type:'post',
+            data:{},
+            dataTyoe:'json',
+            success:function(result){
+
+            }
+        })*/
+    }
+
+
+</script>
+
+
+<style type="text/css">.layui-table-fixed-r td{height:58px!important;}
+.layui-table-fixed-r th{height:58px!important;}
+.layui-table img {
+    max-width: 48px;min-height: 48px;
+}
+
+
+{
+    width: 48px!important;;padding:0px!important;height: 48px!important;;
+    line-height: 48px!important;;
+}
+
+</style>
+
+
+</body>
+</html>

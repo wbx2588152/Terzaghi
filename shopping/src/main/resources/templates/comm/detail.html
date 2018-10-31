@@ -5,7 +5,7 @@
     <title>商品详情--JinKe电商平台</title>
     <link rel="shortcut icon" href="http://s.happyJinKe.com/JinKe_fe/dist/favicon.ico"><link href="../detail/common.css" rel="stylesheet"><link href="../detail/detail.css" rel="stylesheet"></head>
 <body>
-<input type="hidden" id="detailid" th:value="${id}">
+<input type="hidden" id="detailid2" th:value="${id}">
 <div class="notice-con">
     <div class="w">
         <!--<p class="notice"> 注意：本网站仅用于电商平台开发教学的演示！所有商品均为虚拟商品，且不会有真实交易产生！ </p>
@@ -96,15 +96,10 @@
             </ul>
         </div>
         <div class="detail-con">
-            <p><img alt="detail1.jpg" src="../detail/118e5a00-10d2-4272-b3c7-e2f10a7e8269.jpg" width="790" height="1443">
-                <img alt="detail2.jpg" src="../detail/903c929f-ec04-4b4b-9855-7439585e7508.jpg" width="790" height="1444">
-                <img alt="detail3.jpg" src="../detail/7caa7e5d-ab21-4a9d-925c-eebece644eee.jpg" width="790" height="1444">
-                <img alt="detail4.jpg" src="../detail/2241986c-58ea-424f-877a-dd7f95860278.jpg" width="790" height="1444">
-                <img alt="detail5.jpg" src="../detail/63e499e8-2f8e-4486-9a76-6757f44e8e5b.jpg" width="790" height="1444">
-                <img alt="detail6.jpg" src="../detail/1491d2fe-1563-4510-9cd4-ec0d0a386bf8.jpg" width="790" height="1444">
-                <img alt="detail7.jpg" src="../detail/7161b4d1-3903-4c82-8907-681f2faa99a9.jpg" width="790" height="1444">
-                <img alt="detail8.jpg" src="../detail/52a6f41d-9c5a-4c3a-84df-033c09581869.jpg" width="790" height="1443">
-                <img alt="detail9.jpg" src="../detail/77f6b0a0-82fc-4b5d-a76a-bf228fabb49d.jpg" width="790" height="1445">
+            <p> <img alt="detail1.jpg" src="" id="photo1" width="790" height="1443">
+                <img alt="detail2.jpg" src="" id="photo2" width="790" height="1444">
+                <img alt="detail3.jpg" src="" id="photo3" width="790" height="1444">
+                <img alt="detail4.jpg" src="" id="photo4" width="790" height="1444">
                 <br>
             </p>
         </div>
@@ -117,9 +112,10 @@
 
     $(function(){
         itindetail();
+        itindetail2()
     })
     function itindetail(){
-        var id = $("#detailid").val();
+        var id = $("#detailid2").val();
 
         $.ajax({
             url:'/comm/getDetail',
@@ -135,6 +131,23 @@
                 $('#detail').html(result.detail);
                 $('#price').html(result.price);
                 $('#store').html(result.store);
+            }
+        })
+    }
+
+    function itindetail2(){
+        var id = $("#detailid2").val();
+
+        $.ajax({
+            url:'/comm/getDetail2',
+            type:'post',
+            data:{id:id},
+            dataType:'json',
+            success:function(result){
+                $('#photo1').attr('src',result.photo1);
+                $('#photo2').attr('src',result.photo2);
+                $('#photo3').attr('src',result.photo3);
+                $('#photo4').attr('src',result.photo4);
             }
         })
     }

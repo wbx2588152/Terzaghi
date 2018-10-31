@@ -1,72 +1,255 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="64bf6e48-d9f9-44a9-b844-9691f21be15b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/comm/banner-bg.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/comm/banner-fe.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/comm/banner-jg.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/comm/banner-qx.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/comm/base.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/comm/bd151a3cddc08ca6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/comm/common.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/comm/common.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/comm/floor5-4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/comm/hm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/comm/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/comm/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/comm/jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/detail/118e5a00-10d2-4272-b3c7-e2f10a7e8269.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/detail/1491d2fe-1563-4510-9cd4-ec0d0a386bf8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/detail/2241986c-58ea-424f-877a-dd7f95860278.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/detail/52a6f41d-9c5a-4c3a-84df-033c09581869.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/detail/56218d54-1605-464e-a0d3-3da0b2c97aff.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/detail/63e499e8-2f8e-4486-9a76-6757f44e8e5b.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/detail/7161b4d1-3903-4c82-8907-681f2faa99a9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/detail/77f6b0a0-82fc-4b5d-a76a-bf228fabb49d.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/detail/7caa7e5d-ab21-4a9d-925c-eebece644eee.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/detail/903c929f-ec04-4b4b-9855-7439585e7508.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/detail/a935fa91-d73a-453d-9a73-8b5155732336.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/detail/af13decd-5999-4ef8-a1f4-be2e975012ff.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/detail/base.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/detail/c0660370-8f18-48a1-be87-57bd47cb7439.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/detail/c3d6715e-3bee-41bc-bc19-7ca69f9e79a6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/detail/common.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/detail/common.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/detail/detail.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/detail/detail.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/detail/hm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/detail/jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/imgs/002.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/imgs/003.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/imgs/004 - 副本.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/imgs/005 - 副本.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/imgs/006 - 副本.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/imgs/008.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/imgs/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/imgs/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/phone/0093f5d3-bdb4-4fb0-bec5-5465dfd26363.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/phone/12179294-9ed9-4cd7-beea-9b69d492eca3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/phone/203292ff-33bf-4d4b-a254-f48169b35042.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/phone/241997c4-9e62-4824-b7f0-7425c3c28917.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/phone/5a6fc150-bd09-4169-ada2-595d85674c6a.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/phone/6d0f7faa-b138-4c97-9b4d-8eee26e68c5f.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/phone/775a68d6-ccf7-400f-879d-0c3946fbf109.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/phone/af13decd-5999-4ef8-a1f4-be2e975012ff.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/phone/base.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/phone/common.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/phone/common.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/phone/e889491e-81d8-4614-97d4-757c7bf85c5c.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/phone/efebbe9d-dc55-418d-a53a-f8029db0e792.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/phone/hm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/phone/jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/phone/list.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/phone/list.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="c540ef7e-6f89-4471-9f3e-b8c56aca2716" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/service-api/src/main/java/com/jk/model/Detail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-api/src/main/java/com/jk/model/Food.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-api/src/main/java/com/jk/model/FoodDetail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-api/src/main/java/com/jk/model/FoodType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-api/src/main/java/com/jk/model/FoodUnit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-api/src/main/java/com/jk/model/Man.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-api/src/main/java/com/jk/model/ManDetail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-api/src/main/java/com/jk/model/ManType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-api/src/main/java/com/jk/util/AliyunUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-api/src/main/java/com/jk/util/StringUUID.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/imgs/5b90fbebN03bc5d62_.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/static/imgs/70bc34c91d37c611.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/templates/food/detailfood.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/templates/food/foodlist.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/templates/man/detailman.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shopping/src/main/resources/templates/man/manlist.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/food/addfood.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/food/dtaillist.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/food/editfood.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/food/foodlist.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/man/addman.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/man/dtaillist.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/man/editman.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/man/manlist.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/mantype/addmantype.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/mantype/editmantype.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/mantype/mantypelist.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/models/addmodels.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/models/editmodels.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/models/modelslist.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/phone/addphone.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/phone/editphone.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/phone/phonelist.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__antlr_antlr_2_7_7.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__aopalliance_aopalliance_1_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_2_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_2_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_classmate_1_3_4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_9_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_9_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_9_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_dataformat_jackson_dataformat_xml_2_9_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jdk8_2_9_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_9_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_afterburner_2_9_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_jaxb_annotations_2_9_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_parameter_names_2_9_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_woodstox_woodstox_core_5_0_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_andrewoma_dexx_dexx_collections_0_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_vlsi_compactmap_compactmap_1_2_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_findbugs_jsr305_3_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_8_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_16_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_16_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_inject_guice_4_1_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_jayway_jsonpath_json_path_2_4_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_netflix_archaius_archaius_core_0_7_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_netflix_eureka_eureka_client_1_9_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_netflix_eureka_eureka_core_1_9_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_netflix_hystrix_hystrix_core_1_5_12.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_netflix_hystrix_hystrix_javanica_1_5_12.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_netflix_hystrix_hystrix_metrics_event_stream_1_5_12.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_netflix_hystrix_hystrix_serialization_1_5_12.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_netflix_netflix_commons_netflix_commons_util_0_3_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_netflix_netflix_commons_netflix_eventbus_0_3_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_netflix_netflix_commons_netflix_infix_0_3_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_netflix_netflix_commons_netflix_statistics_0_1_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_netflix_ribbon_ribbon_2_2_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_netflix_ribbon_ribbon_core_2_2_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_netflix_ribbon_ribbon_eureka_2_2_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_netflix_ribbon_ribbon_httpclient_2_2_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_netflix_ribbon_ribbon_loadbalancer_2_2_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_netflix_ribbon_ribbon_transport_2_2_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_netflix_servo_servo_core_0_12_21.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_netflix_zuul_zuul_core_1_3_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_jersey_contribs_jersey_apache_client4_1_19_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_jersey_jersey_client_1_19_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_jersey_jersey_core_1_19_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_jersey_jersey_server_1_19_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_jersey_jersey_servlet_1_19_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_thoughtworks_xstream_xstream_1_4_10.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_vaadin_external_google_android_json_0_0_20131108_vaadin1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_zaxxer_HikariCP_2_7_9.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_collections_commons_collections_3_2_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_configuration_commons_configuration_1_8.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_jxpath_commons_jxpath_1_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_lang_commons_lang_2_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_github_openfeign_feign_core_9_5_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_github_openfeign_feign_hystrix_9_5_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_github_openfeign_feign_java8_9_5_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_github_openfeign_feign_slf4j_9_5_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_micrometer_micrometer_core_1_0_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_buffer_4_1_29_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_4_1_29_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_http_4_1_29_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_common_4_1_29_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_resolver_4_1_29_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_transport_4_1_29_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_transport_native_epoll_4_1_29_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_transport_native_unix_common_4_1_29_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_reactivex_rxjava_1_3_8.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_reactivex_rxjava_reactive_streams_1_2_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_reactivex_rxnetty_0_4_9.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_reactivex_rxnetty_contexts_0_4_9.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_reactivex_rxnetty_servo_0_4_9.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_annotation_javax_annotation_api_1_3_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_inject_javax_inject_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_validation_validation_api_2_0_1_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_ws_rs_jsr311_api_1_1_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_xml_stream_stax_api_1_0_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__joda_time_joda_time_2_9_9.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_47.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_7_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_agent_1_7_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_accessors_smart_1_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_json_smart_2_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_antlr_antlr_runtime_3_4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_antlr_stringtemplate_3_2_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_7.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_math_2_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_5_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4_10.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_10_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_to_slf4j_2_10_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_8_5_34.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_el_8_5_34.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_8_5_34.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_8_13.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_assertj_assertj_core_3_9_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_attoparser_attoparser_2_0_4_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_bouncycastle_bcpkix_jdk15on_1_56.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_bouncycastle_bcprov_jdk15on_1_56.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_jettison_jettison_1_3_7.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_woodstox_stax2_api_3_1_4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_woodstox_woodstox_core_asl_4_4_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_freemarker_freemarker_2_3_28.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_library_1_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hdrhistogram_HdrHistogram_2_1_10.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hdrhistogram_HdrHistogram_2_1_9.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_validator_hibernate_validator_6_0_12_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_3_2_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_latencyutils_LatencyUtils_2_0_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_core_2_15_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_3_4_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_spring_1_3_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_spring_boot_mybatis_spring_boot_autoconfigure_1_3_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_spring_boot_mybatis_spring_boot_starter_1_3_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_objenesis_objenesis_2_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_5_0_4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_reactivestreams_reactive_streams_1_0_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_skyscreamer_jsonassert_1_5_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jul_to_slf4j_1_7_25.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_25.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_2_0_5_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_actuator_2_0_5_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_actuator_autoconfigure_2_0_5_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_0_5_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_2_0_5_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_actuator_2_0_5_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_aop_2_0_5_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_freemarker_2_0_5_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jdbc_2_0_5_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_json_2_0_5_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_2_0_5_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_2_0_5_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_thymeleaf_2_0_5_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_2_0_5_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_2_0_5_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_2_0_5_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_2_0_5_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_commons_2_0_1_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_context_2_0_1_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_netflix_archaius_2_0_1_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_netflix_core_2_0_1_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_netflix_eureka_client_2_0_1_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_netflix_eureka_server_2_0_1_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_netflix_ribbon_2_0_1_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_netflix_zuul_2_0_1_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_openfeign_core_2_0_1_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_2_0_1_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_netflix_archaius_2_0_1_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_netflix_eureka_client_2_0_1_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_netflix_eureka_server_2_0_1_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_netflix_hystrix_2_0_1_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_netflix_ribbon_2_0_1_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_netflix_zuul_2_0_1_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_openfeign_2_0_1_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_crypto_5_0_8_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_rsa_1_0_5_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_4_3_18_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_4_3_18_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_5_0_9_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_4_3_18_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_4_3_18_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_0_9_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_4_3_18_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_4_3_18_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_0_9_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_support_5_0_9_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_4_3_18_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_4_3_18_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_0_9_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_4_3_18_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_4_3_18_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_5_0_9_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_0_9_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_5_0_9_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_5_0_9_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_5_0_9_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_4_3_18_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_4_3_18_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_5_0_9_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_5_0_9_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_extras_thymeleaf_extras_java8time_3_0_1_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_thymeleaf_3_0_9_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_thymeleaf_spring5_3_0_9_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_unbescape_unbescape_1_1_5_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_xmlunit_xmlunit_core_2_5_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_19.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__stax_stax_api_1_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__xmlpull_xmlpull_1_1_3_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__xpp3_xpp3_min_1_1_4c.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-api/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-api/service-api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/service-api/service-api.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-api/src/main/java/com/jk/model/Comm.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-api/src/main/java/com/jk/model/Comm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-api/src/main/java/com/jk/model/Models.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-api/src/main/java/com/jk/model/Models.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-api/src/main/java/com/jk/model/Phone.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-api/src/main/java/com/jk/model/Phone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-api/src/main/java/com/jk/service/CommServiceApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-api/src/main/java/com/jk/service/CommServiceApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-api/target/classes/com/jk/model/Comm.class" beforeDir="false" afterPath="$PROJECT_DIR$/service-api/target/classes/com/jk/model/Comm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-api/target/classes/com/jk/model/Models.class" beforeDir="false" afterPath="$PROJECT_DIR$/service-api/target/classes/com/jk/model/Models.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-api/target/classes/com/jk/model/Phone.class" beforeDir="false" afterPath="$PROJECT_DIR$/service-api/target/classes/com/jk/model/Phone.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-api/target/classes/com/jk/service/CommServiceApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/service-api/target/classes/com/jk/service/CommServiceApi.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shopping/src/main/java/com/jk/service/seckill/CommService.java" beforeDir="false" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/jk/service/seckill/CommService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shopping/src/main/resources/templates/beforeindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/shopping/src/main/resources/templates/beforeindex.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud-sjy-client/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-sjy-client/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shopping/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/shopping/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shopping/src/main/java/com/jk/controller/comm/CommController.java" beforeDir="false" afterPath="$PROJECT_DIR$/shopping/src/main/java/com/jk/controller/comm/CommController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shopping/src/main/resources/templates/comm/commlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/shopping/src/main/resources/templates/comm/commlist.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shopping/src/main/resources/templates/comm/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/shopping/src/main/resources/templates/comm/detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot-test01.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-eureka-client/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-eureka-client/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-eureka-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-eureka-server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-feign/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-feign/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-feign/src/main/java/com/jk/controller/CommController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-feign/src/main/java/com/jk/controller/CommController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/comm/addcomm.html" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/comm/addcomm.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/comm/commlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/comm/commlist.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/comm/detailist.html" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/comm/detailist.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/comm/editcomm.html" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/comm/editcomm.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-sjy-client/src/main/java/com/jk/mapper/CommMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-sjy-client/src/main/java/com/jk/mapper/CommMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-sjy-client/src/main/java/com/jk/mapper/CommMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-sjy-client/src/main/java/com/jk/mapper/CommMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-sjy-client/src/main/java/com/jk/service/CommServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-sjy-client/src/main/java/com/jk/service/CommServiceImpl.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -76,15 +259,13 @@
     <ignored path="$PROJECT_DIR$/springcloud-ribbon/target/" />
     <ignored path="$PROJECT_DIR$/springcloud-feign/target/" />
     <ignored path="$PROJECT_DIR$/service-api/target/" />
+    <ignored path="$PROJECT_DIR$/springcloud-sjy-client/target/" />
     <ignored path="$PROJECT_DIR$/springcloud-zuul/target/" />
-    <ignored path="$PROJECT_DIR$/springcloud-zjw-client/target/" />
-    <ignored path="$PROJECT_DIR$/springcloud-coupon-client/target/" />
-    <ignored path="$PROJECT_DIR$/springcloutdseckill/target/" />
-    <ignored path="$PROJECT_DIR$/springcloud-seckill/target/" />
     <ignored path="$PROJECT_DIR$/springcloud-provater-seckill/target/" />
     <ignored path="$PROJECT_DIR$/shopping/target/" />
+    <ignored path="$PROJECT_DIR$/springcloud-zjw-client/target/" />
+    <ignored path="$PROJECT_DIR$/springcloud-coupon-client/target/" />
     <ignored path="$PROJECT_DIR$/springcloud-topo/target/" />
-    <ignored path="$PROJECT_DIR$/springcloud-sjy-client/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,198 +275,248 @@
   <component name="CompilerWorkspaceConfiguration">
     <option name="MAKE_PROJECT_ON_SAVE" value="true" />
   </component>
-  <component name="DatabaseView">
-    <option name="SHOW_INTERMEDIATE" value="true" />
-    <option name="GROUP_DATA_SOURCES" value="true" />
-    <option name="GROUP_SCHEMA" value="true" />
-    <option name="GROUP_CONTENTS" value="false" />
-    <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_EMPTY_GROUPS" value="false" />
-    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <option name="HIDDEN_KINDS">
-      <set />
-    </option>
-    <expand />
-    <select />
-  </component>
   <component name="FUSProjectUsageTrigger">
     <session id="1218222675">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="41" />
+          <entry key="project.closed" value="11" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.11" value="1" />
-          <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.25" value="1" />
-          <entry key="project.open.time.26" value="1" />
-          <entry key="project.open.time.27" value="3" />
-          <entry key="project.open.time.28" value="1" />
-          <entry key="project.open.time.30" value="1" />
-          <entry key="project.open.time.31" value="2" />
-          <entry key="project.open.time.32" value="1" />
-          <entry key="project.open.time.33" value="3" />
-          <entry key="project.open.time.34" value="2" />
           <entry key="project.open.time.5" value="2" />
-          <entry key="project.open.time.6" value="7" />
-          <entry key="project.open.time.7" value="3" />
-          <entry key="project.open.time.8" value="3" />
-          <entry key="project.opened" value="21" />
+          <entry key="project.open.time.6" value="6" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.opened" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="class" value="9" />
-          <entry key="css" value="8" />
-          <entry key="gitignore" value="1" />
-          <entry key="html" value="96" />
-          <entry key="ico" value="1" />
-          <entry key="iml" value="1" />
-          <entry key="java" value="415" />
-          <entry key="js" value="22" />
-          <entry key="properties" value="4" />
-          <entry key="svg" value="1" />
-          <entry key="xml" value="57" />
-          <entry key="yml" value="68" />
-          <entry key="下载" value="1" />
+          <entry key="html" value="8" />
+          <entry key="java" value="49" />
+          <entry key="js" value="1" />
+          <entry key="properties" value="3" />
+          <entry key="xml" value="14" />
+          <entry key="yml" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="9" />
-          <entry key="CSS" value="8" />
-          <entry key="HTML" value="96" />
-          <entry key="IDEA_MODULE" value="1" />
-          <entry key="Image" value="1" />
-          <entry key="JAVA" value="415" />
-          <entry key="JavaScript" value="22" />
-          <entry key="PLAIN_TEXT" value="2" />
-          <entry key="Properties" value="4" />
-          <entry key="SVG" value="1" />
-          <entry key="XML" value="57" />
-          <entry key="YAML" value="68" />
+          <entry key="HTML" value="8" />
+          <entry key="JAVA" value="49" />
+          <entry key="JavaScript" value="1" />
+          <entry key="Properties" value="3" />
+          <entry key="XML" value="14" />
+          <entry key="YAML" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="3" />
-          <entry key="html" value="1149" />
-          <entry key="java" value="3216" />
-          <entry key="js" value="380" />
-          <entry key="txt" value="40" />
-          <entry key="xml" value="325" />
-          <entry key="yml" value="188" />
+          <entry key="html" value="2" />
+          <entry key="java" value="1965" />
+          <entry key="txt" value="8" />
+          <entry key="xml" value="12" />
+          <entry key="yml" value="137" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="2293" />
-          <entry key="JAVA" value="5389" />
-          <entry key="JavaScript" value="530" />
-          <entry key="PLAIN_TEXT" value="62" />
-          <entry key="SQL" value="26" />
-          <entry key="XML" value="543" />
-          <entry key="YAML" value="250" />
+          <entry key="HTML" value="2" />
+          <entry key="JAVA" value="1965" />
+          <entry key="PLAIN_TEXT" value="11" />
+          <entry key="XML" value="12" />
+          <entry key="YAML" value="137" />
         </counts>
       </usages-collector>
-      <usages-collector id="statistics.vcs.git.usages">
-        <counts>
-          <entry key="git.branch.create.new" value="1" />
-          <entry key="git.branch.merge" value="3" />
-        </counts>
-      </usages-collector>
+      <usages-collector id="statistics.vcs.git.usages" />
       <usages-collector id="statistics.spring.boot.run.usages" />
       <usages-collector id="statistics.spring.boot.mvc.usages" />
       <usages-collector id="statistics.js.language.service.starts" />
     </session>
+    <session id="-796686233">
+      <usages-collector id="statistics.vcs.git.usages">
+        <counts>
+          <entry key="git.branch.checkout.local" value="1" />
+          <entry key="git.branch.delete.local" value="2" />
+          <entry key="git.branch.merge" value="4" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="class" value="9" />
+          <entry key="html" value="100" />
+          <entry key="java" value="87" />
+          <entry key="xml" value="23" />
+          <entry key="yml" value="13" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CLASS" value="9" />
+          <entry key="HTML" value="100" />
+          <entry key="JAVA" value="87" />
+          <entry key="XML" value="23" />
+          <entry key="YAML" value="13" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="HTML" value="2806" />
+          <entry key="JAVA" value="8438" />
+          <entry key="SQL" value="84" />
+          <entry key="XML" value="3913" />
+          <entry key="YAML" value="49" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="5" />
+          <entry key="project.open.time.26" value="1" />
+          <entry key="project.open.time.27" value="2" />
+          <entry key="project.open.time.29" value="1" />
+          <entry key="project.open.time.31" value="1" />
+          <entry key="project.open.time.33" value="1" />
+          <entry key="project.open.time.36" value="1" />
+          <entry key="project.opened" value="7" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.spring.boot.run.usages" />
+      <usages-collector id="statistics.spring.boot.mvc.usages" />
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="html" value="2806" />
+          <entry key="java" value="8438" />
+          <entry key="xml" value="3997" />
+          <entry key="yml" value="49" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.js.language.service.starts" />
+    </session>
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="sjy-idea-shixun2" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/templates/beforeindex.html">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/shopping/src/main/java/com/jk/controller/comm/CommController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1385">
-              <caret line="196" column="14494" selection-start-line="196" selection-start-column="14494" selection-end-line="196" selection-end-column="14494" />
+            <state relative-caret-position="89">
+              <caret line="129" column="30" lean-forward="true" selection-start-line="129" selection-start-column="30" selection-end-line="129" selection-end-column="30" />
               <folding>
-                <element signature="n#style#0;n#span#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="e#1542#1543#0" expanded="true" />
+                <element signature="e#1594#1595#0" expanded="true" />
+                <element signature="e#1655#1656#0" expanded="true" />
+                <element signature="e#1679#1680#0" expanded="true" />
+                <element signature="e#2310#2311#0" expanded="true" />
+                <element signature="e#2334#2335#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/templates/comm/commlist.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="176" column="78" selection-start-line="176" selection-start-column="78" selection-end-line="176" selection-end-column="78" />
+              <folding>
+                <element signature="n#li#9;n#ul#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shopping/src/main/java/com/jk/controller/comm/CommController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="26" selection-start-line="26" selection-end-line="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/io/github/openfeign/feign-core/9.5.1/feign-core-9.5.1.jar!/feign/codec/ErrorDecoder.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1188">
-              <caret line="72" selection-start-line="72" selection-end-line="72" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/springcloud-sjy-client/src/main/resources/application.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shopping/src/main/java/com/jk/service/seckill/CommService.java">
+        <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/templates/man/detailman.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="88">
-              <caret line="5" column="31" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
+              <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/templates/comm/phone.html">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/springcloud-sjy-client/pom.xml">
+        <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/templates/food/detailfood.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
-              <caret line="27" column="18" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
+            <state relative-caret-position="88">
+              <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/application.yml">
+        <entry file="file://$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/food/editfood.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1012">
-              <caret line="46" selection-start-line="46" selection-end-line="48" selection-end-column="17" />
+            <state relative-caret-position="286">
+              <caret line="79" column="14" selection-start-line="79" selection-start-column="14" selection-end-line="79" selection-end-column="14" />
+              <folding>
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/service-api/src/main/java/com/jk/service/CommServiceApi.java">
+        <entry file="file://$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/comm/editcomm.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+            <state relative-caret-position="379">
+              <caret line="108" column="81" selection-start-line="108" selection-start-column="81" selection-end-line="108" selection-end-column="81" />
+              <folding>
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/springcloud-sjy-client/src/main/java/com/jk/mapper/CommMapper.java">
+        <entry file="file://$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/comm/detailist.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="990">
-              <caret line="51" column="23" selection-start-line="51" selection-start-column="23" selection-end-line="51" selection-end-column="23" />
+            <state relative-caret-position="286">
+              <caret line="22" column="60" selection-start-line="22" selection-start-column="60" selection-end-line="22" selection-end-column="60" />
+              <folding>
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/springcloud-sjy-client/src/main/java/com/jk/mapper/CommMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="117">
+              <caret line="35" column="22" lean-forward="true" selection-start-line="32" selection-start-column="8" selection-end-line="35" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/templates/food/foodlist.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="199">
+              <caret line="120" column="41" selection-start-line="120" selection-start-column="29" selection-end-line="120" selection-end-column="41" />
+              <folding>
+                <element signature="e#559#565#0" expanded="true" />
+                <element signature="e#565#571#0" expanded="true" />
+                <element signature="e#571#577#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/templates/man/manlist.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1643">
+              <caret line="88" column="74" selection-start-line="88" selection-start-column="74" selection-end-line="88" selection-end-column="74" />
+              <folding>
+                <element signature="e#632#638#0" expanded="true" />
+                <element signature="e#638#644#0" expanded="true" />
+                <element signature="e#655#661#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -295,112 +526,112 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>index</find>
-      <find>userService</find>
-      <find>peopleService</find>
-      <find>userservice</find>
-      <find>queryUserById</find>
-      <find>saveUser</find>
-      <find>del</find>
-      <find>delmanyMenu</find>
-      <find>getNavALLById</find>
-      <find>wwquser</find>
-      <find>.do</find>
-      <find>solr</find>
-      <find>querycouponPage</find>
-      <find>jpa</find>
-      <find>my</find>
-      <find>data</find>
-      <find>alert</find>
-      <find>123</find>
-      <find>新增</find>
-      <find>onComm()</find>
+      <find>queryPhone2</find>
+      <find>testReload</find>
+      <find>down</find>
+      <find>toolbarDemo</find>
+      <find>upAudit2</find>
+      <find>upAdded</find>
+      <find>upAddedf</find>
+      <find>test</find>
+      <find>LAY_CHECKED</find>
+      <find>upload</find>
+      <find>toEdit</find>
+      <find>queryFoodById</find>
+      <find>update</find>
+      <find>uploadFood</find>
+      <find>updateMan</find>
+      <find>queryDetail</find>
+      <find>uploadInst</find>
+      <find>详情</find>
+      <find>field</find>
+      <find>uploadOneFileDetail</find>
+      <find>saveManDetail</find>
+      <find>detail</find>
+      <find>detailid</find>
+      <find>getDetail</find>
+      <find>鞋</find>
+      <find>女装</find>
       <find>onComm</find>
-      <find>手机</find>
+      <find>ondetail</find>
+      <find>toFood</find>
+      <find>onFood</find>
     </findStrings>
-    <replaceStrings>
-      <replace />
-      <replace>userService</replace>
-      <replace>userservice</replace>
-    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="sjy1025" />
       </map>
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/springcloud-eureka-client/src/main/java/com/jk/controller/UserController.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/springcloud-eureka-client/src/main/java/com/jk/service/UserServiceImpl.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/springcloud-feign/src/main/java/com/jk/controller/UserController.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/application.yml" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/springcloud-feign/src/main/resources/application.yml" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/springcloud-feign/src/main/java/com/jk/controller/CommController.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/service-api/src/main/java/com/jk/service/CommServiceApi.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/yx/addRole.html" />
-        <option value="$PROJECT_DIR$/service-api/src/main/java/com/jk/model/Users.java" />
-        <option value="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/adduser.html" />
-        <option value="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/editlist.html" />
-        <option value="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/userlist.html" />
-        <option value="$PROJECT_DIR$/springcloud-feign/pom.xml" />
-        <option value="$PROJECT_DIR$/springcloud-feign/src/main/java/com/jk/util/HttpClientUtil.java" />
-        <option value="$PROJECT_DIR$/springcloud-feign/src/main/java/com/jk/controller/UserController.java" />
-        <option value="$PROJECT_DIR$/springcloud-eureka-client/src/main/java/com/jk/SolrConfig.java" />
-        <option value="$PROJECT_DIR$/springcloud-eureka-client/pom.xml" />
-        <option value="$PROJECT_DIR$/springcloud-provater-seckill/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/springcloud-provater-seckill/pom.xml" />
-        <option value="$PROJECT_DIR$/springcloud-provater-seckill/src/main/java/com/jk/SpringcloudProvaterSeckillApplication.java" />
-        <option value="$PROJECT_DIR$/shopping/src/main/resources/static/buycar/base.js" />
-        <option value="$PROJECT_DIR$/shopping/src/main/java/com/jk/controller/utils/CookieUtil.java" />
-        <option value="$PROJECT_DIR$/shopping/src/main/java/com/jk/utils/CookieUtil.java" />
-        <option value="$PROJECT_DIR$/shopping/pom.xml" />
-        <option value="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/login2.html" />
-        <option value="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/login.html" />
         <option value="$PROJECT_DIR$/service-api/src/main/java/com/jk/model/Comm.java" />
-        <option value="$PROJECT_DIR$/shopping/src/main/java/com/jk/service/pay/PayService.java" />
-        <option value="$PROJECT_DIR$/service-api/src/main/java/com/jk/model/BuyCar.java" />
-        <option value="$PROJECT_DIR$/shopping/src/main/java/com/jk/controller/pay/PayController.java" />
-        <option value="$PROJECT_DIR$/springcloud-eureka-client/src/main/java/com/jk/service/UserService.java" />
-        <option value="$PROJECT_DIR$/springcloud-eureka-client/src/main/java/com/jk/service/UserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/springcloud-eureka-client/src/main/java/com/jk/mapper/UserMapper.java" />
-        <option value="$PROJECT_DIR$/springcloud-eureka-client/src/main/java/com/jk/mapper/UserMapper.xml" />
-        <option value="$PROJECT_DIR$/service-api/src/main/java/com/jk/model/User.java" />
-        <option value="$PROJECT_DIR$/springcloud-topo/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/springcloud-feign/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/springcloud-zjw-client/pom.xml" />
-        <option value="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/springcloud-eureka-client/src/main/java/com/jk/controller/UserController.java" />
-        <option value="$PROJECT_DIR$/service-api/src/main/java/com/jk/service/UserServiceApi.java" />
-        <option value="$PROJECT_DIR$/springcloud-feign/src/main/java/com/jk/controller/LoginController.java" />
+        <option value="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/comm/addcomm.html" />
+        <option value="$PROJECT_DIR$/shopping/src/main/java/com/jk/utils/AliyunUtil.java" />
+        <option value="$PROJECT_DIR$/springcloud-feign/pom.xml" />
+        <option value="$PROJECT_DIR$/service-api/pom.xml" />
+        <option value="$PROJECT_DIR$/service-api/src/main/java/com/jk/util/StringUUID.java" />
+        <option value="$PROJECT_DIR$/service-api/src/main/java/com/jk/model/Phone.java" />
+        <option value="$PROJECT_DIR$/service-api/src/main/java/com/jk/model/Models.java" />
+        <option value="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/models/addmodels.html" />
         <option value="$PROJECT_DIR$/springcloud-sjy-client/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/springcloud-feign/src/main/java/com/jk/service/CommService.java" />
-        <option value="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/comm/commlist.html" />
-        <option value="$PROJECT_DIR$/springcloud-feign/src/main/resources/static/loginSpecial/js/controlLogin.js" />
-        <option value="$PROJECT_DIR$/service-api/src/main/java/com/jk/service/LoginServiceApi.java" />
-        <option value="$PROJECT_DIR$/springcloud-feign/src/main/java/com/jk/service/impl/UserError.java" />
-        <option value="$PROJECT_DIR$/springcloud-feign/src/main/java/com/jk/controller/coupon/CouController.java" />
         <option value="$PROJECT_DIR$/springcloud-eureka-client/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/springcloud-coupon-client/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/shopping/src/main/resources/templates/reg.html" />
-        <option value="$PROJECT_DIR$/shopping/src/main/resources/templates/buycar.html" />
-        <option value="$PROJECT_DIR$/shopping/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/phone/addphone.html" />
+        <option value="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/models/modelslist.html" />
+        <option value="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/phone/phonelist.html" />
+        <option value="$PROJECT_DIR$/service-api/src/main/java/com/jk/model/FoodType.java" />
+        <option value="$PROJECT_DIR$/service-api/src/main/java/com/jk/model/FoodUnit.java" />
+        <option value="$PROJECT_DIR$/service-api/src/main/java/com/jk/model/Food.java" />
+        <option value="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/phone/editphone.html" />
+        <option value="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/models/editmodels.html" />
+        <option value="$PROJECT_DIR$/service-api/src/main/java/com/jk/model/ManType.java" />
+        <option value="$PROJECT_DIR$/service-api/src/main/java/com/jk/model/Man.java" />
+        <option value="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/man/addman.html" />
+        <option value="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/food/addfood.html" />
+        <option value="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/mantype/addmantype.html" />
+        <option value="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/mantype/editmantype.html" />
+        <option value="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/mantype/mantypelist.html" />
+        <option value="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/food/editfood.html" />
+        <option value="$PROJECT_DIR$/service-api/src/main/java/com/jk/model/Detail.java" />
+        <option value="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/comm/commlist.html" />
+        <option value="$PROJECT_DIR$/service-api/src/main/java/com/jk/model/FoodDetail.java" />
+        <option value="$PROJECT_DIR$/service-api/src/main/java/com/jk/model/ManDetail.java" />
+        <option value="$PROJECT_DIR$/springcloud-feign/src/main/java/com/jk/controller/CommController.java" />
+        <option value="$PROJECT_DIR$/shopping/src/main/resources/templates/comm/detail.html" />
+        <option value="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/food/foodlist.html" />
+        <option value="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/man/manlist.html" />
+        <option value="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/food/dtaillist.html" />
+        <option value="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/man/dtaillist.html" />
+        <option value="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/man/editman.html" />
+        <option value="$PROJECT_DIR$/shopping/src/main/resources/templates/man/detailman.html" />
         <option value="$PROJECT_DIR$/service-api/src/main/java/com/jk/service/CommServiceApi.java" />
-        <option value="$PROJECT_DIR$/springcloud-sjy-client/pom.xml" />
-        <option value="$PROJECT_DIR$/shopping/src/main/java/com/jk/service/seckill/CommService.java" />
-        <option value="$PROJECT_DIR$/shopping/src/main/resources/templates/beforeindex.html" />
+        <option value="$PROJECT_DIR$/springcloud-sjy-client/src/main/java/com/jk/service/CommServiceImpl.java" />
+        <option value="$PROJECT_DIR$/springcloud-sjy-client/src/main/java/com/jk/mapper/CommMapper.java" />
+        <option value="$PROJECT_DIR$/springcloud-sjy-client/src/main/java/com/jk/mapper/CommMapper.xml" />
+        <option value="$PROJECT_DIR$/shopping/src/main/resources/templates/man/manlist.html" />
+        <option value="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/comm/editcomm.html" />
+        <option value="$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/comm/detailist.html" />
+        <option value="$PROJECT_DIR$/shopping/src/main/resources/templates/food/detailfood.html" />
+        <option value="$PROJECT_DIR$/shopping/src/main/resources/templates/food/foodlist.html" />
+        <option value="$PROJECT_DIR$/shopping/src/main/java/com/jk/controller/comm/CommController.java" />
+        <option value="$PROJECT_DIR$/shopping/src/main/resources/templates/comm/commlist.html" />
       </list>
     </option>
   </component>
@@ -413,9 +644,15 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="C:/work/tools/apache-maven-3.5.0" />
-        <option name="userSettingsFile" value="C:\work\tools\apache-maven-3.5.0\conf\settings.xml" />
+        <option name="localRepository" value="C:\mysqlck" />
+        <option name="mavenHome" value="$PROJECT_DIR$/../apache-maven-3.5.0" />
+        <option name="userSettingsFile" value="C:\JAVA\apache-maven-3.5.0\conf\settings.xml" />
       </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
     </option>
   </component>
   <component name="MavenProjectNavigator">
@@ -425,10 +662,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="40" />
-    <option name="y" value="30" />
-    <option name="width" value="1750" />
-    <option name="height" value="970" />
+    <option name="x" value="-152" />
+    <option name="y" value="44" />
+    <option name="width" value="1300" />
+    <option name="height" value="820" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -444,16 +681,10 @@
           <State>
             <id>Java</id>
           </State>
-          <State>
-            <id>Spring</id>
-          </State>
-          <State>
-            <id>Spring BootSpring</id>
-          </State>
         </expanded-state>
         <selected-state>
           <State>
-            <id>SpringBootApplicationYaml</id>
+            <id>Spring</id>
           </State>
         </selected-state>
       </profile-state>
@@ -462,23 +693,343 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
-      <hideEmptyPackages ProjectPane="false" />
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane">
+      <pane id="Scope" />
+      <pane id="PackagesPane">
         <subPane>
           <expand>
             <path>
-              <item name="springboot01" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springboot01" type="462c0819:PsiDirectoryNode" />
+              <item name="sjy-idea-shixun2" type="58d84e3e:PackageViewProjectNode" />
+              <item name="springcloud-sjy-client" type="616d4139:PackageViewModuleNode" />
+            </path>
+            <path>
+              <item name="sjy-idea-shixun2" type="58d84e3e:PackageViewProjectNode" />
+              <item name="springcloud-sjy-client" type="616d4139:PackageViewModuleNode" />
+              <item name="com" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="sjy-idea-shixun2" type="58d84e3e:PackageViewProjectNode" />
+              <item name="springcloud-sjy-client" type="616d4139:PackageViewModuleNode" />
+              <item name="com" type="1f31426a:PackageElementNode" />
+              <item name="jk" type="1f31426a:PackageElementNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="sjy-idea-shixun2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sjy-idea-shixun2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sjy-idea-shixun2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sjy-idea-shixun2" type="462c0819:PsiDirectoryNode" />
+              <item name="service-api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sjy-idea-shixun2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sjy-idea-shixun2" type="462c0819:PsiDirectoryNode" />
+              <item name="service-api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sjy-idea-shixun2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sjy-idea-shixun2" type="462c0819:PsiDirectoryNode" />
+              <item name="service-api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sjy-idea-shixun2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sjy-idea-shixun2" type="462c0819:PsiDirectoryNode" />
+              <item name="service-api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sjy-idea-shixun2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sjy-idea-shixun2" type="462c0819:PsiDirectoryNode" />
+              <item name="service-api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sjy-idea-shixun2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sjy-idea-shixun2" type="462c0819:PsiDirectoryNode" />
+              <item name="service-api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="jk" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sjy-idea-shixun2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sjy-idea-shixun2" type="462c0819:PsiDirectoryNode" />
+              <item name="service-api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="jk" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sjy-idea-shixun2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sjy-idea-shixun2" type="462c0819:PsiDirectoryNode" />
+              <item name="shopping" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sjy-idea-shixun2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sjy-idea-shixun2" type="462c0819:PsiDirectoryNode" />
+              <item name="shopping" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sjy-idea-shixun2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sjy-idea-shixun2" type="462c0819:PsiDirectoryNode" />
+              <item name="shopping" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sjy-idea-shixun2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sjy-idea-shixun2" type="462c0819:PsiDirectoryNode" />
+              <item name="shopping" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sjy-idea-shixun2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sjy-idea-shixun2" type="462c0819:PsiDirectoryNode" />
+              <item name="shopping" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sjy-idea-shixun2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sjy-idea-shixun2" type="462c0819:PsiDirectoryNode" />
+              <item name="shopping" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="jk" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sjy-idea-shixun2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sjy-idea-shixun2" type="462c0819:PsiDirectoryNode" />
+              <item name="shopping" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="jk" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sjy-idea-shixun2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sjy-idea-shixun2" type="462c0819:PsiDirectoryNode" />
+              <item name="shopping" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="jk" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="comm" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sjy-idea-shixun2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sjy-idea-shixun2" type="462c0819:PsiDirectoryNode" />
+              <item name="shopping" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sjy-idea-shixun2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sjy-idea-shixun2" type="462c0819:PsiDirectoryNode" />
+              <item name="shopping" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sjy-idea-shixun2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sjy-idea-shixun2" type="462c0819:PsiDirectoryNode" />
+              <item name="shopping" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="imgs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sjy-idea-shixun2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sjy-idea-shixun2" type="462c0819:PsiDirectoryNode" />
+              <item name="shopping" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sjy-idea-shixun2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sjy-idea-shixun2" type="462c0819:PsiDirectoryNode" />
+              <item name="shopping" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="comm" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sjy-idea-shixun2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sjy-idea-shixun2" type="462c0819:PsiDirectoryNode" />
+              <item name="shopping" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="food" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sjy-idea-shixun2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sjy-idea-shixun2" type="462c0819:PsiDirectoryNode" />
+              <item name="shopping" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="man" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sjy-idea-shixun2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sjy-idea-shixun2" type="462c0819:PsiDirectoryNode" />
+              <item name="springcloud-feign" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sjy-idea-shixun2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sjy-idea-shixun2" type="462c0819:PsiDirectoryNode" />
+              <item name="springcloud-feign" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sjy-idea-shixun2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sjy-idea-shixun2" type="462c0819:PsiDirectoryNode" />
+              <item name="springcloud-feign" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sjy-idea-shixun2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sjy-idea-shixun2" type="462c0819:PsiDirectoryNode" />
+              <item name="springcloud-feign" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sjy-idea-shixun2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sjy-idea-shixun2" type="462c0819:PsiDirectoryNode" />
+              <item name="springcloud-feign" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sjy-idea-shixun2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sjy-idea-shixun2" type="462c0819:PsiDirectoryNode" />
+              <item name="springcloud-sjy-client" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sjy-idea-shixun2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sjy-idea-shixun2" type="462c0819:PsiDirectoryNode" />
+              <item name="springcloud-sjy-client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sjy-idea-shixun2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sjy-idea-shixun2" type="462c0819:PsiDirectoryNode" />
+              <item name="springcloud-sjy-client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sjy-idea-shixun2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sjy-idea-shixun2" type="462c0819:PsiDirectoryNode" />
+              <item name="springcloud-sjy-client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sjy-idea-shixun2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sjy-idea-shixun2" type="462c0819:PsiDirectoryNode" />
+              <item name="springcloud-sjy-client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sjy-idea-shixun2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sjy-idea-shixun2" type="462c0819:PsiDirectoryNode" />
+              <item name="springcloud-sjy-client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="jk" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sjy-idea-shixun2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sjy-idea-shixun2" type="462c0819:PsiDirectoryNode" />
+              <item name="springcloud-sjy-client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="jk" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sjy-idea-shixun2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sjy-idea-shixun2" type="462c0819:PsiDirectoryNode" />
+              <item name="springcloud-sjy-client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="jk" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sjy-idea-shixun2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sjy-idea-shixun2" type="462c0819:PsiDirectoryNode" />
+              <item name="springcloud-sjy-client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -488,27 +1039,27 @@
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="SearchEverywhereHistoryKey" value="public&#9;PSI&#9;JAVA://org.omg.CORBA.PUBLIC_MEMBER&#10;date&#9;PSI&#9;JAVA://com.jk.model.ValidateCodeProperties" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540479503888" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540992930585" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/springcloud-topo/pom.xml" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2551724" />
-    <property name="settings.editor.selected.configurable" value="instant.run" />
+    <property name="project.structure.side.proportion" value="0.29330254" />
+    <property name="settings.editor.selected.configurable" value="project.propCompiler" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.jk.utils" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\JAVA\sjy-idea-shixun2\shopping\src\main\java\com\jk\utils" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\d7\springboot01\shopping\src\main\resources\static" />
-      <recent name="D:\d7\springboot01\springcloud-zjw-client\src\main\java\com\jk\service" />
-      <recent name="D:\d7\springboot01\springcloud-zjw-client\src\main\java\com\jk" />
-      <recent name="D:\d7\springboot01\service-api\src\main\java\com\jk\model" />
+      <recent name="C:\JAVA\sjy-idea-shixun2\shopping\src\main\resources\static\imgs" />
+      <recent name="C:\JAVA\sjy-idea-shixun2\springcloud-feign\src\main\resources\templates\man" />
+      <recent name="C:\JAVA\sjy-idea-shixun2\service-api\src\main\java\com\jk\util" />
+      <recent name="C:\JAVA\sjy-idea-shixun2\shopping\src\main\java\com\jk\utils" />
       <recent name="D:\d7\springboot01\springcloud-feign\src\main\resources\static" />
     </key>
   </component>
@@ -525,49 +1076,15 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.ShoppingApplication">
-    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
-      <module name="service-api" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
-      <module name="service-api" />
-      <option name="filePath" />
-      <option name="vmParameters" />
-      <option name="alternativeJrePath" />
-      <option name="programParameters" />
-      <option name="passParentEnvs" value="true" />
-      <option name="workingDirectory" />
-      <option name="isAlternativeJrePathEnabled" value="false" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="filePath" />
-      <option name="vmParameters" />
-      <option name="alternativeJrePath" />
-      <option name="programParameters" />
-      <option name="passParentEnvs" value="true" />
-      <option name="workingDirectory" />
-      <option name="isAlternativeJrePathEnabled" value="false" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
+    <configuration name="SpringcloudZjwClientApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.jk.SpringcloudZjwClientApplication" />
+      <module name="springcloud-zjw-client" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jk.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -642,10 +1159,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SpringcloudZjwClientApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" singleton="false">
+    <configuration name="SpringcloudZjwClientApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="springcloud-zjw-client" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.jk.SpringcloudZjwClientApplication" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -658,25 +1174,31 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Spring Boot.SpringcloudCouponClientApplication" />
-      <item itemvalue="Spring Boot.SpringcloudZjwClientApplication" />
       <item itemvalue="Spring Boot.SpringcloudEurekaServerApplication" />
       <item itemvalue="Spring Boot.SpringcloudEurekaClientApplication" />
       <item itemvalue="Spring Boot.SpringcloudRibbonApplication" />
       <item itemvalue="Spring Boot.SpringcloudFeignApplication" />
+      <item itemvalue="Spring Boot.SpringcloudSjyClientApplication" />
       <item itemvalue="Spring Boot.SpringcloudZuulApplication" />
       <item itemvalue="Spring Boot.SpringcloudProvaterSeckillApplication" />
       <item itemvalue="Spring Boot.ShoppingApplication" />
+      <item itemvalue="Spring Boot.SpringcloudZjwClientApplication" />
       <item itemvalue="Spring Boot.SpringcloudTopoApplication" />
-      <item itemvalue="Spring Boot.SpringcloudSjyClientApplication" />
+      <item itemvalue="Spring Boot.SpringcloudCouponClientApplication" />
+      <item itemvalue="Application.SpringcloudZjwClientApplication" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.SpringcloudZjwClientApplication" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="64bf6e48-d9f9-44a9-b844-9691f21be15b" name="Default Changelist" comment="" />
+      <changelist id="c540ef7e-6f89-4471-9f3e-b8c56aca2716" name="Default Changelist" comment="" />
       <created>1539316872063</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -692,92 +1214,19 @@
       <workItem from="1539357282314" duration="1145000" />
       <workItem from="1539358473144" duration="642000" />
       <workItem from="1539359138406" duration="1067000" />
-      <workItem from="1539567468258" duration="8965000" />
-      <workItem from="1539590134486" duration="7986000" />
-      <workItem from="1539668803375" duration="15792000" />
-      <workItem from="1539736484910" duration="11350000" />
-      <workItem from="1539748835632" duration="16057000" />
-      <workItem from="1539777797955" duration="2267000" />
-      <workItem from="1539781540710" duration="3150000" />
-      <workItem from="1539786483065" duration="3450000" />
-      <workItem from="1539824462909" duration="31156000" />
-      <workItem from="1539909180940" duration="6690000" />
-      <workItem from="1539932440363" duration="20358000" />
-      <workItem from="1539957661620" duration="6885000" />
-      <workItem from="1540047603198" duration="21000" />
-      <workItem from="1540051514058" duration="813000" />
-      <workItem from="1540052387623" duration="425000" />
-      <workItem from="1540168343252" duration="15798000" />
-      <workItem from="1540193034362" duration="11227000" />
-      <workItem from="1540214852589" duration="4568000" />
-      <workItem from="1540256433317" duration="2556000" />
-      <workItem from="1540263884430" duration="4948000" />
-      <workItem from="1540276846189" duration="13319000" />
-      <workItem from="1540306910915" duration="697000" />
-      <workItem from="1540342601034" duration="3350000" />
-      <workItem from="1540353287822" duration="1921000" />
-      <workItem from="1540387538323" duration="4196000" />
-      <workItem from="1540427526971" duration="24614000" />
-      <workItem from="1540468542875" duration="1334000" />
-      <workItem from="1540469924715" duration="1160000" />
-      <workItem from="1540472146397" duration="2326000" />
-      <workItem from="1540479588530" duration="2439000" />
-      <workItem from="1540513936093" duration="644000" />
+      <workItem from="1539567468258" duration="2143000" />
+      <workItem from="1540516740660" duration="28733000" />
+      <workItem from="1540618938099" duration="9966000" />
+      <workItem from="1540773951201" duration="15609000" />
+      <workItem from="1540803185503" duration="2294000" />
+      <workItem from="1540809425106" duration="12524000" />
+      <workItem from="1540860635214" duration="15526000" />
+      <workItem from="1540947335672" duration="25329000" />
     </task>
-    <task id="LOCAL-00001" summary="第一次提交">
-      <created>1539575451938</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1539575451938</updated>
-    </task>
-    <task id="LOCAL-00002" summary="三">
-      <created>1539581940338</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1539581940338</updated>
-    </task>
-    <task id="LOCAL-00003" summary="si">
-      <created>1539582169543</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1539582169543</updated>
-    </task>
-    <task id="LOCAL-00004" summary="覆盖提交">
-      <created>1539605346779</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1539605346779</updated>
-    </task>
-    <task id="LOCAL-00005" summary="分支提交1">
-      <created>1539773042577</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1539773042577</updated>
-    </task>
-    <task id="LOCAL-00006" summary="分支提交1">
-      <created>1539776465611</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1539776465611</updated>
-    </task>
-    <task id="LOCAL-00007" summary="wbx分支提交2">
-      <created>1540262409664</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1540262409664</updated>
-    </task>
-    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="266975000" />
+    <option name="totallyTimeSpent" value="140310000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -789,430 +1238,600 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-8" y="-8" width="1296" height="786" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24530831" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49774775" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="UI Designer" order="4" />
-      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info id="Favorites" order="5" sideWeight="0.5022523" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932975" weight="0.3711048" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.33994335" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.51592356" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.31847134" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
-      <window_info anchor="bottom" id="Spring" order="7" weight="0.3286119" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49865952" weight="0.1898017" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50067025" side_tool="true" weight="0.3286119" />
-      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49932975" weight="0.3286119" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32956153" />
+      <window_info anchor="bottom" id="Spring" order="7" weight="0.32956153" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32961783" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.3290938" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.3566879" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.32956153" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="13" weight="0.3286119" />
+      <window_info anchor="bottom" id="Version Control" order="13" show_stripe_button="false" />
       <window_info anchor="bottom" id="Problems" order="14" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Maven Projects" order="5" weight="0.3297587" />
-      <window_info anchor="right" id="Database" order="6" weight="0.3297587" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Theme Preview" order="8" />
-      <window_info anchor="right" id="Bean Validation" order="9" />
+      <window_info anchor="right" id="Database" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Theme Preview" order="7" />
+      <window_info anchor="right" id="Bean Validation" order="8" />
+      <window_info anchor="right" id="Maven Projects" order="9" weight="0.32928804" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49774775" visible="true" weight="0.25" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Favorites" order="5" sideWeight="0.5022523" side_tool="true" weight="0.25" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.51592356" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.31847134" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32956153" />
+      <window_info anchor="bottom" id="Spring" order="7" weight="0.32956153" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32961783" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.3290938" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.3566879" />
+      <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.32956153" />
+      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="13" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Problems" order="14" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Database" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Theme Preview" order="7" />
+      <window_info anchor="right" id="Bean Validation" order="8" />
+      <window_info anchor="right" id="Maven Projects" order="9" weight="0.32928804" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="Vcs.Log.History.Properties">
-    <option name="COLUMN_ORDER">
-      <list>
-        <option value="0" />
-        <option value="2" />
-        <option value="3" />
-        <option value="1" />
-      </list>
-    </option>
-  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="第一次提交" />
-    <MESSAGE value="二" />
-    <MESSAGE value="三" />
-    <MESSAGE value="si" />
-    <MESSAGE value="覆盖提交" />
-    <MESSAGE value="分支提交1" />
-    <MESSAGE value="wbx分支提交2" />
-    <option name="LAST_COMMIT_MESSAGE" value="wbx分支提交2" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
       <configuration name="SpringBootApplicationConfigurationType">
-        <watch expression="x" />
+        <watch expression="id" />
       </configuration>
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/service-api/pom.xml">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-web/1.4.0/shiro-web-1.4.0.jar!/org/apache/shiro/web/servlet/AdviceFilter.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="16" column="39" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springcloud-feign/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="88" column="21" lean-forward="true" selection-start-line="77" selection-start-column="8" selection-end-line="88" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springcloud-zjw-client/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="67" column="44" lean-forward="true" selection-start-line="67" selection-start-column="44" selection-end-line="67" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springcloud-topo/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/service-api/src/main/java/com/jk/service/UserServiceApi.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="28" column="31" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springcloud-feign/src/main/java/com/jk/controller/topo/TopController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="22" column="31" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springcloud-zjw-client/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="26" column="21" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springcloud-feign/src/main/java/com/jk/service/PowerService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springcloud-feign/src/main/java/com/jk/service/Userservice.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="10" selection-start-line="10" selection-end-line="10" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springcloud-feign/src/main/java/com/jk/controller/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="62" selection-start-line="62" selection-end-line="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springcloud-feign/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-156">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springcloud-eureka-client/src/main/java/com/jk/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springcloud-eureka-client/src/main/java/com/jk/service/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="77" column="54" selection-start-line="77" selection-start-column="54" selection-end-line="77" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springcloud-feign/src/main/java/com/jk/controller/CommController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/comm/commlist.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4729">
-          <caret line="181" column="7" selection-start-line="181" selection-start-column="7" selection-end-line="181" selection-end-column="7" />
+        <state relative-caret-position="27">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/springcloud-feign/src/main/java/com/jk/service/CommService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
-          <caret line="4" column="31" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
+          <caret line="4" column="30" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/service-api/src/main/java/com/jk/service/LoginServiceApi.java">
+    <entry file="file://$PROJECT_DIR$/service-api/src/main/java/com/jk/model/Comm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="15" column="43" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
+        <state relative-caret-position="462">
+          <caret line="21" column="25" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/login.html">
+    <entry file="file://$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/models/modelslist.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="88" column="25" selection-start-line="88" selection-start-column="13" selection-end-line="88" selection-end-column="25" />
+        <state relative-caret-position="1826">
+          <caret line="83" column="30" selection-start-line="83" selection-start-column="30" selection-end-line="83" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/springcloud-feign/src/main/resources/static/loginSpecial/js/controlLogin.js">
+    <entry file="file://$PROJECT_DIR$/service-api/src/main/java/com/jk/model/FoodUnit.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="131" column="42" lean-forward="true" selection-start-line="131" selection-start-column="42" selection-end-line="131" selection-end-column="42" />
+        <state relative-caret-position="220">
+          <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/springcloud-zjw-client/src/main/java/com/jk/controller/LoginController.java">
+    <entry file="file://$PROJECT_DIR$/service-api/src/main/java/com/jk/model/Food.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
+          <caret line="25" column="25" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/springcloud-zjw-client/src/main/java/com/jk/mapper/UserMapper.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-core/8.5.34/tomcat-embed-core-8.5.34.jar!/javax/servlet/http/HttpServlet.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="12" column="50" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="50" />
+        <state relative-caret-position="105">
+          <caret line="233" selection-start-line="233" selection-end-line="233" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/springcloud-zjw-client/src/main/java/com/jk/config/MyMapper.java">
+    <entry file="file://$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/models/editmodels.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
+        <state relative-caret-position="-35">
+          <caret line="40" column="30" selection-start-line="40" selection-start-column="30" selection-end-line="40" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/springcloud-zjw-client/src/main/java/com/jk/util/Quant.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springcloud-zjw-client/src/main/java/com/jk/service/UserServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/springcloud-feign/src/main/java/com/jk/ConstantsConf.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="20" column="14" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
+        <state relative-caret-position="22">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/springcloud-zjw-client/src/main/java/com/jk/service/BaseService.java">
+    <entry file="file://$PROJECT_DIR$/service-api/src/main/java/com/jk/model/Models.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
+          <caret line="20" column="67" lean-forward="true" selection-start-line="19" selection-start-column="4" selection-end-line="20" selection-end-column="67" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/springcloud-coupon-client/src/main/java/com/jk/SpringcloudCouponClientApplication.java">
+    <entry file="file://$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/phone/phonelist.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+        <state relative-caret-position="275">
+          <caret line="80" column="13" selection-end-line="245" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/springcloud-feign/src/main/java/com/jk/service/impl/UserError.java">
+    <entry file="file://$PROJECT_DIR$/service-api/src/main/java/com/jk/model/ManType.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="543">
-          <caret line="42" column="7" lean-forward="true" selection-start-line="42" selection-start-column="7" selection-end-line="42" selection-end-column="7" />
+        <state relative-caret-position="605">
+          <caret line="46" column="24" lean-forward="true" selection-start-line="46" selection-start-column="24" selection-end-line="46" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/springcloud-feign/src/main/java/com/jk/controller/coupon/CouController.java">
+    <entry file="file://$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/phone/addphone.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="635">
-          <caret line="237" column="30" lean-forward="true" selection-start-line="237" selection-start-column="30" selection-end-line="237" selection-end-column="30" />
+        <state relative-caret-position="638">
+          <caret line="44" column="29" lean-forward="true" selection-end-line="78" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/springcloud-eureka-client/src/main/resources/application.yml">
+    <entry file="file://$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/mantype/addmantype.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+        <state relative-caret-position="363">
+          <caret line="51" column="39" selection-end-line="78" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/springcloud-coupon-client/src/main/resources/application.yml">
+    <entry file="file://$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/mantype/editmantype.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-44">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        <state relative-caret-position="704">
+          <caret line="44" column="41" selection-start-line="44" selection-start-column="28" selection-end-line="44" selection-end-column="41" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/templates/login2.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/templates/sccess.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/templates/reg.html">
+    <entry file="file://$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/phone/editphone.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-316">
-          <caret line="69" column="8" selection-start-line="69" selection-start-column="8" selection-end-line="69" selection-end-column="8" />
+        <state relative-caret-position="22">
+          <caret line="40" column="30" selection-start-line="40" selection-start-column="30" selection-end-line="40" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shopping/src/main/java/com/jk/controller/seckill/SeckillController.java">
+    <entry file="file://$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/mantype/mantypelist.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="286" column="5" selection-start-line="281" selection-start-column="162" selection-end-line="286" selection-end-column="5" />
+        <state relative-caret-position="3322">
+          <caret line="151" column="53" selection-start-line="151" selection-start-column="40" selection-end-line="151" selection-end-column="53" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shopping/src/main/java/com/jk/controller/pay/PayController.java">
+    <entry file="file://$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/comm/addcomm.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="20" column="30" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="30" />
+        <state relative-caret-position="265">
+          <caret line="100" lean-forward="true" selection-end-line="246" selection-end-column="7" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shopping/src/main/java/com/jk/controller/coupon/CouController.java">
+    <entry file="file://$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/food/addfood.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="329" selection-start-line="329" selection-end-line="329" />
+        <state relative-caret-position="309">
+          <caret line="22" column="18" lean-forward="true" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/templates/buycar.html">
+    <entry file="file://$PROJECT_DIR$/service-api/src/main/java/com/jk/model/FoodType.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="283" column="10" selection-start-line="272" selection-start-column="8" selection-end-line="283" selection-end-column="10" />
+        <state relative-caret-position="154">
+          <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+          <folding>
+            <element signature="e#203#204#0" expanded="true" />
+            <element signature="e#239#240#0" expanded="true" />
+            <element signature="e#267#268#0" expanded="true" />
+            <element signature="e#298#299#0" expanded="true" />
+            <element signature="e#325#326#0" expanded="true" />
+            <element signature="e#365#366#0" expanded="true" />
+            <element signature="e#397#398#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service-api/src/main/java/com/jk/model/Man.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="23" column="25" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service-api/src/main/java/com/jk/model/Phone.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="17" column="67" selection-start-line="16" selection-start-column="3" selection-end-line="17" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service-api/src/main/java/com/jk/model/Detail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="80" column="5" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="80" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#581#582#0" expanded="true" />
+            <element signature="e#606#607#0" expanded="true" />
+            <element signature="e#642#643#0" expanded="true" />
+            <element signature="e#670#671#0" expanded="true" />
+            <element signature="e#703#704#0" expanded="true" />
+            <element signature="e#732#733#0" expanded="true" />
+            <element signature="e#776#777#0" expanded="true" />
+            <element signature="e#812#813#0" expanded="true" />
+            <element signature="e#845#846#0" expanded="true" />
+            <element signature="e#874#875#0" expanded="true" />
+            <element signature="e#918#919#0" expanded="true" />
+            <element signature="e#954#955#0" expanded="true" />
+            <element signature="e#987#988#0" expanded="true" />
+            <element signature="e#1016#1017#0" expanded="true" />
+            <element signature="e#1060#1061#0" expanded="true" />
+            <element signature="e#1096#1097#0" expanded="true" />
+            <element signature="e#1129#1130#0" expanded="true" />
+            <element signature="e#1158#1159#0" expanded="true" />
+            <element signature="e#1202#1203#0" expanded="true" />
+            <element signature="e#1238#1239#0" expanded="true" />
+            <element signature="e#1273#1274#0" expanded="true" />
+            <element signature="e#1306#1307#0" expanded="true" />
+            <element signature="e#1356#1357#0" expanded="true" />
+            <element signature="e#1400#1401#0" expanded="true" />
+            <element signature="e#1436#1437#0" expanded="true" />
+            <element signature="e#1468#1469#0" expanded="true" />
+            <element signature="e#1518#1519#0" expanded="true" />
+            <element signature="e#1560#1561#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service-api/src/main/java/com/jk/model/FoodDetail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1578">
+          <caret line="80" column="5" selection-start-line="80" selection-start-column="5" selection-end-line="80" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#452#453#0" expanded="true" />
+            <element signature="e#477#478#0" expanded="true" />
+            <element signature="e#513#514#0" expanded="true" />
+            <element signature="e#541#542#0" expanded="true" />
+            <element signature="e#574#575#0" expanded="true" />
+            <element signature="e#603#604#0" expanded="true" />
+            <element signature="e#647#648#0" expanded="true" />
+            <element signature="e#683#684#0" expanded="true" />
+            <element signature="e#716#717#0" expanded="true" />
+            <element signature="e#745#746#0" expanded="true" />
+            <element signature="e#789#790#0" expanded="true" />
+            <element signature="e#825#826#0" expanded="true" />
+            <element signature="e#858#859#0" expanded="true" />
+            <element signature="e#887#888#0" expanded="true" />
+            <element signature="e#931#932#0" expanded="true" />
+            <element signature="e#967#968#0" expanded="true" />
+            <element signature="e#1000#1001#0" expanded="true" />
+            <element signature="e#1029#1030#0" expanded="true" />
+            <element signature="e#1073#1074#0" expanded="true" />
+            <element signature="e#1109#1110#0" expanded="true" />
+            <element signature="e#1144#1145#0" expanded="true" />
+            <element signature="e#1177#1178#0" expanded="true" />
+            <element signature="e#1227#1228#0" expanded="true" />
+            <element signature="e#1271#1272#0" expanded="true" />
+            <element signature="e#1307#1308#0" expanded="true" />
+            <element signature="e#1339#1340#0" expanded="true" />
+            <element signature="e#1389#1390#0" expanded="true" />
+            <element signature="e#1431#1432#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/io/github/openfeign/feign-core/9.5.1/feign-core-9.5.1.jar!/feign/ReflectiveFeign.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="332" selection-start-line="332" selection-end-line="332" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-feign/src/main/java/com/jk/controller/CommController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="1015" selection-start-line="1015" selection-end-line="1015" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service-api/src/main/java/com/jk/model/ManDetail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="946">
+          <caret line="80" column="5" selection-start-line="80" selection-start-column="5" selection-end-line="80" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/man/addman.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="58" column="10" lean-forward="true" selection-start-line="58" selection-start-column="10" selection-end-line="58" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/templates/comm/detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="7" column="19" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.0.9.RELEASE/spring-web-5.0.9.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="121" selection-start-line="121" selection-end-line="121" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/comm/commlist.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="264" column="51" selection-start-line="264" selection-start-column="40" selection-end-line="264" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/food/foodlist.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="220" column="51" selection-start-line="220" selection-start-column="51" selection-end-line="220" selection-end-column="51" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/food/dtaillist.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="250" column="7" selection-start-line="250" selection-start-column="7" selection-end-line="250" selection-end-column="7" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/man/dtaillist.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1782">
+          <caret line="250" column="7" selection-start-line="250" selection-start-column="7" selection-end-line="250" selection-end-column="7" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/templates/comm/phone.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="135" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/man/editman.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="66" column="80" selection-start-line="66" selection-start-column="80" selection-end-line="66" selection-end-column="80" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/man/manlist.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="114" column="37" selection-start-line="114" selection-start-column="33" selection-end-line="114" selection-end-column="37" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/java/jdk1.8.0_152/src.zip!/org/omg/CORBA/PUBLIC_MEMBER.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="44" column="17" selection-start-line="44" selection-start-column="17" selection-end-line="44" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service-api/src/main/java/com/jk/service/CommServiceApi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="199" column="37" selection-start-line="199" selection-start-column="37" selection-end-line="199" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-sjy-client/src/main/java/com/jk/service/CommServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="412" column="28" selection-start-line="412" selection-start-column="28" selection-end-line="412" selection-end-column="28" />
+          <folding>
+            <element signature="e#9456#9457#0" expanded="true" />
+            <element signature="e#9501#9502#0" expanded="true" />
+            <element signature="e#9548#9549#0" expanded="true" />
+            <element signature="e#9587#9588#0" expanded="true" />
+            <element signature="e#9636#9637#0" expanded="true" />
+            <element signature="e#9663#9664#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-sjy-client/src/main/java/com/jk/mapper/CommMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="158" column="25" selection-start-line="158" selection-start-column="25" selection-end-line="158" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/springcloud-sjy-client/src/main/java/com/jk/mapper/CommMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-132" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springcloud-sjy-client/src/main/java/com/jk/service/CommServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1936">
-          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        <state relative-caret-position="117">
+          <caret line="35" column="22" lean-forward="true" selection-start-line="32" selection-start-column="8" selection-end-line="35" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/templates/comm/commlist.html">
+    <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/templates/man/manlist.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="12" column="50" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/static/detail/hm.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/templates/beforeindex.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1385">
-          <caret line="196" column="14494" selection-start-line="196" selection-start-column="14494" selection-end-line="196" selection-end-column="14494" />
+        <state relative-caret-position="1643">
+          <caret line="88" column="74" selection-start-line="88" selection-start-column="74" selection-end-line="88" selection-end-column="74" />
           <folding>
-            <element signature="n#style#0;n#span#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#632#638#0" expanded="true" />
+            <element signature="e#638#644#0" expanded="true" />
+            <element signature="e#655#661#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/food/editfood.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="79" column="14" selection-start-line="79" selection-start-column="14" selection-end-line="79" selection-end-column="14" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/comm/editcomm.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="108" column="81" selection-start-line="108" selection-start-column="81" selection-end-line="108" selection-end-column="81" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-feign/src/main/resources/templates/comm/detailist.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="22" column="60" selection-start-line="22" selection-start-column="60" selection-end-line="22" selection-end-column="60" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/templates/man/detailman.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/templates/food/detailfood.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/templates/food/foodlist.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="120" column="41" selection-start-line="120" selection-start-column="29" selection-end-line="120" selection-end-column="41" />
+          <folding>
+            <element signature="e#559#565#0" expanded="true" />
+            <element signature="e#565#571#0" expanded="true" />
+            <element signature="e#571#577#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/shopping/src/main/java/com/jk/controller/comm/CommController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        <state relative-caret-position="89">
+          <caret line="129" column="30" lean-forward="true" selection-start-line="129" selection-start-column="30" selection-end-line="129" selection-end-column="30" />
+          <folding>
+            <element signature="e#1542#1543#0" expanded="true" />
+            <element signature="e#1594#1595#0" expanded="true" />
+            <element signature="e#1655#1656#0" expanded="true" />
+            <element signature="e#1679#1680#0" expanded="true" />
+            <element signature="e#2310#2311#0" expanded="true" />
+            <element signature="e#2334#2335#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/io/github/openfeign/feign-core/9.5.1/feign-core-9.5.1.jar!/feign/codec/ErrorDecoder.class">
+    <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/templates/comm/commlist.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1188">
-          <caret line="72" selection-start-line="72" selection-end-line="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springcloud-sjy-client/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shopping/src/main/java/com/jk/service/seckill/CommService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="5" column="31" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/templates/comm/phone.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springcloud-sjy-client/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="27" column="18" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shopping/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1012">
-          <caret line="46" selection-start-line="46" selection-end-line="48" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/service-api/src/main/java/com/jk/service/CommServiceApi.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springcloud-sjy-client/src/main/java/com/jk/mapper/CommMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="990">
-          <caret line="51" column="23" selection-start-line="51" selection-start-column="23" selection-end-line="51" selection-end-column="23" />
+        <state relative-caret-position="133">
+          <caret line="176" column="78" selection-start-line="176" selection-start-column="78" selection-end-line="176" selection-end-column="78" />
+          <folding>
+            <element signature="n#li#9;n#ul#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
   </component>
   <component name="masterDetails">
     <states>
-      <state key="ArquillianSettingsConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2551724" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
@@ -1264,12 +1883,11 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>springcloud-zjw-client</last-edited>
+          <last-edited>shopping</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2551724" />
-                <option value="0.6" />
+                <option value="0.29330254" />
               </list>
             </option>
           </splitter-proportions>
