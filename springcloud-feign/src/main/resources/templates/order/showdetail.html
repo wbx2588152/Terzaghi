@@ -59,8 +59,11 @@
     </tr>
     <tr>
         <td>普通订单</td>
-        <td th:text="${expressBean.expresscompany}"></td>
-        <td th:text="${expressBean.expressqueue}"></td>
+        <td th:if="${orderBean.consignnum}!=null">
+        <span th:text="${expressBean.expresscompany}"></span></td>
+        <td th:if="${orderBean.consignnum}!=null">
+        <span th:text="${expressBean.expressqueue}"></span>
+        </td>
         <td>15天</td>
         <td></td>
 
@@ -163,7 +166,7 @@
 
    <!-- <button onclick="alertprice()">加载价格</button>-->
 </div>
-<script src="../layui/jquery.min.js"></script>
+<script src="../js/jquery.min.js"></script>
 <script src="../layui/layui.js"></script>
 <script>
     $(function () {
