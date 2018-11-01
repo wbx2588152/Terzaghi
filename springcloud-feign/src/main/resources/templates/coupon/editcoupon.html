@@ -114,8 +114,12 @@
                 dataType:'JSON',
                 success:function(res){
 
+                    layer.msg("新增成功",{icon:1});
+                    var index = parent.layer.getFrameIndex(window.name);
+                    parent.layer.close(index);//关闭当前页
                 },
                 error:function () {
+                    layer.msg("新增失败",{icon:6});
                 }
             })
             return false;
