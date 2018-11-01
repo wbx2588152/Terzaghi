@@ -38,7 +38,7 @@ public interface SeckilServiceApi {
     List<SeckilCommodity> querySeckillCommodityList();
 
     @RequestMapping(value = "/queryTimeLimitSeckillList",method = RequestMethod.POST)
-    List<SeckilCommodity> queryTimeLimitSeckillList();
+    List<TimeLimitSeckill> queryTimeLimitSeckillList();
 
     @RequestMapping(value = "/queryTimeLimitLists",method = RequestMethod.POST)
     Map<String,Object> queryTimeLimitLists(@RequestParam(value = "page") int page, @RequestParam(value = "rows")int rows, @RequestBody TimeLimitSeckill timeLimitSeckill);

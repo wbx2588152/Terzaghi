@@ -6,6 +6,7 @@ import com.jk.service.seckill.SeckilServiceApi;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,7 +27,6 @@ public class SeckillServiceImpl implements SeckilServiceApi {
 
     @Autowired
     private SeckillMapper seckillMapper;
-
 
     @Override
     public Map<String, Object> querySeckillList(int page, int rows, SeckilCommodity seckilCommodity) {
@@ -76,7 +76,7 @@ public class SeckillServiceImpl implements SeckilServiceApi {
     }
 
     @Override
-    public List<SeckilCommodity> queryTimeLimitSeckillList() {
+    public List<TimeLimitSeckill> queryTimeLimitSeckillList() {
         return seckillMapper.queryTimeLimitSeckillList();
     }
 
@@ -114,11 +114,6 @@ public class SeckillServiceImpl implements SeckilServiceApi {
     @Override
     public void addCommmondityInfo(String id, String name, String artNo, String seckillPrice, String commmondityImg) {
         seckillMapper.addCommmondityInfo( id,  name,  artNo,  seckillPrice,  commmondityImg);
-    }
-
-    @Override
-    public void addOrderInfo(@RequestBody OrderBean orderBean) {
-        seckillMapper.addOrderInfo(orderBean);
     }
 
     @Override
@@ -219,6 +214,12 @@ public class SeckillServiceImpl implements SeckilServiceApi {
             seckillMapper.updateTImeLimitById(seckillId);
         }
     }
+
+    @Override
+    public void addOrderInfo(@RequestBody OrderBean orderBean) {
+       // mongoTemplate.save(orderBean);
+    }
+
 
 
 }

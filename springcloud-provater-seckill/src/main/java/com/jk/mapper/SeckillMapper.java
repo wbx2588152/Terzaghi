@@ -30,7 +30,7 @@ public interface SeckillMapper {
 
     List<SeckilCommodity> querySeckillCommodityList();
 
-    List<SeckilCommodity> queryTimeLimitSeckillList();
+    List<TimeLimitSeckill> queryTimeLimitSeckillList();
 
     int queryTimeLimitCount(@Param("t")TimeLimitSeckill timeLimitSeckill);
 

@@ -8,12 +8,15 @@ import com.jk.service.seckill.SeckilServiceApi;
 import com.jk.utils.IdWorker;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -36,6 +39,16 @@ public class SeckillController {
 
     @Autowired
     private AmqpTemplate amqpTemplate;
+
+    @Autowired
+    private RedisTemplate redisTemplate;
+
+    @Autowired
+    private MongoTemplate mongoTemplate;
+
+    private HttpServletRequest request;
+
+    private HttpServletResponse response;
 
     /**
      * 加载提交订单的商品列表
@@ -219,8 +232,8 @@ public class SeckillController {
         long idWork = idWorker.nextId();
         String dingDanHao = String.valueOf(idWork);
 
-        //生成订单
-       /* OrderBean orderBean = new OrderBean();
+        //生成订单到MongoDB中
+       OrderBean orderBean = new OrderBean();
         orderBean.setOrderid(dingDanHao);
         //orderBean.setLinkuserid(user.getId());
         orderBean.setLinkuserid("3");   //登录未实现先用死数据
@@ -229,7 +242,9 @@ public class SeckillController {
         orderBean.setPaystatus("2");    //未付款状态
         orderBean.setOrderstatus("1");  //未发货状态
         orderBean.setSubtime(new Date());   //提交时间
-        seckilServiceApi.addOrderInfo(orderBean);*/
+        mongoTemplate.save(orderBean);
+        //seckilServiceApi.addOrderInfo(orderBean);
+        /* seckilServiceApi.addOrderInfo(orderBean);*/
 
         //获得初始化的AlipayClient
         AlipayClient alipayClient = new DefaultAlipayClient(AlipayConfig.gatewayUrl, AlipayConfig.app_id, AlipayConfig.merchant_private_key, "json", AlipayConfig.charset, AlipayConfig.alipay_public_key, AlipayConfig.sign_type);
@@ -337,20 +352,33 @@ public class SeckillController {
      * */
     @RequestMapping("querySeckillCommodityList")
     @ResponseBody
-    public List<SeckilCommodity> querySeckillCommodityList(){
-        List<SeckilCommodity> list = seckilServiceApi.querySeckillCommodityList();
-        return list;
+    public List<SeckilCommodity> querySeckillCommodityList() {
+        String seckillComId = "1";
+        List<SeckilCommodity> seckillCommodityList = (List<SeckilCommodity>) redisTemplate.boundHashOps("seckillCommodityList").get(seckillComId);
+        if (seckillCommodityList != null) {
+            return seckillCommodityList;
+        } else {
+            List<SeckilCommodity> list = seckilServiceApi.querySeckillCommodityList();
+            redisTemplate.boundHashOps("seckillCommodityList").put(seckillComId,list);
+            return list;
+        }
     }
 
-    /**
     /**
      * 查询限时秒杀列表
      * */
     @RequestMapping("queryTimeLimitSeckillList")
     @ResponseBody
-    public List<SeckilCommodity> queryTimeLimitSeckillList(){
-        List<SeckilCommodity> list = seckilServiceApi.queryTimeLimitSeckillList();
-        return list;
+    public List<TimeLimitSeckill> queryTimeLimitSeckillList(){
+        String seckillComId = "1";
+        List<TimeLimitSeckill> timeLimitSeckillList = (List<TimeLimitSeckill>) redisTemplate.boundHashOps("timeLimitSeckillList").get(seckillComId);
+        if (timeLimitSeckillList != null) {
+            return timeLimitSeckillList;
+        } else {
+            List<TimeLimitSeckill> list = seckilServiceApi.queryTimeLimitSeckillList();
+            redisTemplate.boundHashOps("timeLimitSeckillList").put(seckillComId,list);
+            return list;
+        }
     }
 
     /**
