@@ -29,4 +29,7 @@ public interface OrderClientService {
 
     void automergerorder();
 
+    Map<String, Object> queryuserorder(String id);
+
+
 }

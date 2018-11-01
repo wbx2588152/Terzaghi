@@ -1,5 +1,6 @@
 package com.jk.controller;
 
+import com.jk.model.Comm;
 import com.jk.model.OrderBean;
 import com.jk.service.OrderClientService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,6 +70,15 @@ public class OrderclientController {
     @RequestMapping(value = "automergerorder",method = RequestMethod.POST)
     public void automergerorder(){
         orderClientService.automergerorder();
+    }
+
+
+
+    //shopping 项目的调用方法
+    @RequestMapping( value = "queryuserorder",method = RequestMethod.POST)
+    public Map<String,Object> queryuserorder(String id){
+        Map<String, Object> map = orderClientService.queryuserorder(id);
+        return map;
     }
 
 

@@ -150,5 +150,13 @@ public class OrderClientServiceImpl implements OrderClientService {
 
     }
 
+    @Override
+    public Map<String, Object> queryuserorder(String id) {
+        List<Comm> list=orderDao.queryuserorder(id);
+        Map<String,Object> map=new HashMap<String,Object>();
+        map.put("list",list);
+        return map;
+    }
+
 
 }
