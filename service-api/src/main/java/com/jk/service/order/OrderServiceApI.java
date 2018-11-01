@@ -38,4 +38,10 @@ public interface OrderServiceApI {
 
     @RequestMapping(value = "oneclient/automergerorder",method = RequestMethod.POST)
     void automergerorder();
+
+
+    //shopping 里 的方法
+
+    @RequestMapping(value = "oneclient/queryuserorder",method = RequestMethod.POST)
+    Map<String, Object> queryuserorder(@RequestParam(value = "id") String id);
 }
