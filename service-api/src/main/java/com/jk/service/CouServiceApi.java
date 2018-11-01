@@ -1,5 +1,6 @@
 package com.jk.service;
 
+import com.jk.model.Adve;
 import com.jk.model.Coupon;
 import com.jk.model.User;
 import com.jk.model.UserCou;
@@ -43,4 +44,6 @@ public interface CouServiceApi {
 
     @RequestMapping(value="cou/queryUserCou",method = RequestMethod.POST)
     List<UserCou> queryUserCou(@RequestParam(value = "id")String id);
+
+
 }
