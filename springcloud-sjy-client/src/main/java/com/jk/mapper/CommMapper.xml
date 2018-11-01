@@ -17,6 +17,30 @@
         where tc.modelsid = tm.id and tc.colourid = tr.id and tc.nameid = tp.id and tc.specid = ts.id
         and tc.id = #{id}
     </select>
+
+    <select id="getDetail2" resultType="com.jk.model.Detail">
+        select * from t_detail
+        where detailpid = #{id}
+    </select>
+
+    <select id="getMan" resultType="com.jk.model.Man">
+       select tm.*,tt.type as showtype
+        from t_man tm,t_man_type tt
+        where tm.typeid = tt.id and tm.added = 1
+    </select>
+
+    <select id="getFood" resultType="com.jk.model.Food">
+        select tf.*,tt.type as showtype,tu.unit as showunit
+       from t_food tf,t_food_type tt,t_food_unit tu
+      where tf.typeid = tt.id and tf.unitid = tu.id
+      and tf.added = 1
+    </select>
+
+
+
+
+
+
                     <!--后台页面-->
 
     <select id="queryComm" resultType="long">
@@ -87,13 +111,239 @@
         select * from t_phone
     </select>
 
-    <select id="queryModels" resultType="com.jk.model.Models" parameterType="com.jk.model.Phone">
+    <select id="queryModels" parameterType="com.jk.model.Phone" resultType="com.jk.model.Models">
           select * from t_models where modelsid = #{id}
     </select>
 
     <select id="querySpec" resultType="com.jk.model.Spec">
         select * from t_spec
     </select>
+
+    <insert id="saveModels">
+        insert into t_models(id,name,modelsid,modelsdate,sort)
+        values(#{id},#{name},#{modelsid},#{modelsdate},#{sort})
+    </insert>
+
+    <select id="queryPhone2" resultType="com.jk.model.Phone">
+      select tp.* from t_models tm,t_phone tp,t_commodity tc
+        where tm.id = tc.modelsid and tm.modelsid = tp.id
+            and tc.id = #{id}
+    </select>
+
+    <select id="queryPhoneAll" resultType="long">
+        select count(*) from t_phone
+    </select>
+
+    <select id="queryPhoneList" resultType="com.jk.model.Phone">
+      select * from t_phone
+      limit #{st},#{end}
+    </select>
+
+    <select id="queryModlesAll" resultType="long">
+      select count(*) from t_models
+    </select>
+
+    <select id="queryModlesList" resultType="com.jk.model.Models">
+      select * from t_models
+      limit #{st},#{end}
+    </select>
+
+    <delete id="deleteModels">
+        delete from t_models where id = #{id}
+    </delete>
+
+    <select id="queryModelsById" resultType="com.jk.model.Models">
+      select * from t_models where id = #{id}
+    </select>
+
+    <update id="updateModels">
+      update t_models set name = #{name},modelsdate = #{modelsdate} where id = #{id}
+    </update>
+
+    <delete id="deleteAllModels">
+        delete from t_models where id in
+        <foreach item="item" collection="ids" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <insert id="savePhone">
+        insert into t_phone(id,name,sort,phonedate)
+        values(#{id},#{name},#{sort},#{phonedate})
+    </insert>
+
+    <delete id="deleteAllPhone">
+        delete from t_phone where id in
+        <foreach item="item" collection="ids" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="queryPhoneById" resultType="com.jk.model.Phone">
+        select * from t_phone where id = #{id}
+    </select>
+
+    <update id="updatePhone">
+        update t_phone set name = #{name} where id = #{id}
+    </update>
+
+    <delete id="deletePhone">
+        delete from t_phone where id = #{id}
+    </delete>
+
+    <select id="queryFood" resultType="long">
+        select count(*) from t_food
+    </select>
+
+    <select id="queryFoodList" resultType="com.jk.model.Food">
+      select tf.*,tt.type as showtype,tu.unit as showunit
+       from t_food tf,t_food_type tt,t_food_unit tu
+      where tf.typeid = tt.id and tf.unitid = tu.id
+      limit #{st},#{end}
+    </select>
+
+    <update id="updateAddedf">
+        update t_food set added = #{added} where id = #{id}
+    </update>
+
+    <update id="updateLabelf">
+        update t_food set label = #{label} where id = #{id}
+    </update>
+
+    <select id="queryTypeAll" resultType="com.jk.model.FoodType">
+        select * from t_food_type
+    </select>
+
+    <select id="queryUnitAll" resultType="com.jk.model.FoodUnit">
+        select * from t_food_unit
+    </select>
+
+    <insert id="saveFood">
+        insert into t_food(id,number,name,price,photo,spec,added,label,typeid,unitid)
+        values(#{id},#{number},#{name},#{price},#{photo},#{spec},#{added},#{label},#{typeid},#{unitid})
+    </insert>
+
+    <delete id="deleteAllFood">
+        delete from t_food where id in
+        <foreach item="item" collection="ids" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="queryFoodById" resultType="com.jk.model.Food">
+        select * from t_food where id = #{id}
+    </select>
+
+    <update id="updateFood">
+        update t_food set number = #{number},name = #{name},
+        price = #{price},photo = #{photo},spec = #{spec},
+        added = #{added},label = #{label},typeid = #{typeid},unitid = #{unitid}
+        where id = #{id}
+    </update>
+
+    <delete id="deleteFood">
+        delete from t_food where id  = #{id}
+    </delete>
+
+    <select id="queryMan" resultType="long">
+        select count(*) from t_man
+    </select>
+
+    <select id="queryManList" resultType="com.jk.model.Man">
+        select tm.*,tt.type as showtype
+        from t_man tm,t_man_type tt
+        where tm.typeid = tt.id
+        limit #{st},#{end}
+
+    </select>
+
+    <update id="updateManAdded">
+        update t_man set added = #{added} where id = #{id}
+    </update>
+
+    <select id="queryTypeMan" resultType="com.jk.model.ManType">
+        select * from t_man_type
+    </select>
+
+    <update id="updateLabelm">
+        update t_man set label = #{label} where id = #{id}
+    </update>
+
+    <insert id="saveMan">
+        insert into t_man(id,number,name,price,photo,spec,typeid,added,label)
+        values(#{id},#{number},#{name},#{price},#{photo},#{spec},#{typeid},#{added},#{label})
+    </insert>
+
+    <delete id="deleteAllMan">
+        delete from t_man where id in
+        <foreach item="item" collection="ids" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="queryManById" resultType="com.jk.model.Man">
+        select * from t_man where id = #{id}
+    </select>
+
+    <update id="updateMan">
+        update t_man set number = #{number},name = #{name},price = #{price},
+        spec = #{spec},label = #{label},photo = #{photo} where id = #{id}
+
+    </update>
+
+    <delete id="deleteMan">
+        delete  from t_man where id = #{id}
+    </delete>
+
+    <select id="queryManAll" resultType="long">
+        select count(*) from t_man_type
+    </select>
+
+    <select id="queryManAllList" resultType="com.jk.model.ManType">
+        select * from t_man_type
+        limit #{st},#{end}
+    </select>
+
+    <insert id="saveManType">
+        insert into t_man_type(id,type,sort,typedate)
+        values(#{id},#{type},#{sort},#{typedate})
+    </insert>
+
+    <delete id="deleteAllManType">
+        delete from t_man_type where id in
+        <foreach item="item" collection="ids" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="queryManTypeById" resultType="com.jk.model.ManType">
+        select * from t_man_type where id = #{id}
+    </select>
+
+    <update id="updateManType">
+        update t_man_type set type = #{type}, typedate = #{typedate} where id = #{id}
+    </update>
+
+    <delete id="deleteManType">
+        delete from t_man_type where id = #{id}
+    </delete>
+
+    <insert id="saveDetail">
+        insert into t_detail(id,photo1,photo2,photo3,photo4,detaildate,detailpid)
+        values (#{id},#{photo1},#{photo2},#{photo3},#{photo4},#{detaildate},#{detailpid})
+    </insert>
+
+    <insert id="saveFoodDetail">
+        insert into t_food_detail(id,photo1,photo2,photo3,photo4,detaildate,detailpid)
+        values (#{id},#{photo1},#{photo2},#{photo3},#{photo4},#{detaildate},#{detailpid})
+    </insert>
+
+    <insert id="saveManDetail">
+        insert into t_man_detail(id,photo1,photo2,photo3,photo4,detaildate,detailpid)
+        values (#{id},#{photo1},#{photo2},#{photo3},#{photo4},#{detaildate},#{detailpid})
+    </insert>
+
+
 
 
 </mapper>

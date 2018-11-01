@@ -15,7 +15,7 @@ public class Comm implements Serializable {
 
     private String price;  //价格
 
-    private Integer store;  //库存
+    private Integer store = 0;  //库存
 
     private Integer audit = 2;  //审核状态
 

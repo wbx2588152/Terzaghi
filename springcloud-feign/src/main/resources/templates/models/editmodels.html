@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.springframework.org/schema/jdbc">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../layui/css/layui.css" />
+    <script src="../layui/layui.all.js"></script>
+    <!-- 引入JQuery -->
+    <script type="text/javascript"
+            src="../EasyUI/jquery.min.js"></script>
+</head>
+<body align="center">
+
+<form class="layui-form" action="">
+    <br/>
+    <input type="hidden" name="id" th:value="${models.id}">
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">手机型号</label>
+            <div class="layui-input-inline">
+                <input type="text" name="name" th:value="${models.name}" lay-verify="" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit="" lay-filter="update">立即保存</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+    </div>
+</form>
+
+<script>
+    layui.use(['layer', 'form','laydate'], function() {
+        var layer = layui.layer
+            , laydate = layui.laydate
+            , form = layui.form;
+
+        form.on('submit(update)', function (data) {
+
+            var datas = data.field;
+            $.ajax({
+                url: '/comm/updateModels',
+                type: 'post',
+                data: datas,
+                dataType: 'JSON',
+                success: function (res) {
+
+
+                    var index = parent.layer.getFrameIndex(window.name);
+                    parent.layer.close(index);//关闭当前页
+                    layer.msg("修改成功", {icon: 1});
+                },
+                error: function () {
+                    layer.msg("修改失败", {icon: 6});
+                }
+            })
+
+            return false;
+        });
+    })
+</script>
+
+
+<script>
+    layui.use('form', function(){
+        var form = layui.form; //只有执行了这一步，部分表单元素才会自动修饰成功
+
+        //……
+
+        //但是，如果你的HTML是动态生成的，自动渲染就会失效
+        //因此你需要在相应的地方，执行下述方法来手动渲染，跟这类似的还有 element.init();
+        form.render();
+    });
+
+</script>
+</body>
+</html>
