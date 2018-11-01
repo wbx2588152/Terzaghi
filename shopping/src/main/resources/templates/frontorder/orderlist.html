@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <script src="../frontorder/hm.js.下载">
+    </script>
+    <script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?bc210cd22928076d28296716d9dfcf01";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()
+    </script>
+    <title>订单列表--MMall电商平台</title>
+    <link rel="shortcut icon" >
+    <link rel="stylesheet" href="../layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="../layui/css/modules/layer/default/layer.css" media="all">
+    <link href="../frontorder/common.css" rel="stylesheet">
+    <link href="../frontorder/order-list.css" rel="stylesheet">
+</head>
+<body>
+<div class="notice-con">
+    <div class="w">
+        <p class="notice"></p> <p class="notice"></a> </p> </div> </div> <div class="site-nav"> <div class="w"> <div class="user-info"> <span class="site-user not-login"> <span class="link link-login">登录</span> <span class="link link-register" href="./register.html">注册</span> </span> <span class="site-user login" style="display: inline;"> <span class="link-text">欢迎，<span class="username" id="uname"></span></span> <span class="link link-logout">退出</span> </span> </div> <ul class="nav-list"> <li class="nav-item"> <a class="link" href="http://www.happymmall.com/cart.html"> <i class="fa fa-shopping-cart"></i> 购物车(<span class="cart-count">0</span>)</a> </li> <li class="nav-item"> <a class="link" href="http://www.happymmall.com/order-list.html">我的订单</a> </li> <li class="nav-item"> <a class="link" href="http://www.happymmall.com/user-center.html">我的MMall</a> </li> <li class="nav-item"> <a class="link" href="http://www.happymmall.com/about.html">关于MMall</a> </li> </ul> </div> </div>
+<div class="header"> <div class="w"> <a class="logo" href="http://www.happymmall.com/index.html">MMall</a> <div class="search-form"> <input class="search-input" id="search-input" placeholder="请输入商品名称"> <button class="search-btn" id="search-btn">搜索</button> </div> </div> </div>
+<div class="crumb">
+    <div class="w">
+        <div class="crumb-list">
+            <a href="http://www.happymmall.com/index.html" class="crumb-item">MMall</a>
+            <span>&gt;</span>
+            <span class="crumb-item">我的订单</span>
+        </div>
+    </div>
+</div>
+<div class="order-list-wrap w">
+    <div class="left-con"><ul class="menu">    <li class="menu-item">  <a class="link" href="http://www.happymmall.com/user-center.html">个人中心</a> </li>   <li class="menu-item active">   <a class="link" href="http://www.happymmall.com/order-list.html">我的订单</a> </li>    <li class="menu-item">  <a class="link" href="http://www.happymmall.com/pass-update.html">修改密码</a> </li>    <li class="menu-item">  <a class="link" href="http://www.happymmall.com/about.html">关于MMall</a> </li>  </ul></div>
+    <div class="right-con">
+        <div class="panel">
+            <div class="panel-title">
+                我的订单
+            </div>
+            <div>
+                <div>
+                    <div >
+                        <table class="layui-table">
+                            <thead>
+                            <tr>
+                                <th class="order-list-cell cell-img">&nbsp;</th>
+                                <th class="order-list-cell cell-info">商品信息</th>
+                                <th class="order-list-cell cell-price">单价</th>
+                                <th class="order-list-cell cell-count">数量</th>
+                                <th class="order-list-cell cell-total">合计</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="commBean:${list}">
+                                <td class="order-list-cell cell-img">
+                                    <img th:src="${commBean.photo}">
+                                </td>
+                                <td class="order-list-cell cell-info" th:text="${commBean.number}"></td>
+                                <td class="order-list-cell cell-info" th:text="${commBean.price}"></td>
+                                <td class="order-list-cell cell-info" th:text="${commBean.comnum}"></td>
+                                <td class="order-list-cell cell-info" th:text="${commBean.price}"></td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                      <!--  <p class="err-tip">您暂时还没有订单</p>-->
+                    </div>
+                </div>
+                <div class="pagination"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer"> <div class="w"> <div class="links">
+    <a target="_blank" class="link" href="https://coding.imooc.com/">慕课网实战</a> |
+    <a target="_blank" class="link" href="https://www.imooc.com/u/198337">Rosen主页</a> |
+    <a target="_blank" class="link" href="https://www.imooc.com/t/2705746">Geely主页</a> |
+    <a target="_blank" class="link" href="https://www.imooc.com/u/5980627">Jimin主页</a>
+</div> <p class="copyright"> Copyright © 2018 happymmall.com All Rights Reserved </p>
+</div>
+</div>
+<script src="../frontorder/jquery.js.下载"></script>
+<script src="../layui/jquery.min.js"></script>
+<script src="../layui/layui.js"></script>
+<script type="text/javascript" src="../frontorder/base.js.下载"></script>
+<script type="text/javascript" src="../frontorder/common.js.下载"></script>
+<script type="text/javascript" src="../frontorder/order-list.js.下载"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+</body>
+</html>

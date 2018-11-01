@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="../layui/css/modules/layer/default/layer.css" media="all">
+</head>
+<body>
+<form class="layui-form" action="">
+   <!-- <div class="layui-form-item">
+        <label class="layui-form-label">输入框</label>
+        <div class="layui-input-block">
+            <input type="text" name="title" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+        </div>
+    </div>-->
+    <div class="layui-form-item">
+        <!--<label class="layui-form-label">
+            <button class="layui-btn " onclick="generategoodnum()">生成发货单号</button>
+            </label>-->
+        <div class="layui-input-block">
+            <button class="layui-btn layui-btn-radius layui-btn-warm" onclick="generategoodnum()">生成发货单号</button>
+            <input type="text" name="aaa" id="te1" required lay-verify="required"  autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">快递公司</label>
+        <div class="layui-input-block">
+            <select  required lay-verify="required" id="sel1">
+                <option value=""></option>
+                <option value="顺丰快递">顺丰快递</option>
+                <option value="韵达快递">韵达快递</option>
+                <option value="中国邮政">中国邮政</option>
+                <option value="申通快递">申通快递</option>
+                <option value="百世快递">百世快递</option>
+            </select>
+        </div>
+    </div>
+   
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button type="reset" class="layui-btn layui-btn-danger">重置</button>
+        </div>
+    </div>
+</form>
+
+
+<script src="../js/jquery.min.js"></script>
+<script src="../layui/layui.js"></script>
+<script>
+    //Demo
+    layui.use('form', function(){
+        var form = layui.form;
+
+        /*//监听提交
+        form.on('submit(formDemo)', function(data){
+            layer.msg(JSON.stringify(data.field));
+            return false;
+        });*/
+        form.render();
+    });
+    
+    function generategoodnum() {
+        $.ajax({
+            url:'/order/generategoodnum',
+            type:'post',
+            data:{},
+            dataType:'json',
+            success:function(result){
+               $("#te1").val(result);
+            }
+
+        })
+    }
+
+
+</script>
+
+</body>
+</html>

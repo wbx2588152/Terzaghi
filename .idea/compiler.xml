@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="rabbitlistener" />
         <module name="service-api" />
+        <module name="springcloud-coupon-client" />
         <module name="shopping" />
         <module name="springcloud-coupon-client" />
         <module name="springcloud-eureka-client" />

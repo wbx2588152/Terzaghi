@@ -17,7 +17,7 @@ public interface UserMapper extends MyMapper<User> {
 
     void updateByExampleSelective(User user, Example example);
 
-    void updateLoginTime(@Param("ln") String loginname, @Param("date")Date date);
+    void updateLoginTime(@Param("ln") String loginname, @Param("date") Date date);
 
     User findUserByName(String username);
 

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="../layui/css/modules/layer/default/layer.css" media="all">
+</head>
+<body>
+<div >
+
+    搜索姓名：
+    <div class="layui-inline">
+        <input class="layui-input" name="name" id="uname" autocomplete="off">
+    </div>
+    搜索时间：
+    <div class="layui-inline">
+        <input class="layui-input" name="name" id="ttime" autocomplete="off">
+    </div>
+    <button class="layui-btn" data-type="reload" onclick="initTable()">搜索</button>
+
+    <button class="layui-btn" onclick="alertmethod()">
+        <i class="layui-icon">&#xe608;</i> 添加
+    </button>
+</div>
+<div align="center" style="margin-top:20px">
+    <button class="layui-btn  layui-btn-normal" onclick="alertmergepage()">
+        <i class="layui-icon">&#xe608;</i> 合并订单
+    </button>
+
+</div >
+
+<table id="demo" lay-filter="test" ></table>
+
+<div class="layui-inline" style="float: right">
+<button class="layui-btn layui-btn-primary" id="bt1">关闭订单<i class="layui-icon layui-icon-spread-left"></i></button>
+<button class="layui-btn layui-btn-primary" id="bt2">删除订单<i class="layui-icon layui-icon-shrink-right"></i></button>
+</div >
+<script src="../js/jquery.min.js"></script>
+<script src="../layui/layui.js"></script>
+<script>
+
+
+    $("#bt1").mouseover(function(){
+        layui.use('layer', function(){
+            var layer = layui.layer;
+            layer.msg('说明：<br>关闭订单只包括未付款状态的订单', {
+                icon: 4,
+                time: 1000 //2秒关闭（如果不配置，默认是3秒）
+            }, function(){
+                //do something
+            });
+        });
+    })
+    $("#bt2").mouseover(function(){
+        layui.use('layer', function(){
+            var layer = layui.layer;
+            layer.msg('说明：<br>删除订单只包括已完成状态的订单', {
+                icon: 5,
+                time: 1000 //2秒关闭（如果不配置，默认是3秒）
+            }, function(){
+                //do something
+            });
+        });
+    })
+    layui.use('laydate', function(){
+        var laydate = layui.laydate;
+
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#ttime' //指定元素
+        });
+    });
+
+    /*<input class="layui-btn layui-col-md2" value="提交" onclick="reloadmethod()">
+        </div>
+        <div class="layui-row" pane>
+    <input class="layui-btn layui-col-md2" value="新增" onclick="alertmethod()">
+        </div>*/
+
+    $(function () {
+        initTable();
+    })
+
+
+
+    function initTable() {
+        layui.use('table', function () {
+            var table = layui.table;
+
+            //第一个实例
+            table.render({
+                elem: '#demo',
+                height: 312,
+                url: '../order/queryorderlist', //数据接口
+                page: true, //开启分页
+                where: {orderid:$("#uname").val(),
+                    subdate:$("#ttime").val()
+                },
+                toolbar:true,
+               // totalRow: true, //开启合计行
+                defaultToolbar:['filter', 'print', 'exports'],
+                cols: [
+                    [
+                        {field: 'orderid', title: '订单编号',sort: true, fixed: 'left',width:60,type:'checkbox'},
+                        {field: 'orderid', title: '订单编号',sort: true, fixed: 'left',width:185},
+                        {field: 'subtime', title: '提交时间', width:170},
+                        {field: 'showuseraccount', title: '用户账号', sort: true,width:100},
+                        {field: 'showprice', title: '订单金额',width:100},
+                        {field: 'paymethod', title: '支付方式',width:100,
+                            templet: function(d){
+                                if(d.orderstatus=='1'){
+                                    return "未支付";
+                                }
+                                else{
+                                    return "支付宝";
+                                }
+                            }
+                        },
+                        {field: 'ordersource', title: '订单来源', sort: true,width:100,
+                            templet: '<div>电脑订单</div>'
+                        },
+                        {field: 'orderstatus', title: '订单状态',  sort: true,width:100,
+                            templet: '#titleTp2'
+                        },
+                        {field: 'chakan', title: '查看',  sort: true,width:100,
+                            templet: '<div><a href="../order/toshowdetail?orderid={{d.orderid}}" class="layui-table-link">查看详情</a></div>'
+
+                        },
+                        {field: 'caozuo', title: '操作',sort: true,width:100,
+                            templet:function(d){
+                                if(d.orderstatus == '1'){
+                                    return '<a href="javascript:delorderbyid(\''+d.orderid+'\')" class="layui-table-link">关闭订单</a></div>';
+                                }
+                                if(d.orderstatus == '2'){
+                                    return '<a href="javascript:alertdeliverpage(\''+d.orderid+'\')" class="layui-table-link">订单发货</a></div>';
+                                }
+                                if(d.orderstatus == '3'){
+                                    return '<a href="javascript:alertorderid(\''+d.orderid+'\')" class="layui-table-link">订单跟踪</a></div>';
+                                }
+                                if(d.orderstatus == '4'){
+                                    return '<a href="javascript:alertorderid(\''+d.orderid+'\')" class="layui-table-link">订单跟踪</a></div>';
+                                }
+                                if(d.orderstatus == '5'){
+                                    return '<a href="javascript:delorderbyid(\''+d.orderid+'\')" class="layui-table-link">删除订单</a></div>';
+                                }
+
+                            }
+                        }
+
+                    ]
+                ]
+            });
+
+        });
+    }
+
+
+    function alertorderid(orderid) {
+        alert(orderid);
+    }
+    function reloadmethod() {
+        initTable();
+    }
+
+function alertdeliverpage(orderid){
+    layui.use('layer', function(){
+        var layer = layui.layer;
+        layer.open({
+            title:'订单发货',
+            type: 2,
+            content: '../order/todelivergood', //这里content是一个URL，如果你不想让iframe出现滚动条，你还可以content: ['http://sentsin.com', 'no']
+            resize:true,
+            area: ['550px', '300px'],
+            btn: ['确认发货', '取消']
+            ,yes: function(index, layero) {
+                var body = layer.getChildFrame('body', index);
+              /*  var iframeWin = window[layero.find('iframe')[0]['name']]; 得到iframe页的窗口对象，执行iframe页的方法：iframeWin.method();
+                console.log(body.html()) //得到iframe页的body内容*/
+               var te1 = body.find('input[name="aaa"]').val();
+               var te2= body.find('select').val();
+                $.ajax({
+                    url: '../order/savedeliverdata',
+                    type: 'post',
+                    data: {
+                        consignnum: te1,
+                        expresscompany:te2,
+                        orderid:orderid
+                    },
+                    dataType: 'json',
+                    success: function (result) {
+
+                    }
+                })
+              initTable();
+                layer.close(index);
+            }
+            ,btn2: function(index, layero){
+                layer.close(index);
+    }
+            ,cancel: function(index,layero){
+                layer.close(index);
+            }
+        });
+
+    });
+}
+
+
+
+
+
+
+
+    function delorderbyid(userid){
+        $.ajax({
+            url:'../order/delorderbyid',
+            type:'post',
+            data:{
+                orderid:userid
+            },
+            success:function(){
+
+                initTable();
+                layui.use('layer', function(){
+                    var layer = layui.layer;
+                    layer.msg('删除成功');
+                });
+            }
+        })
+
+    }
+
+    function alertmergepage() {
+        layui.use('layer', function () {
+            var layer = layui.layer;
+            layer.open({
+                type: 1,
+                title: '<div class="layui-bg-gray" style="font-size:25px">合并订单：说明</div>',
+                content: '<div style="font-size:14px;font-family: Cambria;">\n' +
+                    '    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;根据收货人和收货地址来自动合单，当两个订单不一致时，合并后的订单信息（如支付方式、配送方式、活动优惠等）以主订单为准。\n' +
+                    '</div>\n' +
+                    '<br>',
+                area: ['400px', '200px'],
+                btn: ['自动合单', '取消']
+                ,yes: function(index, layero) {
+                    $.ajax({
+                        url: '../order/automergerorder',
+                        type: 'post',
+                        data: {
+                        },
+                        dataType: 'json',
+                        success: function (result) {
+
+                        }
+                    })
+                    initTable();
+                    layer.close(index);
+                }
+                ,btn2: function(index, layero){
+                    layer.close(index);
+                }
+                ,cancel: function(index,layero){
+                    layer.close(index);
+
+                }
+            })
+        })
+
+    }
+
+   /* function alertmergepage() {
+        layui.use('layer', function () {
+            var layer = layui.layer;
+            layer.open({
+                type: 2,
+                title: '<div class="layui-bg-gray" style="font-size:25px">合并订单</div>',
+                content: '../order/tomergepage',
+                area: ['600px', '400px'],
+                btn: ['确认合单', '取消']
+                ,yes: function(index, layero) {
+                    var body = layer.getChildFrame('body', index);
+                    var sel= body.find('select').val();
+                    var  tt= body.find('input[name="title"]').val();
+                    alert(tt);
+                    $.ajax({
+                        url: '../order/mergerorders',
+                        type: 'post',
+                        data: {
+                            mainorder: sel,
+                            subarr:tt
+                        },
+                        dataType: 'json',
+                        success: function (result) {
+
+                        }
+                    })
+                    initTable();
+                    layer.close(index);
+
+                }
+                ,btn2: function(index, layero){
+                    layer.close(index);
+                }
+                ,cancel: function(index,layero){
+                    layer.close(index);
+                }
+            })
+        })
+    }
+*/
+</script>
+
+
+
+
+<script type="text/html" id="titleTp2" >
+    {{#  if(d.orderstatus === '1'){ }}
+    待付款
+    {{#  } }}
+    {{#  if(d.orderstatus === '2'){ }}
+    待发货
+    {{#  } }}
+    {{#  if(d.orderstatus === '3'){ }}
+    已发货
+    {{#  } }}
+    {{#  if(d.orderstatus === '4'){ }}
+    已完成
+    {{#  } }}
+    {{#  if(d.orderstatus === '5'){ }}
+    已关闭·
+    {{#  } }}
+</script>
+<!--templet:function(d){
+if(d.audit == 1){
+return "已审核";
+}
+if(d.audit == 2){
+return "未审核";
+}
+}-->
+ <!--templet: '<div><button onclick="delorderbyid({{d.orderid}})" class="layui-btn layui-btn-sm layui-btn-radius layui-btn-danger">删除订单</button></div>'-->
+
+
+</body>
+</html>
