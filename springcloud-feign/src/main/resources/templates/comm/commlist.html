@@ -82,7 +82,7 @@
                         /*{type: 'checkbox', fixed: 'left'},*/
                         {field: 'number', title: '编号', width: 80, align: "center"},
                         {field: 'showname', title: '商品名称', width: 100 /*sort: true, totalRow: true*/},
-                        {field: 'photo', title: '商品图片', width: 100, align: 'center', templet: '<div><img src="../{{ d.photo }}"></div>', style: 'height:50px;width:48px;line-height:48px!important;'},
+                        {field: 'photo', title: '商品图片', width: 100, align: 'center', templet: '<div><img src="{{ d.photo }}"></div>', style: 'height:50px;width:48px;line-height:48px!important;'},
                         {field: 'price', title: '商品价格', width: 100},
                         {field: 'added', title: '上/下架', width: 100,
                             templet:function(d){
