@@ -10,6 +10,24 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 public interface CommMapper {
+
+                    /*
+                     * 前台页面
+                     *
+                     *
+                     * */
+
+    List<Comm> getComm();
+
+    Comm getDetail(@Param("id") String id );
+
+
+
+                    /*
+                     * 后台页面
+                     *
+                     *
+                     * */
     long queryComm(@Param("comm") Comm comm);
 
     List<Comm> queryCoomList(@Param("st") int start, @Param("end") int end, @Param("comm") Comm comm);
@@ -42,15 +60,102 @@ public interface CommMapper {
 
     List<Spec> querySpec();
 
+    void saveModels(Models models);
 
-                /*
-                * 前台页面
-                *
-                *
-                * */
+    Phone queryPhone2(@Param("id") String id);
 
-    List<Comm> getComm();
+    long queryPhoneAll(@Param("phone") Phone phone);
 
+    List<Comm> queryPhoneList(@Param("st")int start, @Param("end")int end, @Param("phone")Phone phone);
 
-    Comm getDetail(@Param("id") String id );
+    long queryModlesAll(@Param("modles") Models models);
+
+    List<Comm> queryModlesList(@Param("st") int start, @Param("end") int end, @Param("modles") Models models);
+
+    void deleteModels(@Param("id") String id);
+
+    Models queryModelsById(@Param("id") String id);
+
+    void updateModels(Models models);
+
+    int deleteAllModels(@Param("ids") String[] split);
+
+    void savePhone(Phone phone);
+
+    int deleteAllPhone(@Param("ids") String[] split);
+
+    Phone queryPhoneById(@Param("id") String id);
+
+    void updatePhone(Phone phone);
+
+    void deletePhone(@Param("id") String id);
+
+    long queryFood(Food food);
+
+    List<Food> queryFoodList(@Param("st")int start, @Param("end")int end, @Param("food")Food food);
+
+    void updateAddedf(Food food);
+
+    void updateLabelf(Food food);
+
+    List<FoodType> queryTypeAll();
+
+    List<FoodUnit> queryUnitAll();
+
+    void saveFood(Food food);
+
+    int deleteAllFood(@Param("ids")String[] split);
+
+    Food queryFoodById(@Param("id")String id);
+
+    void updateFood(Food food);
+
+    void deleteFood(@Param("id") String id);
+
+    long queryMan(Man man);
+
+    List<Food> queryManList(@Param("st") int start, @Param("end") int end, @Param("man") Man man);
+
+    void updateManAdded(Man man);
+
+    List<ManType> queryTypeMan();
+
+    void updateLabelm(Man man);
+
+    void saveMan(Man man);
+
+    int deleteAllMan(@Param("ids") String[] split);
+
+    Man queryManById(@Param("id") String id);
+
+    void updateMan(Man man);
+
+    void deleteMan(@Param("id") String id);
+
+    long queryManAll(ManType mantype);
+
+    List<Food> queryManAllList(@Param("st") int start, @Param("end") int end, @Param("type") ManType mantype);
+
+    void saveManType(ManType manType);
+
+    int deleteAllManType(@Param("ids") String[] split);
+
+    ManType queryManTypeById(@Param("id") String id);
+
+    void updateManType(ManType manType);
+
+    void deleteManType(@Param("id") String id);
+
+    void saveDetail(Detail detail);
+
+    void saveFoodDetail(FoodDetail foddetail);
+
+    void saveManDetail(ManDetail manDetail);
+
+    Detail getDetail2(@Param("id") String id);
+
+    List<Man> getMan();
+
+    List<Food> getFood();
 }
+

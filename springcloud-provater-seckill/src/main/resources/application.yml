@@ -1,8 +1,13 @@
 server:
-  port: 8083
+  port: 8082
 spring:
   application:
     name: service-seckill
+    rabbitmq:
+      host: localhost
+      password: admin
+      port: 5672
+      username: admin
 
   datasource:
     drivervlassname: com.mysql.jdbc.Driver

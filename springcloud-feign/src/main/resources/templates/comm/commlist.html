@@ -10,6 +10,7 @@
     <!-- 引入JQuery -->
     <script type="text/javascript"
             src="../EasyUI/jquery.min.js"></script>
+
 </head>
 <body>
 
@@ -23,11 +24,12 @@
     </div>
 </script>
 
-<script type="text/html" id="barDemo">
+<!--<script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-xs layui-btn-normal" lay-event="models">新增下级</a>
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="down">拒绝通过</a>
     <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
-</script>
+</script>-->
 <!--<script type="text/html" id="barDemo">
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="down">拒绝通过</a>
     <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
@@ -49,7 +51,7 @@
                 /*,carousel = layui.carousel //轮播*/
                 , upload = layui.upload //上传
                 , element = layui.element //元素操作
-                /* ,slider = layui.slider //滑块*/
+                ,slider = layui.slider //滑块
                 , form = layui.form //表单
 
 
@@ -79,9 +81,9 @@
                         {checkbox: true, align: 'center', LAY_CHECKED: false, filter: 'test'},
                         /*{type: 'checkbox', fixed: 'left'},*/
                         {field: 'number', title: '编号', width: 80, align: "center"},
-                        {field: 'showname', title: '商品名称', width: 100 /*sort: true, totalRow: true*/},
-                        {field: 'photo', title: '商品图片', width: 100, align: 'center', templet: '<div><img src="../{{ d.photo }}"></div>', style: 'height:50px;width:48px;line-height:48px!important;'},
-                        {field: 'price', title: '商品价格', width: 100},
+                        {field: 'showname', title: '手机名称', width: 100 /*sort: true, totalRow: true*/},
+                        {field: 'photo', title: '手机图片', width: 100, align: 'center',templet:'<div><img src="{{ d.photo}}"></div>', style: 'height:50px;width:48px;line-height:48px!important;'},
+                        {field: 'price', title: '手机价格', width: 100},
                         {field: 'added', title: '上/下架', width: 100,
                             templet:function(d){
                                 if(d.added == 1){
@@ -119,11 +121,14 @@
                                 }
                             }
                         },
-                        {field: 'detail', title: '详情', width: 80,
+                        {field: 'detailid', title: '详情', width: 80,
                             templet:function(d){
-                                if(d.detail != ""){
+                                if(d.added == 1){
                                     /*return '<button class="layui-btn layui-btn-primary layui-btn-xs" onclick="queryDetail(\''+d.id+'\')">详情</button>'*/
-                                    return '<button class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">详情</button>'
+                                    return '<button class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">新增详情</button>'
+                                } else if(d.added != 1){
+                                    /*return '<button class="layui-btn layui-btn-primary layui-btn-xs" onclick="queryDetail(\''+d.id+'\')">详情</button>'*/
+                                    return '<button class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">新增详情</button>'
                                 }
                             }
                         },
@@ -141,24 +146,40 @@
 
                             }
                         },
-                        {field: 'right', title: '操作',align:"center", /*toolbar: '#barDemo',*/ width: 200,
+                        {field: '123', title: '设置',align:"center", /*toolbar: '#barDemo',*/ width: 170,
+                            templet: function (d) {
+                                if(d.added == 1){
+                                    return  '<button class="layui-btn layui-btn-xs layui-btn-normal" lay-event="models">新增下级</button>'+
+                                            '<button class="layui-btn layui-btn-xs layui-btn-normal" onclick="models2(\''+d.id+'\')">查看下级</button>';
+
+
+                                }
+                                if(d.added !=1 ){
+                                    return  '<button class="layui-btn layui-btn-xs layui-btn-normal" lay-event="models">新增下级</button>'+
+                                            '<button class="layui-btn layui-btn-xs layui-btn-normal" onclick="models2()">查看下级</button>';
+
+                                }
+                            }
+                        },
+                        {field: 'right', title: '操作',align:"center", /*toolbar: '#barDemo',*/ width: 250,
                             templet: function (d) {
                                 if(d.audit == 2){
-                                    return'<button  class="layui-btn layui-btn-danger layui-btn-xs" onclick="upAudit1(\''+d.id+'\',\''+d.audit+'\')">拒绝通过</button>'+
-                                        '<button class="layui-btn layui-btn layui-btn-xs" lay-event="edit">编辑</button>'+
-                                        '<button class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</button>';
-                                    ;
+                                      return'<button class="layui-btn layui-btn-danger layui-btn-xs" onclick="upAudit1(\''+d.id+'\',\''+d.audit+'\')">拒绝通过</button>'+
+                                            '<button class="layui-btn layui-btn layui-btn-xs" lay-event="edit">编辑</button>'+
+                                            '<button class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</button>';
+                                        ;
                                 }
                                 if(d.audit !=2 ){
-                                    return '<button class="layui-btn layui-btn layui-btn-xs" lay-event="edit">编辑</button>'+
-                                        '<button class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</button>';
+
+                                    return'<button class="layui-btn layui-btn layui-btn-xs" lay-event="edit">编辑</button>'+
+                                          '<button class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</button>';
                                 }
                             }
                         }
 
                     ]
                 ],
-                id: 'testReload'
+                id: 'testReload',
             });
 
 
@@ -213,7 +234,7 @@
                         type: 2,
                         title: '修改配置',
                         skin: 'layui-layer-rim', //加上边框
-                        area: ['700px', '650px'], //宽高
+                        area: ['700px', '500px'], //宽高
                         method: 'get',
                         content: '/comm/toEditComm?id='+data.id,
 
@@ -234,37 +255,26 @@
 
                         layer.close(index);
                     });
-                }else if (layEvent === 'down') {
-
-                    function upAudit1(id,audit1){
-                        var checkStatus = table.checkStatus('testReload')
-                            , data = checkStatus.data;
-                        var num = 2;
-                        if(audit1 == 2){
-                            num = 3;
-                        }
-                        $.ajax({
-                            url:'/comm/updateAudit1',
-                            data: {'id': data.id},
-                            type:'post',
-                            data:{
-                                id:id,
-                                audit:num
-                            },
-                            datatype:'json',
-                            success:function(result){
-                                initsearch();
-                            }
-                        })
-                    }
                 } else if (layEvent === 'detail') {
                     layer.open({
                         type: 2,
                         title: '详情',
                         skin: 'layui-layer-rim', //加上边框
-                        area: ['500px', '600px'], //宽高
+                        area: ['500px', '500px'], //宽高
                         method: 'post',
                         content: '/comm/queryDetail?id=' + data.id,
+
+                    });
+                } else if (layEvent === 'models') {
+                    layer.open({
+                        type: 2,
+                        title: '新增型号',
+                        skin: 'layui-layer-rim', //加上边框
+                        area: ['500px', '300px'], //宽高
+                        content: '/comm/toAddModels?id='+data.id,
+                        end: function () {
+                            location.reload();
+                        }
 
                     });
                 }
@@ -332,7 +342,7 @@
     function upAudit2(id,audit2){
         var num = 2;
         if(audit2 == 2){
-            num = 1;
+           num = 1;
         }
         $.ajax({
             url:'/comm/updateAudit2',
@@ -347,87 +357,99 @@
             }
         })
     }
-    //审核状态
-    function upAudit2(id,audit2){
-        var num = 2;
-        if(audit2 == 2){
-            num = 1;
-        }
-        $.ajax({
-            url:'/comm/updateAudit2',
-            type:'post',
-            data:{
-                id:id,
-                audit:num
-            },
-            datatype:'json',
-            success:function(result){
-                initsearch();
+        //审核状态
+        function upAudit2(id,audit2){
+            var num = 2;
+            if(audit2 == 2){
+               num = 1;
             }
-        })
-    }
-
-    //拒绝通过
-    function upAudit1(id,audit1){
-        var num = 2;
-        if(audit1 == 2){
-            num = 3;
+            $.ajax({
+                url:'/comm/updateAudit2',
+                type:'post',
+                data:{
+                    id:id,
+                    audit:num
+                },
+                datatype:'json',
+                success:function(result){
+                    initsearch();
+                }
+            })
         }
-        $.ajax({
-            url:'/comm/updateAudit1',
-            type:'post',
-            data:{
-                id:id,
-                audit:num
-            },
-            datatype:'json',
-            success:function(result){
-                initsearch();
-            }
-        })
-    }
 
-    //上架，下架
-    function upAdded(id,added){
-        var num = 2;
-        if(added == 2){
-            num = 1;
+        //拒绝通过
+        function upAudit1(id,audit1){
+            var num = 2;
+            if(audit1 == 2){
+                num = 3;
+            }
+            $.ajax({
+                url:'/comm/updateAudit1',
+                type:'post',
+                data:{
+                    id:id,
+                    audit:num
+                },
+                datatype:'json',
+                success:function(result){
+                    initsearch();
+                }
+            })
         }
-        $.ajax({
-            url:'/comm/upAdded',
-            type:'post',
-            data:{
-                id:id,
-                added:num
-            },
-            datatype:'json',
-            success:function(result){
-                initsearch();
-            }
-        })
-    }upLabel
 
-    //商品标签
-    function upLabel(id,label){
-        var num = 2;
-        if(label == 2){
-            num = 1;
+        //上架，下架
+        function upAdded(id,added){
+            var num = 2;
+            if(added == 2){
+                num = 1;
+            }
+            $.ajax({
+                url:'/comm/upAdded',
+                type:'post',
+                data:{
+                    id:id,
+                    added:num
+                },
+                datatype:'json',
+                success:function(result){
+                    initsearch();
+                }
+            })
+        }upLabel
+
+        //商品标签
+        function upLabel(id,label){
+            var num = 2;
+            if(label == 2){
+                num = 1;
+            }
+            $.ajax({
+                url:'/comm/updateLabel',
+                type:'post',
+                data:{
+                    id:id,
+                    label:num
+                },
+                datatype:'json',
+                success:function(result){
+                    initsearch();
+                }
+            })
         }
-        $.ajax({
-            url:'/comm/updateLabel',
-            type:'post',
-            data:{
-                id:id,
-                label:num
-            },
-            datatype:'json',
-            success:function(result){
-                initsearch();
-            }
-        })
-    }
 
+        function models2(id){
 
+        location.href='/comm/toModelsAll?id='+id;
+            /*$.ajax({
+                url:'/comm/queryPhoneAll',
+                type:'post',
+                data:{},
+                dataTyoe:'json',
+                success:function(result){
+
+                }
+            })*/
+        }
 
 
 </script>

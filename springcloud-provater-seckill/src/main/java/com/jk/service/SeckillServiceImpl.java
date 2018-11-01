@@ -3,7 +3,10 @@ package com.jk.service;
 import com.jk.mapper.SeckillMapper;
 import com.jk.model.*;
 import com.jk.service.seckill.SeckilServiceApi;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,6 +21,7 @@ import java.util.Map;
  * @Description:
  */
 @RestController
+@Component
 public class SeckillServiceImpl implements SeckilServiceApi {
 
     @Autowired
@@ -204,6 +208,16 @@ public class SeckillServiceImpl implements SeckilServiceApi {
     @Override
     public void saveTimeLimit(@RequestBody TimeLimitSeckill timeLimitSeckill) {
         seckillMapper.saveTimeLimit(timeLimitSeckill);
+    }
+
+    @RabbitListener(queues = "logqueue")
+    public void updateSeckill(String seckillId) {
+        SeckilCommodity seckilCommodity = seckillMapper.querySeckillComInfoById(seckillId);
+        if(seckilCommodity != null){    //如果是限量秒杀的商品在生成订单的时候库存减一
+            seckillMapper.updateCommInfo(seckillId);
+        }else{//那就是限时秒杀表 限时秒杀已购买的数量加一且库存减一
+            seckillMapper.updateTImeLimitById(seckillId);
+        }
     }
 
 

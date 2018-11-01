@@ -6,13 +6,12 @@ import com.jk.config.AlipayConfig;
 import com.jk.model.*;
 import com.jk.service.seckill.SeckilServiceApi;
 import com.jk.utils.IdWorker;
+import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -29,11 +28,14 @@ import com.alipay.api.AlipayClient;
  */
 @Controller
 @RequestMapping("seckill")
+@Component
 public class SeckillController {
 
     @Autowired
     private SeckilServiceApi seckilServiceApi;
 
+    @Autowired
+    private AmqpTemplate amqpTemplate;
 
     /**
      * 加载提交订单的商品列表
@@ -197,18 +199,20 @@ public class SeckillController {
      */
     @RequestMapping(value = "/goAlipay", produces = "text/html; charset=UTF-8")
     @ResponseBody
+    @GetMapping
     public String goAlipay(String seckillId,String regionId,String id,String name, String artNo, String seckillPrice, String commmondityImg,String commmondityCount, HttpServletRequest request, HttpServletRequest response) throws Exception {
 
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute(session.getId());
 
         //根据id查看是否是限量秒杀的商品
-        SeckilCommodity seckilCommodity = seckilServiceApi.querySeckillComInfoById(seckillId);
+        /*SeckilCommodity seckilCommodity = seckilServiceApi.querySeckillComInfoById(seckillId);
         if(seckilCommodity != null){    //如果是限量秒杀的商品在生成订单的时候库存减一
             seckilServiceApi.updateCommInfo(seckillId);
         }else{//那就是限时秒杀表 限时秒杀已购买的数量加一且库存减一
             seckilServiceApi.updateTImeLimitById(seckillId);
-        }
+        }*/
+        amqpTemplate.convertAndSend("logqueue",seckillId);
 
         //生成唯一订单号
         IdWorker idWorker = new IdWorker(1, 0);
@@ -216,7 +220,7 @@ public class SeckillController {
         String dingDanHao = String.valueOf(idWork);
 
         //生成订单
-        OrderBean orderBean = new OrderBean();
+       /* OrderBean orderBean = new OrderBean();
         orderBean.setOrderid(dingDanHao);
         //orderBean.setLinkuserid(user.getId());
         orderBean.setLinkuserid("3");   //登录未实现先用死数据
@@ -225,7 +229,7 @@ public class SeckillController {
         orderBean.setPaystatus("2");    //未付款状态
         orderBean.setOrderstatus("1");  //未发货状态
         orderBean.setSubtime(new Date());   //提交时间
-        seckilServiceApi.addOrderInfo(orderBean);
+        seckilServiceApi.addOrderInfo(orderBean);*/
 
         //获得初始化的AlipayClient
         AlipayClient alipayClient = new DefaultAlipayClient(AlipayConfig.gatewayUrl, AlipayConfig.app_id, AlipayConfig.merchant_private_key, "json", AlipayConfig.charset, AlipayConfig.alipay_public_key, AlipayConfig.sign_type);

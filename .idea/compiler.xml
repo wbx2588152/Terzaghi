@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="rabbitlistener" />
         <module name="service-api" />
         <module name="shopping" />
         <module name="springcloud-coupon-client" />
@@ -21,6 +22,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="demo" target="1.8" />
       <module name="scEureka" target="1.7" />
       <module name="springboot-test01" target="1.5" />
       <module name="springboot01" target="1.5" />
