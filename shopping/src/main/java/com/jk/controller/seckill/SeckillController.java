@@ -54,8 +54,6 @@ public class SeckillController {
     @Autowired
     private MongoTemplate mongoTemplate;
 
-    private static final String QUEUE_NAME="QUEUE_simple";
-
     /**
      * 加载提交订单的商品列表
      * */
@@ -122,15 +120,6 @@ public class SeckillController {
 
         Date date = new Date();     //订单统一提交时间
         String[] split = ids.split(",");
-        //定义连接工厂
-        Connection connection = ConnectionUtils.getConnection();
-        /*从连接中创建通道*/
-        Channel channel = connection.createChannel();
-        //创建队列 (声明)  因为我们要往队列里面发送消息,这是后就得知道往哪个队列中发送,就好比在哪个管子里面放 水,
-        boolean durable=false;
-        boolean exclusive=false;
-        boolean autoDelete=false;
-        channel.queueDeclare(QUEUE_NAME, durable, exclusive, autoDelete, null);//如果这个队列不存在,其实 这句话是不需要的
 
         for (int i =0;i<split.length;i++){
             String id = split[i].substring(1,split[i].length()-1);
@@ -154,10 +143,7 @@ public class SeckillController {
                         orderBean.setOrderstatus("1");  //未发货状态
                         orderBean.setSubtime(date);   //提交时间
                         orderBean.setCouid(couid);
-                        String order = JSON.toJSONString(orderBean);
-                        channel.basicPublish("", QUEUE_NAME, null, order.getBytes());
-                        System.out.println("发送了一条消息给rabbit队列");
-                        //mongoTemplate.save(orderBean);
+                        mongoTemplate.save(orderBean);
                     }
                 }
             }

@@ -23,6 +23,7 @@
         <option value="$PROJECT_DIR$/springcloud-provater-seckill/pom.xml" />
         <option value="$PROJECT_DIR$/shopping/pom.xml" />
         <option value="$PROJECT_DIR$/springcloud-topo/pom.xml" />
+        <option value="$PROJECT_DIR$/rabbitlistener/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

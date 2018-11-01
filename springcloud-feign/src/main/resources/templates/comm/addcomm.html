@@ -34,7 +34,8 @@
         <div class="layui-inline">
             <label class="layui-form-label">手机名称</label>
             <div class="layui-input-inline">
-                <select name="nameid" lay-verify="nameid" id="nameid" lay-search="">
+                <select name="nameid" lay-verify="nameid" lay-filter="nameid" id="nameid" lay-search="">
+
                 </select>
             </div>
         </div>
@@ -111,11 +112,9 @@
 
 
 <script>
-
     layui.use('upload', function(){
         var $ = layui.jquery
             ,upload = layui.upload;
-
         //普通图片上传
         var uploadInst = upload.render({
             elem: '#test1'
@@ -123,9 +122,7 @@
             ,before: function(obj){
                 //预读本地文件示例，不支持ie8
                 obj.preview(function(index, file, result){
-
                     $('#demo1').attr('src', result); //图片链接（base64）
-
                 });
             }
             ,done: function(res){
@@ -145,16 +142,14 @@
                 });
             }
         });
-
     });
 </script>
 
-    <script>
-        layui.use(['layer', 'form','laydate'], function(){
-            var layer = layui.layer
-                ,laydate=layui.laydate
-                ,form = layui.form;
-
+<script>
+    layui.use(['layer', 'form','laydate'], function(){
+        var layer = layui.layer
+            ,laydate=layui.laydate
+            ,form = layui.form;
         form.on('submit(add)', function(data){
             var datas=data.field;
             $.ajax({
@@ -163,7 +158,6 @@
                 data:datas,
                 dataType:'JSON',
                 success:function(res){
-
                     layer.msg("新增成功",{icon:1});
                     var index = parent.layer.getFrameIndex(window.name);
                     parent.layer.close(index);//关闭当前页
@@ -172,75 +166,61 @@
                     layer.msg("新增失败",{icon:6});
                 }
             })
-
             return false;
         });
-            $(function(){
-                initpeople();
-            })
-            function initpeople(){
-
-                $.ajax({
-                    url:'/comm/queryPhone',
-                    type:'post',
-                    data:{},
-                    dataType:'json',
-                    success:function(result){
-                        var html = "";
-
-                        for(var i = 0 ; i<result.length;i++){
-
-                            html+=
-                                "<option value='"+result[i].id+"'>"+result[i].name+"</option>";
-                        }
-
-                        $('#nameid').html(html);
-                        form.render();
+        $(function(){
+            initpeople();
+        })
+        function initpeople(){
+            $.ajax({
+                url:'/comm/queryPhone',
+                type:'post',
+                data:{},
+                dataType:'json',
+                success:function(result){
+                    var html = "";
+                    for(var i = 0 ; i<result.length;i++){
+                        html+=
+                            "<option value='"+result[i].id+"'>"+result[i].name+"</option>";
                     }
-
-                })
-            }
-            form.on('select(nameid)', function(data){
-                var id = $("#nameid").val();
-                /*var id = $(this).val();*/
-                $.ajax({
-                    url:'/comm/queryModels',
-                    type:'post',
-                    data:{
-                        id:id
-                    },
-                    dataType:'json',
-                    success:function(result){
-                        var html = "";
-
-                        for(var i = 0 ; i<result.length;i++){
-
-                            html+=
-                                "<option value='"+result[i].id+"'>"+result[i].name+"</option>";
-                        }
-
-                        $('#modelsid').html(html);
-                        form.render();
-                    }
-
-                })
+                    $('#nameid').html(html);
+                    form.render();
+                }
             })
-         });
-
-    </script>
+        }
+        form.on('select(nameid)', function(data){
+            var id = $("#nameid").val();
+            /*var id = $(this).val();*/
+            $.ajax({
+                url:'/comm/queryModels',
+                type:'post',
+                data:{
+                    id:id
+                },
+                dataType:'json',
+                success:function(result){
+                    var html = "";
+                    for(var i = 0 ; i<result.length;i++){
+                        html+=
+                            "<option value='"+result[i].id+"'>"+result[i].name+"</option>";
+                    }
+                    $('#modelsid').html(html);
+                    form.render();
+                }
+            })
+        })
+    });
+</script>
 
 
 <script>
     layui.use('form', function(){
         var form = layui.form; //只有执行了这一步，部分表单元素才会自动修饰成功
-
         //……
-
         //但是，如果你的HTML是动态生成的，自动渲染就会失效
         //因此你需要在相应的地方，执行下述方法来手动渲染，跟这类似的还有 element.init();
         form.render();
     });
-
 </script>
 </body>
 </html>

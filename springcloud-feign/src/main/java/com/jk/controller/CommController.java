@@ -178,25 +178,17 @@ public class CommController<HrResult> {
             if (!file.isEmpty()) {
                 String url = "商品/";
 
-                System.out.println("文件名称"+file.getOriginalFilename());
-                //上传文件名
-                String filename = file.getOriginalFilename();
-                File filepath = new File(path, filename);
+                InputStream fos = file.getInputStream();
 
+                String fileName = file.getOriginalFilename();
 
-                //判断路径是否存在，没有就创建一个
-                if (!filepath.getParentFile().exists()) {
-                    filepath.getParentFile().mkdirs();
-                }
-
-                //将上传文件保存到一个目标文档中
-                File file1;
-                file1 = new File(path + File.separator + filename);
-                file.transferTo(file1);
+                URL fileUpload = AliyunUtil.upFObject("stupan", url+fileName , fos);
+                String string = fileUpload.toString();
+                String[] split = string.split("[?]");
                 Map<String, Object> res = new HashMap<>();
                 //返回的是一个url对象
-                res.put("url", file1);
-                res.put("url2","../imgs/"+filename);
+                res.put("url", fileName);
+                res.put("url2",split[0]);
                 return res;
 
             } else {

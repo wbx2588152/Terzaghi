@@ -104,8 +104,8 @@
             <div class="info-item">
                 <span class="label">数量:</span>
                 <input class="p-count" value="1" readonly="readonly">
-                <span class="p-count-btn plus" data-opera-type="plus">+</span>
-                <span class="p-count-btn minus" data-opera-type="minus">-</span>
+                <span class="p-count-btn plus" id="plusNum" data-opera-type="plus">+</span>
+                <span class="p-count-btn minus" id="minusNum" data-opera-type="minus">-</span>
             </div>
             <div class="info-item">
                 <a class="btn cart-add" href="javascript:addBuycar();">加入购物车</a>
@@ -249,7 +249,7 @@
 
 <script>
     function addBuycar(){
-        var gid=$('#detailid').val();
+        var gid=$('#detailid2').val();
         var gnum=$('.p-count').val();
         $.ajax({
             url:'/pay/saveSomeBuycar',

@@ -47,6 +47,11 @@ spring:
       cache:
         type:
           redis
+  rabbitmq:
+    host: 45.77.127.206
+    port: 5672
+    username: guest
+    password: guest
 feign:
   hystrix:
     enabled: true
