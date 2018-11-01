@@ -37,6 +37,10 @@ public class Comm implements Serializable {
 
     private String detail;		  //详情
 
+
+    //用户订单暂存字段
+    private Long comnum; //用户所买的商品数量
+
     public String getId() {
         return id;
     }
@@ -179,5 +183,13 @@ public class Comm implements Serializable {
 
     public void setDetail(String detail) {
         this.detail = detail;
+    }
+
+    public Long getComnum() {
+        return comnum;
+    }
+
+    public void setComnum(Long comnum) {
+        this.comnum = comnum;
     }
 }
