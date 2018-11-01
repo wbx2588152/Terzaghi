@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jk.mapper.adve.AdveMapper" >
+    <!--查询优惠券的个数-->
+    <select id="queryAdveCount" resultType="long">
+	select count(1) from t_adve
+	 </select>
+    <!--查询优惠券-->
+    <select id="queryAdveList" resultType="com.jk.model.Adve">
+	select * from t_adve
+	 limit #{st},#{end}
+	 </select>
+	<delete id="delAdve">
+		delete  from t_adve where id = #{id}
+	</delete>
+	<insert id="saveAdve">
+     insert  into t_adve(id,name,img,href,price,expiredate,place)
+     value (#{id},#{name},#{img},#{href},#{price},#{expiredate},#{place})
+	</insert>
+
+	<select id="queryAdveById" resultType="com.jk.model.Adve">
+         select * from t_adve where id = #{id}
+	</select>
+	<update id="updateAdve">
+	update t_adve set name=#{name},img=#{img},href=#{href},price=#{price},expiredate=#{expiredate},place=#{place} where id in (#{id})
+	</update>
+	<select id="queryAdve" resultType="com.jk.model.Adve">
+		select * from t_adve;
+	</select>
+</mapper>
