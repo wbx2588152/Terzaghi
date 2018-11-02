@@ -359,5 +359,31 @@ public class PayController {
             }
         }
     }
+    @RequestMapping("seechart")
+    public String seechart(){
+        String userId = UserUtil.getUserId(request);
+        User user = UserUtil.getUser(request);
+        if(!userId.equals("")) {
+            request.setAttribute("userid",userId);
+
+            List<User> list = (List<User>) redisTemplate.boundHashOps("cartList").get("chartname");
+            int flag = 1;
+            if (list != null) {
+                for (int i = 0; i < list.size(); i++) {
+                    if (list.get(i).getId().equals(userId)) {
+                        flag = 2;
+                        break;
+                    }
+                }
+            }
+
+            if (flag == 1) {
+                list.add(user);
+            }
+            redisTemplate.boundHashOps("cartList").put("chartname", list);
+        }
+
+        return "duihua";
+    }
 
 }

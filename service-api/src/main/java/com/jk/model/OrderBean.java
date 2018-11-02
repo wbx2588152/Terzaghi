@@ -28,8 +28,9 @@ public class OrderBean implements Serializable {
           未支付为1，已支付为2 对应操作  关闭订单   订单发货  订单跟踪    订单跟踪    删除订单
                                        订单详情   订单详情  订单详情    订单详情   查看详情
                                     */
-
-    private Timestamp subtime;// 订单提交时间
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @JsonFormat(pattern="yyyy-MM-dd",timezone="GMT+8")
+    private Date subtime;// 订单提交时间
 
     /**
      * 展示字段
@@ -92,11 +93,11 @@ public class OrderBean implements Serializable {
         this.orderstatus = orderstatus == null ? null : orderstatus.trim();
     }
 
-    public Timestamp getSubtime() {
+    public Date getSubtime() {
         return subtime;
     }
 
-    public void setSubtime(Timestamp subtime) {
+    public void setSubtime(Date subtime) {
         this.subtime = subtime;
     }
 

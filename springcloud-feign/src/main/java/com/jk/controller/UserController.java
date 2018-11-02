@@ -7,6 +7,7 @@ import com.jk.service.PowerService;
 import com.jk.util.MD5Utils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,6 +22,8 @@ import java.util.*;
 public class UserController {
     @Autowired
     private PowerService userservice;
+    @Autowired
+    private RedisTemplate redisTemplate;
 
     @RequestMapping(value="login2")
     public String seelis2t(){
@@ -374,6 +377,33 @@ public class UserController {
     public List<Power> getALLNav(){
         return userservice.getALLNav();
     }
-
+    //查看等待客户
+    @RequestMapping("seewait")
+    public String seeWaitUser(HttpServletRequest request){
+        List<User> list = (List<User>) redisTemplate.boundHashOps("cartList").get("chartname");
+        request.setAttribute("list",list);
+        request.setAttribute("wnum",list.size());
+        return "/user/waitUser";
+    }
+    //弹出窗口
+    @RequestMapping("jumpchart")
+    public String jumpchart(String nameid,HttpServletRequest request){
+        request.setAttribute("userid",nameid);
+        return "/user/duihua";
+    }
+    @RequestMapping("deleteWaitUser")
+    @ResponseBody
+    public Boolean deleteWaitUser(String nameid){
+        List<User> userlist = (List<User>) redisTemplate.boundHashOps("cartList").get("chartname");
+        for (int i = 0; i <userlist.size() ; i++) {
+            if(userlist.get(i).getId().equals(nameid)){
+                userlist.remove(i);
+                redisTemplate.boundHashOps("cartList").put("chartname", userlist);
+                System.out.println("已删除");
+                break;
+            }
+        }
+        return true;
+    }
 
 }

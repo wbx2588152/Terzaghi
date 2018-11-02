@@ -207,7 +207,7 @@ public class SeckillController {
             ob.setLinkbothid(find2.get(i).getLinkbothid());  //关联收货地址id
             ob.setPaystatus("1");    //未付款状态
             ob.setOrderstatus("2");  //未发货状态
-            ob.setSubtime(new Timestamp(find2.get(i).getSubtime().getTime()));   //提交时间
+            ob.setSubtime(find2.get(i).getSubtime());   //提交时间
             seckilServiceApi.addOrderInfo(ob);
         }
         couServiceApi.deleteCoupon(find.get(0).getCouid());

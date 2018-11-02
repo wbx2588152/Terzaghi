@@ -24,6 +24,8 @@
         <option value="$PROJECT_DIR$/shopping/pom.xml" />
         <option value="$PROJECT_DIR$/springcloud-topo/pom.xml" />
         <option value="$PROJECT_DIR$/rabbitlistener/pom.xml" />
+        <option value="$PROJECT_DIR$/orderclient/pom.xml" />
+        <option value="$PROJECT_DIR$/hystrix-dashboard-turbine/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

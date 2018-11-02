@@ -6,9 +6,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="hystrix-dashboard-turbine" />
+        <module name="orderclient" />
         <module name="rabbitlistener" />
         <module name="service-api" />
-        <module name="springcloud-coupon-client" />
         <module name="shopping" />
         <module name="springcloud-coupon-client" />
         <module name="springcloud-eureka-client" />

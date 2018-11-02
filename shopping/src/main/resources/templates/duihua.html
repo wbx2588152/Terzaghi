@@ -1,0 +1,271 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en" xmlns:th="http://www.springframework.org/schema/jdbc">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta HTTP-EQUIV="pragma" CONTENT="no-cache">
+<meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+<meta HTTP-EQUIV="expires" CONTENT="0">
+<meta name="apple-touch-fullscreen" content="yes" />
+<meta name="format-detection" content="telephone=no" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no" media="screen" />
+<title>Insert title here</title>
+
+<script type="text/javascript"
+                 src="../js/jquery-1.11.1.min.js"></script>
+<style type="text/css">
+	body{background:url(https://stupan.oss-cn-beijing.aliyuncs.com/%E5%B9%BF%E5%91%8A/yuyin_bg.png) no-repeat;background-size:100%;}
+	@media all and (min-width: 640px) {
+	    body,html,.wenwen-footer,.speak_window{width:640px!important;margin:0 auto}
+	    .speak_window,.wenwen-footer{left:50%!important;margin-left:-320px}
+	}
+	input,button{outline:none;}
+	.wenwen-footer{width:100%;position:fixed;bottom:-5px;left:0;background:#fff;padding:3%;border-top:solid 1px #ddd;box-sizing:border-box;}
+	.wenwen_btn,.wenwen_help{width:15%;text-align:center;}
+	.wenwen_btn img,.wenwen_help img{height:40px;}
+	.wenwen_text{height:40px;border-radius:5px;border:solid 1px #636162;box-sizing:border-box;width:66%;text-align:center;overflow:hidden;margin-left:2%;}
+	.circle-button{padding:0 5px;}
+	.wenwen_text .circle-button{font-size:14px;color:#666;line-height:38px;}
+	.write_box{background:#fff;width:100%;height:40px;line-height:40px;display:none;}
+	.write_box input{height:40px;padding:0 5px;line-height:40px;width:100%;box-sizing:border-box;border:0;}
+	.wenwen_help button{width:95%;background:#42929d;color:#fff;border-radius:5px;border:0;height:40px;display:none;}
+	#wenwen{height:100%;}
+	.speak_window{overflow-y:scroll;height:100%;width:100%;position:fixed;top:0;left:0;}
+	.speak_box{margin-bottom:70px;padding:10px;}
+	.question,.answer{margin-bottom:1rem;}
+	.question{text-align:right;}
+	.question>div{display:inline-block;}
+	.left{float:left;}
+	.right{float:right;}
+	.clear{clear:both;}
+	.heard_img{height:60px;width:60px;border-radius:5px;overflow:hidden;background:#ddd;}
+	.heard_img img{width:100%;height:100%}
+	.question_text,.answer_text{box-sizing:border-box;position:relative;display:table-cell;min-height:60px;}
+	.question_text{padding-right:20px;}
+	.answer_text{padding-left:20px;}
+	.question_text p,.answer_text p{border-radius:10px;padding:.5rem;margin:0;font-size:14px;line-height:28px;box-sizing:border-box;vertical-align:middle;display:table-cell;height:60px;word-wrap:break-word;}
+	.answer_text p{background:#fff;}
+	.question_text p{background:#42929d;color:#fff;text-align:left;}
+	.question_text i,.answer_text i{width:0;height:0;border-top:5px solid transparent;border-bottom:5px solid transparent;position:absolute;top:25px;}
+	.answer_text i{border-right:10px solid #fff;left:10px;}
+	.question_text i{border-left:10px solid #42929d;right:10px;}
+	.answer_text p a{color:#42929d;display:inline-block;}
+	audio{display:none;}
+	.saying{position:fixed;bottom:30%;left:50%;width:120px;margin-left:-60px;display:none;}
+	.saying img{width:100%;}
+	.write_list{position:absolute;left:0;width:100%;background:#fff;border-top:solid 1px #ddd;padding:5px;line-height:30px;}
+</style>
+</head>
+<body>
+<div class="speak_window">
+	<div class="speak_box">
+		<div class="answer">
+			<div class="heard_img left"><img src="https://stupan.oss-cn-beijing.aliyuncs.com/%E5%B9%BF%E5%91%8A/dglvyou.png"></div>
+			<div class="answer_text">
+				<p>正在等待客服。。。</p>
+				<i></i>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="saying">
+	<img src="">
+</div>
+<div class="wenwen-footer">
+	
+	<div class="wenwen_text left">
+	    <div class="write_box">
+	        <input type="text" id="q1" class="left"  placeholder="请输入关键字" />
+	    </div>   
+	</div>
+	<div class="wenwen_help right">
+	    <button onClick="up_say()" class="right">发送</button>
+	</div>
+	<div style="opacity:0;" class="clear"></div>
+</div>
+<input type="hidden" id="input_roomName" th:value="${userid}"/>
+<script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+	var y="";
+	$(function(){
+		to_write();
+		connect();
+	})
+	function to_write(){
+	    $('.wenwen_btn img').attr('src','images/yy_btn.png');
+	    $('.wenwen_btn').attr('onclick','to_say()');
+	    $('.write_box,.wenwen_help button').show();
+	    $('.circle-button,.wenwen_help a').hide();
+	    $('.write_box input').focus();
+	    for_bottom();
+	}
+
+	function to_say(){
+		$('.write_list').remove();
+	    $('.wenwen_btn img').attr('src','images/jp_btn.png');
+	    $('.wenwen_btn').attr('onclick','to_write()');
+	    $('.write_box,.wenwen_help button').hide();
+	    $('.circle-button,.wenwen_help a').show();
+	}
+
+	function up_say(){
+		
+	    var text = $('.write_box input').val(),
+	        str  = '<div class="question">';
+	        str += '<div class="heard_img right"><img src="https://stupan.oss-cn-beijing.aliyuncs.com/%E5%B9%BF%E5%91%8A/dglvyou.png"></div>';
+	        str += '<div class="question_text clear"><p>'+text+'</p><i></i>';
+	        str += '</div></div>';
+	        y=text;
+	    if(text == ''){
+	        alert('请输入提问！');
+	        $('.write_box input').focus();
+	    }else{
+	    	$('#q1').val("");
+	    	send(text);
+	        
+	    }
+	}
+
+	
+
+	var wen  = document.getElementById('wenwen');
+	function _touch_start(event){
+        event.preventDefault();
+        $('.wenwen_text').css('background','#c1c1c1');
+        $('.wenwen_text span').css('color','#fff');
+        $('.saying').show();
+    }
+
+    function _touch_end(event){
+        event.preventDefault();
+        $('.wenwen_text').css('background','#fff');
+        $('.wenwen_text .circle-button').css('color','#666');    
+        $('.saying').hide();
+        var str  = '<div class="question">';
+	        str += '<div class="heard_img right"><img src="images/dglvyou.jpg"></div>';
+	        str += '<div class="question_text clear"><p>不好意思，我听不清！</p><i></i>';
+	        str += '</div></div>';
+		$('.speak_box').append(str);
+		for_bottom();
+        setTimeout(function(){
+        	var ans  = '<div class="answer"><div class="heard_img left"><img src="images/dglvyou.jpg"></div>';
+	        	ans += '<div class="answer_text"><p>我不知道你在说什么?</p><i></i>';
+	    		ans += '</div></div>';
+	    	$('.speak_box').append(ans);
+			for_bottom();
+        },1000);       
+    }
+    function for_bottom(){
+		var speak_height = $('.speak_box').height();
+		$('.speak_box,.speak_window').animate({scrollTop:speak_height},500);
+	}
+	
+	function autoWidth(){
+		$('.question_text').css('max-width',$('.question').width()-60);
+	}
+	autoWidth();
+	function aianswer(str){
+		$.ajax({
+			url:'<%=request.getContextPath()%>/user/getbotanswer.do',
+			type:'post',
+			data:{question:$('#q1').val()},
+			dataType:'json',
+			success:function(result){
+				
+		        $('.write_box input').val('');
+		        $('.write_box input').focus();
+		        autoWidth();
+		        for_bottom();
+		        setTimeout(function(){
+		            var ans  = '<div class="answer"><div class="heard_img left"><img src="https://stupan.oss-cn-beijing.aliyuncs.com/%E5%B9%BF%E5%91%8A/dglvyou.png"></div>';
+		            	ans += '<div class="answer_text"><p>'+result.content+'</p><i></i>';
+		        		ans += '</div></div>';
+		        	$('.speak_box').append(ans);
+					for_bottom();
+		        },1000);
+					
+			}
+		})
+	}
+	
+	var stompClient = null;
+    var webSocket;
+    function connect() {
+
+        var roomName = document.getElementById("input_roomName").value;
+// 房间名不能为空
+        if (roomName == null || roomName == "") {
+            alert("请登陆！");
+           location.href="../cou/toLogin"
+        }
+        if ("WebSocket" in window) {
+            if (webSocket == null) {
+                var url = "ws://192.168.31.117:8888/webSocket/chat/" + roomName;
+                // 打开一个 web socket
+                webSocket = new WebSocket(url);
+            } else {
+                alert("您已进入聊天室...");
+            }
+
+            webSocket.onopen = function () {
+                alert("已进入聊天室，畅聊吧...");
+            };
+
+            webSocket.onmessage = function (evt) {
+                console.log(evt);
+                var x=evt.data;
+
+                if(x==y){
+                    var ans='<div class="question">';
+                    ans += '<div class="answer"><div class="heard_img right"><img src="https://stupan.oss-cn-beijing.aliyuncs.com/%E5%B9%BF%E5%91%8A/dglvyou.png"></div>';
+                    ans += '<div class="question_text clear"><p>'+x+'</p><i></i>';
+                }else{
+                    var ans='<div class="answer">';
+                    ans += '<div class="answer"><div class="heard_img left"><img src="https://stupan.oss-cn-beijing.aliyuncs.com/%E5%B9%BF%E5%91%8A/dglvyou.png"></div>';
+                    ans += '<div class="answer_text"><p>'+x+'</p><i></i>';
+                }
+
+
+                ans += '</div></div>';
+                $('.speak_box').append(ans);
+                for_bottom();
+            };
+
+            webSocket.onclose = function () {
+                // 关闭 websocket，清空信息板
+                alert("连接已关闭...");
+                webSocket = null;
+                document.getElementsByClassName("msg_board")[0].innerHTML = "";
+            };
+        }
+        else {
+            // 浏览器不支持 WebSocket
+            alert("您的浏览器不支持 WebSocket!");
+        }
+
+    }
+
+    function disconnect() {
+        if(stompClient!=null){
+            stompClient.disconnect();
+        }
+    }
+
+    function send(x) {
+        if (webSocket != null) {
+            var input_msg = x;
+            if (input_msg == "") {
+                return;
+            }
+            webSocket.send(input_msg);
+            // 清除input框里的信息
+        } else {
+            alert("您已掉线，请重新进入聊天室...");
+        }
+    }
+
+</script>
+
+
+</body>
+</html>

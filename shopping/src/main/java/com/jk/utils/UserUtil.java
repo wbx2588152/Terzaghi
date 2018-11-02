@@ -34,7 +34,7 @@ public class UserUtil {
 	
 	public static User getUser(HttpServletRequest request){
 		HttpSession session = request.getSession();
-		User attribute = (User) session.getAttribute("user");
+		User attribute = (User) session.getAttribute(session.getId());
 		return attribute;
 	}
 	

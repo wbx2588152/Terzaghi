@@ -18,8 +18,10 @@
  <!-- 查询用户所订购不同商品的数量和商品信息-->
 <select id="queryuserorder" parameterType="string" resultType="com.jk.model.Comm">
 SELECT * FROM t_commodity tco,
-(SELECT COUNT(*) comnum,tor.linkcommodifyid FROM t_order tor WHERE tor.linkuserid =#{value} GROUP BY  tor.linkcommodifyid) tnum
-where tnum.linkcommodifyid= tco.id
+(SELECT COUNT(*) comnum,tco.commid FROM t_order tor,t_comm_order tco WHERE tor.orderid=tco.orderid AND
+tor.linkuserid =#{VALUE}
+ GROUP BY  tco.commid) tnum
+where tnum.commid= tco.id
 </select>
 
 
