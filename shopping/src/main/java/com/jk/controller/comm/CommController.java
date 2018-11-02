@@ -139,4 +139,16 @@ public class CommController {
         request.setAttribute("id",id);
         return "food/detailfood";
     }
+
+    @RequestMapping("getFoodDetail")
+    @ResponseBody
+    public Food getFoodDetail(String id){
+        return commServiceApi.getFoodDetail(id);
+    }
+
+    @RequestMapping("getManDetail")
+    @ResponseBody
+    public Man getManDetail(String id){
+        return commServiceApi.getManDetail(id);
+    }
 }

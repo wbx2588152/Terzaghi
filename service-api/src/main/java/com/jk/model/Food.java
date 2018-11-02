@@ -26,6 +26,8 @@ public class Food implements Serializable {
     private String unitid;    //包装单位id
     private String showunit;
 
+    private Integer store = 0;   //库存
+
     public String getId() {
         return id;
     }
@@ -120,5 +122,13 @@ public class Food implements Serializable {
 
     public void setShowunit(String showunit) {
         this.showunit = showunit;
+    }
+
+    public Integer getStore() {
+        return store;
+    }
+
+    public void setStore(Integer store) {
+        this.store = store;
     }
 }

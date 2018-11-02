@@ -200,4 +200,9 @@ public interface CommServiceApi {
     @RequestMapping(value = "/getFood",method = RequestMethod.POST)
     List<Food> getFood();
 
+    @RequestMapping(value = "/getFoodDetail",method = RequestMethod.POST)
+    Food getFoodDetail(@RequestParam(value = "id") String id);
+
+    @RequestMapping(value = "/getManDetail",method = RequestMethod.POST)
+    Man getManDetail(@RequestParam(value = "id") String id);
 }

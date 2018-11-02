@@ -157,5 +157,9 @@ public interface CommMapper {
     List<Man> getMan();
 
     List<Food> getFood();
+
+    Food getFoodDetail(@Param("id") String id);
+
+    Man getManDetail(@Param("id") String id);
 }
 

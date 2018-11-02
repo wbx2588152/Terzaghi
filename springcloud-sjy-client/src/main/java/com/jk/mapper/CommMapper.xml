@@ -36,6 +36,18 @@
       and tf.added = 1
     </select>
 
+    <select id="getFoodDetail" resultType="com.jk.model.Food">
+         select tf.*,tt.type as showtype,tu.unit as showunit
+       from t_food tf,t_food_type tt,t_food_unit tu
+      where tf.typeid = tt.id and tf.unitid = tu.id and tf.id = #{id}
+    </select>
+
+    <select id="getManDetail" resultType="com.jk.model.Man">
+        select tm.*,tt.type as showtype
+        from t_man tm,t_man_type tt
+        where tm.typeid = tt.id and tm.id = #{id}
+    </select>
+
 
 
 

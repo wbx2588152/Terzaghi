@@ -1010,11 +1010,10 @@ public class CommController<HrResult> {
      */
     @RequestMapping("saveManDetail")
     @ResponseBody
-    public String saveManDetail(ManDetail manDetail){
+    public String saveManDetail(ManDetail manDetail) {
         manDetail.setId(StringUUID.getUUID());
         manDetail.setDetaildate(new Date());
         commService.saveManDetail(manDetail);
         return "1";
-
     }
 }

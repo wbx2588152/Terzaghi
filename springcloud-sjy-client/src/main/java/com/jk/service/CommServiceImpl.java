@@ -413,4 +413,14 @@ public class CommServiceImpl implements CommServiceApi {
         return commDao.getFood();
     }
 
+    @Override
+    public Food getFoodDetail(String id) {
+        return commDao.getFoodDetail(id);
+    }
+
+    @Override
+    public Man getManDetail(String id) {
+        return commDao.getManDetail(id);
+    }
+
 }

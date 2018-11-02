@@ -23,6 +23,8 @@ public class Man implements Serializable {
 
     private Integer label = 2;   //标签
 
+    private Integer store = 0;  //库存
+
     public String getId() {
         return id;
     }
@@ -101,5 +103,13 @@ public class Man implements Serializable {
 
     public void setLabel(Integer label) {
         this.label = label;
+    }
+
+    public Integer getStore() {
+        return store;
+    }
+
+    public void setStore(Integer store) {
+        this.store = store;
     }
 }
