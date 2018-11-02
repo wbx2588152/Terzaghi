@@ -39,9 +39,7 @@ public class SeckillController {
      */
     @RequestMapping("uploadOneFileFood")
     @ResponseBody
-    public Map<String, Object>  uploadFood(HttpServletRequest servletRequest,
-                                           @RequestParam("file") MultipartFile file
-    ) throws IOException {
+    public Map<String, Object>  uploadFood(HttpServletRequest servletRequest,@RequestParam("file") MultipartFile file ) throws IOException {
 
         //如果文件内容不为空，则写入上传路径
         if (!file.isEmpty()) {
