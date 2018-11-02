@@ -3,9 +3,8 @@ package com.jk.service;
 import com.jk.mapper.OrderBeanMapper;
 import com.jk.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.stereotype.Service;
-
-import javax.swing.plaf.synth.Region;
 import java.util.*;
 
 @Service
@@ -85,77 +84,100 @@ public class OrderClientServiceImpl implements OrderClientService {
 
     }
 
-    /*@Override
-    public void mergerorders(String mainorder, String subarr) {
-        String[] split = subarr.split(",");
-        for (int i = 0; i <split.length ; i++) {
-           List<String> comArr= orderDao.queryCommOrder(split[i]);
-            for (int j = 0; j < comArr.size() ; j++) {
-                CommOrderBean commOrderBean = new CommOrderBean();
-                commOrderBean.setId(UUID.randomUUID().toString().replaceAll("-",""));
-                commOrderBean.setCommid(comArr.get(j));
-                commOrderBean.setOrderid(mainorder);
-                orderDao.insertCommOrder(commOrderBean);
-            }
-
-            //删除对应的物流信息
-           orderDao.deleteExpressBean(split[i]);
-           //删除订单信息
-            orderDao.deleteSubOrder(split[i]);
-        }
-        //orderDao.mergerorders(mainorder,subarr);
-    }
-*/
 
 
 
     @Override
-    public void automergerorder(){
-        List<RegionBean> list= orderDao.automergerorder();
+    public void automergerorder() {
+        /* List<RegionBean> list= orderDao.automergerorder();*/
         List<String> arrayList = new ArrayList<>();
+        List<OrderBean> list1 = orderDao.queryallorder();
+        for (int l = 0; l < list1.size()-1; l++) {
+            for (int m = 1+l; m < list1.size(); m++) {
+                OrderBean orderBean = list1.get(l);
+                OrderBean orderBean1 = list1.get(m);
+                if(orderBean.getOrderstatus().equals("2") && orderBean1.getOrderstatus().equals("2")){
+                    Date subtime = orderBean.getSubtime();
+                    Date subtime1 = orderBean1.getSubtime();
 
-        for (int i = 0; i <list.size()-1 ; i++) {
-            for (int j = i+1; j <list.size() ; j++) {
-                RegionBean regionBean1 = list.get(i);
-                RegionBean regionBean2 = list.get(j);
-                String reciever1=regionBean1.getName();
-                String reciever2=regionBean2.getName();
-                String address1=regionBean1.getInDetail();
-                String address2=regionBean1.getInDetail();
-                if(reciever1.equals(reciever2) &&  address1.equals(address2)){
-                    List<String> comArr= orderDao.queryCommOrder(regionBean2.getShoworderid());
-                    for (int k = 0; k < comArr.size() ; k++) {
-                        CommOrderBean commOrderBean = new CommOrderBean();
-                        commOrderBean.setId(UUID.randomUUID().toString().replaceAll("-",""));
-                        commOrderBean.setCommid(comArr.get(k));
-                        commOrderBean.setOrderid(regionBean1.getShoworderid());
-                        orderDao.insertCommOrder(commOrderBean);
+                    System.out.println(subtime);
+                    System.out.println(subtime1);
+                    if (subtime.equals(subtime1)){
+
+                        arrayList = submethod(orderBean, orderBean1);
                     }
-                    if(arrayList.contains(regionBean2.getShoworderid())){
+                   /* System.out.println(subtime.compareTo(subtime1));
+                    if (subtime.compareTo(subtime1)==0){//相等返回0，大于返回1，小于返回-1.
+                        System.out.println();
 
-                    }else{
-                        arrayList.add(regionBean2.getShoworderid());
-                    }
-
+                    }*/
                 }
             }
-
         }
-        for (int i = 0; i <arrayList.size() ; i++) {
-            //删除对应的物流信息
-            orderDao.deleteExpressBean(arrayList.get(i));
+        for (int i = 0; i < arrayList.size(); i++) {
+
+            /*//删除对应的物流信息
+            orderDao.deleteExpressBean(arrayList.get(i));*/
             //删除订单信息
             orderDao.deleteSubOrder(arrayList.get(i));
+
+            orderDao.deleteCommOder(arrayList.get(i));
         }
 
+
     }
+
+
+
+
+    public   List<String>  submethod(OrderBean orderBean, OrderBean orderBean1){
+
+        List<String> arrayList = new ArrayList<>();
+
+        RegionBean regionBean1=orderDao.queryregion1(orderBean.getLinkbothid());
+        RegionBean regionBean2=orderDao.queryregion2(orderBean.getLinkbothid());
+
+        String reciever1=regionBean1.getName();
+        String reciever2=regionBean2.getName();
+        String address1=regionBean1.getInDetail();
+        String address2=regionBean2.getInDetail();
+        if(reciever1.equals(reciever2) &&  address1.equals(address2)){
+            List<String> comArr= orderDao.queryCommOrder(orderBean1.getOrderid());
+            for (int k = 0; k < comArr.size() ; k++) {
+                CommOrderBean commOrderBean = new CommOrderBean();
+                commOrderBean.setId(UUID.randomUUID().toString().replaceAll("-", ""));
+                commOrderBean.setCommid(comArr.get(k));
+                commOrderBean.setOrderid(orderBean.getOrderid());
+                orderDao.insertCommOrder(commOrderBean);
+            }
+            if(arrayList.contains(orderBean1.getOrderid())){
+
+
+            }else{
+                arrayList.add(orderBean1.getOrderid());
+            }
+        }
+        return arrayList;
+    }
+
+
 
     @Override
     public Map<String, Object> queryuserorder(String id) {
-        List<Comm> list=orderDao.queryuserorder(id);
+        List<OrderBean> list=orderDao.queryuserorder(id);
         Map<String,Object> map=new HashMap<String,Object>();
         map.put("list",list);
         return map;
+    }
+
+    @Override
+    public OrderBean queryRegionAgain(String id, String orderid) {
+        return   orderDao.queryRegionAgain(id,orderid);
+    }
+
+    @Override
+    public void updateorderstatus(String orderid) {
+        orderDao.updateorderstatus(orderid);
     }
 
 
