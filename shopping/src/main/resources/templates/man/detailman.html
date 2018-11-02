@@ -1,10 +1,287 @@
 <!DOCTYPE html>
-<html lang="en">
+<!-- saved from url=(0050)http://www.happyJinKe.com/detail.html?productId=72 -->
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:javascript="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge"> <meta name="viewport" content="width=device-width,initial-scale=1"> <meta name="keywords" content="JinKe,电商系统,网购平台,慕课三剑客,教学视频,前端开发,后端开发,React,SSM,Java,权限系统,分布式,高并发,毕业设计,毕设,代码"> <meta name="description" content="JinKe电商平台教学，最火的电商系统开发教学视频，囊括前后端多个课程，一线企业讲师亲自授课，慕课三剑客带你成为IT行业大牛。"> <link rel="dns-prefetch" href="http://s.happyJinKe.com/"> <link rel="dns-prefetch" href="http://cdn.bootcss.com/"> <script src="../detail/hm.js"></script><script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?bc210cd22928076d28296716d9dfcf01";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script>
+    <title>商品详情--JinKe电商平台</title>
+    <link rel="shortcut icon" href="http://s.happyJinKe.com/JinKe_fe/dist/favicon.ico"><link href="../detail/common.css" rel="stylesheet"><link href="../detail/detail.css" rel="stylesheet">
+    <style>
+
+        .login_click{ margin-top:32px; height:40px;}
+        .login_click a{
+
+
+            text-decoration:none;
+            background:#2f435e;
+            color:#f2f2f2;
+
+            padding: 10px 30px 10px 30px;
+            font-size:16px;
+            font-family: 微软雅黑,宋体,Arial,Helvetica,Verdana,sans-serif;
+            font-weight:bold;
+            border-radius:3px;
+
+            -webkit-transition:all linear 0.30s;
+            -moz-transition:all linear 0.30s;
+            transition:all linear 0.30s;
+
+        }
+        .login_click a:hover { background:#385f9e; }
+        .login_click a:active { background:#f2f2f2; }
+    </style>
 </head>
 <body>
+<input type="hidden" id="detailid2" th:value="${id}">
+<div class="notice-con">
+    <div class="w">
+        <!--<p class="notice"> 注意：本网站仅用于电商平台开发教学的演示！所有商品均为虚拟商品，且不会有真实交易产生！ </p>
+        <p class="notice"> 前端课程地址：
+            <a class="notice-link" href="http://coding.imooc.com/class/109.html" target="_blank" title="手把手从0打造企业级电商平台-前端实战">《手把手从0打造企业级电商平台-前端实战》</a> ，后端课程地址：
+            <a class="notice-link" href="http://coding.imooc.com/class/96.html" target="_blank" title="Java从零打造企业级电商项目实战-服务端">《Java从零打造企业级电商项目实战-服务端》</a>
+        </p>-->
+    </div>
+</div>
+<div class="site-nav">
+    <div class="w">
+        <span id="checkLogin"></span>
+    </div>
+</div>
+<div class="header">
+    <div class="w">
+        <a class="logo" href="javascript:onComm();">JinKe</a>
+        <div class="search-form"> <input class="search-input" id="search-input" placeholder="请输入商品名称"> <button class="search-btn" id="search-btn">搜索</button> </div> </div> </div>
+<div class="crumb">
+    <div class="w">
+        <div class="crumb-list">
+            <a href="http://www.happyJinKe.com/index.html" class="crumb-item">JinKe</a>
+            <span>&gt;</span>
+            <span class="crumb-item">商品详情</span>
+        </div>
+    </div>
+</div>
+<div class="page-container w">
+    <div class="intro-wrap clear">
+        <div class="p-img-wrap">
+            <div class="main-img-con">
 
-</body>
-</html>
+                <img class="main-img" src="" id="photo">
+            </div>
+            <!--<ul class="p-img-list">
+                <li class="p-img-item">
+                    <img class="p-img" src="../detail/af13decd-5999-4ef8-a1f4-be2e975012ff.jpg">
+                </li>
+                <li class="p-img-item">
+                    <img class="p-img" src="../detail/56218d54-1605-464e-a0d3-3da0b2c97aff.jpg">
+                </li>
+                <li class="p-img-item">
+                    <img class="p-img" src="../detail/c0660370-8f18-48a1-be87-57bd47cb7439.jpg">
+                </li>
+                <li class="p-img-item">
+                    <img class="p-img" src="../detail/a935fa91-d73a-453d-9a73-8b5155732336.jpg">
+                </li>
+                <li class="p-img-item">
+                    <img class="p-img" src="../detail/c3d6715e-3bee-41bc-bc19-7ca69f9e79a6.jpg">
+                </li>
+            </ul>-->
+        </div>
+        <div class="p-info-wrap">
+            <h2>
+                <span id="number"></span>
+                <span id="name"></span>
+                <span id="spec"></span>
+                <span id="showtype"></span>
+                <span id="showunit"></span>
+            </h2>
+            <p class="p-subtitle" id="detailid"></p>
+            <div class="info-item p-price-con">
+                <span class="label">价格:</span>
+                <span class="p-price" id="price"></span>
+            </div>
+            <div class="info-item p-quantity-con">
+                <span class="label">库存:</span>
+                <span class="p-price" id="store"></span>
+            </div>
+            <div class="info-item">
+                <span class="label">数量:</span>
+                <input class="p-count" value="1" readonly="readonly">
+                <span class="p-count-btn plus" id="plusNum" data-opera-type="plus">+</span>
+                <span class="p-count-btn minus" id="minusNum" data-opera-type="minus">-</span>
+            </div>
+            <div class="info-item">
+                <a class="btn cart-add" href="javascript:addBuycar();">加入购物车</a>
+            </div>
+        </div>
+    </div>
+    <div class="detail-wrap">
+        <div class="detail-tab-con">
+            <ul class="tab-list">
+                <li class="tab-item active">商品详情</li>
+            </ul>
+        </div>
+        <div class="detail-con">
+            <p> <img alt="detail1.jpg" src="" id="photo1" width="700" height="900">
+                <img alt="detail2.jpg" src="" id="photo2" width="700" height="900">
+                <img alt="detail3.jpg" src="" id="photo3" width="700" height="900">
+                <img alt="detail4.jpg" src="" id="photo4" width="700" height="900">
+                <br>
+            </p>
+        </div>
+    </div>
+</div>
+<div class="footer"> <div class="w"> <div class="links"> <a target="_blank" class="link" href="https://coding.imooc.com/">慕课网实战</a> | <a target="_blank" class="link" href="https://www.imooc.com/u/198337">Rosen主页</a> | <a target="_blank" class="link" href="https://www.imooc.com/t/2705746">Geely主页</a> | <a target="_blank" class="link" href="https://www.imooc.com/u/5980627">Jimin主页</a> </div> <p class="copyright"> Copyright © 2018 happyJinKe.com All Rights Reserved </p> </div> </div> <script src="../detail/jquery.js"></script>
+</script><script type="text/javascript" src="../detail/common.js"></script><script type="text/javascript" src="../detail/detail.js"></script>
+
+<script>
+
+    $(function(){
+        itindetail();
+        itindetail2()
+        initDaoHang();
+    })
+    function initDaoHang(){
+        $.ajax({
+            /*url:'../wangcj/checkLogin',*/
+            url:'/cou/queryNavById',
+            type:'post',
+            data:{},
+            dataType:'json',
+            success:function(result){
+                var html = "";
+                if(result.code != 0){
+
+                    html +=  '<div class="user-info">\n' +
+                        '             <span class="site-user not-login" style="display: inline;">\n' +
+                        '                <span class="link link-login" id="tologin">登录</span>\n' +
+                        '                <span class="link link-register" id="toreg">注册</span>\n' +
+                        '             </span>\n' +
+                        '         </div>';
+
+                }else if (result.code == 0){
+                    var user = result.loginname;
+                    html +=
+                        '<div class="user-info">\n' +
+                        '       <span class="site-user not-login" style="display: inline;">\n' +
+                        '      <span class="link-text">欢迎<span class="username" id="username"></span>\n' +
+                        '    </span> <span class="link link-logout" id="exit">退出</span> </span>\n' +
+                        '   </span>\n' +
+                        '</div>\n' +
+                        '<ul class="nav-list">\n' +
+                        '<li class="nav-item">\n' +
+                        '<a class="link" href="javascript:seecar()">\n' +
+                        '<i class="fa fa-shopping-cart"></i> 购物车(<span class="cart-count" id="car-num">0</span>)</a>\n' +
+                        '</li>\n' +
+                        '<li class="nav-item">\n' +
+                        ' <span class="link link-register" id="toCou">我的优惠券</span>\n' +
+                        /*   '<a class="link" id="toCou">我的优惠券</a>\n' +*/
+                        '</li>\n' +
+                        '<li class="nav-item">\n' +
+                        '<a class="link" href="http://www.happymmall.com/user-center.html">我的MMall</a> </li>\n' +
+                        '<li class="nav-item">\n' +
+                        '<a class="link" href="http://www.happymmall.com/about.html">关于MMall</a>\n' +
+                        '</li>\n' +
+
+                        '</ul>';
+                }
+                $('#checkLogin').html(html);
+            }
+        })
+        $.ajax({
+            url:'/pay/getUserBuyCar',
+            type:'post',
+            data:{},
+            success:function(info){
+                var x=0;
+                for (var i = 0; i <info.length ; i++) {
+                    x+=Number(info[i].num);
+                }
+                $('#car-num').html(x);
+            }
+        })
+    }
+    function seecar(){
+        location.href="/pay/seeCarbuy";
+    }
+    function itindetail(){
+        var id = $("#detailid2").val();
+
+        $.ajax({
+            url:'/comm/getManDetail',
+            type:'post',
+            data:{id:id},
+            dataType:'json',
+            success:function(result){
+                $('#photo').attr('src',result.photo);
+                $('#number').html(result.number);
+                $('#name').html(result.name);
+                $('#showtype').html(result.showtype);
+                $('#spec').html(result.spec);
+                $('#showunit').html(result.showunit);
+                $('#detailid').html(result.detailid);
+                $('#price').html(result.price);
+                $('#store').html(result.store);
+            }
+        })
+    }
+
+    function itindetail2(){
+        var id = $("#detailid2").val();
+
+        $.ajax({
+            url:'/comm/getDetail2',
+            type:'post',
+            data:{id:id},
+            dataType:'json',
+            success:function(result){
+                $('#photo1').attr('src',result.photo1);
+                $('#photo2').attr('src',result.photo2);
+                $('#photo3').attr('src',result.photo3);
+                $('#photo4').attr('src',result.photo4);
+            }
+        })
+    }
+</script>
+<script>
+
+    //跳转商品主面
+    function onComm() {
+        location.href="/cou/toIndex";
+    }
+</script>
+
+<script>
+    function addBuycar(){
+        var gid=$('#detailid2').val();
+        var gnum=$('.p-count').val();
+        $.ajax({
+            url:'/pay/saveSomeBuycar',
+            type:'post',
+            data:{gid:gid,
+                gnum:gnum},
+            dataType:'json',
+            success:function(result){
+                location.href="/pay/seeCarbuy";
+            }
+        })
+    }
+    //跳转登录页面
+    $('span').delegate('#tologin','click',function(){
+        location.href="/cou/toLogin";
+    })
+    //跳转注册页面
+    $('span').delegate('#toreg','click',function(){
+        location.href="/cou/toReg";
+    })
+    $('#plusNum').click(function(){
+        var x=Number($('.p-count').val())+1;
+        $('.p-count').val(x);
+    })
+    $('#minusNum').click(function(){
+        if($('.p-count').val()>1){
+            var x=Number($('.p-count').val())-1;
+        }
+        $('.p-count').val(x);
+    })
+
+</script>
+</body></html>

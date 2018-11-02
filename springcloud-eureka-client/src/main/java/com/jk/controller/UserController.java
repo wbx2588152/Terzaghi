@@ -28,6 +28,7 @@ public class UserController {
     String port;
     @Autowired
     private UserService userservice;
+
     @Autowired
     private SolrClient client;
 
