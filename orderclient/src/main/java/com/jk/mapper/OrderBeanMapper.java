@@ -52,17 +52,27 @@ public interface OrderBeanMapper {
     void insertCommOrder(CommOrderBean commOrderBean);
 
 
-    void deleteExpressBean(String s);
+   /* void deleteExpressBean(String s);*/
 
     void deleteSubOrder(String s);
 
 
     List<String> queryCommOrder(String s);
 
-    List<RegionBean> automergerorder();
+  /*  List<RegionBean> automergerorder();*/
 
-    List<Comm> queryuserorder(String id);
+    List<OrderBean> queryuserorder(String id);
+
+    List<OrderBean> queryallorder();
+
+    RegionBean queryregion1(String regionid1);
+
+    RegionBean queryregion2(String regionid2);
+
+    void deleteCommOder(String comorder);
+
+    OrderBean queryRegionAgain(@Param("id") String id, @Param("orderid")String orderid);
 
 
-
+    void updateorderstatus(String orderid);
 }

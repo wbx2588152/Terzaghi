@@ -13,20 +13,49 @@
   <sql id="Base_Column_List" >
     orderid, linkuserid, linkcommodifyid, linkbothid, paystatus, orderstatus, subtime
   </sql>
+  <!--前台页面用户确认收货-->
+  <update id="updateorderstatus" parameterType="string">
+    update t_order set  orderstatus='4'  where orderid = #{value}
+  </update>
+
 
   <!--shopping项目的访问-->
  <!-- 查询用户所订购不同商品的数量和商品信息-->
-<select id="queryuserorder" parameterType="string" resultType="com.jk.model.Comm">
-SELECT * FROM t_commodity tco,
-(SELECT COUNT(*) comnum,tco.commid FROM t_order tor,t_comm_order tco WHERE tor.orderid=tco.orderid AND
-tor.linkuserid =#{VALUE}
- GROUP BY  tco.commid) tnum
-where tnum.commid= tco.id
+<select id="queryuserorder" parameterType="string" resultType="com.jk.model.OrderBean">
+SELECT COUNT(tc.id) showcount,tor.*,tre.`name` showuser,tc.number showname,
+
+tc.photo showimg,tc.price showprice from t_order tor,t_commodity tc,
+
+t_comm_order tco,t_region tre WHERE tor.linkuserid = #{value}
+
+AND tor.orderid = tco.orderid and tco.commid = tc.id
+
+and tre.userId = #{value}
+
+GROUP BY tor.orderid ORDER BY tor.subtime
 </select>
 
 
+<select id="queryRegion" parameterType="String" resultType="com.jk.model.RegionBean">
+  SELECT trg.* FROM t_region trg,t_order tor WHERE tor.orderid = #{value} and tor.linkbothid = trg.id
+</select>
 
 
+  <select id="queryRegionAgain"  resultType="com.jk.model.OrderBean">
+SELECT COUNT(tc.id) showcount,tor.*,tre.`name` showuser, tre.phone showphone,tre.sheng showsheng,tre.inDetail showdetail,tc.number showname,
+
+tc.photo showimg,tc.price showprice from t_order tor,t_commodity tc,
+
+t_comm_order tco,t_region tre WHERE tor.linkuserid =#{id}
+
+AND tor.orderid = tco.orderid and tco.commid = tc.id
+
+GROUP BY tor.orderid
+
+and tre.userId =#{id}
+and tor.orderid = #{orderid}
+
+  </select>
 
   <!--订单列表 查询条数-->
   <select id="queryordercount" resultType="long">
@@ -59,7 +88,38 @@ where tnum.commid= tco.id
         and str_to_date(tor.subtime, '%Y-%m-%d')= str_to_date(#{orderBean.subdate}, '%Y-%m-%d')
       </if>
     group by tor.orderid
+
+  limit #{st},#{ed}
+
   </select>
+
+
+
+  <select id="queryallorder" resultType="com.jk.model.OrderBean">
+  SELECT DISTINCT tor.*,tu.loginname showuseraccount,tc.price showprice
+    FROM t_order tor,t_user tu,t_commodity tc,t_comm_order tco
+    where tor.linkuserid = tu.id and tco.orderid = tor.orderid
+    and tco.commid=tc.id  group by tor.orderid
+  </select>
+
+
+  <select id="queryregion1" parameterType="string" resultType="com.jk.model.RegionBean">
+    select * from t_region where id = #{value}
+
+  </select>
+
+
+  <select id="queryregion2" parameterType="String" resultType="com.jk.model.RegionBean">
+
+    select  * from  t_region where id = #{value}
+
+  </select>
+
+
+  <delete id="deleteCommOder" parameterType="string">
+    delete from t_comm_order where  orderid = #{value}
+  </delete>
+
 
 <!--生成订单-->
 <insert id="generateOrdeBean" parameterType="com.jk.model.OrderBean">
@@ -97,7 +157,6 @@ and tco.orderid =  #{value}
   <!--订单详情2 查询收货信息-->
 <select id="queryregion" parameterType="string" resultType="com.jk.model.RegionBean">
   select * from t_region where id = #{value}
-
 </select>
 
   <!--发货物流-->
@@ -109,12 +168,12 @@ and tco.orderid =  #{value}
 
 </insert>
 
-  <!--查询所有订单收货的信息-->
+ <!-- &lt;!&ndash;查询所有订单收货的信息&ndash;&gt;
   <select id="automergerorder" resultType="com.jk.model.RegionBean">
    SELECT tre.*,tor.orderid showorderid FROM t_region tre,t_order tor WHERE tre.id = tor.linkbothid
   </select>
 
-
+-->
 
 
 
@@ -150,10 +209,10 @@ and tco.orderid =  #{value}
 
   </insert>
 
-  <delete id="deleteExpressBean" parameterType="String">
+ <!-- <delete id="deleteExpressBean" parameterType="String">
     delete from t_express where linkorderid = #{value}
   </delete>
-
+-->
 
   <delete id="deleteSubOrder" parameterType="string">
     delete from t_order where orderid = #{value}

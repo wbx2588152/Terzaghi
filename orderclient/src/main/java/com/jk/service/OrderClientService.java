@@ -2,6 +2,7 @@ package com.jk.service;
 
 
 import com.jk.model.OrderBean;
+import com.jk.model.RegionBean;
 
 import java.util.List;
 import java.util.Map;
@@ -23,13 +24,14 @@ public interface OrderClientService {
 
     List<OrderBean> inselone();
 
-
- /*   void mergerorders(String mainorder, String subarr);*/
-
+   /*void mergerorders(String mainorder, String subarr);*/
 
     void automergerorder();
 
     Map<String, Object> queryuserorder(String id);
 
+    OrderBean queryRegionAgain(String id, String orderid);
 
+
+    void updateorderstatus(String orderid);
 }

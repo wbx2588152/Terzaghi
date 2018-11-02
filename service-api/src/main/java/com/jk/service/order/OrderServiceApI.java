@@ -1,6 +1,7 @@
 package com.jk.service.order;
 
 import com.jk.model.OrderBean;
+import com.jk.model.RegionBean;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -44,4 +45,12 @@ public interface OrderServiceApI {
 
     @RequestMapping(value = "oneclient/queryuserorder",method = RequestMethod.POST)
     Map<String, Object> queryuserorder(@RequestParam(value = "id") String id);
+
+
+
+    @RequestMapping(value = "oneclient/queryRegionAgain",method = RequestMethod.POST)
+    OrderBean queryRegionAgain(@RequestParam(value = "id") String id, @RequestParam(value = "orderid") String orderid);
+
+    @RequestMapping(value = "oneclient/updateorderstatus",method = RequestMethod.POST)
+    void updateorderstatus(@RequestParam(value = "orderid") String orderid);
 }

@@ -16,7 +16,7 @@ public class OrderBean implements Serializable {
 
     private String linkuserid; // 关联用户id
 
-    private String linkcommodifyid;// 关联商品id
+
 
     private String linkbothid; // 关联 收货信息表 的 id
 
@@ -45,6 +45,20 @@ public class OrderBean implements Serializable {
     private String consignnum;//发货单号； 默认为 0； 然后发货后生成发货单号；
 
 
+    private String showuser; // 展示 收货人信息
+
+    private String showimg; // 展示 商品 图片
+
+    private String showcount;//展示 商品数量
+
+    private String showname; // 展示商品名称
+
+    private String showphone;//展示联系电话；
+
+    private String showsheng;//展示省级地址
+
+    private String showdetail;//展示详细的收货地址；
+
     public String getOrderid() {
         return orderid;
     }
@@ -61,13 +75,6 @@ public class OrderBean implements Serializable {
         this.linkuserid = linkuserid;
     }
 
-    public String getLinkcommodifyid() {
-        return linkcommodifyid;
-    }
-
-    public void setLinkcommodifyid(String linkcommodifyid) {
-        this.linkcommodifyid = linkcommodifyid == null ? null : linkcommodifyid.trim();
-    }
 
     public String getLinkbothid() {
         return linkbothid;
@@ -134,5 +141,59 @@ public class OrderBean implements Serializable {
         this.consignnum = consignnum;
     }
 
+    public String getShowuser() {
+        return showuser;
+    }
 
+    public void setShowuser(String showuser) {
+        this.showuser = showuser;
+    }
+
+    public String getShowimg() {
+        return showimg;
+    }
+
+    public void setShowimg(String showimg) {
+        this.showimg = showimg;
+    }
+
+    public String getShowcount() {
+        return showcount;
+    }
+
+    public void setShowcount(String showcount) {
+        this.showcount = showcount;
+    }
+
+    public String getShowname() {
+        return showname;
+    }
+
+    public void setShowname(String showname) {
+        this.showname = showname;
+    }
+
+    public String getShowphone() {
+        return showphone;
+    }
+
+    public void setShowphone(String showphone) {
+        this.showphone = showphone;
+    }
+
+    public String getShowsheng() {
+        return showsheng;
+    }
+
+    public void setShowsheng(String showsheng) {
+        this.showsheng = showsheng;
+    }
+
+    public String getShowdetail() {
+        return showdetail;
+    }
+
+    public void setShowdetail(String showdetail) {
+        this.showdetail = showdetail;
+    }
 }

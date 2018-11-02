@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <script src="../frontorder/hm.js.下载">
+    </script>
+    <script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?bc210cd22928076d28296716d9dfcf01";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script>
+    <title>订单详情--MMall电商平台</title>
+    <link href="../frontorder/common.css" rel="stylesheet"/>
+    <link href="../frontorder/order-detail.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="notice-con">
+    <div class="w">
+    <p class="notice">  </p>
+        <!--<p class="notice"> 前端课程地址：
+            <a class="notice-link" href="http://coding.imooc.com/class/109.html" target="_blank" title="手把手从0打造企业级电商平台-前端实战">《手把手从0打造企业级电商平台-前端实战》
+            </a>
+            ，后端课程地址：
+            <a class="notice-link" href="http://coding.imooc.com/class/96.html" target="_blank" title="Java从零打造企业级电商项目实战-服务端">《Java从零打造企业级电商项目实战-服务端》
+            </a>
+        </p>-->
+    </div>
+</div>
+
+<div class="site-nav">
+    <div class="w">
+        <div class="user-info">
+            <span class="site-user not-login">
+                <span class="link link-login">登录</span>
+                <span class="link link-register" href="./register.html">注册</span>
+            </span>
+            <span class="site-user login" style="display: inline;">
+                <span class="link-text">欢迎，
+                    <span class="username">blackone</span>
+                </span>
+                <span class="link link-logout">退出</span>
+            </span>
+        </div>
+
+    <ul class="nav-list">
+        <li class="nav-item">
+            <a class="link" href="http://www.happymmall.com/cart.html">
+                <i class="fa fa-shopping-cart"></i> 购物车(<span class="cart-count">0</span>)
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="link" href="http://www.happymmall.com/order-list.html">我的订单</a>
+        </li>
+        <li class="nav-item">
+            <a class="link" href="http://www.happymmall.com/user-center.html">我的MMall</a>
+        </li>
+        <li class="nav-item">
+            <a class="link" href="http://www.happymmall.com/about.html">关于MMall
+            </a>
+        </li>
+    </ul>
+    </div>
+</div>
+
+<div class="header">
+    <div class="w">
+       <!-- <a class="logo" href="http://www.happymmall.com/index.html">MMall</a>-->
+        <div class="search-form">
+            <input class="search-input" id="search-input" placeholder="请输入商品名称">
+            <button class="search-btn" id="search-btn">搜索</button>
+        </div>
+    </div>
+</div>
+<div class="crumb">
+    <div class="w">
+        <div class="crumb-list">
+           <!-- <a href="http://www.happymmall.com/index.html" class="crumb-item">MMall</a>-->
+            <span>&gt;</span>
+            <span class="crumb-item">订单详情</span>
+        </div>
+    </div>
+</div>
+
+<div class="order-detail-wrap w">
+    <div class="left-con">
+        <ul class="menu">
+            <li class="menu-item">
+                <a class="link" href="http://www.happymmall.com/user-center.html">个人中心</a>
+            </li>
+            <li class="menu-item active">
+                <a class="link" href="http://www.happymmall.com/order-list.html">我的订单</a>
+            </li>
+            <li class="menu-item">
+                <a class="link" href="http://www.happymmall.com/pass-update.html">修改密码</a>
+            </li>
+            <li class="menu-item">
+                <a class="link" href="http://www.happymmall.com/about.html">关于MMall</a>
+            </li>
+        </ul>
+    </div>
+    <div class="right-con"><div class="panel"> <div class="panel-title"> 订单信息 </div>
+        <div class="panel-body">
+            <div class="order-info">
+                <div class="text-line">
+                    订单号：  <span class="text" th:text="${orderBean.orderid}" id="sporder"></span>
+                    创建时间： <span class="text"  th:text="${orderBean.subdate}"></span>
+                </div>
+                <div class="text-line">
+                    收件人： <span class="text"  th:text="${orderBean.showuser}"> </span>
+                    <span th:text="${orderBean.showsheng}"></span> 北京
+                    <span  th:text="${orderBean.showdetail}"></span>
+                    <span  th:text="${orderBean.showphone}"></span>
+                </div>
+                <div class="text-line">
+                    订单状态：
+                     <span th:if="${orderBean.orderstatus} == '2'">待发货</span>
+                               <span th:if="${orderBean.orderstatus} == '3'">待收货</span>
+                               <span th:if="${orderBean.orderstatus} == '4'">已完成</span>
+
+                </div>
+                <div class="text-line">
+                <span class="text">支付方式：在线支付</span>
+                </div>
+                <div class="text-line">
+                    <span th:if="${orderBean.orderstatus} == '3'">
+                         <button onclick="confirmgood()">确认收货</button>
+                    </span>
+                    <span th:if="${orderBean.orderstatus} == '4'">
+                         <button >已收货</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="panel">
+            <div class="panel-title"> 商品清单 </div>
+            <div class="panel-body">
+                <table class="order-list-table header">
+                    <tbody>
+                    <tr><th class="order-list-cell cell-img">&nbsp;</th>
+                        <th class="order-list-cell cell-info">商品信息</th>
+                        <th class="order-list-cell cell-price">单价</th>
+                        <th class="order-list-cell cell-count">数量</th>
+                        <th class="order-list-cell cell-total">合计</th>
+                    </tr>
+                    </tbody>
+                </table>
+                <table class="order-list-table order-item">
+                    <tbody>
+                    <tr>
+                        <td class="order-list-cell cell-img">
+                            <a href="http://www.happymmall.com/detail.html?productId=72" target="_blank">
+                                <img class="p-img" th:src="${orderBean.showimg}" alt="Apple iPhone X (A1865) 全面屏手机 64GB 深空灰色">
+                            </a>
+                        </td>
+                        <td class="order-list-cell cell-info">
+                            <a class="link p-name" href="http://www.happymmall.com/detail.html?productId=72" target="_blank">
+                                <span th:text="${orderBean.showname}"></span>
+                            </a>
+                        </td>
+                        <td class="order-list-cell cell-price" th:text="${orderBean.showprice}" id="tdf1"></td>
+
+                        <td class="order-list-cell cell-count" th:text="${orderBean.showcount}" id="tdf2"></td>
+                        <td class="order-list-cell cell-total" id="tdh"></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <p class="total pull-right">
+                    <span>订单总价：</span>
+                    <span class="enhance" id="sph"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <div class="w">
+        <div class="links">
+            <a target="_blank" class="link" href="https://coding.imooc.com/">慕课网实战</a> |
+            <a target="_blank" class="link" href="https://www.imooc.com/u/198337">Rosen主页</a> |
+            <a target="_blank" class="link" href="https://www.imooc.com/t/2705746">Geely主页</a> |
+            <a target="_blank" class="link" href="https://www.imooc.com/u/5980627">Jimin主页</a>
+        </div>
+        <p class="copyright"> Copyright © 2018 happymmall.com All Rights Reserved </p>
+    </div>
+</div>
+<script src="../frontorder/jquery.js.下载"></script>
+<script type="text/javascript" src="../frontorder/base.js.下载"></script>
+<script type="text/javascript" src="../frontorder/common.js.下载"></script>
+<script type="text/javascript" src="../frontorder/order-detail.js.下载"></script>
+<script>
+    $(document).ready(function(){
+        alertprice();
+    })
+    function alertprice(){
+        var priceAll=1;
+        /* var arr=document.getElementsByName("spa");*/
+
+        var count=$("#tdf1").html();
+        var price=$("#tdf2").html();
+
+        priceAll=parseFloat(count)*parseFloat(price);
+
+        $("#tdh").html(priceAll);
+        $("#sph").html(priceAll);
+        /* for (var i=0;i<arr.length;i++) {
+             var ar = arr[i].innerHTML;
+             priceAll+=parseFloat(ar);
+         }
+         $("#td2").html(priceAll);*/
+    }
+function confirmgood() {
+   var orderid= $("#sporder").html();
+    $.ajax({
+        url: '../front/updateorderstatus',
+        type: 'post',
+        data: {
+            orderid:orderid
+        },
+        dataType: 'json',
+        success: function (result) {
+
+        }
+    })
+    location.reload(true);
+
+}
+
+</script>
+</body>
+</html>

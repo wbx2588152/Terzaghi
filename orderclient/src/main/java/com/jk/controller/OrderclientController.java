@@ -2,6 +2,7 @@ package com.jk.controller;
 
 import com.jk.model.Comm;
 import com.jk.model.OrderBean;
+import com.jk.model.RegionBean;
 import com.jk.service.OrderClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -80,6 +81,17 @@ public class OrderclientController {
         Map<String, Object> map = orderClientService.queryuserorder(id);
         return map;
     }
+
+    @RequestMapping(value = "queryRegionAgain",method = RequestMethod.POST)
+    public OrderBean queryRegionAgain(String id,String orderid){
+        return orderClientService.queryRegionAgain(id,orderid);
+    }
+
+    @RequestMapping(value = "updateorderstatus",method = RequestMethod.POST)
+    public void updateorderstatus(String orderid){
+        orderClientService.updateorderstatus(orderid);
+    }
+
 
 
 }
