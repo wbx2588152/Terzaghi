@@ -70,8 +70,8 @@ public class LogAspectj {
         	
              logBean.setIp(getIp(request));
         }
-        amqpTemplate.convertAndSend("logqueue",logBean);
-        System.out.println("我发送了一条消息");
+        /*amqpTemplate.convertAndSend("logqueue",logBean);
+        System.out.println("我发送了一条消息");*/
        /* mongoTemplate.save(logBean);*/
 	}
       //获取客户端ip  

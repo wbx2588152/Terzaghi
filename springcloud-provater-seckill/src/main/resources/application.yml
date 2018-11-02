@@ -3,6 +3,11 @@ server:
 spring:
   application:
     name: service-seckill
+  rabbitmq:
+    host: 45.77.127.206
+    port: 5672
+    username: guest
+    password: guest
 
   datasource:
     drivervlassname: com.mysql.jdbc.Driver

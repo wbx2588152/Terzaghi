@@ -15,7 +15,7 @@ public class ListenerLog {
     private MongoTemplate mongoTemplate;
     @RabbitHandler
     public void getLogMessage(LogBean logBean){
-        mongoTemplate.save(logBean);
-        System.out.println("我处理了一条消息");
+       /* mongoTemplate.save(logBean);
+        System.out.println("我处理了一条消息");*/
     }
 }

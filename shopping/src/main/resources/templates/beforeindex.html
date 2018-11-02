@@ -401,7 +401,7 @@
                 /*   '<a class="link" id="toCou">我的优惠券</a>\n' +*/
                    '</li>\n' +
                    '<li class="nav-item">\n' +
-                   '<a class="link" href="http://www.happymmall.com/user-center.html">我的订单</a> </li>\n' +
+                   '<a class="link" href="javascript:myorder()">我的订单</a> </li>\n' +
                    '<li class="nav-item">\n' +
                    '<a class="link" href="javascript:seechart()">联系客服</a>\n' +
                    '</li>\n' +
@@ -452,8 +452,13 @@
     function onFood() {
         location.href="/comm/toFood";
     }
+    //聊天
     function seechart(){
         location.href="/pay/seechart";
+    }
+    //查看订单
+    function myorder(){
+        location.href="/front/toshoworder";
     }
 </script>
 </body>

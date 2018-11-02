@@ -13,6 +13,7 @@ import com.jk.utils.IdWorker;
 import com.jk.utils.UserUtil;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
+import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -53,6 +54,9 @@ public class SeckillController {
     private RedisTemplate redisTemplate;
     @Autowired
     private MongoTemplate mongoTemplate;
+
+    @Autowired
+    private AmqpTemplate amqpTemplate;
 
     /**
      * 加载提交订单的商品列表
@@ -210,7 +214,9 @@ public class SeckillController {
             ob.setSubtime(find2.get(i).getSubtime());   //提交时间
             seckilServiceApi.addOrderInfo(ob);
         }
-        couServiceApi.deleteCoupon(find.get(0).getCouid());
+        if(find.get(0).getCouid()!=null){
+            couServiceApi.deleteCoupon(find.get(0).getCouid());
+        }
         return find.get(0);
     }
 
@@ -276,12 +282,14 @@ public class SeckillController {
         User user = (User) session.getAttribute(session.getId());
 
         //根据id查看是否是限量秒杀的商品
-        SeckilCommodity seckilCommodity = seckilServiceApi.querySeckillComInfoById(seckillId);
+       /* SeckilCommodity seckilCommodity = seckilServiceApi.querySeckillComInfoById(seckillId);
         if(seckilCommodity != null){    //如果是限量秒杀的商品在生成订单的时候库存减一
             seckilServiceApi.updateCommInfo(seckillId);
         }else{//那就是限时秒杀表 限时秒杀已购买的数量加一且库存减一
             seckilServiceApi.updateTImeLimitById(seckillId);
-        }
+        }*/
+        amqpTemplate.convertAndSend("logqueue",seckillId);
+
 
         //生成唯一订单号
         IdWorker idWorker = new IdWorker(1, 0);
@@ -289,15 +297,16 @@ public class SeckillController {
         String dingDanHao = String.valueOf(idWork);
 
         //生成订单
-        OrderBean orderBean = new OrderBean();
+        OrderMon orderBean = new OrderMon();
         orderBean.setOrderid(dingDanHao);
         orderBean.setLinkuserid(user.getId());//登录id
         orderBean.setLinkcommodifyid(id);   //关联商品id
         orderBean.setLinkbothid(regionId);  //关联收货地址id
         orderBean.setPaystatus("2");    //未付款状态
         orderBean.setOrderstatus("1");  //未发货状态
-        orderBean.setSubtime(new Timestamp(new Date().getTime()));   //提交时间
-        seckilServiceApi.addOrderInfo(orderBean);
+        orderBean.setSubtime(new Date());   //提交时间
+        //seckilServiceApi.addOrderInfo(orderBean);
+        mongoTemplate.save(orderBean);
 
         //获得初始化的AlipayClient
         AlipayClient alipayClient = new DefaultAlipayClient(AlipayConfig.gatewayUrl, AlipayConfig.app_id, AlipayConfig.merchant_private_key, "json", AlipayConfig.charset, AlipayConfig.alipay_public_key, AlipayConfig.sign_type);
@@ -405,8 +414,15 @@ public class SeckillController {
     @RequestMapping("querySeckillCommodityList")
     @ResponseBody
     public List<SeckilCommodity> querySeckillCommodityList(){
-        List<SeckilCommodity> list = seckilServiceApi.querySeckillCommodityList();
-        return list;
+        String seckillComId = "1";
+        List<SeckilCommodity> seckillCommodityList = (List<SeckilCommodity>) redisTemplate.boundHashOps("seckillCommodityList").get(seckillComId);
+        if (seckillCommodityList != null) {
+            return seckillCommodityList;
+        } else {
+            List<SeckilCommodity> list = seckilServiceApi.querySeckillCommodityList();
+            redisTemplate.boundHashOps("seckillCommodityList").put(seckillComId,list);
+            return list;
+        }
     }
 
     /**
@@ -415,9 +431,16 @@ public class SeckillController {
      * */
     @RequestMapping("queryTimeLimitSeckillList")
     @ResponseBody
-    public List<SeckilCommodity> queryTimeLimitSeckillList(){
-        List<SeckilCommodity> list = seckilServiceApi.queryTimeLimitSeckillList();
-        return list;
+    public List<TimeLimitSeckill> queryTimeLimitSeckillList(){
+        String seckillComId = "1";
+        List<TimeLimitSeckill> timeLimitSeckillList = (List<TimeLimitSeckill>) redisTemplate.boundHashOps("timeLimitSeckillList").get(seckillComId);
+        if (timeLimitSeckillList != null) {
+            return timeLimitSeckillList;
+        } else {
+            List<TimeLimitSeckill> list = seckilServiceApi.queryTimeLimitSeckillList();
+            redisTemplate.boundHashOps("timeLimitSeckillList").put(seckillComId,list);
+            return list;
+        }
     }
 
     /**
