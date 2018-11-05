@@ -3,6 +3,7 @@ package com.jk.controller.adve;
 import com.alibaba.fastjson.JSONObject;
 import com.jk.model.Adve;
 import com.jk.model.Coupon;
+import com.jk.model.Resore;
 import com.jk.service.CouServiceApi;
 import com.jk.service.adve.AdveService;
 import com.jk.service.adve.AdveServiceApi;
@@ -172,4 +173,103 @@ public class AdveController {
         adveServiceApi.updateAdve(adve);
         return "1";
     }
+
+    //跳转轮播图页面
+    @RequestMapping(value = "toRes")
+    public String toRes(){
+        return "res/resList";
+    }
+    //查询轮播图管理
+    @RequestMapping(value = "queryResPage",method = RequestMethod.GET)
+    @ResponseBody
+    public String queryResPage(int page, int limit, Resore res) {
+        Map<String, Object> map = new HashMap<>();
+        map = adveServiceApi.queryReslist(page, limit, res);
+        List<Resore> list = (List<Resore>) map.get("rows");
+        int count = (int) map.get("total");
+        //list转成json
+//		 JSONArray array =new JSONArray();
+        JSONObject obj = new JSONObject();
+        //前台通过key值获得对应的value值
+        obj.put("code", 0);
+        obj.put("msg", "");
+        obj.put("count", count);
+        obj.put("data", list);
+
+        return obj.toString();
+
+    }
+
+    //跳转轮播图新增页面
+    @RequestMapping(value = "toAddRes")
+    public String toAddRes(){
+        return "res/addRes";
+    }
+
+    //新增轮播图管理
+     @RequestMapping(value = "saveRes",method = RequestMethod.POST)
+    @ResponseBody
+    public String saveRes(Resore res){
+         res.setId(UUID.randomUUID().toString().replaceAll("-",""));
+         adveServiceApi.saveRes(res);
+         return "{}";
+     }
+
+    //删除轮播图列表
+    @RequestMapping(value = "delRes",method = RequestMethod.GET)
+    @ResponseBody
+    public String delRes(String id){
+        adveServiceApi.delRes(id);
+        return "1";
+    }
+
+    //跳转优惠券修改页面
+    @RequestMapping(value = "toEditRes", method = RequestMethod.GET)
+    public String toEditRes(@RequestParam(value = "id") String id, HttpServletRequest request) {
+        Resore res = adveServiceApi.queryResById(id);
+        request.setAttribute("res", res);
+        return "res/editres";
+    }
+
+    //修改优惠券
+    @RequestMapping(value = "updateRes", method = RequestMethod.POST)
+    @ResponseBody
+    public String updateRes(Resore res) {
+        adveServiceApi.updateRes(res);
+        return "1";
+    }
+   //上传轮播图
+
+    @RequestMapping("addOneFileFood")
+    @ResponseBody
+    public Map<String, Object>  addOneFileFood(HttpServletRequest servletRequest,
+                                           @RequestParam("file") MultipartFile file
+    ) throws IOException {
+
+        //如果文件内容不为空，则写入上传路径
+        if (!file.isEmpty()) {
+            String url = "轮播图/";
+
+            InputStream fos = file.getInputStream();
+
+            String fileName = file.getOriginalFilename();
+
+            URL fileUpload = AliyunUtil.upFObject("stupan", url+fileName , fos);
+            String string = fileUpload.toString();
+            String[] split = string.split("[?]");
+            Map<String, Object> res = new HashMap<>();
+            //返回的是一个url对象
+            res.put("url", fileName);
+            res.put("url2",split[0]);
+            return res;
+
+        } else {
+            return null;
+
+        }
+
+    }
+
+
+
 }
