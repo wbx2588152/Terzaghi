@@ -86,6 +86,21 @@ public class SeckillController {
         redisTemplate.boundHashOps("timeLimitSeckillList").delete("1");
         return "{}";
     }
+    /**
+     * 新增限量秒杀数据
+     * */
+    @RequestMapping("saveAddLimitSeckill")
+    @ResponseBody
+    public String saveAddLimitSeckill(SeckilCommodity seckilCommodity){
+        seckilCommodity.setId(UUID.randomUUID().toString().replace("-",""));
+        seckilCommodity.setAddTime(new Date());
+        seckilCommodity.setStatus("1");
+        seckilCommodity.setLimitationCount(0);
+        seckilService.saveAddLimitSeckill(seckilCommodity);
+        redisTemplate.boundHashOps("seckillCommodityList").delete("1");
+        redisTemplate.boundHashOps("timeLimitSeckillList").delete("1");
+        return "{}";
+    }
 
 
     /**
