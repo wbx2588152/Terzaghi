@@ -32,6 +32,14 @@ public class SeckilCommodity implements Serializable {
 
     private String status;   //状态 上架和下架
 
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
     public void setAddTime(Date addTime) {
         this.addTime = addTime;
     }

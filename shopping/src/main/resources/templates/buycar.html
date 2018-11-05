@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- saved from url=(0035)http://www.happymmall.com/cart.html -->
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -80,7 +80,7 @@
         </div>
         <div class="delete-con"><a class="cart-delete-seleced link"> <i class="fa fa-trash-o" aria-hidden="true"></i>
             <span onclick="delmany()">删除选中</span> </a></div>
-            <div class="submit-con"><span>总价：</span> <span class="submit-total" id="numTotal">￥0</span> <span class="btn submit-btn" onclick="subJiesuan()">去结算</span>
+        <div class="submit-con"><span>总价：</span> <span class="submit-total" id="numTotal">￥0</span> <span class="btn submit-btn" onclick="subJiesuan()">去结算</span>
         </div>
     </div>
 </div>
@@ -124,12 +124,7 @@
             }
         })
     }
-
-
-
-
     $(function(){
-
         initDaoHang();
         showtips();
         seeshopping();
@@ -164,7 +159,6 @@
                         "                <td class=\"cart-cell cell-total\">"+numtotal+"</td>\n" +
                         "                <td class=\"cart-cell cell-opera\"><a class=\"link cart-delete\" onclick='delOneType(\""+info[i].goodsid+"\")'>删除</a></td>\n" +
                         "            </tr>"
-
                 }
                 $('#carbody').html(html);
             }
@@ -201,7 +195,6 @@
         })
         $('#numTotal').html(total);
     }
-
     function delOneType(goodsid){
         $.ajax({
             url:'/pay/delBuycarByName',
@@ -252,7 +245,6 @@
             }
         })
     }
-
     //跳转登录页面
     $('span').delegate('#tologin','click',function(){
         location.href="/cou/toLogin";
@@ -261,8 +253,6 @@
     $('span').delegate('#toreg','click',function(){
         location.href="/cou/toReg";
     })
-
-
     $(function(){
         initDaoHang();
         getUserSs();
@@ -277,20 +267,12 @@
             }
         })
     }
-
-
-
     $('span').delegate('#toCou','click',function(){
         location.href="/cou/toCoupon"
     })
     $('span').delegate('#exit','click',function(){
-
         location.href="/cou/exit";
     })
-
-
-
-
     function initDaoHang(){
         $.ajax({
             /*url:'../wangcj/checkLogin',*/
@@ -301,14 +283,12 @@
             success:function(result){
                 var html = "";
                 if(result.code != 0){
-
                     html +=  '<div class="user-info">\n' +
                         '             <span class="site-user not-login" style="display: inline;">\n' +
                         '                <span class="link link-login" id="tologin">登录</span>\n' +
                         '                <span class="link link-register" id="toreg">注册</span>\n' +
                         '             </span>\n' +
                         '         </div>';
-
                 }else if (result.code == 0){
                     var user = result.loginname;
                     html +=
@@ -332,7 +312,6 @@
                         '<li class="nav-item">\n' +
                         '<a class="link" href="http://www.happymmall.com/about.html">关于MMall</a>\n' +
                         '</li>\n' +
-
                         '</ul>';
                 }
                 $('#checkLogin').html(html);
@@ -359,7 +338,6 @@
         if(tip!=""){
             alert(tip);
         }
-
     }
     function accMul(arg1,arg2){
         return parseFloat(arg1)*parseFloat(arg2)

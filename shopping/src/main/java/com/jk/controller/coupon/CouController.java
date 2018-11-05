@@ -309,6 +309,7 @@ public class CouController {
         HttpSession session = request.getSession();
         session.removeAttribute(session.getId());
         return "beforeindex";
+
     }
 
     //查看session是否有用户id  更改导航条的状态
@@ -385,6 +386,8 @@ public class CouController {
 
             } else {
                 map.put("code", 0);
+
+
             }
         }
          map.put("userCou1",userCous);

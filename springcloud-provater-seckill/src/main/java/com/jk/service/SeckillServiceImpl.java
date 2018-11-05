@@ -5,10 +5,16 @@ import com.jk.model.*;
 import com.jk.service.seckill.SeckilServiceApi;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author 王超杰
@@ -16,11 +22,11 @@ import java.util.*;
  * @Description:
  */
 @RestController
+@Component
 public class SeckillServiceImpl implements SeckilServiceApi {
 
     @Autowired
     private SeckillMapper seckillMapper;
-
 
     @Override
     public Map<String, Object> querySeckillList(int page, int rows, SeckilCommodity seckilCommodity) {
@@ -111,13 +117,6 @@ public class SeckillServiceImpl implements SeckilServiceApi {
     }
 
     @Override
-    public void addOrderInfo(@RequestBody OrderBean orderBean) {
-        seckillMapper.addOrderInfo(orderBean);
-        String id= UUID.randomUUID().toString().replaceAll("-", "");
-        seckillMapper.addcommorder(orderBean,id);
-    }
-
-    @Override
     public OrderBean queryOrderById(@RequestBody OrderBean orderBean) {
         return seckillMapper.queryOrderById(orderBean);
     }
@@ -174,6 +173,38 @@ public class SeckillServiceImpl implements SeckilServiceApi {
         return seckillMapper.queryCommById(id);
     }
 
+    @Override
+    public Map<String, Object> queryLimitSeckills(int page, int limit,@RequestBody SeckilCommodity seckilCommodity) {
+        Map<String , Object> map = new HashMap<>();
+        int pages = (page-1)*limit;
+        List<SeckilCommodity> seckilCommodities = seckillMapper.queryLimitSeckills(pages,limit,seckilCommodity);
+        int count = seckillMapper.queryLimitSeckillCounts(seckilCommodity);
+        map.put("total",count);
+        map.put("rows",seckilCommodities);
+        return map;
+    }
+
+    @Override
+    public Map<String, Object> queryTimeLimitSeckills(int page, int limit,@RequestBody TimeLimitSeckill timeLimitSeckill) {
+        Map<String , Object> map = new HashMap<>();
+        int pages = (page-1)*limit;
+        List<SeckilCommodity> seckilCommodities = seckillMapper.queryTimeLimitSeckills(pages,limit,timeLimitSeckill);
+        int count = seckillMapper.queryTimeLimitSeckillCount(timeLimitSeckill);
+        map.put("total",count);
+        map.put("rows",seckilCommodities);
+        return map;
+    }
+
+    @Override
+    public void saveAddLimitSeckill(@RequestBody SeckilCommodity seckilCommodity) {
+        seckillMapper.saveAddLimitSeckill(seckilCommodity);
+    }
+
+    @Override
+    public void saveTimeLimit(@RequestBody TimeLimitSeckill timeLimitSeckill) {
+        seckillMapper.saveTimeLimit(timeLimitSeckill);
+    }
+
     @RabbitListener(queues = "logqueue")
     public void updateSeckill(String seckillId) {
         SeckilCommodity seckilCommodity = seckillMapper.querySeckillComInfoById(seckillId);
@@ -183,6 +214,12 @@ public class SeckillServiceImpl implements SeckilServiceApi {
             seckillMapper.updateTImeLimitById(seckillId);
         }
     }
+
+    @Override
+    public void addOrderInfo(@RequestBody OrderBean orderBean) {
+       // mongoTemplate.save(orderBean);
+    }
+
 
 
 }

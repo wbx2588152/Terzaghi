@@ -118,9 +118,9 @@ public class PayController {
             List<BuyCar> cartList_cookie = JSON.parseArray(cookieValue,BuyCar.class);
             for (int i = 0; i < cartList_cookie.size() ; i++){
                 BuyCar bc1 = cartList_cookie.get(i);
-                    if(gid.equals(bc1.getGoodsid())){
-                        cartList_cookie.remove(i);
-                    }
+                if(gid.equals(bc1.getGoodsid())){
+                    cartList_cookie.remove(i);
+                }
             }
             String cookieValue2 = JSON.toJSONString(cartList_cookie);
             CookieUtil.setCookie(request, response, "cartList", cookieValue2, 3600*24, "UTF-8");

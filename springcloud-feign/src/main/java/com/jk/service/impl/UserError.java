@@ -4,7 +4,7 @@ import com.jk.model.Power;
 import com.jk.model.User;
 
 
-import com.jk.service.Userservice;
+
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;

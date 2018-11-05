@@ -1,6 +1,5 @@
 package com.jk.controller.seckill;
 
-import com.alibaba.fastjson.JSON;
 import com.alipay.api.DefaultAlipayClient;
 import com.alipay.api.request.AlipayTradePagePayRequest;
 import com.jk.config.AlipayConfig;
@@ -8,7 +7,6 @@ import com.jk.model.*;
 import com.jk.service.CouServiceApi;
 import com.jk.service.pay.PayService;
 import com.jk.service.seckill.SeckilServiceApi;
-import com.jk.utils.ConnectionUtils;
 import com.jk.utils.IdWorker;
 import com.jk.utils.UserUtil;
 import com.rabbitmq.client.Channel;
@@ -20,22 +18,20 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
 import com.alipay.api.AlipayClient;
 import sun.text.resources.zh.FormatData_zh;
-
 /**
  * @author 王超杰
  * @date 2018/10/18
@@ -43,20 +39,27 @@ import sun.text.resources.zh.FormatData_zh;
  */
 @Controller
 @RequestMapping("seckill")
+@Component
 public class SeckillController {
     @Autowired
     private PayService payService;
     @Autowired
     private SeckilServiceApi seckilServiceApi;
+
     @Autowired
     private CouServiceApi couServiceApi;
     @Autowired
     private RedisTemplate redisTemplate;
+
     @Autowired
     private MongoTemplate mongoTemplate;
 
     @Autowired
     private AmqpTemplate amqpTemplate;
+
+    private HttpServletRequest request;
+
+    private HttpServletResponse response;
 
     /**
      * 加载提交订单的商品列表
@@ -154,7 +157,6 @@ public class SeckillController {
         }
 
 
-
         //获得初始化的AlipayClient
         AlipayClient alipayClient = new DefaultAlipayClient(AlipayConfig.gatewayUrl, AlipayConfig.app_id, AlipayConfig.merchant_private_key, "json", AlipayConfig.charset, AlipayConfig.alipay_public_key, AlipayConfig.sign_type);
 
@@ -200,7 +202,7 @@ public class SeckillController {
         List<OrderMon> find=mongoTemplate.find(query, OrderMon.class);
         System.out.println(find.get(0));
         Query query2 = new Query();
-        query2=Query.query(Criteria.where("subtime").is(find.get(0).getSubtime()));
+        query2= Query.query(Criteria.where("subtime").is(find.get(0).getSubtime()));
         List<OrderMon> find2=mongoTemplate.find(query2, OrderMon.class);
         System.out.println(find2.size());
         for (int i = 0; i <find2.size() ; i++) {
@@ -241,9 +243,10 @@ public class SeckillController {
         User user = (User) session.getAttribute(session.getId());
 
         OrderBean orderBean = new OrderBean();
-        orderBean.setLinkuserid("3");   //未实现登录 先用死数据
+        orderBean.setLinkuserid(user.getId());   //未实现登录 先用死数据
         orderBean.setPaystatus("2");    //状态2为未支付
         OrderBean orders = seckilServiceApi.queryOrderById(orderBean);
+
         orderBean.setPaystatus("1");
         orderBean.setOrderstatus("2");
         orderBean.setOrderid(orders.getOrderid());
@@ -277,6 +280,7 @@ public class SeckillController {
      */
     @RequestMapping(value = "/goAlipay", produces = "text/html; charset=UTF-8")
     @ResponseBody
+    @GetMapping
     public String goAlipay(String seckillId,String regionId,String id,String name, String artNo, String seckillPrice, String commmondityImg,String commmondityCount, HttpServletRequest request, HttpServletRequest response) throws Exception {
 
         HttpSession session = request.getSession();
@@ -291,23 +295,23 @@ public class SeckillController {
         }
         amqpTemplate.convertAndSend("logqueue",seckillId);
 
-
         //生成唯一订单号
         IdWorker idWorker = new IdWorker(1, 0);
         long idWork = idWorker.nextId();
         String dingDanHao = String.valueOf(idWork);
 
-        //生成订单
-        OrderMon orderBean = new OrderMon();
+        //生成订单到MongoDB中
+       OrderBean orderBean = new OrderBean();
         orderBean.setOrderid(dingDanHao);
-        orderBean.setLinkuserid(user.getId());//登录id
+        orderBean.setLinkuserid(user.getId());
         orderBean.setLinkcommodifyid(id);   //关联商品id
         orderBean.setLinkbothid(regionId);  //关联收货地址id
         orderBean.setPaystatus("2");    //未付款状态
         orderBean.setOrderstatus("1");  //未发货状态
         orderBean.setSubtime(new Date());   //提交时间
-        //seckilServiceApi.addOrderInfo(orderBean);
         mongoTemplate.save(orderBean);
+        //seckilServiceApi.addOrderInfo(orderBean);
+        /* seckilServiceApi.addOrderInfo(orderBean);*/
 
         //获得初始化的AlipayClient
         AlipayClient alipayClient = new DefaultAlipayClient(AlipayConfig.gatewayUrl, AlipayConfig.app_id, AlipayConfig.merchant_private_key, "json", AlipayConfig.charset, AlipayConfig.alipay_public_key, AlipayConfig.sign_type);
@@ -366,7 +370,7 @@ public class SeckillController {
     @RequestMapping("addRegion")
     @ResponseBody
     public String addRegion(RegionBean regionBean,HttpServletRequest request){
-        HttpSession session = request.getSession();
+       HttpSession session = request.getSession();
         User user = (User) session.getAttribute(session.getId());
         regionBean.setUserId(user.getId());
         regionBean.setId(UUID.randomUUID().toString().replace("-",""));
@@ -414,7 +418,7 @@ public class SeckillController {
      * */
     @RequestMapping("querySeckillCommodityList")
     @ResponseBody
-    public List<SeckilCommodity> querySeckillCommodityList(){
+    public List<SeckilCommodity> querySeckillCommodityList() {
         String seckillComId = "1";
         List<SeckilCommodity> seckillCommodityList = (List<SeckilCommodity>) redisTemplate.boundHashOps("seckillCommodityList").get(seckillComId);
         if (seckillCommodityList != null) {

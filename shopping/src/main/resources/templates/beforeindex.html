@@ -117,10 +117,11 @@
             </li>
         </ul>
     </div>
+
     <div class="banner-wrap">
         <div class="banner has-dots" style="overflow: hidden; width: 830px; height: 370px;">
             <ul style="width: 400%; position: relative; left: -100%; height: 370px;">
-                <li style="width: 25%;">
+                <li style="width: 25%;" >
                     <a href="javascript:miaosha()" target="_blank">
                         <img class="banner-img" src="../imgs/ms.jpg">
                     </a>
@@ -141,7 +142,7 @@
                     </a>
                 </li>
             </ul>
-            <ol class="dots"><li class="dot">1</li><li class="dot active">2</li><li class="dot">3</li><li class="dot">4</li></ol></div>
+        </div>
         <div class="banner-arrow prev" data-forword="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></div>
         <div class="banner-arrow next" data-forword="next"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
     </div>
@@ -340,6 +341,7 @@
        initDaoHang();
        getUserSs();
    })
+
    //获取登录信息
    function getUserSs(){
        $.ajax({
@@ -418,7 +420,7 @@
            success:function(info){
                var x=0;
                for (var i = 0; i <info.length ; i++) {
-                   x+=1;
+                   x+=Number(info[i].num);
                }
                $('#car-num').html(x);
            }
