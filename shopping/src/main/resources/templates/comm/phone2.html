@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<!-- saved from url=(0062)http://www.happyJinKe.com/list.html?keyword=%E6%89%8B%E6%9C%BA -->
+<html xmlns:th="http://www.thymeleaf.org"  lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="keywords" content="JinKe,电商系统,网购平台,慕课三剑客,教学视频,前端开发,后端开发,React,SSM,Java,权限系统,分布式,高并发,毕业设计,毕设,代码">
+    <meta name="description" content="JinKe电商平台教学，最火的电商系统开发教学视频，囊括前后端多个课程，一线企业讲师亲自授课，慕课三剑客带你成为IT行业大牛。">
+    <link rel="dns-prefetch" href="http://s.happyJinKe.com/">
+    <link rel="dns-prefetch" href="http://cdn.bootcss.com/">
+    <script src="../phone/hm.js"></script><script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?bc210cd22928076d28296716d9dfcf01";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script>
+    <title>商品列表--JinKe电商平台</title>
+    <link rel="shortcut icon" href="http://s.happyJinKe.com/JinKe_fe/dist/favicon.ico">
+    <link href="../phone/common.css" rel="stylesheet">
+    <link href="../phone/list.css" rel="stylesheet">
+    <script src="../js/jquery.min.js"></script>
+</head>
+
+<body>
+<div class="notice-con"> <div class="w">  </div> </div>
+<div class="header"> <div class="w">
+    <a class="logo" href="javascript:onComm();">JinKe</a>
+    <div class="search-form"> <input class="search-input" id="search-input" placeholder="请输入商品名称"> <button class="search-btn" id="search-btn2">搜索</button> </div> </div> </div>
+<div class="crumb">
+    <div class="w">
+        <div class="crumb-list">
+            <a href="http://www.happyJinKe.com/index.html" class="crumb-item">JinKe</a>
+            <span>&gt;</span>
+            <span class="crumb-item">商品列表</span>
+        </div>
+    </div>
+</div>
+<div class="list-wrap w">
+    <ul class="sorter-con">
+        <li class="sorter-item active" data-type="default">
+            <span>推荐排序</span>
+        </li>
+        <li class="sorter-item" data-type="price">
+            <span>价格</span>
+            <i class="fa fa-sort-asc"></i>
+            <i class="fa fa-sort-desc"></i>
+        </li>
+    </ul>
+    <!-- list容器 -->
+    <ul class="p-list-con">
+        <!--<li class="p-item">
+            <div class="p-img-con">
+                <a class="link" href="javascript:ondetail();" target="_blank">
+                    <img class="p-img" src="../phone/241997c4-9e62-4824-b7f0-7425c3c28917.jpeg" alt="测试使用Apple iPhone 7 Plus (A1661) 128G手机">
+                </a>
+            </div>
+            <div class="p-price-con">
+                <span class="p-price">¥6997</span>
+            </div>
+            <div class="p-name-con">
+                <a href="http://www.happyJinKe.com/detail.html?productId=26" target="_blank" class="p-name" title="测试使用Apple iPhone 7 Plus (A1661) 128G手机">测试使用Apple iPhone 7 Plus (A1661) 128G手机 </a>
+            </div>
+        </li>-->
+        <SPAN id="songjyId"></SPAN>
+    </ul>
+    <!-- 分页容器 -->
+    <div class="pagination"></div>
+</div>
+<input type="hidden" id="stip" th:value="${stip}"/>
+<script>
+    $(function(){
+        initComm();
+    })
+    function initComm(){
+        var tip=$('#stip').val();
+        $.ajax({
+            url:'/pay/searchSolrPhone',
+            type:'post',
+            data:{name:tip},
+            dataType:'json',
+            success:function(result){
+                var html="";
+                for(var i= 0;i<result.length;i++){
+                    html+=
+                        '<li class="p-item">\n' +
+                        '                    <div class="p-img-con">\n' +
+                        '                        <a class="link" href="javascript:ondetail(\''+result[i].id+'\');" target="_blank">\n' +
+                        '                            <img class="p-img" src="'+result[i].photo+'" alt="测试使用Apple iPhone 7 Plus (A1661) 128G手机">\n' +
+                        '                        </a>\n' +
+                        '                    </div>\n' +
+                        '                    <div class="p-price-con">\n' +
+                        '                        <span class="p-price">¥'+result[i].price+'</span>\n' +
+                        '                    </div>\n' +
+                        '                    <div class="p-name-con">\n' +
+                        '                        <a href="javascript:ondetail(\''+result[i].id+'\')" target="_blank" class="p-name" title="测试使用Apple iPhone 7 Plus (A1661) 128G手机">'+result[i].number+'&nbsp;'+result[i].showname+'&nbsp;('+result[i].showmodels+')&nbsp;'+result[i].showspec+'</a>\n' +
+                        '                    </div>\n' +
+                        '                </li>';
+
+                }
+                $("#songjyId").html(html);
+            }
+        })
+    }
+
+</script>
+
+<div class="footer">
+    <div class="w">
+        <div class="links">
+            <a target="_blank" class="link" href="https://coding.imooc.com/">慕课网实战</a> |
+            <a target="_blank" class="link" href="https://www.imooc.com/u/198337">Rosen主页</a> |
+            <a target="_blank" class="link" href="https://www.imooc.com/t/2705746">Geely主页</a> |
+            <a target="_blank" class="link" href="https://www.imooc.com/u/5980627">Jimin主页</a>
+        </div>
+        <p class="copyright"> Copyright © 2018 happyjinke.com All Rights Reserved </p>
+    </div>
+</div>
+<script src="../phone/jquery.js"></script>
+<script type="text/javascript" src="../phone/base.js"></script>
+<script type="text/javascript" src="../phone/common.js"></script>
+<!-- <script type="text/javascript" src="../phone/list.js"></script>-->
+
+<script>
+
+    //跳转手机详情页面
+    function ondetail(id){
+        location.href="/comm/toDetail?id="+id;
+    }
+
+</script>
+<script>
+
+    //跳转商品主面
+    function onComm() {
+        location.href="/cou/toIndex";
+    }
+    //搜索
+    $('#search-btn2').click(function(){
+        var name=$('#search-input').val();
+        location.href="/pay/toSearchPhone?name="+name;
+    })
+</script>
+
+
+</body>
+</html>

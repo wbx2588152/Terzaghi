@@ -113,4 +113,6 @@ public interface UserServiceApi {
     void saveBuycar(@RequestParam(value="gid")String gid, @RequestParam(value="gnum")Integer gnum, @RequestParam(value="id")String id);
     @RequestMapping(value="wbx/getAllComm")
     List<Comm> getAllComm();
+    @RequestMapping(value="wbx/searchSolrPhone")
+    List<Comm> searchSolrPhone(@RequestParam(value="name")String name);
 }

@@ -151,4 +151,6 @@ public class CommController {
     public Man getManDetail(String id){
         return commServiceApi.getManDetail(id);
     }
+
+
 }

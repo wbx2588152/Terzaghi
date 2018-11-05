@@ -6,9 +6,7 @@ spring:
     name: service-ha
   data:
     solr:
-      repositories:
-        enabled: true
-      zk-host: 127.0.0.1:2181,127.0.0.1:2182,127.0.0.1:2183
+      host: http://127.0.0.1:8080/solr
   datasource:
     drivervlassname: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8

@@ -385,5 +385,14 @@ public class PayController {
 
         return "duihua";
     }
-
+    @RequestMapping("toSearchPhone")
+    public String toSearchPhone(String name){
+        request.setAttribute("stip",name);
+        return "comm/phone2";
+    }
+    @RequestMapping("searchSolrPhone")
+    @ResponseBody
+    public List<Comm> searchSolrPhone(String name){
+        return payService.searchSolrPhone(name);
+    }
 }

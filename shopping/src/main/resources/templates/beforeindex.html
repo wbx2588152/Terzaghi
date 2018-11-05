@@ -62,7 +62,7 @@
 
 
 
- <div class="header"> <div class="w"> <a class="logo" href="javascript:onComm();">JinKe</a> <div class="search-form"> <input class="search-input" id="search-input" placeholder="请输入商品名称"> <button class="search-btn" id="search-btn">搜索</button> </div> </div> </div>
+ <div class="header"> <div class="w"> <a class="logo" href="javascript:onComm();">JinKe</a> <div class="search-form"> <input class="search-input" id="search-input" placeholder="请输入商品名称"> <button class="search-btn" id="search-btn2">搜索</button> </div> </div> </div>
 <div class="w">
     <div class="cate-wrap">
         <ul class="cate-list">
@@ -460,6 +460,13 @@
     function myorder(){
         location.href="/front/toshoworder";
     }
+    //搜索
+    $('#search-btn2').click(function(){
+        var name=$('#search-input').val();
+        location.href="/pay/toSearchPhone?name="+name;
+    })
+
+
 </script>
 </body>
 </html>

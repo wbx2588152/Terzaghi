@@ -7,11 +7,11 @@ import com.jk.service.UserService;
 import org.apache.solr.client.solrj.SolrClient;
 import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.SolrServerException;
-import org.apache.solr.client.solrj.impl.CloudSolrClient;
 import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrDocumentList;
 import org.apache.solr.common.SolrInputDocument;
+import org.apache.solr.common.params.SolrParams;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -32,8 +32,6 @@ public class UserController {
     @Autowired
     private SolrClient client;
 
-    @Autowired
-    private CloudSolrClient cloudSolrClient;
 
     //主页面左侧树
     @RequestMapping(value="getTree",method = RequestMethod.GET)
@@ -184,7 +182,7 @@ public class UserController {
         params.setHighlightSimplePre("<span style='color:red'>");
         //设置后缀
         params.setHighlightSimplePost("</span>");
-        QueryResponse queryResponse = cloudSolrClient.query("core2",params);
+        QueryResponse queryResponse = client.query("core2",params);
         SolrDocumentList results = queryResponse.getResults();
         Map<String, Map<String, List<String>>> highlight = queryResponse.getHighlighting();
         int i=0;
@@ -209,7 +207,7 @@ public class UserController {
 
     @RequestMapping(value="queryWbxUserById",method = RequestMethod.GET)
     Users queryWbxUserById(@RequestParam(value="id") String id) throws IOException, SolrServerException {
-        SolrDocument document = cloudSolrClient.getById("core2", id);
+        SolrDocument document = client.getById("core2", id);
         Users user=new Users();
         user.setId((String)document.get("id"));
         user.setName((String)document.get("solr_name"));
@@ -226,9 +224,9 @@ public class UserController {
             /* 如果spring.data.solr.host 里面配置到 core了, 那么这里就不需要传 core1 这个参数
              * 下面都是一样的
              */
-            cloudSolrClient.add("core2", doc);
+            client.add("core2", doc);
             //client.commit();
-            cloudSolrClient.commit("core2");
+            client.commit("core2");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -245,9 +243,9 @@ public class UserController {
             /* 如果spring.data.solr.host 里面配置到 core了, 那么这里就不需要传 core1 这个参数
              * 下面都是一样的
              */
-            cloudSolrClient.add("core2", doc);
+            client.add("core2", doc);
             //client.commit();
-            cloudSolrClient.commit("core2");
+            client.commit("core2");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -255,8 +253,8 @@ public class UserController {
     @RequestMapping(value="deleteWbxUser",method = RequestMethod.GET)
     void deleteWbxUser(@RequestParam(value="id") String id){
         try {
-            cloudSolrClient.deleteById("core2",id);
-            cloudSolrClient.commit("core2");
+            client.deleteById("core2",id);
+            client.commit("core2");
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -304,6 +302,71 @@ public class UserController {
     @RequestMapping(value="getAllComm")
     List<Comm> getAllComm(){
        return userservice.getAllComm();
+    }
+    @RequestMapping(value="searchSolrPhone")
+    List<Comm> searchSolrPhone(@RequestParam(value="name")String name) throws IOException, SolrServerException {
+        List<Comm> comlist=new ArrayList<>();
+        SolrQuery params = new SolrQuery();
+        if(name!=""){
+            params.set("q", name);
+        }else{
+            params.set("q", "*:*");
+        }
+        params.set("df", "allName");
+        params.addHighlightField("number,showname,showmodels,showspec"); // 高亮字段
+        //高亮
+        //打开开关
+        params.setHighlight(true);
+        //设置前缀
+        params.setHighlightSimplePre("<span style='color:red'>");
+        //设置后缀
+        params.setHighlightSimplePost("</span>");
+        QueryResponse queryResponse = client.query("core1",params);
+        SolrDocumentList results = queryResponse.getResults();
+        Map<String, Map<String, List<String>>> highlight = queryResponse.getHighlighting();
+        int i=0;
+        for (SolrDocument result : results) {
+            Comm user=new Comm();
+            String highname="";
+            String highshowname="";
+            String highshowmodels="";
+            String highshowspec="";
+            Map<String, List<String>> map = highlight.get(result.get("id"));
+            List<String> list = map.get("number");
+            if(list==null){
+                highname=(String)result.get("number");
+            }else{
+                highname=list.get(0);
+            }
+            List<String> list2 = map.get("showname");
+            if(list2==null){
+                highshowname=(String)result.get("showname");
+            }else{
+                highshowname=list2.get(0);
+            }
+            List<String> list3 = map.get("showmodels");
+            if(list3==null){
+                highshowmodels=(String)result.get("showmodels");
+            }else{
+                highshowmodels=list3.get(0);
+            }
+            List<String> list4 = map.get("showspec");
+            if(list4==null){
+                highshowspec=(String)result.get("showspec");
+            }else{
+                highshowspec=list4.get(0);
+            }
+            user.setId((String)result.get("id"));
+            user.setPhoto((String)result.get("photo"));
+            user.setPrice((String)result.get("price"));
+            user.setNumber(highname);
+            user.setShowname(highshowname);
+            user.setShowmodels(highshowmodels);
+            user.setShowspec(highshowspec);
+            comlist.add(user);
+            i++;
+        }
+        return comlist;
     }
 
 }

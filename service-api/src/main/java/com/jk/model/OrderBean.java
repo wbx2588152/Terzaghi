@@ -16,7 +16,7 @@ public class OrderBean implements Serializable {
 
     private String linkuserid; // 关联用户id
 
-
+    private String linkcommodifyid;// 关联商品id
 
     private String linkbothid; // 关联 收货信息表 的 id
 
@@ -195,5 +195,13 @@ public class OrderBean implements Serializable {
 
     public void setShowdetail(String showdetail) {
         this.showdetail = showdetail;
+    }
+
+    public String getLinkcommodifyid() {
+        return linkcommodifyid;
+    }
+
+    public void setLinkcommodifyid(String linkcommodifyid) {
+        this.linkcommodifyid = linkcommodifyid;
     }
 }
