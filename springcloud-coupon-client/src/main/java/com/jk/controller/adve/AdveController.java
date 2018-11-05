@@ -2,6 +2,7 @@ package com.jk.controller.adve;
 
 import com.jk.model.Adve;
 import com.jk.model.Coupon;
+import com.jk.model.Resore;
 import com.jk.service.adve.AdveService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -69,5 +70,49 @@ public class AdveController {
         return adveList;
     }
 
+    @RequestMapping(value = "queryReslist",method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> queryReslist (@RequestParam(value="page")  int page, @RequestParam("rows") int limit, @RequestBody Resore res) {
+        Map<String, Object> map = new HashMap<>();
+        map = adveService.queryReslist(page, limit, res);
+        return map;
 
+    }
+
+
+    @RequestMapping(value = "saveRes",method = RequestMethod.POST)
+    @ResponseBody
+    public void  saveRes(@RequestBody Resore res){
+        res.setId(UUID.randomUUID().toString().replaceAll("-",""));
+        adveService.saveRes(res);
+
+    }
+
+    @RequestMapping(value = "delRes",method = RequestMethod.GET)
+    @ResponseBody
+    public void delRes(@RequestParam(value = "id")String id){
+        adveService.delRes(id);
+
+    }
+
+    @RequestMapping(value = "queryResById",method = RequestMethod.GET)
+    @ResponseBody
+    public Resore  queryResById(@RequestParam(value="id")String id){
+        Resore res = adveService.queryResById(id);
+        return res;
+    }
+
+    @RequestMapping(value = "updateRes",method = RequestMethod.POST)
+    @ResponseBody
+    public void  updateRes(@RequestBody Resore res){
+        adveService.updateRes(res);
+    }
+
+
+    @RequestMapping(value = "queryRes",method = RequestMethod.POST)
+    @ResponseBody
+    public List<Resore> queryRes(Resore res){
+        List<Resore> reslist = adveService.queryRes(res);
+        return reslist;
+    }
 }

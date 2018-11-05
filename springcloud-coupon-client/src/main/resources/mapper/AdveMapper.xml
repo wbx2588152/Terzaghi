@@ -27,4 +27,29 @@
 	<select id="queryAdve" resultType="com.jk.model.Adve">
 		select * from t_adve;
 	</select>
+	<!--查询轮播图的个数-->
+	<select id="queryResCount" resultType="long">
+	select count(1) from t_resore
+	 </select>
+	<!--查询优惠券-->
+	<select id="queryReslist" resultType="com.jk.model.Resore">
+	select * from t_resore
+	 limit #{st},#{end}
+	 </select>
+	 <insert id="saveRes">
+		  insert  into t_resore(id,img,sort)
+     value (#{id},#{img},#{sort})
+	 </insert>
+	<delete id="delRes">
+		delete  from t_resore where id = #{id}
+	</delete>
+	<select id="queryResById" resultType="com.jk.model.Resore">
+		   select * from t_resore where id = #{id}
+	</select>
+	<update id="updateRes">
+		update t_resore set img=#{img},sort=#{sort} where id in (#{id})
+	</update>
+	<select id="queryRes" resultType="com.jk.model.Resore">
+		 select * from t_resore
+    </select>
 </mapper>

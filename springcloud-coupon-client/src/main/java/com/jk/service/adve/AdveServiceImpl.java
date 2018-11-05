@@ -4,6 +4,7 @@ import com.jk.mapper.adve.AdveMapper;
 import com.jk.mapper.coupon.CouMapper;
 import com.jk.model.Adve;
 import com.jk.model.Coupon;
+import com.jk.model.Resore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -52,6 +53,43 @@ public class AdveServiceImpl  implements AdveService {
     @Override
     public List<Adve> queryAdveList(Adve adve) {
         return adveMapper.queryAdve(adve);
+    }
+
+    @Override
+    public Map<String, Object> queryReslist(int page, int rows, Resore res) {
+        HashMap<String, Object> map = new HashMap<>();
+        long count = adveMapper.queryResCount(res);
+        int start = (page - 1)*rows;
+        int end = start + rows;
+        List<Resore> commList = adveMapper.queryReslist(start,end,res);
+        map.put("total",count);
+        map.put("rows",commList);
+        return map;
+    }
+
+    @Override
+    public void saveRes(Resore res) {
+        adveMapper.saveRes(res);
+    }
+
+    @Override
+    public void delRes(String id) {
+        adveMapper.delRes(id);
+    }
+
+    @Override
+    public Resore queryResById(String id) {
+        return adveMapper.queryResById(id);
+    }
+
+    @Override
+    public void updateRes(Resore res) {
+        adveMapper.updateRes(res);
+    }
+
+    @Override
+    public List<Resore> queryRes(Resore res) {
+        return adveMapper.queryRes(res);
     }
 
 
