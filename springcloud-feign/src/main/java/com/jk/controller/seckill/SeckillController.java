@@ -8,6 +8,7 @@ import com.jk.model.TimeLimitSeckill;
 import com.jk.service.seckill.SeckilServiceApi;
 import com.jk.util.AliyunUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,13 +34,18 @@ public class SeckillController {
     @Autowired
     private SeckilServiceApi seckilService;
 
+    @Autowired
+    private RedisTemplate redisTemplate;
+
 
     /**
      * OSS上传
      */
     @RequestMapping("uploadOneFileFood")
     @ResponseBody
-    public Map<String, Object>  uploadFood(HttpServletRequest servletRequest,@RequestParam("file") MultipartFile file ) throws IOException {
+    public Map<String, Object>  uploadFood(HttpServletRequest servletRequest,
+                                           @RequestParam("file") MultipartFile file
+    ) throws IOException {
 
         //如果文件内容不为空，则写入上传路径
         if (!file.isEmpty()) {
@@ -76,6 +82,8 @@ public class SeckillController {
         Date date = new Date(System.currentTimeMillis() + (timeLimitSeckill.getTimeLimit() * 60 * 1000));
         timeLimitSeckill.setEndTime(date);
         seckilService.saveTimeLimit(timeLimitSeckill);
+        redisTemplate.boundHashOps("seckillCommodityList").delete("1");
+        redisTemplate.boundHashOps("timeLimitSeckillList").delete("1");
         return "{}";
     }
 
@@ -157,6 +165,8 @@ public class SeckillController {
     @ResponseBody
     public String deleteCommodityById(@RequestParam(value = "id")String id){
         seckilService.deleteCommodityById(id);
+        redisTemplate.boundHashOps("seckillCommodityList").delete("1");
+        redisTemplate.boundHashOps("timeLimitSeckillList").delete("1");
         return "{}";
     }
 
@@ -167,6 +177,8 @@ public class SeckillController {
     @ResponseBody
     public String deleteSeckillTimeById(@RequestParam(value = "id")String id){
         seckilService.deleteSeckillTimeById(id);
+        redisTemplate.boundHashOps("seckillCommodityList").delete("1");
+        redisTemplate.boundHashOps("timeLimitSeckillList").delete("1");
         return "{}";
     }
 
@@ -212,6 +224,8 @@ public class SeckillController {
         seckillTimeBean.setId(UUID.randomUUID().toString().replace("-",""));
         System.out.println(seckillTimeBean.getId()+","+seckillTimeBean.getEndTime());
         seckilService.addSeckillTime(seckillTimeBean);
+        redisTemplate.boundHashOps("seckillCommodityList").delete("1");
+        redisTemplate.boundHashOps("timeLimitSeckillList").delete("1");
         return "{}";
     }
 

@@ -162,6 +162,7 @@ public class SeckillController {
     @ResponseBody
     public String deleteTimeLimit(String id){
         seckilServiceApi.deleteTimeLimit(id);
+        redisTemplate.boundHashOps("timeLimitSeckillList").delete("1");
         return "{}";
     }
 
@@ -219,12 +220,12 @@ public class SeckillController {
         User user = (User) session.getAttribute(session.getId());
 
         //根据id查看是否是限量秒杀的商品
-        /*SeckilCommodity seckilCommodity = seckilServiceApi.querySeckillComInfoById(seckillId);
-        if(seckilCommodity != null){    //如果是限量秒杀的商品在生成订单的时候库存减一
-            seckilServiceApi.updateCommInfo(seckillId);
-        }else{//那就是限时秒杀表 限时秒杀已购买的数量加一且库存减一
-            seckilServiceApi.updateTImeLimitById(seckillId);
-        }*/
+        SeckilCommodity seckilCommodity = seckilServiceApi.querySeckillComInfoById(seckillId);
+        if(seckilCommodity != null){    //如果是限量秒杀的商品清除限量秒杀的缓存
+            redisTemplate.boundHashOps("seckillCommodityList").delete("1");
+        }else{ //如果是限量秒杀的商品清除限时秒杀的缓存
+            redisTemplate.boundHashOps("timeLimitSeckillList").delete("1");
+        }
         amqpTemplate.convertAndSend("logqueue",seckillId);
 
         //生成唯一订单号
@@ -391,6 +392,7 @@ public class SeckillController {
         if(seckilCommodity != null){
             if(seckilCommodity.getSurplusCount() <= 0){  //库存大于0正常执行 小于0状态前台不展示
                 seckilServiceApi.deleteComInfoById(id);
+                redisTemplate.boundHashOps("seckillCommodityList").delete("1");
                 return "/seckill/seckillList";
             }
         }
