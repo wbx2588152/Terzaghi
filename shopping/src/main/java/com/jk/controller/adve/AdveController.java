@@ -1,6 +1,7 @@
 package com.jk.controller.adve;
 
 import com.jk.model.Adve;
+import com.jk.model.Resore;
 import com.jk.service.adve.AdveServiceApi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -29,6 +30,15 @@ public class AdveController {
         List<Adve> adveList  = adveServiceApi.queryAdveList(adve);
         return adveList;
     }
+
+    //查询轮播图管理
+    @RequestMapping(value = "queryRes",method = RequestMethod.POST)
+    @ResponseBody
+    public List<Resore>  queryRes(Resore res){
+        List<Resore> reslist  = adveServiceApi.queryRes(res);
+        return reslist;
+    }
+
 
 
 }
